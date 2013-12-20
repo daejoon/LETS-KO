@@ -97,17 +97,6 @@ C:\JavaDE
     └─ tomcat
         ├─ apache-tomcat-6.0.37
         └─ apache-tomcat-7.0.42
-
-    |--- java
-        |--- jdk1.6.0_45
-        |--- jdk1.7.0_45
-    |--- JetBrains
-        |--- IntelliJ IDEA 13.0
-    |--- maven
-        |--- apache-maven-3.1.1
-    |--- tomcat
-        |--- apache-tomcat-6.0.37
-        |--- apache-tomcat-7.0.42
 ```
 
 ##### IntelliJ IDEA13 설치
