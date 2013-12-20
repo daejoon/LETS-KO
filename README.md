@@ -83,6 +83,21 @@ Frontend
     |--- jqgrid
     |--- bootstrap
 ```
+>
+>설치에 앞서서 개인적으로 프로젝트와 관련된 JDK, IDE, Maven, Web Application Server등은 아래와 같이 한곳에 모아둔다.
+```
+C:\JavaDE
+    |--- java
+            |--- jdk1.6.0_45
+            |--- jdk1.7.0_45
+    |--- JetBrains
+            |--- IntelliJ IDEA 13.0
+    |--- maven
+            |--- apache-maven-3.1.1
+    |--- tomcat
+            |--- apache-tomcat-6.0.37
+            |--- apache-tomcat-7.0.42
+```
 
 ##### IntelliJ IDEA13 설치
 >IntelliJ IDEA13 Windows 용을 [다운로드](http://www.jetbrains.com/idea/download/index.html)한다.
@@ -115,7 +130,7 @@ Maven 3.1.1 (Binary zip)을 다운로드 한후, 적당한 폴더에 압축해�
 ##### SpringFrameWork 설정
 
 ## SpringSecurity
-##### pringSecurity 설정
+##### SpringSecurity 설정
 
 ## Hibernate
 ##### Hibernate 설정
