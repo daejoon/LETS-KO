@@ -99,7 +99,11 @@ Maven 3.1.1 (Binary zip)을 다운로드 한후, 적당한 폴더에 압축해�
 "[IntelliJ Menu]->File->settings...->Maven->Maven Home directory->[선택]" 압축해제한 곳을 선택한다.
 
 ##### Web Application Server
->Web Application Server(이하 WAS)는 여러 밴더가 존재한다. 여러가지 현실적 이유때문에 개발시 개발환경과 실제 배포환경의 WAS가 일치하지 않는 경우가 있다.
-사실 WAS는 표준 기준이 있기 때문에 각 밴더별로 Version만 맞춰주면 동일한 결과를 보장해야 한다. Tomcat 7.0 Version은 [여기를](http://tomcat.apache.org/whichversion.html) 참고한다.
+>Web Application Server(이하 WAS)는 여러 밴더가 존재한다. 여러가지 현실적 이유때문에 개발환경과 배포환경의 WAS가 일치하지 않는 경우가 있다.
+사실 WAS는 표준 스펙이 존재하기 때문에 밴더별로 스펙만 맞춰주면 동일한 결과를 보장해야 한다. Tomcat 7.0 Version은 [여기를](http://tomcat.apache.org/whichversion.html) 참고한다.
 개발은 일반적으로 많이 사용하는 Tomcat을 이용한다. [Tomcat 7.0 다운로드](http://tomcat.apache.org/download-70.cgi)
+
+##### Database 설치
+>이 프로젝트에서는 Hibernate를 사용하기 때문에 사실 특정 DataBase를 설치할 필요는 없다. 취양에 맞춰 설치하자.
+
 
