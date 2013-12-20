@@ -17,7 +17,7 @@
         <!--<param name="Encoding" value="UTF-8" />-->
         <!--<param name="ImmediateFlush" value="true" />-->
         <!-- ref.) attr : FileAppender + DatePattern -->
-        <param name="File" value="C:/JavaDE/app_resources/logs/console.log" />
+        <param name="File" value="${catalina.home}/logs/console.log" />
         <param name="Append" value="true" />
         <!--
             SimpleDateFormat 을 따름. ex.) .yyyy-ww : 첫날 기준 매주마다,
