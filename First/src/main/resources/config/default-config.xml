@@ -16,7 +16,6 @@
 
     <!-- 파일 업로드 및 저장 경로 설정 -->
     <path>
-        <base>c:/JavaDE/app_resources</base>
         <upload>${path.base}/upload</upload>
         <temp>${path.base}/temp</temp>
     </path>
