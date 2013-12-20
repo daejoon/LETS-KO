@@ -106,4 +106,36 @@ Maven 3.1.1 (Binary zip)을 다운로드 한후, 적당한 폴더에 압축해�
 ##### Database 설치
 >이 프로젝트에서는 Hibernate를 사용하기 때문에 사실 특정 DataBase를 설치할 필요는 없다. 취양에 맞춰 설치하자.
 
+## 프로젝트 생성 및 설정
+##### Java Project 생성
+##### POM.xml 파일 생성
+##### WAS Run 설정
+
+## SpringFramework
+##### SpringFrameWork 설정
+
+## SpringSecurity
+##### pringSecurity 설정
+
+## Hibernate
+##### Hibernate 설정
+
+## Tiles
+##### Tiles 설정
+
+## Frontend
+##### Bootstrap 설정
+##### requirejs 설정
+##### jQuery 설정
+##### jQueryUi 설정
+##### jqGrid 설정
+
+## jqGrid를 이용한 간단한 CRUD
+##### Table 생성
+##### Hibernate Entity 생성
+##### DAO, Service, Controller 생성
+##### View 생성
+
+## 마치며
+#### 마치며
 
