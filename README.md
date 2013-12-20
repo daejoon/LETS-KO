@@ -89,7 +89,8 @@ Frontend
 C:\JavaDE
     ├─ java
     │   ├─ jdk1.6.0_45
-    │   └─ jdk1.7.0_45
+    │   ├─ jdk1.7.0_45
+    │   └─ jdk1.7.0_45(x64)
     ├─ JetBrains
     │   └─ IntelliJ IDEA 13.0
     ├─ maven
