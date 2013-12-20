@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
+    <bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
+        <property name="order" value="0" />
+        <property name="contentNegotiationManager">
+            <bean class="org.springframework.web.accept.ContentNegotiationManager">
+                <constructor-arg>
+                    <bean class="org.springframework.web.accept.PathExtensionContentNegotiationStrategy">
+                        <constructor-arg>
+                            <map>
+                                <entry key="html"   value="text/html"/>
+                                <entry key="json"   value="application/json" />
+                                <entry key="jsonp"  value="javascript/json" />
+                                <entry key="xml"    value="application/xml" />
+                            </map>
+                        </constructor-arg>
+                    </bean>
+                </constructor-arg>
+            </bean>
+        </property>
+
+        <!-- ViewResolvers -->
+        <property name="viewResolvers">
+            <list>
+                <bean class="org.springframework.web.servlet.view.BeanNameViewResolver" />
+                <bean class="org.springframework.web.servlet.view.tiles3.TilesViewResolver">
+                    <property name="viewClass"      value="org.springframework.web.servlet.view.tiles3.TilesView" />
+                    <property name="contentType"    value="text/html" />
+                </bean>
+                <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+                    <property name="viewClass"      value="org.springframework.web.servlet.view.JstlView" />
+                    <property name="prefix"         value="/WEB-INF/view/" />
+                    <property name="suffix"         value=".jsp" />
+                </bean>
+            </list>
+        </property>
+
+        <!-- DefaultViews -->
+        <property name="defaultViews">
+            <list>
+                <ref bean="jacksonJsonView" />
+                <ref bean="jsonpView" />
+                <ref bean="marshallingView" />
+            </list>
+        </property>
+    </bean>
+
+    <!-- JSON View -->
+    <bean id="jacksonJsonView" class="org.springframework.web.servlet.view.json.MappingJackson2JsonView">
+        <property name="contentType"    value="application/json;charset=UTF-8" />
+    </bean>
+
+    <!--XML View -->
+    <bean id="marshallingView" class="org.springframework.web.servlet.view.xml.MarshallingView">
+        <property name="modelKey"       value="data" />
+        <property name="contentType"    value="application/xml;charset=UTF-8" />
+        <property name="marshaller">
+            <bean class="org.springframework.oxm.jaxb.Jaxb2Marshaller">
+                <property name="packagesToScan">
+                    <array>
+                        <value>dd2</value>
+                    </array>
+                </property>
+            </bean>
+        </property>
+    </bean>
+
+    <!-- JSONP View-->
+    <bean id="jsonpView" class="dd2.com.web.view.JSONPView">
+        <property name="contentType" value="javascript/json;charset=UTF-8" />
+    </bean>
+
+    <!-- image View -->
+    <bean id="fileView" class="dd2.com.web.view.FileView">
+        <property name="contentType" value="image/*" />
+    </bean>
+
+    <mvc:default-servlet-handler />
+
+</beans>

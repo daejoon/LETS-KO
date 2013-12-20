@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    개인설정
+    default-config.xml의 값과 중복되는 것은 user-config.xml의 값이 우선된다.
+-->
+<config>
+</config>

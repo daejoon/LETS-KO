@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    기본 설정
+    user-config.xml에 설정된 것과 중복이 되면 user-config.xml에 있는 설정이 우선된다.
+-->
+<config>
+    <!-- debug / release -->
+    <mode>
+        <type>debug</type>
+    </mode>
+
+    <!-- 화면정보 -->
+    <viewinfo>
+        <language>en</language>
+    </viewinfo>
+
+    <!-- 파일 업로드 및 저장 경로 설정 -->
+    <path>
+        <base>c:/JavaDE/app_resources</base>
+        <upload>${path.base}/upload</upload>
+        <temp>${path.base}/temp</temp>
+    </path>
+
+    <!-- jndi config -->
+    <datasource>
+        <jndiName>jdbc/lets_ko_local</jndiName>
+        <resourceRef>true</resourceRef>
+    </datasource>
+
+    <!-- security -->
+    <security>
+        <remember-me>
+            <key>dd2@ddoong2.com.remember-me.2013-08-21.key</key>
+        </remember-me>
+    </security>
+
+    <!-- hibernate config -->
+    <!--
+     초기 설정 데이터가 필요하면 hibernate.hbm2ddl.auto 값을 create로 설정을 변경해서 와스를 로딩하면 된다.
+     차후 릴리즈 시에는 hibernate.hbm2ddl.auto 값을 validate로 변경한다.
+    -->
+    <hibernate>
+        <dialect>org.hibernate.dialect.SQLServerDialect</dialect>
+        <show_sql>true</show_sql>
+        <format_sql>true</format_sql>
+        <connection>
+            <useUnicode>true</useUnicode>
+            <characterEncoding>UTF-8</characterEncoding>
+            <charSet>UTF-8</charSet>
+        </connection>
+        <hbm2ddl>
+            <import_files>config/hibernate/sql/initial_data.sql</import_files>
+            <auto>validate</auto>
+        </hbm2ddl>
+    </hibernate>
+
+    <!-- mongodb -->
+    <mongo>
+        <host>localhost</host>
+        <port>27017</port>
+        <databaseName>letsko</databaseName>
+        <usrename>letsko</usrename>
+        <password>123456</password>
+    </mongo>
+</config>

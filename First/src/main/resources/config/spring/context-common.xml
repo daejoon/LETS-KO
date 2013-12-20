@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+            http://www.springframework.org/schema/beans/spring-beans.xsd
+            http://www.springframework.org/schema/context
+            http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!-- 환경 설정 xml 파일을 로딩한다. -->
+    <bean id="configuration" class="org.apache.commons.configuration.CompositeConfiguration">
+        <constructor-arg>
+            <list>
+                <bean class="org.apache.commons.configuration.XMLConfiguration">
+                    <constructor-arg type="java.lang.String">
+                        <value>config/user-config.xml</value>
+                    </constructor-arg>
+                </bean>
+                <bean class="org.apache.commons.configuration.XMLConfiguration">
+                    <constructor-arg type="java.lang.String">
+                        <value>config/default-config.xml</value>
+                    </constructor-arg>
+                </bean>
+            </list>
+        </constructor-arg>
+    </bean>
+
+    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="properties">
+            <bean class="org.springmodules.commons.configuration.CommonsConfigurationFactoryBean">
+                <property name="configurations">
+                    <list>
+                        <ref bean="configuration" />
+                    </list>
+                </property>
+            </bean>
+        </property>
+    </bean>
+
+    <!-- ServletContext를 얻는다. -->
+    <bean class="dd2.com.context.AppContextProvider" />
+
+    <!-- Service, Repository Scan -->
+    <context:component-scan base-package="dd2">
+        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller" />
+    </context:component-scan>
+
+</beans>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:sec="http://www.springframework.org/schema/security"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/security
+                           http://www.springframework.org/schema/security/spring-security.xsd">
+
+    <sec:http auto-config="true" use-expressions="true">
+        <!-- inercept -->
+        <sec:intercept-url pattern="/static/**"                access="hasAnyRole('ROLE_ADMIN', 'ROLE_USER', 'ROLE_ANONYMOUS')" />
+        <sec:intercept-url pattern="/welcome.jsp"              access="hasAnyRole('ROLE_ADMIN', 'ROLE_USER', 'ROLE_ANONYMOUS')" />
+        <sec:intercept-url pattern="/main/index"               access="hasAnyRole('ROLE_ADMIN', 'ROLE_USER', 'ROLE_ANONYMOUS')" />
+        <sec:intercept-url pattern="/member/login"             access="hasAnyRole('ROLE_ADMIN', 'ROLE_USER', 'ROLE_ANONYMOUS')" />
+        <sec:intercept-url pattern="/member/logout"            access="hasAnyRole('ROLE_ADMIN', 'ROLE_USER', 'ROLE_ANONYMOUS')" />
+        <sec:intercept-url pattern="/member/addMember"         access="hasAnyRole('ROLE_ADMIN', 'ROLE_USER', 'ROLE_ANONYMOUS')" />
+        <sec:intercept-url pattern="/admin/**"                 access="hasAnyRole('ROLE_ADMIN')"                                />
+        <sec:intercept-url pattern="/**"                       access="hasAnyRole('ROLE_ADMIN','ROLE_USER')"                    />
+
+        <sec:anonymous username="ROLE_ANONYMOUS" enabled="true" />
+
+        <!-- login form -->
+        <sec:form-login login-processing-url="/member/login_check"
+                        login-page="/member/login"
+                        authentication-success-handler-ref="loginAuthHandler"
+                        authentication-failure-handler-ref="loginAuthHandler"
+                        username-parameter="username"
+                        password-parameter="password" />
+
+        <!-- remember me -->
+        <sec:remember-me key="${security.remember-me.key}"
+                         services-ref="ipTokenBasedRememberMeService" />
+
+        <!-- logout -->
+        <sec:logout logout-url="/member/logout_check"
+                    success-handler-ref="loginAuthHandler"
+                    invalidate-session="true" />
+    </sec:http>
+
+    <!-- Security Authority handler -->
+    <bean id="loginAuthHandler" class="dd2.local.auth.LoginAuthHandler" />
+
+    <!-- Security Authority Service -->
+    <bean id="authUserDetailsService" class="dd2.local.auth.AuthUserDetailsService" />
+
+    <!-- Security RememberMe Service -->
+    <bean id="ipTokenBasedRememberMeService" class="dd2.local.auth.IPTokenBasedRememberMeService">
+        <constructor-arg index="0" value="${security.remember-me.key}" />
+        <constructor-arg index="1" ref="authUserDetailsService" />
+        <property name="parameter"  value="remember_me" />
+        <property name="cookieName" value="REMEMBER_ME_COOKIE" />
+    </bean>
+
+    <!-- password encoder -->
+    <bean id="passwordEncoder" class="org.springframework.security.crypto.password.StandardPasswordEncoder" />
+
+    <sec:authentication-manager>
+        <sec:authentication-provider user-service-ref="authUserDetailsService">
+            <sec:password-encoder ref="passwordEncoder" />
+        </sec:authentication-provider>
+    </sec:authentication-manager>
+
+</beans>

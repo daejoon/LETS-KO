@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<!--
+    important :
+    초기 설정 데이터가 필요하면 hibernate.hbm2ddl.auto 값을 create로 설정을 변경해서 와스를 로딩하면 된다.
+    차후 릴리즈 시에는 hibernate.hbm2ddl.auto 값을 validate로 변경한다.
+-->
+<hibernate-configuration>
+    <session-factory>
+        <property name="hibernate.dialect">org.hibernate.dialect.SQLServerDialect</property>
+        <property name="hibernate.show_sql">true</property>
+        <property name="hibernate.format_sql">true</property>
+        <property name="hibernate.connection.useUnicode">true</property>
+        <property name="hibernate.connection.characterEncoding">UTF-8</property>
+        <property name="hibernate.connection.charSet">UTF-8</property>
+        <property name="hibernate.hbm2ddl.import_files">config/hibernate/sql/initial_data.sql</property>
+        <property name="hibernate.hbm2ddl.auto">validate</property>
+
+        <!--<property name="hibernate.cache.region.factory_class">org.hibernate.cache.ehcache.EhCacheRegionFactory</property>-->
+        <!--<property name="hibernate.cache.use_second_level_cache">true</property>-->
+        <!--<property name="hibernate.cache.use_query_cache">true</property>-->
+        <!--<property name="hibernate.cache.provider_configuration_file_resource_path">hibernate-ehcache.xml</property>-->
+        <!--<property name="hibernate.generate_statistics">true</property>-->
+        <!--<property name="hibernate.cache.use_structured_entries">true</property>-->
+    </session-factory>
+</hibernate-configuration>

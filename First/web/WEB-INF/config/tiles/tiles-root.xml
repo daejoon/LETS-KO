@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+        "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+
+<tiles-definitions>
+    <!-- default template -->
+    <definition name="template.default" template="/WEB-INF/view/tiles/template/default.layout.jsp">
+        <put-attribute name="title"         value="" type="string" />
+        <put-attribute name="head"          value="/WEB-INF/view/tiles/attribute/head.attr.jsp" />
+        <put-attribute name="javascript"    value="/WEB-INF/view/tiles/attribute/javascript.attr.jsp" />
+        <put-attribute name="top"           value="/WEB-INF/view/tiles/attribute/top.attr.jsp" />
+        <put-attribute name="left"          value="/WEB-INF/view/tiles/attribute/left.attr.jsp" />
+        <put-attribute name="contents"      value="/WEB-INF/view/tiles/attribute/contents.attr.jsp" />
+        <put-attribute name="bottom"        value="/WEB-INF/view/tiles/attribute/bottom.attr.jsp" />
+    </definition>
+
+    <!-- index template -->
+    <definition name="template.index" template="/WEB-INF/view/tiles/template/index.layout.jsp">
+        <put-attribute name="title"         value="" type="string" />
+        <put-attribute name="head"          value="/WEB-INF/view/tiles/attribute/head.attr.jsp" />
+        <put-attribute name="javascript"    value="/WEB-INF/view/tiles/attribute/javascript.attr.jsp" />
+        <put-attribute name="top"           value="/WEB-INF/view/tiles/attribute/top.attr.jsp" />
+        <put-attribute name="contents"      value="/WEB-INF/view/tiles/attribute/contents.attr.jsp" />
+        <put-attribute name="bottom"        value="/WEB-INF/view/tiles/attribute/bottom.attr.jsp" />
+    </definition>
+</tiles-definitions>
