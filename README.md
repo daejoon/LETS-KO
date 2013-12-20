@@ -81,7 +81,6 @@ Frontend
     |--- jQuery-ui
     |--- requirejs
     |--- jqgrid
-    |--- underscore
     |--- bootstrap
 ```
 
@@ -90,6 +89,17 @@ Frontend
 >IntelliJ 설정은 [기본설정](http://beyondj2ee.wordpress.com/2013/06/01/%EC%9D%B8%ED%85%94%EB%A6%ACj-%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0-part1-getting-start-intellij-%EA%B8%B0%EB%B3%B8-%EC%84%A4%EC%A0%95%ED%8E%B8/), [자바설정](http://beyondj2ee.wordpress.com/2013/06/15/%EC%9D%B8%ED%85%94%EB%A6%ACj-%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0-part2-getting-start-intellij-%EC%9E%90%EB%B0%94-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%ED%8E%B8/), 을 참고한다.
 
 ##### Git 설치
->Git은 리눅스 커널을 개발 관리하기 위해서 [리누스 토발즈](http://ko.wikipedia.org/wiki/%EB%A6%AC%EB%88%84%EC%8A%A4_%ED%86%A0%EB%A5%B4%EB%B0%9C%EC%8A%A4)가 만든 형상관리 툴이다. 기본적으로 Linux계열에서 동작하며 Windows에서 사용하려면 [msysgit](https://code.google.com/p/msysgit/downloads/list?q=full+installer+official+git)를 사용하면 된다. 현재 최선 버전은 1.8.4가 최신 버전이다. Git설치 후 IntelliJ와 연동 설정을 한다.
+>Git은 리눅스 커널을 개발 관리하기 위해서 [리누스 토발즈](http://ko.wikipedia.org/wiki/%EB%A6%AC%EB%88%84%EC%8A%A4_%ED%86%A0%EB%A5%B4%EB%B0%9C%EC%8A%A4)가 만든 형상관리 툴이다. 기본적으로 Linux계열에서 동작하며 Windows에서 사용하려면 [msysgit](https://code.google.com/p/msysgit/downloads/list?q=full+installer+official+git)를 사용하면 된다. 현재 최선 버전은 1.8.4가 최신 버전이다. msysgit설치 후 IntelliJ와 연동 설정을 한다.
 
 >IntelliJ와 연동은 [IntelliJ-Git 설정](http://beyondj2ee.wordpress.com/2013/06/28/%ec%9d%b8%ed%85%94%eb%a6%acj-%ec%8b%9c%ec%9e%91%ed%95%98%ea%b8%b0-part4-getting-start-intellij-git/)을 참고한다.
+
+##### Maven 설치
+>의존성 관리만으로도 [Maven](http://maven.apache.org/download.cgi)을 설치할만한 가치는 충분이 크다. Maven 현재 최신 버전은 3.1.1 이다.
+Maven 3.1.1 (Binary zip)을 다운로드 한후, 적당한 폴더에 압축해제한다.
+"File->settings...->Maven->Maven Home directory->[선택]" 압축해제한 곳을 선택한다.
+
+##### Web Application Server
+>Web Application Server(이하 WAS)는 여러 밴더가 존재한다. 여러가지 현실적 이유때문에 개발시 개발환경과 실제 배포환경의 WAS가 일치하지 않는 경우가 있다.
+사실 WAS는 표준 기준이 있기 때문에 각 밴더별로 Version만 맞춰주면 동일한 결과를 보장해야 한다. Tomcat Version [여기를](http://tomcat.apache.org/whichversion.html) 참고한다.
+개발은 주로 많이 사용하는 Tomcat을 이용한다. 여기서는 Tomcat 7.0을 사용한다. [다운로드](http://tomcat.apache.org/download-70.cgi)
+
