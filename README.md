@@ -61,27 +61,27 @@
 그리고 SQLServer를 사용한것도 Windows쪽을 선택하게 한 이유이다.
 ```
 개발환경
-    |--- IDE: IntelliJ IDEA13
-    |--- Java: 1.7
-    |--- 형상관리: Git
-    |--- 빌드: Maven
-    |--- Web Application Server: Tomcat7.0
-    |--- DB: SQLServer 2008
+    ├─ IDE: IntelliJ IDEA13
+    ├─ Java: 1.7
+    ├─ 형상관리: Git
+    ├─ 빌드: Maven
+    ├─ Web Application Server: Tomcat7.0
+    └─ DB: SQLServer 2008
 ```
 ```
 Server Side
-    |--- SpringFramework
-    |--- SpringSecurity
-    |--- Hibernate
-    |--- tiles
+    ├─ SpringFramework
+    ├─ SpringSecurity
+    ├─ Hibernate
+    └─ tiles
 ```
 ```
 Frontend
-    |--- jQuery
-    |--- jQuery-ui
-    |--- requirejs
-    |--- jqgrid
-    |--- bootstrap
+    ├─ jQuery
+    ├─ jQuery-ui
+    ├─ requirejs
+    ├─ jqgrid
+    └─ bootstrap
 ```
 >
 >설치에 앞서서 개인적으로 프로젝트와 관련된 JDK, IDE, Maven, Web Application Server등은 아래와 같이 한곳에 모아둔다.
