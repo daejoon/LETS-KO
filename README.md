@@ -87,6 +87,17 @@ Frontend
 >설치에 앞서서 개인적으로 프로젝트와 관련된 JDK, IDE, Maven, Web Application Server등은 아래와 같이 한곳에 모아둔다.
 ```
 C:\JavaDE
+    ├─ java
+    │   ├─ jdk1.6.0_45
+    │   └─ jdk1.7.0_45
+    ├─ JetBrains
+    │   └─ IntelliJ IDEA 13.0
+    ├─ maven
+    │   └─ apache-maven-3.1.1
+    └─ tomcat
+        ├─ apache-tomcat-6.0.37
+        └─ apache-tomcat-7.0.42
+
     |--- java
         |--- jdk1.6.0_45
         |--- jdk1.7.0_45
