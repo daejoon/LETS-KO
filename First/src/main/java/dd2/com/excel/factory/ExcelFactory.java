@@ -10,7 +10,7 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 
 /**
- * @Class Name : XCELWorkBook.java
+ * @Class Name : ExcelFactory.java
  * @Description : Worksheet 팩토리 클래스
  * @author KDJ
  * @since 2012. 9. 22.
@@ -24,16 +24,15 @@ public class ExcelFactory {
 
 	public static Workbook CreateWorkbook(String fullFilePath) throws FileNotFoundException, IOException {
 		Workbook wb = null;
-    	String ret = "";
     	if ( fullFilePath != null ) {
     		String[] files = fullFilePath.split("\\.");
     		if ( files != null && files.length > 0 ) {
-    			ret = files[files.length-1];
+                String fileExt = files[files.length-1];
     			
-    			if ( ret.toLowerCase().equals(HSSFWorkbook_EXTNAME) ) {
+    			if ( fileExt.toLowerCase().equals(HSSFWorkbook_EXTNAME) ) {
     				wb = new HSSFWorkbook(new FileInputStream(fullFilePath));
     			}
-    			else if ( ret.toLowerCase().equals(XSSFWorkbook_EXTNAME) ) {
+    			else if ( fileExt.toLowerCase().equals(XSSFWorkbook_EXTNAME) ) {
     				wb = new XSSFWorkbook(new FileInputStream(fullFilePath));
     			}
     		}
