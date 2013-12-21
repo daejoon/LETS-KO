@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
     기본 설정
-    user-config.xml에 설정된 것과 중복이 되면 user-config.xml에 있는 설정이 우선된다.
+    user-config.xml에 설정된 것과 중복 되는 요소는 user-config.xml에 있는 설정이 우선된다.
 -->
 <config>
     <!-- debug / release -->
