@@ -48,7 +48,6 @@
 >여기서는 Windows를 선택했다. Windows로 간 이유중 하나는 자바 버전이다. 지금은 오라클에서 맥용도 지원을 하지만 예전 버전(1.6미만 버전)은 여전히 구하기
 >쉽지 않다. 그리고 SQLServer를 사용한것도 Windows쪽을 선택하게 한 이유이다.
 >
-> 개발환경 및 기술스택
 ```
 개발환경
     ├─ IDE: IntelliJ IDEA13
@@ -59,14 +58,14 @@
     └─ DB: SQLServer 2008
 ```
 ```
-Server Side
+Server Side 기술 스택
     ├─ SpringFramework
     ├─ SpringSecurity
     ├─ Hibernate
     └─ tiles
 ```
 ```
-Frontend
+Frontend 기술 스택
     ├─ jQuery
     ├─ jQuery-ui
     ├─ requirejs
