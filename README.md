@@ -127,13 +127,14 @@ Maven 3.1.1 (Binary zip)을 다운로드 한후, 적당한 폴더에 압축해�
 >이번 프로젝트는 새로운 프로젝트를 생성하기 보다는 GitHub에서 Checkout해서 생성한다. 처음 IntelliJ를 실행하면은 Dashboard가 나타난다.
 "Check out from version control->GitHub" 선택한다.
 Clone Repository 다이알로그가 나타나는데
-1. "Git Repository URL->['https://github.com/daejoon/LETS-KO.git' 입력]"
-2. "Parent Directory->['C:\Users\{계정이름}\IdeaProjects' 입력]"
-3. "Directory Name->['LET-KO' 입력]"
-4. "['Clone' 버튼 클릭]"
->>Import Project 다이알로그 창이 나타나면 "Create project from existing sources->['Next' 버튼 클릭]->
+"Git Repository URL->['https://github.com/daejoon/LETS-KO.git' 입력]->
+"Parent Directory->['C:\Users\{계정이름}\IdeaProjects' 입력]->"
+"Directory Name->['LET-KO' 입력]->"
+"['Clone' 버튼 클릭]"한다.
+>
+>Import Project 다이알로그 창이 나타나면 "Create project from existing sources->['Next' 버튼 클릭]->
 ['Next' 버튼 클릭]->['Unmark All' 버튼 클릭]->['Finish' 버튼 클릭]" 한다.
->>프로
+>프로
 
 
 
