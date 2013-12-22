@@ -11,8 +11,8 @@
  + DataBase 설치
 - 프로젝트 생성 및 설정
  + Java Project 생성
- + user-config.xml 생성
  + Run/Debug Configurations 설정
+ + user-config.xml 생성
 - SpringFramework
  + SpringFrameWork 설정
 - SpringSecurity
@@ -128,10 +128,17 @@ C:\JavaDE
 >Import Project 다이알로그 창이 나타나면 "Create project from existing sources->['Next' 버튼 클릭]->['Next' 버튼 클릭]->
 >['Unmark All' 버튼 클릭]->['Finish' 버튼 클릭]" 한다.
 >
->"File->Import Module->"
+>"File->Import Module->['First.iml' 선택]->['OK' 버튼 클릭]" 한다.
+
+##### Run/Debug Configurations 설정
+>"Run->['Edit Configurations' 선택]" 한다.
+> Run/Debug Configurations 다이알로그가 나타난다.
+> "+->Tomcat Server->['Local' 클릭]" 한다.
+> "Name->['First - Tomcat 7.0' 입력]->Application Server->['Tomcat 7.0' 선택]" 한다.
+> "Fix->['First:war exploded' 선택]->['OK' 버튼 클릭]" 한다.
 
 ##### user-config.xml 파일 생성
-##### Run/Debug Configurations 설정
+
 
 ### SpringFramework
 ##### SpringFrameWork 설정
