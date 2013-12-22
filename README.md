@@ -4,8 +4,8 @@
 *   Let's Ko Project
     *   Let's Ko Project에 대해서
     
-+개발환경 구성 및 설치
-    +개발환경 구성
++   개발환경 구성 및 설치
+    +   개발환경 구성
     +IntelliJ IDEA 13 설치
     +Git 설치
     +Maven 설치
