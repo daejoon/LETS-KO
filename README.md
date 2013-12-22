@@ -124,6 +124,17 @@ Maven 3.1.1 (Binary zip)을 다운로드 한후, 적당한 폴더에 압축해�
 
 ## 프로젝트 생성 및 설정
 ##### Java Project 생성
+>이번 프로젝트는 새로운 프로젝트를 생성하기 보다는 GitHub에서 Checkout해서 생성한다. 처음 IntelliJ를 실행하면은 Dashboard가 나타난다.
+"Check out from version control->GitHub" 선택한다.
+>
+>Clone Repository 다이알로그가 나타나는데
+>
+>1. "Git Repository URL->['https://github.com/daejoon/LETS-KO.git' 입력]"
+>
+>2. "Parent Directory->['C:\Users\{계정이름}\IdeaProjects' 입력]"
+>
+>3. "Directory Name->['LET-KO' 입력]"
+
 ##### POM.xml 파일 생성
 ##### WAS Run 설정
 
