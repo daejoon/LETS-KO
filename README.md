@@ -138,7 +138,7 @@ C:\JavaDE
 > "Fix->['First:war exploded' 선택]->['OK' 버튼 클릭]" 한다.
 
 ##### Git 설정
->"File->Settings...->Version Control->Ignored Files->['+' 버튼 클릭]->Ignore all files under->['...' 선택]->['.ideas' 선택]->['Ok' 버튼 클릭]"
+>"File->Settings...->Version Control->Ignored Files->['+' 버튼 클릭]->Ignore all files under->['...' 선택]->['.idea' 폴더 선택]->['Ok' 버튼 클릭]"
 
 
 ### SpringFramework
