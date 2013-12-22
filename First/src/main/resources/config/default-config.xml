@@ -16,6 +16,7 @@
 
     <!-- 파일 업로드 및 저장 경로 설정 -->
     <path>
+        <base></base>
         <upload>${path.base}/upload</upload>
         <temp>${path.base}/temp</temp>
     </path>
