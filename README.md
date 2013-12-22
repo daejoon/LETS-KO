@@ -1,49 +1,49 @@
 #LET'S KO Project
 ##차례
 
-*   Let's Ko Project
-    *   Let's Ko Project에 대해서
++   Let's Ko Project
+    +   Let's Ko Project에 대해서
     
 +   개발환경 구성 및 설치
     +   개발환경 구성
-    +IntelliJ IDEA 13 설치
-    +Git 설치
-    +Maven 설치
-    +Web Application Server 설치
-    +DataBase 설치
+    +   IntelliJ IDEA 13 설치
+    +   Git 설치
+    +   Maven 설치
+    +   Web Application Server 설치
+    +   DataBase 설치
     
-+프로젝트 생성 및 설정
-    +Java Project 생성
-    +user-config.xml 생성
-    +Run/Debug Configurations 설정
++   프로젝트 생성 및 설정
+    +   Java Project 생성
+    +   user-config.xml 생성
+    +   Run/Debug Configurations 설정
     
-+SpringFramework
-    +SpringFrameWork 설정
++   SpringFramework
+    +   SpringFrameWork 설정
     
-+SpringSecurity
-    +SpringSecurity 설정
++   SpringSecurity
+    +   SpringSecurity 설정
     
-+Hibernate
-    +Hibernate 설정
++   Hibernate
+    +   Hibernate 설정
 
-+Tiles
-    +Tiles 설정
++   Tiles
+    +   Tiles 설정
 
-+Frontend
-    +Bootstrap 설정
-    +requirejs 설정
-    +jQuery 설정
-    +jQueryUi 설정
-    +jqGrid 설정
++   Frontend
+    +   Bootstrap 설정
+    +   requirejs 설정
+    +   jQuery 설정
+    +   jQueryUi 설정
+    +   jqGrid 설정
     
-+jqGrid를 이용한 간단한 CRUD
-    +Table 생성
-    +Hibernate Entity 생성
-    +DAO, Service, Controller 생성
-    +View 생성
++   jqGrid를 이용한 간단한 CRUD
+    +   Table 생성
+    +   Hibernate Entity 생성
+    +   DAO, Service, Controller 생성
+    +   View 생성
     
-+마치며
-    +마치며
++   마치며
+    +   마치며
 ```
 
 ## Let's Ko Project
