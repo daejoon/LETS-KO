@@ -128,7 +128,7 @@ C:\JavaDE
 >Import Project 다이알로그 창이 나타나면 "Create project from existing sources->['Next' 버튼 클릭]->['Next' 버튼 클릭]->
 >['Unmark All' 버튼 클릭]->['Finish' 버튼 클릭]" 한다.
 >
->프로
+>"File->Import Module->"
 
 ##### user-config.xml 파일 생성
 ##### Run/Debug Configurations 설정
