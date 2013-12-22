@@ -1,50 +1,49 @@
 #LET'S KO Project
 ##차례
 
-```
-1. Let's Ko Project
-    1.1. Let's Ko Project에 대해서
++Let's Ko Project
+    +Let's Ko Project에 대해서
     
-2. 개발환경 구성 및 설치
-    2.1. 개발환경 구성
-    2.2. IntelliJ IDEA 13 설치
-    2.3. Git 설치
-    2.4. Maven 설치
-    2.5. Web Application Server 설치
-    2.6. DataBase 설치
++개발환경 구성 및 설치
+    +개발환경 구성
+    +IntelliJ IDEA 13 설치
+    +Git 설치
+    +Maven 설치
+    +Web Application Server 설치
+    +DataBase 설치
     
-3. 프로젝트 생성 및 설정
-    3.1. Java Project 생성
-    3.2. POM.xml 파일 생성
-    3.3. WAS Run 설정
++프로젝트 생성 및 설정
+    +Java Project 생성
+    +user-config.xml 생성
+    +Run/Debug Configurations 설정
     
-4. SpringFramework
-    4.1. SpringFrameWork 설정
++SpringFramework
+    +SpringFrameWork 설정
     
-5. SpringSecurity
-    5.1. SpringSecurity 설정
++SpringSecurity
+    +SpringSecurity 설정
     
-6. Hibernate
-    6.1. Hibernate 설정
++Hibernate
+    +Hibernate 설정
 
-7. Tiles
-    7.1. Tiles 설정
++Tiles
+    +Tiles 설정
 
-8. Frontend
-    8.1. Bootstrap 설정
-    8.2. requirejs 설정
-    8.3. jQuery 설정
-    8.4. jQueryUi 설정
-    8.5. jqGrid 설정
++Frontend
+    +Bootstrap 설정
+    +requirejs 설정
+    +jQuery 설정
+    +jQueryUi 설정
+    +jqGrid 설정
     
-9. jqGrid를 이용한 간단한 CRUD
-    9.1. Table 생성
-    9.2. Hibernate Entity 생성
-    9.3. DAO, Service, Controller 생성
-    9.4. View 생성
++jqGrid를 이용한 간단한 CRUD
+    +Table 생성
+    +Hibernate Entity 생성
+    +DAO, Service, Controller 생성
+    +View 생성
     
-10. 마치며
-    10.1 마치며
++마치며
+    +마치며
 ```
 
 ## Let's Ko Project
@@ -141,8 +140,8 @@ C:\JavaDE
 >
 >프로
 
-##### POM.xml 파일 생성
-##### WAS Run 설정
+##### user-config.xml 파일 생성
+##### Run/Debug Configurations 설정
 
 ## SpringFramework
 ##### SpringFrameWork 설정
