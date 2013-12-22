@@ -1,45 +1,45 @@
-#LET'S KO Project
-##차례
+# LET'S KO Project
+### 차례
 - Let's Ko Project
  + Let's Ko Project에 대해서
-+   개발환경 구성 및 설치
-    +   개발환경 구성
-    +   IntelliJ IDEA 13 설치
-    +   Git 설치
-    +   Maven 설치
-    +   Web Application Server 설치
-    +   DataBase 설치
-+   프로젝트 생성 및 설정
-    +   Java Project 생성
-    +   user-config.xml 생성
-    +   Run/Debug Configurations 설정
-+   SpringFramework
-    +   SpringFrameWork 설정
-+   SpringSecurity
-    +   SpringSecurity 설정
-+   Hibernate
-    +   Hibernate 설정
-+   Tiles
-    +   Tiles 설정
-+   Frontend
-    +   Bootstrap 설정
-    +   requirejs 설정
-    +   jQuery 설정
-    +   jQueryUi 설정
-    +   jqGrid 설정
-+   jqGrid를 이용한 간단한 CRUD
-    +   Table 생성
-    +   Hibernate Entity 생성
-    +   DAO, Service, Controller 생성
-    +   View 생성
-+   마치며
-    +   마치며
+- 개발환경 구성 및 설치
+ + 개발환경 구성
+ + IntelliJ IDEA 13 설치
+ + Git 설치
+ + Maven 설치
+ + Web Application Server 설치
+ + DataBase 설치
+- 프로젝트 생성 및 설정
+ + Java Project 생성
+ + user-config.xml 생성
+ + Run/Debug Configurations 설정
+- SpringFramework
+ + SpringFrameWork 설정
+- SpringSecurity
+ + SpringSecurity 설정
+- Hibernate
+ + Hibernate 설정
+- Tiles
+ + Tiles 설정
+- Frontend
+ + Bootstrap 설정
+ + requirejs 설정
+ + jQuery 설정
+ + jQueryUi 설정
+ + jqGrid 설정
+- jqGrid를 이용한 간단한 CRUD
+ + Table 생성
+ + Hibernate Entity 생성
+ + DAO, Service, Controller 생성
+ + View 생성
+- 마치며
+ + 마치며
 
-## Let's Ko Project
+### Let's Ko Project
 ##### Let's Ko Project에 대해서
 >실제 프로젝트 시작전까지 비지니스 로직를 제외한 개발환경 구축 및 간단한 CRUD Sample을 만들어 보는 것이다.
 
-## 개발환경 구성 및 설치
+### 개발환경 구성 및 설치
 ##### 개발환경 구성
 >IDE 개발툴은 개발자의 생산성과 편의성을 크게 증대 시킨다고 생각한다. 사실 이제 IDE을 쓰지 않고 자바 개발을 한다는
 >생각은 하기 힘들다. 자바 IDE는 크게 오픈소스인 Eclipse, NetBeans와 상용 IDE인 IntelliJ IDEA(이하 IntelliJ)가 있다.
@@ -115,7 +115,7 @@ C:\JavaDE
 ##### Database 설치
 >이 프로젝트에서는 Hibernate를 사용하기 때문에 사실 특정 DataBase를 설치할 필요는 없다. 취양에 맞춰 설치하자.
 
-## 프로젝트 생성 및 설정
+### 프로젝트 생성 및 설정
 ##### Java Project 생성
 >이번 프로젝트는 새로운 프로젝트를 생성하기 보다는 GitHub에서 Checkout해서 생성한다. 처음 IntelliJ를 실행하면은 Dashboard가 나타난다.
 >"Check out from version control->['GitHub' 선택]"한다.
@@ -133,31 +133,31 @@ C:\JavaDE
 ##### user-config.xml 파일 생성
 ##### Run/Debug Configurations 설정
 
-## SpringFramework
+### SpringFramework
 ##### SpringFrameWork 설정
 
-## SpringSecurity
+### SpringSecurity
 ##### SpringSecurity 설정
 
-## Hibernate
+### Hibernate
 ##### Hibernate 설정
 
-## Tiles
+### Tiles
 ##### Tiles 설정
 
-## Frontend
+### Frontend
 ##### Bootstrap 설정
 ##### requirejs 설정
 ##### jQuery 설정
 ##### jQueryUi 설정
 ##### jqGrid 설정
 
-## jqGrid를 이용한 간단한 CRUD
+### jqGrid를 이용한 간단한 CRUD
 ##### Table 생성
 ##### Hibernate Entity 생성
 ##### DAO, Service, Controller 생성
 ##### View 생성
 
-## 마치며
-#### 마치며
+### 마치며
+##### 마치며
 
