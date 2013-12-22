@@ -12,7 +12,7 @@
 - 프로젝트 생성 및 설정
  + Java Project 생성
  + Run/Debug Configurations 설정
- + user-config.xml 생성
+ + Git 설정
 - SpringFramework
  + SpringFrameWork 설정
 - SpringSecurity
@@ -137,7 +137,8 @@ C:\JavaDE
 > "Name->['First - Tomcat 7.0' 입력]->Application Server->['Tomcat 7.0' 선택]" 한다.
 > "Fix->['First:war exploded' 선택]->['OK' 버튼 클릭]" 한다.
 
-##### user-config.xml 파일 생성
+##### Git 설정
+>"File->Settings...->Version Control->Ignored Files->['+' 버튼 클릭]->Ignore all files under->['...' 선택]->['.ideas' 선택]->['Ok' 버튼 클릭]"
 
 
 ### SpringFramework
