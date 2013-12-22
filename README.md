@@ -122,7 +122,7 @@ C:\JavaDE
 >
 >다음 단계로 Clone Repository 다이알로그가 나타나는데
 >"Git Repository URL->['https://github.com/daejoon/LETS-KO.git' 입력]->
->Parent Directory->['C:\Users\{계정이름}\IdeaProjects' 입력]->
+>Parent Directory->['C:\Users\\{계정이름}\IdeaProjects' 입력]->
 >Directory Name->['LET-KO' 입력]->['Clone' 버튼 클릭]"한다.
 >
 >Import Project 다이알로그 창이 나타나면 "Create project from existing sources->['Next' 버튼 클릭]->['Next' 버튼 클릭]->
