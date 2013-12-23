@@ -8,6 +8,7 @@
         <property name="resourceRef"    value="${datasource.resourceRef}" />
     </bean>
 
+    <!-- hibernate sessionFactory -->
     <bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
         <property name="dataSource" ref="dataSource" />
         <property name="packagesToScan" value="dd2.local" />

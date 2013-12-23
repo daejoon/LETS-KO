@@ -264,6 +264,18 @@ C:\JavaDE
 
 ### Hibernate
 ##### Hibernate 설정
+>"First->src->main->resources->config->spring->context-datasource.xml"의 LocalSessionFactoryBean Bean을 설정한다.
+> LocalSessionFactoryBean은 Hibernate Annotation을 사용할수 있다.
+```
+    <!-- hibernate sessionFactory -->
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+        <property name="dataSource" ref="dataSource" />
+        <property name="packagesToScan" value="dd2.local" />
+        <property name="configLocation" value="classpath:config/hibernate/hibernate.cfg.xml" />
+    </bean>
+```
+> Hibernate 세부 설정은 "First->src->main->resources->config->hibernate->hibernate.cfg.xml"을 확인한다.
+
 
 ### Tiles
 ##### Tiles 설정
