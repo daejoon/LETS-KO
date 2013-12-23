@@ -248,7 +248,7 @@ C:\JavaDE
 ##### SpringSecurity 설정
 > SpringSecurity를 사용함으로써 많은 부분의 권한관리를 줄일수 있다.
 >
-> "First->web->WEB-INF->web.xml"의 Security Listener를 설정해야 SpringSecurity가 동작한다.
+> "First->web->WEB-INF->web.xml"의 DelegatingFilterProxy filter 설정해야 SpringSecurity가 동작한다.
 ```
     <!-- Spring Security Filter -->
     <filter>
