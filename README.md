@@ -275,6 +275,22 @@ C:\JavaDE
     </bean>
 ```
 > Hibernate 세부 설정은 "First->src->main->resources->config->hibernate->hibernate.cfg.xml"을 확인한다.
+> hibernate.dialect는 SQLServer를 사용하기 때문에 "org.hibernate.dialect.SQLServerDialect" 한다.
+> hibernate.show_sql, hibernate.format_sql을 true로 설정하여 개발시에 console화면에 정렬해서 보여준다.
+```
+<hibernate-configuration>
+    <session-factory>
+        <property name="hibernate.dialect">org.hibernate.dialect.SQLServerDialect</property>
+        <property name="hibernate.show_sql">true</property>
+        <property name="hibernate.format_sql">true</property>
+        <property name="hibernate.connection.useUnicode">true</property>
+        <property name="hibernate.connection.characterEncoding">UTF-8</property>
+        <property name="hibernate.connection.charSet">UTF-8</property>
+        <property name="hibernate.hbm2ddl.import_files">config/hibernate/sql/initial_data.sql</property>
+        <property name="hibernate.hbm2ddl.auto">validate</property>
+    </session-factory>
+</hibernate-configuration>
+```
 
 
 ### Tiles
