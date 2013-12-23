@@ -210,8 +210,8 @@ C:\JavaDE
 > SpringFramework(이하 Spring) 설정은 Root Context 설정과, Servlet Context 설정으로 나뉜다.
 > Root Context 설정은 Spring 전반적인 설정이고, Servlet Context 설정은 웹과 관련된 설정이다. Root Context 설정은
 > Servlet Context로 상속된다.
-> Servlet Context 설정은 "First->web->WEB-INF->config->springmvc->servlet-*.xml"을 참고한다.
-> Root Context 설정은 "First->src->main->resources->config->spring->context-*.xml"을 참고한다.
+> Servlet Context 설정은 "First->web->WEB-INF->config->springmvc" 폴더 아래 .xml 파일을 참고한다.
+> Root Context 설정은 "First->src->main->resources->config->spring" 폴더 아래 .xml 파일을 참고한다.
 
 ### SpringSecurity
 ##### SpringSecurity 설정
