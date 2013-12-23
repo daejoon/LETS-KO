@@ -154,51 +154,51 @@ C:\JavaDE
 ##### UTF-8 설정
 > "First->WEB-INF->web.xml"의 Encoding Filter를 UTF-8로 설정한다.
 ```
-    <!-- Encoding Filter -->
-    <filter>
-        <filter-name>encodingFilter</filter-name>
-        <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
-        <init-param>
-            <param-name>encoding</param-name>
-            <param-value>UTF-8</param-value>
-        </init-param>
-    </filter>
-    <filter-mapping>
-        <filter-name>encodingFilter</filter-name>
-        <url-pattern>/*</url-pattern>
-    </filter-mapping>
+<!-- Encoding Filter -->
+<filter>
+    <filter-name>encodingFilter</filter-name>
+    <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+    <init-param>
+        <param-name>encoding</param-name>
+        <param-value>UTF-8</param-value>
+    </init-param>
+</filter>
+<filter-mapping>
+    <filter-name>encodingFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+</filter-mapping>
 ```
 > "['Tomcat 7.0' Home 폴더 이동]->conf->server.xml" useBodyEncodingForURI="true", URIEncoding="UTF-8"을 추가한다.
 ```
-    <Connector port="8080" protocol="HTTP/1.1"
-               connectionTimeout="20000"
-               redirectPort="8443"
-               useBodyEncodingForURI="true"
-               URIEncoding="UTF-8" />
+<Connector port="8080" protocol="HTTP/1.1"
+           connectionTimeout="20000"
+           redirectPort="8443"
+           useBodyEncodingForURI="true"
+           URIEncoding="UTF-8" />
 ```
 
 ##### Jndi 설정
 > "['Tomcat 7.0' Home 폴더 이동]->conf->context.xml"에 Resource 엘리먼트를 추가한다.
 ```
-	<Resource	name="{jndi이름: 예)jdbc/lets_ko_local}"
-				auth="Container"
-				type="javax.sql.DataSource"
-				username="{DB 로그인 아이디}"
-				password="{DB 로그인 비밀번호}"
-				driverClassName="{DB 드라이버클래스네임: 예)com.microsoft.sqlserver.jdbc.SQLServerDriver}"
-				url="{DB Url: 예)jdbc:sqlserver://localhost:1433;databaseName=lets_ko;integratedSecurity=false;}"
-				maxActive="10"
-				maxIdle="5"/>
+<Resource	name="{jndi이름: 예)jdbc/lets_ko_local}"
+            auth="Container"
+            type="javax.sql.DataSource"
+            username="{DB 로그인 아이디}"
+            password="{DB 로그인 비밀번호}"
+            driverClassName="{DB 드라이버클래스네임: 예)com.microsoft.sqlserver.jdbc.SQLServerDriver}"
+            url="{DB Url: 예)jdbc:sqlserver://localhost:1433;databaseName=lets_ko;integratedSecurity=false;}"
+            maxActive="10"
+            maxIdle="5"/>
 ```
 > "First->web->WEB-INF->web.xml"의 Jndi를 설정한다.
 ```
-    <!-- resource jndi -->
-    <resource-ref>
-        <description>DB Connection</description>
-        <res-ref-name>jdbc/let_ko_local</res-ref-name>
-        <res-type>javax.sql.DataSource</res-type>
-        <res-auth>Container</res-auth>
-    </resource-ref>
+<!-- resource jndi -->
+<resource-ref>
+    <description>DB Connection</description>
+    <res-ref-name>jdbc/let_ko_local</res-ref-name>
+    <res-type>javax.sql.DataSource</res-type>
+    <res-auth>Container</res-auth>
+</resource-ref>
 ```
 
 ### web.xml
@@ -215,33 +215,33 @@ C:\JavaDE
 >
 > "First->web->WEB-INF->web.xml"의 Root Context 위치 설정
 ```
-    <!-- SpringFramework ContextLoader -->
-    <context-param>
-        <param-name>contextConfigLocation</param-name>
-        <param-value>classpath*:config/spring/context-*.xml</param-value>
-    </context-param>
-    <listener>
-        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
-    </listener>
+<!-- SpringFramework ContextLoader -->
+<context-param>
+    <param-name>contextConfigLocation</param-name>
+    <param-value>classpath*:config/spring/context-*.xml</param-value>
+</context-param>
+<listener>
+    <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+</listener>
 ```
 > "First->web->WEB-INF->web.xml"의 Servlet Context 위치 설정
 ```
-    <!-- Servlet Dispatcher -->
-    <servlet>
-        <servlet-name>action</servlet-name>
-        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
-        <init-param>
-            <param-name>contextConfigLocation</param-name>
-            <param-value>
-                /WEB-INF/config/springmvc/servlet-*.xml
-            </param-value>
-        </init-param>
-        <load-on-startup>1</load-on-startup>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>action</servlet-name>
-        <url-pattern>/</url-pattern>
-    </servlet-mapping>
+<!-- Servlet Dispatcher -->
+<servlet>
+    <servlet-name>action</servlet-name>
+    <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+    <init-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>
+            /WEB-INF/config/springmvc/servlet-*.xml
+        </param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+</servlet>
+<servlet-mapping>
+    <servlet-name>action</servlet-name>
+    <url-pattern>/</url-pattern>
+</servlet-mapping>
 ```
 
 ### SpringSecurity
@@ -250,15 +250,15 @@ C:\JavaDE
 >
 > "First->web->WEB-INF->web.xml"의 DelegatingFilterProxy filter 설정해야 SpringSecurity가 동작한다.
 ```
-    <!-- Spring Security Filter -->
-    <filter>
-        <filter-name>springSecurityFilterChain</filter-name>
-        <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
-    </filter>
-    <filter-mapping>
-        <filter-name>springSecurityFilterChain</filter-name>
-        <url-pattern>/*</url-pattern>
-    </filter-mapping>
+<!-- Spring Security Filter -->
+<filter>
+    <filter-name>springSecurityFilterChain</filter-name>
+    <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+</filter>
+<filter-mapping>
+    <filter-name>springSecurityFilterChain</filter-name>
+    <url-pattern>/*</url-pattern>
+</filter-mapping>
 ```
 > SpringSecurity의 세부 설정은 "First->src->main->resources->spring->context-security.xml"을 확인한다.
 
@@ -267,12 +267,12 @@ C:\JavaDE
 >"First->src->main->resources->config->spring->context-datasource.xml"의 LocalSessionFactoryBean Bean을 설정한다.
 > LocalSessionFactoryBean은 Hibernate Annotation을 사용할수 있다.
 ```
-    <!-- hibernate sessionFactory -->
-    <bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
-        <property name="dataSource" ref="dataSource" />
-        <property name="packagesToScan" value="dd2.local" />
-        <property name="configLocation" value="classpath:config/hibernate/hibernate.cfg.xml" />
-    </bean>
+<!-- hibernate sessionFactory -->
+<bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+    <property name="dataSource" ref="dataSource" />
+    <property name="packagesToScan" value="dd2.local" />
+    <property name="configLocation" value="classpath:config/hibernate/hibernate.cfg.xml" />
+</bean>
 ```
 > Hibernate 세부 설정은 "First->src->main->resources->config->hibernate->hibernate.cfg.xml"을 확인한다.
 > hibernate.dialect는 SQLServer를 사용하기 때문에 "org.hibernate.dialect.SQLServerDialect" 한다.
@@ -297,15 +297,15 @@ C:\JavaDE
 ##### Tiles 설정
 > Tiles는 Servlet Context 영역으로 "First->web->WEB-INF->config->springmvc->servlet-tiles.xml"에서 설정한다.
 ```
-    <!-- tiles configurer -->
-    <bean id="tilesConfigurer" class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
-        <property name="checkRefresh" value="true" />
-        <property name="definitions">
-            <list>
-                <value>/WEB-INF/config/tiles/**/tiles-*.xml</value>
-            </list>
-        </property>
-    </bean>
+<!-- tiles configurer -->
+<bean id="tilesConfigurer" class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
+    <property name="checkRefresh" value="true" />
+    <property name="definitions">
+        <list>
+            <value>/WEB-INF/config/tiles/**/tiles-*.xml</value>
+        </list>
+    </property>
+</bean>
 ```
 
 ### Frontend
