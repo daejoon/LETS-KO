@@ -13,6 +13,9 @@
  + Java Project 생성
  + Run/Debug Configurations 설정
  + Git 설정
+- Tomcat 설정
+ + UTF-8 설정
+ + Jndi 설정
 - web.xml
  + web.xml 설정
 - SpringFramework
@@ -146,9 +149,38 @@ C:\JavaDE
 ##### Git 설정
 >"File->Settings...->Version Control->Ignored Files->['+' 버튼 클릭]->Ignore all files under->['...' 선택]->['.idea' 폴더 선택]->['Ok' 버튼 클릭]"
 
+
+### Tomcat 설정
+##### UTF-8 설정
+> "First->WEB-INF->web.xml"의 Encoding Filter를 UTF-8로 설정한다.
+```
+    <!-- Encoding Filter -->
+    <filter>
+        <filter-name>encodingFilter</filter-name>
+        <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+        <init-param>
+            <param-name>encoding</param-name>
+            <param-value>UTF-8</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>encodingFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+```
+> "['Tomcat 7.0' Home 폴더 이동]->conf->server.xml" useBodyEncodingForURI="true", URIEncoding="UTF-8"을 추가한다.
+```
+    <Connector port="8080" protocol="HTTP/1.1"
+               connectionTimeout="20000"
+               redirectPort="8443"
+               useBodyEncodingForURI="true"
+               URIEncoding="UTF-8" />
+```
+
+##### Jndi 설정
+
 ### web.xml
 ##### web.xml 설정
->
 ```
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns="http://java.sun.com/xml/ns/javaee"
