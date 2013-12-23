@@ -131,11 +131,15 @@ C:\JavaDE
 >"File->Import Module->['First.iml' 선택]->['OK' 버튼 클릭]" 한다.
 
 ##### Run/Debug Configurations 설정
->"Run->['Edit Configurations' 선택]" 한다.
+> "Run->['Edit Configurations' 선택]" 한다.
 > Run/Debug Configurations 다이알로그가 나타난다.
 > "+->Tomcat Server->['Local' 클릭]" 한다.
 > "Name->['First - Tomcat 7.0' 입력]->Application Server->['Tomcat 7.0' 선택]" 한다.
 > "Fix->['First:war exploded' 선택]->['OK' 버튼 클릭]" 한다.
+>
+> "File->Project Structure...->Project Settings->Modules->['First' 선택]->Dependencies
+> ->['+' 버튼 클릭]->Library...->Application Server Libraries->['Tomcat 7.0' 선택]
+> ->['Add Selected' 버튼 클릭]" 하여 WAS에 의존적인 라이브러리를 링크한다.
 
 ##### Git 설정
 >"File->Settings...->Version Control->Ignored Files->['+' 버튼 클릭]->Ignore all files under->['...' 선택]->['.idea' 폴더 선택]->['Ok' 버튼 클릭]"
