@@ -178,6 +178,28 @@ C:\JavaDE
 ```
 
 ##### Jndi 설정
+> "['Tomcat 7.0' Home 폴더 이동]->conf->context.xml"에 Resource 엘리먼트를 추가한다.
+```
+	<Resource	name="jdbc/lets_ko_local"
+				auth="Container"
+				type="javax.sql.DataSource"
+				username="{DB 로그인 아이디}"
+				password="{DB 로그인 비밀번호}"
+				driverClassName="{DB 드라이버클래스네임 예)->com.microsoft.sqlserver.jdbc.SQLServerDriver}"
+				url="{DB Url 예->jdbc:sqlserver://localhost:1433;databaseName=lets_ko;integratedSecurity=false;}"
+				maxActive="10"
+				maxIdle="5"/>
+```
+> "First->WEB-INF->web.xml"의 Jndi를 설정한다.
+```
+    <!-- resource jndi -->
+    <resource-ref>
+        <description>DB Connection</description>
+        <res-ref-name>jdbc/let_ko_local</res-ref-name>
+        <res-type>javax.sql.DataSource</res-type>
+        <res-auth>Container</res-auth>
+    </resource-ref>
+```
 
 ### SpringFramework
 ##### SpringFrameWork 설정
