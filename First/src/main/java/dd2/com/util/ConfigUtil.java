@@ -49,6 +49,7 @@ public final class ConfigUtil {
     public static Object getProperty(String key) {
         return config.getProperty(key);
     }
+
     /**
      * <pre>
      * property value를 String 타입으로 획득.
