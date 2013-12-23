@@ -44,7 +44,7 @@ public class LocalSpringJUnit4ClassRunner extends SpringJUnit4ClassRunner {
 
         DriverManagerDataSource ds = new DriverManagerDataSource();
         ds.setDriverClassName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-        ds.setUrl("jdbc:sqlserver://localhost:1433;databaseName=lets_ko;integratedSecurity=false;");
+        ds.setUrl("jdbc:sqlserver://10.211.55.7:1433;databaseName=lets_ko;integratedSecurity=false;");
         ds.setUsername("sa");
         ds.setPassword("dnfleod2");
         bulider.bind("jdbc/lets_ko_local", ds);
