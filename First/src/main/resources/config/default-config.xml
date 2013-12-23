@@ -16,7 +16,7 @@
 
     <!-- 파일 업로드 및 저장 경로 설정 -->
     <path>
-        <base></base>
+        <base></base><!-- user-config.xml에 개인별 기록 -->
         <upload>${path.base}/upload</upload>
         <temp>${path.base}/temp</temp>
     </path>
@@ -53,6 +53,15 @@
             <auto>validate</auto>
         </hbm2ddl>
     </hibernate>
+
+    <!-- user-config.xml에 개인별 기록 -->
+    <dataSource>
+        <driverClassName></driverClassName>
+        <url></url>
+        <username></username>
+        <password></password>
+        <jndiName></jndiName>
+    </dataSource>
 
     <!-- mongodb -->
     <mongo>

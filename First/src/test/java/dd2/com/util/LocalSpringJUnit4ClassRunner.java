@@ -40,13 +40,19 @@ public class LocalSpringJUnit4ClassRunner extends SpringJUnit4ClassRunner {
     }
 
     private void bindJndi() throws Exception {
+        String driverClassName  = ConfigUtil.getString("dataSource.driverClassName");
+        String url              = ConfigUtil.getString("dataSource.url");
+        String userName         = ConfigUtil.getString("dataSource.username");
+        String password         = ConfigUtil.getString("dataSource.password");
+        String jndiName         = ConfigUtil.getString("dataSource.jndiName");
+
         SimpleNamingContextBuilder bulider = SimpleNamingContextBuilder.emptyActivatedContextBuilder();
 
         DriverManagerDataSource ds = new DriverManagerDataSource();
-        ds.setDriverClassName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-        ds.setUrl("jdbc:sqlserver://10.211.55.7:1433;databaseName=lets_ko;integratedSecurity=false;");
-        ds.setUsername("sa");
-        ds.setPassword("dnfleod2");
-        bulider.bind("jdbc/lets_ko_local", ds);
+        ds.setDriverClassName(driverClassName);
+        ds.setUrl(url);
+        ds.setUsername(userName);
+        ds.setPassword(password);
+        bulider.bind(jndiName, ds);
     }
 }
