@@ -13,6 +13,8 @@
  + Java Project 생성
  + Run/Debug Configurations 설정
  + Git 설정
+- web.xml
+ + web.xml 설정
 - SpringFramework
  + SpringFrameWork 설정
 - SpringSecurity
@@ -137,12 +139,106 @@ C:\JavaDE
 > "Name->['First - Tomcat 7.0' 입력]->Application Server->['Tomcat 7.0' 선택]" 한다.
 > "Fix->['First:war exploded' 선택]->['OK' 버튼 클릭]" 한다.
 >
-> "File->Project Structure...->Project Settings->Modules->['First' 선택]->Dependencies
+> "File->Project Structure...->Project Settings->Modules->['First' 모듈 선택]->Dependencies
 > ->['+' 버튼 클릭]->Library...->Application Server Libraries->['Tomcat 7.0' 선택]
 > ->['Add Selected' 버튼 클릭]" 하여 WAS에 의존적인 라이브러리를 링크한다.
 
 ##### Git 설정
 >"File->Settings...->Version Control->Ignored Files->['+' 버튼 클릭]->Ignore all files under->['...' 선택]->['.idea' 폴더 선택]->['Ok' 버튼 클릭]"
+
+### web.xml
+##### web.xml 설정
+```
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://java.sun.com/xml/ns/javaee"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+		  http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+           version="3.0">
+    <description>First Web Application</description>
+    <display-name>First</display-name>
+    <welcome-file-list>
+        <welcome-file>welcome.jsp</welcome-file>
+    </welcome-file-list>
+
+    <!-- Session Time (Unit : Minute) -->
+    <session-config>
+        <session-timeout>30</session-timeout>
+    </session-config>
+
+    <!-- Encoding Filter -->
+    <filter>
+        <filter-name>encodingFilter</filter-name>
+        <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+        <init-param>
+            <param-name>encoding</param-name>
+            <param-value>UTF-8</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>encodingFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    <!-- Spring Security Filter -->
+    <filter>
+        <filter-name>springSecurityFilterChain</filter-name>
+        <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>springSecurityFilterChain</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    <!-- log4j ContextLoader -->
+    <context-param>
+        <param-name>log4jConfigLocation</param-name>
+        <param-value>classpath:config/log4j/log4j.xml</param-value>
+    </context-param>
+    <listener>
+        <listener-class>org.springframework.web.util.Log4jConfigListener</listener-class>
+    </listener>
+
+    <!-- SpringFramework ContextLoader -->
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>classpath*:config/spring/context-*.xml</param-value>
+    </context-param>
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+
+    <!-- Session Listener -->
+    <listener>
+        <listener-class>dd2.com.web.support.UserHttpListener</listener-class>
+    </listener>
+
+    <!-- Servlet Dispatcher -->
+    <servlet>
+        <servlet-name>action</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <init-param>
+            <param-name>contextConfigLocation</param-name>
+            <param-value>
+                /WEB-INF/config/springmvc/servlet-*.xml
+            </param-value>
+        </init-param>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>action</servlet-name>
+        <url-pattern>/</url-pattern>
+    </servlet-mapping>
+
+    <!-- resource jndi -->
+    <resource-ref>
+        <description>DB Connection</description>
+        <res-ref-name>jdbc/let_ko_local</res-ref-name>
+        <res-type>javax.sql.DataSource</res-type>
+        <res-auth>Container</res-auth>
+    </resource-ref>
+</web-app>
+```
 
 
 ### SpringFramework
