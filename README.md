@@ -190,7 +190,7 @@ C:\JavaDE
 				maxActive="10"
 				maxIdle="5"/>
 ```
-> "First->WEB-INF->web.xml"의 Jndi를 설정한다.
+> "First->web->WEB-INF->web.xml"의 Jndi를 설정한다.
 ```
     <!-- resource jndi -->
     <resource-ref>
@@ -212,6 +212,36 @@ C:\JavaDE
 > Servlet Context로 상속된다.
 > Servlet Context 설정은 "First->web->WEB-INF->config->springmvc" 폴더 아래 .xml 파일을 참고한다.
 > Root Context 설정은 "First->src->main->resources->config->spring" 폴더 아래 .xml 파일을 참고한다.
+> "First->web->WEB-INF->web.xml"의 Root Context 위치 설정
+```
+    <!-- SpringFramework ContextLoader -->
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>classpath*:config/spring/context-*.xml</param-value>
+    </context-param>
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+```
+> "First->web->WEB-INF->web.xml"의 Servlet Context 위치 설정
+```
+    <!-- Servlet Dispatcher -->
+    <servlet>
+        <servlet-name>action</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <init-param>
+            <param-name>contextConfigLocation</param-name>
+            <param-value>
+                /WEB-INF/config/springmvc/servlet-*.xml
+            </param-value>
+        </init-param>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>action</servlet-name>
+        <url-pattern>/</url-pattern>
+    </servlet-mapping>
+```
 
 ### SpringSecurity
 ##### SpringSecurity 설정
