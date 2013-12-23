@@ -180,13 +180,13 @@ C:\JavaDE
 ##### Jndi 설정
 > "['Tomcat 7.0' Home 폴더 이동]->conf->context.xml"에 Resource 엘리먼트를 추가한다.
 ```
-	<Resource	name="jdbc/lets_ko_local"
+	<Resource	name="{jndi이름: 예)jdbc/lets_ko_local}"
 				auth="Container"
 				type="javax.sql.DataSource"
 				username="{DB 로그인 아이디}"
 				password="{DB 로그인 비밀번호}"
-				driverClassName="{DB 드라이버클래스네임 예)->com.microsoft.sqlserver.jdbc.SQLServerDriver}"
-				url="{DB Url 예->jdbc:sqlserver://localhost:1433;databaseName=lets_ko;integratedSecurity=false;}"
+				driverClassName="{DB 드라이버클래스네임: 예)com.microsoft.sqlserver.jdbc.SQLServerDriver}"
+				url="{DB Url: 예)jdbc:sqlserver://localhost:1433;databaseName=lets_ko;integratedSecurity=false;}"
 				maxActive="10"
 				maxIdle="5"/>
 ```
@@ -204,7 +204,6 @@ C:\JavaDE
 ### web.xml
 ##### web.xml 설정
 > "First->WEB-INF->web.xml"을 참고한다.
-
 
 ### SpringFramework
 ##### SpringFrameWork 설정
