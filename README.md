@@ -212,6 +212,7 @@ C:\JavaDE
 > Servlet Context로 상속된다.
 > Servlet Context 설정은 "First->web->WEB-INF->config->springmvc" 폴더 아래 .xml 파일을 참고한다.
 > Root Context 설정은 "First->src->main->resources->config->spring" 폴더 아래 .xml 파일을 참고한다.
+>
 > "First->web->WEB-INF->web.xml"의 Root Context 위치 설정
 ```
     <!-- SpringFramework ContextLoader -->
@@ -245,6 +246,21 @@ C:\JavaDE
 
 ### SpringSecurity
 ##### SpringSecurity 설정
+> SpringSecurity를 사용함으로써 많은 부분의 권한관리를 줄일수 있다.
+>
+> "First->web->WEB-INF->web.xml"의 Security Listener 위치 설정
+```
+    <!-- Spring Security Filter -->
+    <filter>
+        <filter-name>springSecurityFilterChain</filter-name>
+        <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>springSecurityFilterChain</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+```
+> SpringSecurity의 세부 설정은 "First->src->main->resources->spring->context-security.xml"을 확인한다.
 
 ### Hibernate
 ##### Hibernate 설정
