@@ -201,6 +201,11 @@ C:\JavaDE
     </resource-ref>
 ```
 
+### web.xml
+##### web.xml 설정
+> "First->WEB-INF->web.xml"을 참고한다.
+
+
 ### SpringFramework
 ##### SpringFrameWork 설정
 
