@@ -279,6 +279,18 @@ C:\JavaDE
 
 ### Tiles
 ##### Tiles 설정
+> Tiles는 Servlet Context 영역으로 "First->web->WEB-INF->config->springmvc->servlet-tiles.xml"에서 설정한다.
+```
+    <!-- tiles configurer -->
+    <bean id="tilesConfigurer" class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
+        <property name="checkRefresh" value="true" />
+        <property name="definitions">
+            <list>
+                <value>/WEB-INF/config/tiles/**/tiles-*.xml</value>
+            </list>
+        </property>
+    </bean>
+```
 
 ### Frontend
 ##### Bootstrap 설정
