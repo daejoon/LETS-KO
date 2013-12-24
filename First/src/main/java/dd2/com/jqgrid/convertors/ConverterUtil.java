@@ -8,7 +8,7 @@ import java.util.Map;
 /**
  * Created by kdj on 2013. 12. 24..
  */
-public final class ConvertUtil {
+public final class ConverterUtil {
     private static Map<String, Converter> map = new HashMap<>();
 
     static {
@@ -30,5 +30,9 @@ public final class ConvertUtil {
             e.printStackTrace();
         }
         return ret;
+    }
+
+    public static Object getValue(Class klass, Object convertValue) {
+        return getValue(klass.getName(), convertValue);
     }
 }
