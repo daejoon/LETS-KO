@@ -310,6 +310,53 @@ C:\JavaDE
 
 ### Frontend
 ##### Bootstrap 설정
+부트스트랩은 디자이너 없어 빠른 테스트 화면을 개발할수 있다.(디자이너 분이 없어도 된다는게 아니다.)
+웹 구성
+```
+WEB-Root
+    ├─ static
+    │   ├─ css: WebApp에서 사용하는 css파일
+    │   ├─ images: WebApp에서 사용하는 이미지
+    │   ├─ js
+    │   │  ├─ bootstrap
+    │   │  │   └─ bootstrap.local.js: 부트스트랩 설정
+    │   │  ├─ extend
+    │   │  │   └─ extendjs.js: 자바스크립트 확장
+    │   │  ├─ jqgrid
+    │   │  │   └─ jquery.jqgrid.local.js: jqgrid 설정
+    │   │  ├─ jquery
+    │   │  │   └─ jquery.local.js: jquery 설정
+    │   │  ├─ underscore
+    │   │  │   └─ underscore.local.js: underscore 설정
+    │   │  ├─ local.js: WebApp 공통으로 사용하는 기능
+    │   │  └─ main.js: requirejs 설정
+    │   └─ lib
+    │      ├─ bootstrap
+    │      │   └─ 3.0.3: bootstarp 버전
+    │      ├─ font-awesome
+    │      │   └─ 4.0.3: font-awesome 버전
+    │      ├─ jqgrid
+    │      │   └─ 4.5.4: jqgrid 버전
+    │      ├─ jquery
+    │      │   └─ 1.10.2: jquery 버전
+    │      ├─ jquery-ui
+    │      │   └─ 1.10.3: jquery-ui 버전
+    │      ├─ json
+    │      │   └─ 2013.05.26: json 버전
+    │      ├─ require
+    │      │   └─ 2.1.9: require 버전
+    │      └─ underscore
+    │          └─ 1.5.2: underscore 버전
+    ├─ WEB-INF
+    │   ├─ config
+    │   │   ├─ springmvc: SpringFramework Servlet Context 설정
+    │   │   └─ tiles: Tiles 설정
+    │   ├─ view
+    │   └─ web.xml: WebApp web.xml
+    │
+    └─ welcome.jsp: index 페이지
+```
+
 ##### requirejs 설정
 ##### jQuery 설정
 ##### jQueryUi 설정
