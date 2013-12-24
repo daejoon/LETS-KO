@@ -1,5 +1,6 @@
 package dd2.com.jqgrid;
 
+import dd2.com.jqgrid.convertors.ConvertUtil;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
@@ -72,31 +73,7 @@ public class JqGridCrudUtil<T, ID extends Serializable> {
            if (  this.map.containsKey(field.getName()) == true ) {
                field.setAccessible(true);
                Object value = this.map.get(field.getName());
-               if ( field.getType() == java.util.Date.class ) {
-                   try {
-                       value = dateFormat.parse( value.toString() );
-                   } catch (ParseException e) {
-                       e.printStackTrace();
-                   }
-               } else if (field.getType() == Long.class ) {
-                   value = Long.parseLong(value.toString());
-               } else if (field.getType() == Integer.class ) {
-                   value = Integer.parseInt(value.toString());
-               } else if (field.getType() == Short.class ) {
-                   value = Short.parseShort(value.toString());
-               } else if (field.getType() == Double.class ) {
-                   value = Double.parseDouble(value.toString());
-               } else if (field.getType() == Float.class ) {
-                   value = Float.parseFloat(value.toString());
-               } else if (field.getType() == Boolean.class ) {
-                   value = Boolean.parseBoolean(value.toString());
-               } else if (field.getType() == String.class ) {
-                   // 성능 향상을 위해 주석처리
-                   //value = value.toString();
-               } else {
-                   throw new NoClassDefFoundError("The field of Object is not  primitive type.");
-               }
-               field.set(instance, value);
+               field.set(instance, ConvertUtil.getValue(field.getType().getName(), value));
             }
         }
     }
@@ -129,7 +106,6 @@ public class JqGridCrudUtil<T, ID extends Serializable> {
         if ( strId == null || strId.equals("") ) {
             throw new NullPointerException("The ID String is Null.");
         }
-
         ID id = null;
         try {
             id = keyKlass.newInstance();
@@ -138,30 +114,7 @@ public class JqGridCrudUtil<T, ID extends Serializable> {
         } catch (IllegalAccessException e) {
             e.printStackTrace();
         }
-
-        if ( keyKlass == java.util.Date.class ) {
-            try {
-                id = (ID)dateFormat.parse( strId );
-            } catch (ParseException e) {
-                e.printStackTrace();
-            }
-        } else if (keyKlass == Long.class ) {
-            id = (ID)new Long(Long.parseLong(strId));
-        } else if (keyKlass == Integer.class ) {
-            id = (ID)new Integer(Integer.parseInt(strId));
-        } else if (keyKlass == Short.class ) {
-            id = (ID)new Short(Short.parseShort(strId));
-        } else if (keyKlass == Double.class ) {
-            id = (ID)new Double(Double.parseDouble(strId));
-        } else if (keyKlass == Float.class ) {
-            id = (ID)new Float(Float.parseFloat(strId));
-        } else if (keyKlass == Boolean.class ) {
-            id = (ID)new Boolean(Boolean.parseBoolean(strId));
-        } else if (keyKlass == String.class ) {
-            id = (ID)strId;
-        } else {
-            throw new NoClassDefFoundError("The field of Object is not  primitive type.");
-        }
+        id = (ID) ConvertUtil.getValue(keyKlass.getName(), strId);
 
         return id;
     }
@@ -189,34 +142,9 @@ public class JqGridCrudUtil<T, ID extends Serializable> {
         for (Field field : fields) {
             for(int idx = 0; idx < compositeKeyNames.length; idx++ ) {
                 String fieldName = compositeKeyNames[idx];
-
                 if ( fieldName.equals(field.getName()) ) {
                     field.setAccessible(true);
-                    Object value = null;
-                    if ( field.getType() == java.util.Date.class ) {
-                        try {
-                            value = dateFormat.parse( compositeKey[idx] );
-                        } catch (ParseException e) {
-                            e.printStackTrace();
-                        }
-                    } else if (field.getType() == Long.class ) {
-                        value = Long.parseLong(compositeKey[idx]);
-                    } else if (field.getType() == Integer.class ) {
-                        value = Integer.parseInt(compositeKey[idx]);
-                    } else if (field.getType() == Short.class ) {
-                        value = Short.parseShort(compositeKey[idx]);
-                    } else if (field.getType() == Double.class ) {
-                        value = Double.parseDouble(compositeKey[idx]);
-                    } else if (field.getType() == Float.class ) {
-                        value = Float.parseFloat(compositeKey[idx]);
-                    } else if (field.getType() == Boolean.class ) {
-                        value = Boolean.parseBoolean(compositeKey[idx]);
-                    } else if (field.getType() == String.class ) {
-                        value = compositeKey[idx];
-                    } else {
-                        throw new NoClassDefFoundError("The field of Object is not  primitive type.");
-                    }
-
+                    Object value = ConvertUtil.getValue(field.getName(), compositeKey[idx]);
                     try {
                         field.set(id, value);
                     } catch (IllegalAccessException e) {

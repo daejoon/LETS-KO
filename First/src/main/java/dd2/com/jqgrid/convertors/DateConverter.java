@@ -33,7 +33,7 @@ public class DateConverter implements Converter<Date> {
 	public Date from(Object value) throws JqGridTypeParsingException {
 		try {
 			if (value instanceof String)
-				return this.dateFormat.parse((String) value);
+				return this.dateFormat.parse((String)value);
 		} catch (final ParseException e) {
 			throw new JqGridTypeParsingException(e);
 		}

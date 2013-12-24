@@ -21,11 +21,11 @@ public final class ConvertUtil {
         map.put("java.lang.String"  , new StringConverter());
     }
 
-    public static Object getValue(String typeName, Object value) {
+    public static Object getValue(String typeName, Object convertValue) {
         Converter<?> converter = map.get(typeName);
         Object ret = null;
         try {
-            ret = converter.from(value);
+            ret = converter.from(convertValue);
         } catch (JqGridTypeParsingException e) {
             e.printStackTrace();
         }
