@@ -143,7 +143,7 @@ public class JqGridCrudUtil<T, ID extends Serializable> {
                 String fieldName = compositeKeyNames[idx];
                 if ( fieldName.equals(field.getName()) ) {
                     field.setAccessible(true);
-                    Object value = ConvertUtil.getValue(field.getName(), compositeKey[idx]);
+                    Object value = ConvertUtil.getValue(field.getType().getName(), compositeKey[idx]);
                     try {
                         field.set(id, value);
                     } catch (IllegalAccessException e) {
