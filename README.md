@@ -356,7 +356,7 @@ WEB-Root
     └─ welcome.jsp: index 페이지
 ```
 >부트스트랩은 디자이너 없어 빠른 테스트 화면을 개발할수 있다.(디자이너 분이 없어도 된다는게 아니다.)
->부트스트랩을 다운로드 한다. [다운로드](http://getbootstrap.com/)
+>부트스트랩을 [다운로드](http://getbootstrap.com/)한다. 현재 최신 버전은 3.0.3 이다.
 >
 
 ##### requirejs 설정
