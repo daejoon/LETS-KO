@@ -22,7 +22,6 @@ import java.util.Map;
 public class JqGridCrudUtil<T, ID extends Serializable> {
     private static final Log logger = LogFactory.getLog(JqGridCrudUtil.class);
 
-    private static final SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
     private static final String idName = "id";
     private static final String operName = "oper";
     private static final String idSeparator = ",";
