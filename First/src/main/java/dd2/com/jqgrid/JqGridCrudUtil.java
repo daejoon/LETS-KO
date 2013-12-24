@@ -1,14 +1,12 @@
 package dd2.com.jqgrid;
 
-import dd2.com.jqgrid.convertors.ConvertUtil;
+import dd2.com.jqgrid.convertors.ConverterUtil;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 import java.io.Serializable;
 import java.lang.reflect.Array;
 import java.lang.reflect.Field;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Map;
 
 /**
@@ -72,7 +70,7 @@ public class JqGridCrudUtil<T, ID extends Serializable> {
            if (  this.map.containsKey(field.getName()) == true ) {
                field.setAccessible(true);
                Object value = this.map.get(field.getName());
-               field.set(instance, ConvertUtil.getValue(field.getType().getName(), value) );
+               field.set(instance, ConverterUtil.getValue(field.getType().getName(), value) );
             }
         }
     }
@@ -113,7 +111,7 @@ public class JqGridCrudUtil<T, ID extends Serializable> {
         } catch (IllegalAccessException e) {
             e.printStackTrace();
         }
-        id = (ID) ConvertUtil.getValue(keyKlass.getName(), strId);
+        id = (ID) ConverterUtil.getValue(keyKlass.getName(), strId);
 
         return id;
     }
@@ -143,7 +141,7 @@ public class JqGridCrudUtil<T, ID extends Serializable> {
                 String fieldName = compositeKeyNames[idx];
                 if ( fieldName.equals(field.getName()) ) {
                     field.setAccessible(true);
-                    Object value = ConvertUtil.getValue(field.getType().getName(), compositeKey[idx]);
+                    Object value = ConverterUtil.getValue(field.getType().getName(), compositeKey[idx]);
                     try {
                         field.set(id, value);
                     } catch (IllegalAccessException e) {
