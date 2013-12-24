@@ -244,6 +244,8 @@ public class JqGridCrudUtil<T, ID extends Serializable> {
             case "del":
                 ret = JQGRID_OPER.DELETE;
                 break;
+            default:
+                ret = JQGRID_OPER.NONE;
         }
         return ret;
     }

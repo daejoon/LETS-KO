@@ -13,21 +13,22 @@ public class ExcelFactory {
     private final static String XSSFWorkbook_EXTNAME = "xlsx";
 
 	public static Workbook CreateWorkbook(String fullFilePath) throws IOException {
-		Workbook wb = null;
+		Workbook workbook = null;
+
     	if ( fullFilePath != null ) {
     		String[] files = fullFilePath.split("\\.");
     		if ( files.length > 0 ) {
                 String fileExt = files[files.length-1];
     			
     			if ( fileExt.toLowerCase().equals(HSSFWorkbook_EXTNAME) ) {
-    				wb = new HSSFWorkbook(new FileInputStream(fullFilePath));
+    				workbook = new HSSFWorkbook(new FileInputStream(fullFilePath));
     			}
     			else if ( fileExt.toLowerCase().equals(XSSFWorkbook_EXTNAME) ) {
-    				wb = new XSSFWorkbook(new FileInputStream(fullFilePath));
+    				workbook = new XSSFWorkbook(new FileInputStream(fullFilePath));
     			}
     		}
     	}
 
-    	return wb;
+    	return workbook;
 	}
 }
