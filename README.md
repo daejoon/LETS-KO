@@ -310,9 +310,7 @@ C:\JavaDE
 
 ### Frontend
 ##### Bootstrap 설정
->부트스트랩은 디자이너 없어 빠른 테스트 화면을 개발할수 있다.(디자이너 분이 없어도 된다는게 아니다.)
->
->웹 구성
+>전체적인 웹 구성
 ```
 WEB-Root
     ├─ static
@@ -352,11 +350,14 @@ WEB-Root
     │   ├─ config
     │   │   ├─ springmvc: SpringFramework Servlet Context 설정
     │   │   └─ tiles: Tiles 설정
-    │   ├─ view
+    │   ├─ view: .jsp 뷰의 모음
     │   └─ web.xml: WebApp web.xml
     │
     └─ welcome.jsp: index 페이지
 ```
+>부트스트랩은 디자이너 없어 빠른 테스트 화면을 개발할수 있다.(디자이너 분이 없어도 된다는게 아니다.)
+>부트스트랩을 다운로드 한다. [다운로드](http://getbootstrap.com/)
+>
 
 ##### requirejs 설정
 ##### jQuery 설정
