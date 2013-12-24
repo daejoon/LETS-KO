@@ -370,6 +370,11 @@ ROOT-HOME
 >환경설정은 "First->web->static->js->main.js"을 참고한다.
 
 ##### jQuery 설정
+>말이 필요없는 자바스크립트 라이브러리이다.
+>[다운로드](http://jquery.com/download/)한다.
+>환경설정은 "First->web->static->js->jquery->jquery.local.js"을 참고한다.
+
+
 ##### jQueryUi 설정
 ##### jqGrid 설정
 
