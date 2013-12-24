@@ -364,6 +364,11 @@ ROOT-HOME
 >부트스트랩 개별 설정은 "First->web->static->js->bootstrap->bootstrap.local.js"을 참고한다.
 
 ##### requirejs 설정
+>requirejs는 웹을 모듈화 할수 있게 해주는 프레임웍이다.
+>requirejs을 [다운로드](http://requirejs.org/docs/download.html)한다.
+>사용법 참고 [JavaScript 모듈화를 위한 RequireJS 핵심정리](http://jcf.daewoobrenic.co.kr/blog/?p=235)
+>환경설정은 "First->web->static->js->main.js"을 참고한다.
+
 ##### jQuery 설정
 ##### jQueryUi 설정
 ##### jqGrid 설정
