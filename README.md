@@ -27,6 +27,7 @@
 - Tiles
  + Tiles 설정
 - Frontend
+ + Web App 구성
  + Bootstrap 설정
  + requirejs 설정
  + jQuery 설정
@@ -309,10 +310,10 @@ C:\JavaDE
 ```
 
 ### Frontend
-##### Bootstrap 설정
+##### Web App 구성
 >전체적인 웹 구성
 ```
-WEB-Root
+ROOT-HOME
     ├─ static
     │   ├─ css: WebApp에서 사용하는 css파일
     │   ├─ images: WebApp에서 사용하는 이미지
@@ -355,9 +356,12 @@ WEB-Root
     │
     └─ welcome.jsp: index 페이지
 ```
->부트스트랩은 디자이너 없어 빠른 테스트 화면을 개발할수 있다.(디자이너 분이 없어도 된다는게 아니다.)
+
+##### Bootstrap 설정
+>부트스트랩은 css Library로 반응형 웹을 지원하며 CSS 고민을 덜고 웹사이트 개발을 할수 있게 해주는 아주 고마운 라이브러리다.
 >부트스트랩을 [다운로드](http://getbootstrap.com/)한다. 현재 최신 버전은 3.0.3 이다.
->
+>"First->web->static->lib->bootstrap->3.0.0"에 압축을 해제한다.
+>부트스트랩 개별 설정은 "First->web->static->js->bootstrap->bootstrap.local.js"을 참고한다.
 
 ##### requirejs 설정
 ##### jQuery 설정
