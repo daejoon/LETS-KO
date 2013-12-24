@@ -1,6 +1,6 @@
 package dd2.com.jqgrid.convertors;
 
-import dd2.com.jqgrid.exceptions.JqGridTypeParsingException;
+import dd2.com.jqgrid.exceptions.JqGridParsingException;
 
 public class IntegerConverter implements Converter<Integer> {
 
@@ -10,7 +10,7 @@ public class IntegerConverter implements Converter<Integer> {
 		return Integer.parseInt(value);
 	}
 
-	public Integer from(Object input) throws JqGridTypeParsingException {
+	public Integer from(Object input) throws JqGridParsingException {
 		if (input instanceof String)
 			return this.fromString((String) input);
 		return null;

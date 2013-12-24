@@ -1,6 +1,6 @@
 package dd2.com.jqgrid.convertors;
 
-import dd2.com.jqgrid.exceptions.JqGridTypeParsingException;
+import dd2.com.jqgrid.exceptions.JqGridParsingException;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -26,7 +26,7 @@ public final class ConverterUtil {
         Object ret = null;
         try {
             ret = converter.from(convertValue);
-        } catch (JqGridTypeParsingException e) {
+        } catch (JqGridParsingException e) {
             e.printStackTrace();
         }
         return ret;

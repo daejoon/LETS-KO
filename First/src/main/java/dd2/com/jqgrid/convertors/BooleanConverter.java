@@ -1,6 +1,6 @@
 package dd2.com.jqgrid.convertors;
 
-import dd2.com.jqgrid.exceptions.JqGridTypeParsingException;
+import dd2.com.jqgrid.exceptions.JqGridParsingException;
 
 public class BooleanConverter implements Converter<Boolean> {
 
@@ -16,11 +16,11 @@ public class BooleanConverter implements Converter<Boolean> {
 			return false;
 	}
 
-	public Boolean from(Object input) throws JqGridTypeParsingException {
+	public Boolean from(Object input) throws JqGridParsingException {
 		if (input instanceof String)
 			return this.fromString((String) input);
 		if (input instanceof Boolean)
 			return (Boolean) input;
-		throw new JqGridTypeParsingException("Unable to convert from " + input + "to Boolean");
+		throw new JqGridParsingException("Unable to convert from " + input + "to Boolean");
 	}
 }

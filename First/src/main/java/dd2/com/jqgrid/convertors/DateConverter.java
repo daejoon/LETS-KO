@@ -1,6 +1,6 @@
 package dd2.com.jqgrid.convertors;
 
-import dd2.com.jqgrid.exceptions.JqGridTypeParsingException;
+import dd2.com.jqgrid.exceptions.JqGridParsingException;
 
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -30,12 +30,12 @@ public class DateConverter implements Converter<Date> {
 		this.dateFormat = dateFormat;
 	}
 
-	public Date from(Object value) throws JqGridTypeParsingException {
+	public Date from(Object value) throws JqGridParsingException {
 		try {
 			if (value instanceof String)
 				return this.dateFormat.parse((String)value);
 		} catch (final ParseException e) {
-			throw new JqGridTypeParsingException(e);
+			throw new JqGridParsingException(e);
 		}
 		return null;
 	}

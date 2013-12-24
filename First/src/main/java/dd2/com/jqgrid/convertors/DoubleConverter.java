@@ -1,6 +1,6 @@
 package dd2.com.jqgrid.convertors;
 
-import dd2.com.jqgrid.exceptions.JqGridTypeParsingException;
+import dd2.com.jqgrid.exceptions.JqGridParsingException;
 
 public class DoubleConverter implements Converter<Double> {
 
@@ -9,7 +9,7 @@ public class DoubleConverter implements Converter<Double> {
 		return new Double(value);
 	}
 
-	public Double from(Object input) throws JqGridTypeParsingException {
+	public Double from(Object input) throws JqGridParsingException {
 		if (input instanceof String){
 			return this.fromString((String) input);
 		}
@@ -18,7 +18,7 @@ public class DoubleConverter implements Converter<Double> {
 			return (Double) input;
 		}
 
-		throw new JqGridTypeParsingException("Unable to convert from " + input + "to Boolean");
+		throw new JqGridParsingException("Unable to convert from " + input + "to Boolean");
 
 	}
 

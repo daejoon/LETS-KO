@@ -1,6 +1,6 @@
 package dd2.com.jqgrid.convertors;
 
-import dd2.com.jqgrid.exceptions.JqGridTypeParsingException;
+import dd2.com.jqgrid.exceptions.JqGridParsingException;
 
 public class FloatConverter implements Converter<Float> {
 
@@ -13,7 +13,7 @@ public class FloatConverter implements Converter<Float> {
 			return Float.parseFloat(value);
 	}
 
-	public Float from(Object input) throws JqGridTypeParsingException {
+	public Float from(Object input) throws JqGridParsingException {
 		if (input instanceof String)
 			return this.fromString((String) input);
 		return null;

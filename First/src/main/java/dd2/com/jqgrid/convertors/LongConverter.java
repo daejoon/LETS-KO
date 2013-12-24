@@ -1,6 +1,6 @@
 package dd2.com.jqgrid.convertors;
 
-import dd2.com.jqgrid.exceptions.JqGridTypeParsingException;
+import dd2.com.jqgrid.exceptions.JqGridParsingException;
 
 public class LongConverter implements Converter<Long> {
 
@@ -10,7 +10,7 @@ public class LongConverter implements Converter<Long> {
 		return Long.parseLong(value);
 	}
 
-	public Long from(Object input) throws JqGridTypeParsingException {
+	public Long from(Object input) throws JqGridParsingException {
 		if (input instanceof String)
 			return this.fromString((String) input);
 		return null;
