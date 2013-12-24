@@ -14,7 +14,6 @@
 <%@ taglib uri="http://www.springframework.org/tags"            prefix="spring" %>
 <%@ taglib uri="http://www.springframework.org/security/tags"   prefix="sec"    %>
 <div class="container theme-showcase">
-
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron">
         <h1>Hello, Let's Ko!</h1>
