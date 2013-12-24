@@ -9,7 +9,7 @@ import java.util.Map;
  * Created by kdj on 2013. 12. 24..
  */
 public final class ConverterUtil {
-    private static Map<String, Converter> map = new HashMap<>();
+    private static Map<String, Converter<?>> map = new HashMap<>();
 
     static {
         map.put("java.lang.Integer" , new IntegerConverter());
