@@ -361,13 +361,16 @@ ROOT-HOME
 ##### requirejs 설정
 >requirejs는 웹을 모듈화 할수 있게 해주는 프레임웍이다.
 >requirejs을 [다운로드](http://requirejs.org/docs/download.html)한다.
->사용법 참고 [JavaScript 모듈화를 위한 RequireJS 핵심정리](http://jcf.daewoobrenic.co.kr/blog/?p=235)
 >환경설정은 "First->web->static->js->main.js"을 참고한다.
+>
+>참고: [JavaScript 모듈화를 위한 RequireJS 핵심정리](http://jcf.daewoobrenic.co.kr/blog/?p=235)
 
 ##### jQuery 설정
 >말이 필요없는 자바스크립트 라이브러리이다.
 >[다운로드](http://jquery.com/download/)한다.
 >환경설정은 "First->web->static->js->jquery->jquery.local.js"을 참고한다.
+>
+>[jQuery Documentation](http://api.jquery.com/)
 
 ##### jQueryUi 설정
 >jquery를 이용한 각종 UI 컴포넌트 집합니다.
@@ -377,6 +380,8 @@ ROOT-HOME
 >jquery plugin 형식의 웹 그리드 이다.
 >[다운로드](http://www.trirand.com/blog/?page_id=6)한다.
 >환경설정은 "First->web->static->js->jqgrid->jquery.jqgrid.local.js"을 참고한다.
+>
+> [jqGrid Documentation](http://www.trirand.com/jqgridwiki/doku.php?id=wiki:jqgriddocs)
 
 ### 마치며
 ##### 마치며
