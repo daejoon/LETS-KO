@@ -33,11 +33,6 @@
  + jQuery 설정
  + jQueryUi 설정
  + jqGrid 설정
-- jqGrid를 이용한 간단한 CRUD
- + Table 생성
- + Hibernate Entity 생성
- + DAO, Service, Controller 생성
- + View 생성
 - 마치며
  + 마치며
 
@@ -374,15 +369,14 @@ ROOT-HOME
 >[다운로드](http://jquery.com/download/)한다.
 >환경설정은 "First->web->static->js->jquery->jquery.local.js"을 참고한다.
 
-
 ##### jQueryUi 설정
-##### jqGrid 설정
+>jquery를 이용한 각종 UI 컴포넌트 집합니다.
+>[다운로드](http://jqueryui.com/download/)한다.
 
-### jqGrid를 이용한 간단한 CRUD
-##### Table 생성
-##### Hibernate Entity 생성
-##### DAO, Service, Controller 생성
-##### View 생성
+##### jqGrid 설정
+>jquery plugin 형식의 웹 그리드 이다.
+>[다운로드](http://www.trirand.com/blog/?page_id=6)한다.
+>환경설정은 "First->web->static->js->jqgrid->jquery.jqgrid.local.js"을 참고한다.
 
 ### 마치며
 ##### 마치며
