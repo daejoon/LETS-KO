@@ -19,9 +19,9 @@ require.config({
         "local"                     : "local",
 
         // lib paths
-        "angular"                   : "../lib/angular/1.2.5/angular",
-        "angular-resource"          : "../lib/angular/1.2.5/angular-resource",
-        "angular-locale"            : "../lib/angular/1.2.5/i18n/angular-locale_ko",
+        "angular"                   : "../lib/angular/1.2.6/angular",
+        "angular-resource"          : "../lib/angular/1.2.6/angular-resource",
+        "angular-locale"            : "../lib/angular/1.2.6/i18n/angular-locale_ko",
         "backbone"                  : "../lib/backbone/1.1.0/backbone",
         "bootstrap"                 : "../lib/bootstrap/3.0.3/js/bootstrap",
         "ckeditor"                  : "../lib/ckeditor/4.3/ckeditor",
