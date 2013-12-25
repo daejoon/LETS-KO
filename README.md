@@ -160,7 +160,7 @@ Run/Debug Configurations 다이알로그가 나타난다.
 
 #### UTF-8 설정
 "First->WEB-INF->web.xml"의 Encoding Filter를 UTF-8로 설정한다.
-```
+``` xml
 <!-- Encoding Filter -->
 <filter>
     <filter-name>encodingFilter</filter-name>
