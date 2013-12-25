@@ -1,7 +1,7 @@
 # LET'S KO Project
 ## 차례
 - Let's Ko Project
- + Let's Ko Project에 대해서
+ - Let's Ko Project에 대해서
 - 개발환경 구성 및 설치
  + 개발환경 구성
  + IntelliJ IDEA 13 설치
@@ -37,7 +37,7 @@
  + 마치며
 
 ## Let's Ko Project
-### Let's Ko Project에 대해서
+#### Let's Ko Project에 대해서
 실제 프로젝트 시작전까지 비지니스 로직를 제외한 개발환경 구축 및 간단한 CRUD Sample을 만들어 보는 것이다.
 
 ## 개발환경 구성 및 설치
