@@ -1,7 +1,9 @@
 # LET'S KO Project
+
+
 ## 차례
 - Let's Ko Project
- - Let's Ko Project에 대해서
+ + Let's Ko Project에 대해서
 - 개발환경 구성 및 설치
  + 개발환경 구성
  + IntelliJ IDEA 13 설치
@@ -36,18 +38,23 @@
 - 마치며
  + 마치며
 
+
 ## Let's Ko Project
+
 #### Let's Ko Project에 대해서
 실제 프로젝트 시작전까지 비지니스 로직를 제외한 개발환경 구축 및 간단한 CRUD Sample을 만들어 보는 것이다.
 
+
 ## 개발환경 구성 및 설치
+
 #### 개발환경 구성
-IDE 개발툴은 개발자의 생산성과 편의성을 크게 증대 시킨다고 생각한다. 사실 이제 IDE을 쓰지 않고 자바 개발을 한다는
-생각은 하기 힘들다. 자바 IDE는 크게 오픈소스인 Eclipse, NetBeans와 상용 IDE인 IntelliJ IDEA(이하 IntelliJ)가 있다.
-이번 프로젝트는 IntelliJ를 사용했다. IntelliJ는 상용 IDE로써 다양한 프레임워크를 신속히 지원하고 많은 부분이 Bundle로
-제공하고 있어 오픈소스인 Eclipse보다 설정이 적다. (그렇다고 설정을 안하고 쓸수 있다는 것은 아니다.) 플렛폼은 Windows, Linux, Mac을 지원한다.
-여기서는 Windows를 선택했다. Windows로 간 이유중 하나는 자바 버전이다. 지금은 오라클에서 맥용도 지원을 하지만 예전 버전(1.6미만 버전)은 여전히 구하기
-쉽지 않다. 그리고 SQLServer를 사용한것도 Windows쪽을 선택하게 한 이유이다.
+IDE 개발툴은 개발자의 생산성과 편의성을 크게 증대 시킨다고 생각한다. 사실 이제 IDE을 쓰지 않고 자바 개발을 한다는 생각은 하기 힘들다.
+자바 IDE는 크게 오픈소스인 Eclipse, NetBeans와 상용 IDE인 IntelliJ IDEA(이하 IntelliJ)가 있다.
+이번 프로젝트는 IntelliJ를 사용했다. IntelliJ는 상용 IDE로써 다양한 프레임워크를 신속히 지원하고 많은 부분이 Bundle로 제공하고 있어
+오픈소스인 Eclipse보다 설정이 적다. (그렇다고 설정을 안하고 쓸수 있다는 것은 아니다.) 플렛폼은 Windows, Linux, Mac을 지원한다.
+여기서는 Windows를 선택했다. Windows로 간 이유중 하나는 자바 버전이다. 지금은 오라클에서 맥용도 지원을 하지만 예전 버전(1.6미만 버전)은
+여전히 구하기 쉽지 않다.
+그리고 SQLServer를 사용한것도 Windows쪽을 선택하게 한 이유이다.
 
 ```
 개발환경
@@ -58,6 +65,7 @@ IDE 개발툴은 개발자의 생산성과 편의성을 크게 증대 시킨다�
     ├─ Web Application Server: Tomcat7.0
     └─ DB: SQLServer 2008
 ```
+
 ```
 Server Side 기술 스택
     ├─ SpringFramework
@@ -65,6 +73,7 @@ Server Side 기술 스택
     ├─ Hibernate
     └─ tiles
 ```
+
 ```
 Frontend 기술 스택
     ├─ jQuery
@@ -116,7 +125,9 @@ Tomcat 7.0 Version은 [여기를](http://tomcat.apache.org/whichversion.html) �
 #### Database 설치
 이 프로젝트에서는 Hibernate를 사용하기 때문에 사실 특정 DataBase를 설치할 필요는 없다. 취양에 맞춰 설치하자.
 
+
 ## 프로젝트 생성 및 설정
+
 #### Java Project 생성
 이번 프로젝트는 새로운 프로젝트를 생성하기 보다는 GitHub에서 Checkout해서 생성한다. 처음 IntelliJ를 실행하면은 Dashboard가 나타난다.
 "Check out from version control->['GitHub' 선택]"한다.
@@ -146,6 +157,7 @@ Run/Debug Configurations 다이알로그가 나타난다.
 
 
 ## Tomcat 설정
+
 #### UTF-8 설정
 "First->WEB-INF->web.xml"의 Encoding Filter를 UTF-8로 설정한다.
 ```
@@ -163,6 +175,7 @@ Run/Debug Configurations 다이알로그가 나타난다.
     <url-pattern>/*</url-pattern>
 </filter-mapping>
 ```
+
 "['Tomcat 7.0' Home 폴더 이동]->conf->server.xml" useBodyEncodingForURI="true", URIEncoding="UTF-8"을 추가한다.
 ```
 <Connector port="8080" protocol="HTTP/1.1"
@@ -185,6 +198,7 @@ Run/Debug Configurations 다이알로그가 나타난다.
             maxActive="10"
             maxIdle="5"/>
 ```
+
 "First->web->WEB-INF->web.xml"의 Jndi를 설정한다.
 ```
 <!-- resource jndi -->
@@ -196,11 +210,15 @@ Run/Debug Configurations 다이알로그가 나타난다.
 </resource-ref>
 ```
 
+
 ## web.xml
+
 #### web.xml 설정
 "First->WEB-INF->web.xml"을 참고한다.
 
+
 ## SpringFramework
+
 #### SpringFrameWork 설정
 SpringFramework(이하 Spring) 설정은 Root Context 설정과, Servlet Context 설정으로 나뉜다.
 Root Context 설정은 Spring 전반적인 설정이고, Servlet Context 설정은 웹과 관련된 설정이다. Root Context 설정은
@@ -219,6 +237,7 @@ Root Context 설정은 "First->src->main->resources->config->spring" 폴더 아�
     <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 </listener>
 ```
+
 "First->web->WEB-INF->web.xml"의 Servlet Context 위치 설정
 ```
 <!-- Servlet Dispatcher -->
@@ -239,7 +258,9 @@ Root Context 설정은 "First->src->main->resources->config->spring" 폴더 아�
 </servlet-mapping>
 ```
 
+
 ## SpringSecurity
+
 #### SpringSecurity 설정
 SpringSecurity를 사용함으로써 많은 부분의 권한관리를 줄일수 있다.
 
@@ -257,7 +278,9 @@ SpringSecurity를 사용함으로써 많은 부분의 권한관리를 줄일수 
 ```
 SpringSecurity의 세부 설정은 "First->src->main->resources->spring->context-security.xml"을 확인한다.
 
+
 ## Hibernate
+
 #### Hibernate 설정
 "First->src->main->resources->config->spring->context-datasource.xml"의 LocalSessionFactoryBean Bean을 설정한다.
 LocalSessionFactoryBean은 Hibernate Annotation을 사용할수 있다.
@@ -269,9 +292,10 @@ LocalSessionFactoryBean은 Hibernate Annotation을 사용할수 있다.
     <property name="configLocation" value="classpath:config/hibernate/hibernate.cfg.xml" />
 </bean>
 ```
-> Hibernate 세부 설정은 "First->src->main->resources->config->hibernate->hibernate.cfg.xml"을 확인한다.
-> hibernate.dialect는 SQLServer를 사용하기 때문에 "org.hibernate.dialect.SQLServerDialect" 한다.
-> hibernate.show_sql, hibernate.format_sql을 true로 설정하여 개발시에 console화면에 정렬해서 보여준다.
+
+Hibernate 세부 설정은 "First->src->main->resources->config->hibernate->hibernate.cfg.xml"을 확인한다.
+hibernate.dialect는 SQLServer를 사용하기 때문에 "org.hibernate.dialect.SQLServerDialect" 한다.
+hibernate.show_sql, hibernate.format_sql을 true로 설정하여 개발시에 console화면에 정렬해서 보여준다.
 ```
 <hibernate-configuration>
     <session-factory>
@@ -287,7 +311,9 @@ LocalSessionFactoryBean은 Hibernate Annotation을 사용할수 있다.
 </hibernate-configuration>
 ```
 
+
 ## Tiles
+
 #### Tiles 설정
 Tiles는 Servlet Context 영역으로 "First->web->WEB-INF->config->springmvc->servlet-tiles.xml"에서 설정한다.
 ```
@@ -302,7 +328,9 @@ Tiles는 Servlet Context 영역으로 "First->web->WEB-INF->config->springmvc->s
 </bean>
 ```
 
+
 ## Frontend
+
 #### Web App 구성
 전체적인 웹 구성
 ```
@@ -381,6 +409,7 @@ jquery plugin 형식의 웹 그리드 이다.
 
 [jqGrid Documentation](http://www.trirand.com/jqgridwiki/doku.php?id=wiki:jqgriddocs)
 
-## 마치며
-#### 마치며
 
+## 마치며
+
+#### 마치며
