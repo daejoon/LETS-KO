@@ -26,15 +26,25 @@
         <temp>${path.base}/temp</temp>
     </path>
 
-    <!-- dataSource -->
-    <dataSource>
-        <driverClassName></driverClassName>
-        <url></url>
-        <username></username>
-        <password></password>
-        <jndiName>jdbc/lets_ko_local</jndiName>
-        <resourceRef>true</resourceRef>
-    </dataSource>
+    <!-- dataSources -->
+    <dataSources>
+        <ds01>
+            <driverClassName></driverClassName>
+            <url></url>
+            <username></username>
+            <password></password>
+            <jndiName>jdbc/letsko_ds01</jndiName>
+            <resourceRef>true</resourceRef>
+        </ds01>
+        <ds02>
+            <driverClassName></driverClassName>
+            <url></url>
+            <username></username>
+            <password></password>
+            <jndiName>jdbc/letsko_ds02</jndiName>
+            <resourceRef>true</resourceRef>
+        </ds02>
+    </dataSources>
 
     <!-- mongodb -->
     <mongo>

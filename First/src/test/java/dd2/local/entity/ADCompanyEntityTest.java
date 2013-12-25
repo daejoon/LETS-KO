@@ -22,9 +22,9 @@ import java.util.Date;
  */
 @RunWith(LocalSpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations={
-        "classpath*:config/spring/context-*.xml"
-        , "file:WebContent/WEB-INF/config/springmvc/servlet-*.xml"}
-)
+        "classpath*:config/spring/context-*.xml",
+        "file:WebContent/WEB-INF/config/springmvc/servlet-*.xml"
+})
 @TransactionConfiguration(transactionManager="transactionManager", defaultRollback=true)
 public class ADCompanyEntityTest {
     @Autowired

@@ -20,9 +20,9 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @RunWith(LocalSpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations={
-          "classpath*:config/spring/context-*.xml"
-        , "file:WebContent/WEB-INF/config/springmvc/servlet-*.xml"}
-)
+        "classpath*:config/spring/context-*.xml",
+        "file:WebContent/WEB-INF/config/springmvc/servlet-*.xml"
+})
 @TransactionConfiguration(transactionManager="transactionManager", defaultRollback=true)
 public class MemberUtilTest {
     @Before

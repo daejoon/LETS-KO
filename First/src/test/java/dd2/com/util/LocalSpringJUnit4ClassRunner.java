@@ -40,11 +40,11 @@ public class LocalSpringJUnit4ClassRunner extends SpringJUnit4ClassRunner {
     }
 
     private void bindJndi() throws Exception {
-        String driverClassName  = ConfigUtil.getString("dataSource.driverClassName");
-        String url              = ConfigUtil.getString("dataSource.url");
-        String userName         = ConfigUtil.getString("dataSource.username");
-        String password         = ConfigUtil.getString("dataSource.password");
-        String jndiName         = ConfigUtil.getString("dataSource.jndiName");
+        String driverClassName  = ConfigUtil.getString("dataSources.ds01.driverClassName");
+        String url              = ConfigUtil.getString("dataSources.ds01.url");
+        String userName         = ConfigUtil.getString("dataSources.ds01.username");
+        String password         = ConfigUtil.getString("dataSources.ds01.password");
+        String jndiName         = ConfigUtil.getString("dataSources.ds01.jndiName");
 
         SimpleNamingContextBuilder bulider = SimpleNamingContextBuilder.emptyActivatedContextBuilder();
 

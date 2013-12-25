@@ -24,9 +24,9 @@ import static org.junit.Assert.*;
  */
 @RunWith(LocalSpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations={
-        "classpath*:config/spring/context-*.xml"
-        , "file:WebContent/WEB-INF/config/springmvc/servlet-*.xml"}
-)
+        "classpath*:config/spring/context-*.xml",
+        "file:WebContent/WEB-INF/config/springmvc/servlet-*.xml"
+})
 @TransactionConfiguration(transactionManager="transactionManager", defaultRollback=false)
 public class CompanyDAOTest {
     @Autowired

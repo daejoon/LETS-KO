@@ -4,8 +4,8 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
-        <property name="jndiName"       value="${dataSource.jndiName}" />
-        <property name="resourceRef"    value="${dataSource.resourceRef}" />
+        <property name="jndiName"       value="${dataSources.ds01.jndiName}" />
+        <property name="resourceRef"    value="${dataSources.ds02.resourceRef}" />
     </bean>
 
     <!-- hibernate sessionFactory -->
