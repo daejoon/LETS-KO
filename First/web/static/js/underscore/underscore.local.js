@@ -8,9 +8,7 @@
 ;define([
     "underscore"
 ],
-function(_) {
-    "use strict";
-
+function(_) { "use strict";
     _.templateSettings = {
         evaluate    : /<\?([\s\S]+?)\?>/g,
         interpolate : /<\?=([\s\S]+?)\?>/g,

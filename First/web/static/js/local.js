@@ -22,8 +22,7 @@
     "jquery-form-validator",
     "extend"
 ],
-function(require) {
-    "use strict";
+function(require) { "use strict";
     var _ = require("underscore"),
         $ = require("jquery"),
         _thisObj = _thisObj || {};

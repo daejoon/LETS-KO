@@ -2,6 +2,5 @@
     "jquery",
     "dynatree"
 ],
-function($) {
-    "use strict";
+function($) { "use strict";
 });

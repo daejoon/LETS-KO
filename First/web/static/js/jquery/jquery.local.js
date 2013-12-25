@@ -10,7 +10,6 @@
     "json"
 ],
 function($, JSON) { "use strict";
-
     /**
      * ajax 기본 셋팅
      */

@@ -2,8 +2,5 @@
     "jquery",
     "underscore"
 ],
-function($, _) {
-    "use strict";
-
-
+function($, _) { "use strict";
 });

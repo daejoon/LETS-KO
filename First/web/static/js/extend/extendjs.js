@@ -1,8 +1,7 @@
 /**
  *  기본 자바스크립트의 기능을 확장시킨다.
  */
-;define(function() {
-    "use strict";
+;define(function() { "use strict";
 
     /**
      * 전달받은 인자를 부모로 하는 새로운 객체를 생성한다.

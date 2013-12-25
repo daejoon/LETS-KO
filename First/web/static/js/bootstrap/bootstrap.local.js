@@ -3,8 +3,7 @@
     "jquery.local",
     "bootstrap"
 ],
-function($) {
-    "use strict";
+function($) { "use strict";
     $.Confirm = function confirm(title, question, cancelBtnText, okBtnText, callback) {
         var opt = {};
 
