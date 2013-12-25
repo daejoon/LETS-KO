@@ -177,7 +177,7 @@ Run/Debug Configurations 다이알로그가 나타난다.
 ```
 
 "['Tomcat 7.0' Home 폴더 이동]->conf->server.xml" useBodyEncodingForURI="true", URIEncoding="UTF-8"을 추가한다.
-```
+``` xml
 <Connector port="8080" protocol="HTTP/1.1"
            connectionTimeout="20000"
            redirectPort="8443"
@@ -187,7 +187,7 @@ Run/Debug Configurations 다이알로그가 나타난다.
 
 #### Jndi 설정
 "['Tomcat 7.0' Home 폴더 이동]->conf->context.xml"에 Resource 엘리먼트를 추가한다.
-```
+``` xml
 <Resource	name="{jndi이름: 예)jdbc/letsko_ds01}"
             auth="Container"
             type="javax.sql.DataSource"
@@ -200,7 +200,7 @@ Run/Debug Configurations 다이알로그가 나타난다.
 ```
 
 "First->web->WEB-INF->web.xml"의 Jndi를 설정한다.
-```
+``` xml
 <!-- resource jndi -->
 <resource-ref>
     <description>DB Connection</description>
@@ -227,7 +227,7 @@ Servlet Context 설정은 "First->web->WEB-INF->config->springmvc" 폴더 아래
 Root Context 설정은 "First->src->main->resources->config->spring" 폴더 아래 .xml 파일을 참고한다.
 
 "First->web->WEB-INF->web.xml"의 Root Context 위치 설정
-```
+``` xml
 <!-- SpringFramework ContextLoader -->
 <context-param>
     <param-name>contextConfigLocation</param-name>
@@ -239,7 +239,7 @@ Root Context 설정은 "First->src->main->resources->config->spring" 폴더 아�
 ```
 
 "First->web->WEB-INF->web.xml"의 Servlet Context 위치 설정
-```
+``` xml
 <!-- Servlet Dispatcher -->
 <servlet>
     <servlet-name>action</servlet-name>
@@ -265,7 +265,7 @@ Root Context 설정은 "First->src->main->resources->config->spring" 폴더 아�
 SpringSecurity를 사용함으로써 많은 부분의 권한관리를 줄일수 있다.
 
 "First->web->WEB-INF->web.xml"의 DelegatingFilterProxy filter 설정해야 SpringSecurity가 동작한다.
-```
+``` xml
 <!-- Spring Security Filter -->
 <filter>
     <filter-name>springSecurityFilterChain</filter-name>
@@ -284,7 +284,7 @@ SpringSecurity의 세부 설정은 "First->src->main->resources->spring->context
 #### Hibernate 설정
 "First->src->main->resources->config->spring->context-datasource.xml"의 LocalSessionFactoryBean Bean을 설정한다.
 LocalSessionFactoryBean은 Hibernate Annotation을 사용할수 있다.
-```
+``` xml
 <!-- hibernate sessionFactory -->
 <bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
     <property name="dataSource" ref="dataSource" />
@@ -296,7 +296,7 @@ LocalSessionFactoryBean은 Hibernate Annotation을 사용할수 있다.
 Hibernate 세부 설정은 "First->src->main->resources->config->hibernate->hibernate.cfg.xml"을 확인한다.
 hibernate.dialect는 SQLServer를 사용하기 때문에 "org.hibernate.dialect.SQLServerDialect" 한다.
 hibernate.show_sql, hibernate.format_sql을 true로 설정하여 개발시에 console화면에 정렬해서 보여준다.
-```
+``` xml
 <hibernate-configuration>
     <session-factory>
         <property name="hibernate.dialect">org.hibernate.dialect.SQLServerDialect</property>
@@ -316,7 +316,7 @@ hibernate.show_sql, hibernate.format_sql을 true로 설정하여 개발시에 co
 
 #### Tiles 설정
 Tiles는 Servlet Context 영역으로 "First->web->WEB-INF->config->springmvc->servlet-tiles.xml"에서 설정한다.
-```
+``` xml
 <!-- tiles configurer -->
 <bean id="tilesConfigurer" class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
     <property name="checkRefresh" value="true" />
