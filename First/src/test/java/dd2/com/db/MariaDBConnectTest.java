@@ -39,35 +39,24 @@ public class MariaDBConnectTest {
         String url              = ConfigUtil.getString("dataSources.ds02.url");
         String userName         = ConfigUtil.getString("dataSources.ds02.username");
         String password         = ConfigUtil.getString("dataSources.ds02.password");
-        String jndiName         = ConfigUtil.getString("dataSources.ds02.jndiName");
 
         try {
             // This will load the MySQL driver, each DB has its own driver
             Class.forName(driverClassName);
             // Setup the connection with the DB
             connect = DriverManager.getConnection(url + "?user=" + userName + "&password=" + password);
-
             // Statements allow to issue SQL queries to the database
             statement = connect.createStatement();
             // Result set get the result of the SQL query
-            resultSet = statement
-                    .executeQuery("select * from User");
+            resultSet = statement.executeQuery("select * from User");
 
         } catch (Exception e) {
             throw e;
         } finally {
             try {
-                if (resultSet != null) {
-                    resultSet.close();
-                }
-
-                if (statement != null) {
-                    statement.close();
-                }
-
-                if (connect != null) {
-                    connect.close();
-                }
+                if (resultSet != null) { resultSet.close(); }
+                if (statement != null) { statement.close(); }
+                if (connect != null  ) { connect.close();   }
             } catch (Exception e) {
             }
         }
