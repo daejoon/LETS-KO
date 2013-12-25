@@ -49,7 +49,6 @@ public class MariaDBConnectTest {
             statement = connect.createStatement();
             // Result set get the result of the SQL query
             resultSet = statement.executeQuery("select * from User");
-
         } catch (Exception e) {
             throw e;
         } finally {
