@@ -176,7 +176,7 @@ C:\JavaDE
 ##### Jndi 설정
 > "['Tomcat 7.0' Home 폴더 이동]->conf->context.xml"에 Resource 엘리먼트를 추가한다.
 ```
-<Resource	name="{jndi이름: 예)jdbc/lets_ko_local}"
+<Resource	name="{jndi이름: 예)jdbc/letsko_ds01}"
             auth="Container"
             type="javax.sql.DataSource"
             username="{DB 로그인 아이디}"
@@ -191,7 +191,7 @@ C:\JavaDE
 <!-- resource jndi -->
 <resource-ref>
     <description>DB Connection</description>
-    <res-ref-name>jdbc/let_ko_local</res-ref-name>
+    <res-ref-name>jdbc/letko_ds01</res-ref-name>
     <res-type>javax.sql.DataSource</res-type>
     <res-auth>Container</res-auth>
 </resource-ref>
