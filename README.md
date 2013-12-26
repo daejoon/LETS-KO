@@ -379,7 +379,7 @@ ROOT-HOME
 ```
 
 #### Bootstrap 설정
-부트스트랩은 css Library로 반응형 웹을 지원하며 CSS 고민을 덜고 웹사이트 개발을 할수 있게 해주는 아주 고마운 라이브러리다.
+부트스트랩은 css Framework으로 반응형 웹을 지원하며 CSS 고민을 덜고 웹사이트 개발을 할수 있게 해주는 아주 고마운 라이브러리다.
 부트스트랩을 [다운로드](http://getbootstrap.com/)한다. 현재 최신 버전은 3.0.3 이다.
 "First->web->static->lib->bootstrap->3.0.0"에 압축을 해제한다.
 부트스트랩 개별 설정은 "First->web->static->js->bootstrap->bootstrap.local.js"을 참고한다.
