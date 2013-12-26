@@ -53,6 +53,8 @@ public class CompanyController extends CommonController {
             JqGridCrudUtil<AdCompanyEntity, Long> jqgrid = new JqGridCrudUtil<>(AdCompanyEntity.class, Long.class, params);
 
             Date date = new Date();
+
+            // 나중에 실제 LoginID와 연결하자
             Long adminID = new Long(1);
 
             switch (jqgrid.getOper()) {
