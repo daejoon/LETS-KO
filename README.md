@@ -384,6 +384,8 @@ ROOT-HOME
 "First->web->static->lib->bootstrap->3.0.0"에 압축을 해제한다.
 부트스트랩 개별 설정은 "First->web->static->js->bootstrap->bootstrap.local.js"을 참고한다.
 
+[Bootstrap Getting Started](http://getbootstrap.com/getting-started/)
+
 #### requirejs 설정
 requirejs는 웹을 모듈화 할수 있게 해주는 프레임웍이다.
 requirejs을 [다운로드](http://requirejs.org/docs/download.html)한다.
