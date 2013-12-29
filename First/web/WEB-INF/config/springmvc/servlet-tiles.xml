@@ -5,7 +5,7 @@
 
     <!-- tiles configurer -->
     <bean id="tilesConfigurer" class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
-        <!--<property name="useMutableTilesContainer"   value="true" />-->  <!-- 주석 풀면 오류 발생 -->
+        <property name="useMutableTilesContainer" value="true" />
         <property name="checkRefresh" value="true" />
         <property name="definitions">
             <list>
