@@ -9,8 +9,8 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 
 public class ExcelFactory {
-    private final static String HSSFWorkbook_EXTNAME = "xls";
-    private final static String XSSFWorkbook_EXTNAME = "xlsx";
+    private final static String HSSFWORKBOOK_EXTNAME = "xls";
+    private final static String XSSFWORKBOOK_EXTNAME = "xlsx";
 
 	public static Workbook CreateWorkbook(String fullFilePath) throws IOException {
 		Workbook workbook = null;
@@ -20,10 +20,10 @@ public class ExcelFactory {
     		if ( files.length > 0 ) {
                 String fileExt = files[files.length-1];
     			
-    			if ( fileExt.toLowerCase().equals(HSSFWorkbook_EXTNAME) ) {
+    			if ( fileExt.toLowerCase().equals(HSSFWORKBOOK_EXTNAME) ) {
     				workbook = new HSSFWorkbook(new FileInputStream(fullFilePath));
     			}
-    			else if ( fileExt.toLowerCase().equals(XSSFWorkbook_EXTNAME) ) {
+    			else if ( fileExt.toLowerCase().equals(XSSFWORKBOOK_EXTNAME) ) {
     				workbook = new XSSFWorkbook(new FileInputStream(fullFilePath));
     			}
     		}
