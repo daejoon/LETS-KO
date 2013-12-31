@@ -46,6 +46,22 @@
         </ds02>
     </dataSources>
 
+    <!-- hibernate -->
+    <hibernate>
+        <dialect>org.hibernate.dialect.SQLServerDialect</dialect>
+        <show_sql>true</show_sql>
+        <format_sql>true</format_sql>
+        <connection>
+            <useUnicode>true</useUnicode>
+            <characterEncoding>UTF-8</characterEncoding>
+            <charSet>UTF-8</charSet>
+        </connection>
+        <hbm2ddl>
+            <import_files>config/hibernate/sql/initial_data.sql</import_files>
+            <auto>validate</auto>
+        </hbm2ddl>
+    </hibernate>
+
     <!-- mongodb -->
     <mongo>
         <host></host>
