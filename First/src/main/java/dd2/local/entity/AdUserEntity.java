@@ -11,7 +11,7 @@ import java.util.Date;
  * To change this template use File | Settings | File Templates.
  */
 @javax.persistence.IdClass(dd2.local.entity.AdUserEntityPK.class)
-@javax.persistence.Table(name = "AD_User", schema = "dbo", catalog = "lets_ko")
+@javax.persistence.Table(name = "AD_User")
 @Entity
 public class AdUserEntity {
     private Long adUserId;

@@ -10,7 +10,7 @@ import java.util.Date;
  * Time: 오후 5:12
  * To change this template use File | Settings | File Templates.
  */
-@javax.persistence.Table(name = "AD_Seq", schema = "dbo", catalog = "lets_ko")
+@javax.persistence.Table(name = "AD_Seq")
 @Entity
 public class AdSeqEntity {
     private String adTableName;
