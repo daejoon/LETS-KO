@@ -73,7 +73,7 @@ Server Side 기술 스택
     ├─ SpringFramework
     ├─ SpringSecurity
     ├─ Hibernate
-    └─ tiles
+    └─ Tiles
 ```
 
 ```
@@ -109,9 +109,9 @@ C:\JavaDE
 4.  [WEB_CONFIG_HOME]: LETS-KO/First/web/WEB-INF/config (웹 설정 폴더)
 5.  [JAVA_SRC_HOME]: LETS-KO/First/src/java (자바 소스 홈 폴더)
 6.  [CONTEXT_CONFIG_HOME]: LETS-KO/First/src/java/resources/config (Context 설정 홈 폴더)
-8.  [TOMCAT_HOME]: Tomcat 설치위치
-9.  [MAVEN_HOME]: Maven 설치위치
-10. [JDK_HOME]: JDK 설치위치
+8.  [TOMCAT_HOME]: ['Tomcat' 설치위치]
+9.  [MAVEN_HOME]: ['Maven' 설치위치]
+10. [JDK_HOME]: ['JDK' 설치위치]
 ```
 
 #### IntelliJ IDEA13 설치
