@@ -295,7 +295,6 @@ Spring의 org.springframework.beans.factory.config.PropertyPlaceholderConfigurer
 여기에 org.springmodules을 추가하면 properties를 사용하지 않고 xml로 대체할 수 있다.
 이 프로젝트는 org.springmodules를 사용했다.
 
-PropertyPlaceholderConfigurer을 사용하기 위한 설정은
 "[CONTEXT_CONFIG_HOME]/spring/context-common.xml"에 CompositeConfiguration을 이용하여 xml 설정파일을 여러개 올릴수 있다.
 두 설정 파일 중에 같은 엘리먼트가 존재하면 먼저 올린 user-config.xml 파일의 엘리먼트가 우선한다.
 ``` xml
@@ -323,7 +322,7 @@ PropertyPlaceholderConfigurer을 사용하기 위한 설정은
 사실 user-config.xml 파일과 default-config.xml 파일의 엘리먼트는 일치하지 않아도 상관없으니 경험상 일치하는게 실수 방지에 좋고 편하다.
 되도록이면 두 파일의 엘리먼트를 일치시키고 개별적 적용 엘리먼트만 user-config.xml 파일에서 수정하자.
 
-CompositeConfiguration에 로드한 파일들을 PropertyPlaceholderConfigurer에 연결시켜준다.
+"[CONTEXT_CONFIG_HOME]/spring/context-common.xml"에 CompositeConfiguration을 이용하여 설정 xml 파일들을 PropertyPlaceholderConfigurer에 연결시켜준다.
 ``` xml
 <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
     <property name="properties">
