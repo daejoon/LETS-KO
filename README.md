@@ -238,8 +238,7 @@ Run/Debug Configurations 다이알로그가 나타난다.
 ```
 
 #### Log4j 설정
-```
-Log4j의 설정 파일을 읽을수 있게 추가
+Log4j의 설정 파일을 읽을수 있게 web.xml에 추가
 ``` xml
 <!-- log4j ContextLoader -->
 <context-param>
