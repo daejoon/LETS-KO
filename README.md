@@ -199,16 +199,11 @@ Run/Debug Configurations 다이알로그가 나타난다.
             maxIdle="5"/>
 ```
 
-"First->web->WEB-INF->web.xml"의 Jndi를 설정한다.
+"First->src->main->resources->config->spring->context-datasource.xml"의 Jndi를 설정한다.
 ``` xml
-<!-- resource jndi -->
-<resource-ref>
-    <description>DB Connection</description>
-    <res-ref-name>jdbc/letko_ds01</res-ref-name>
-    <res-type>javax.sql.DataSource</res-type>
-    <res-auth>Container</res-auth>
-</resource-ref>
+<jee:jndi-lookup id="dataSource" jndi-name="${dataSources.ds02.jndiName}" />
 ```
+${dataSources.ds02.jndiName}는 default-config.xml, user-config.xml에 설정하는 Jndi이름이다.
 
 
 ## web.xml
