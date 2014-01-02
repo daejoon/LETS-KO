@@ -110,7 +110,7 @@ C:\JavaDE
 4. 웹 설정폴더: LETS-KO/First/web/WEB-INF/config
 5. Spring-Servlet 설정폴더: LETS-KO/First/web/WEB-INF/config/springmvc
 6. Java 홈: LETS-KO/First/src/java
-7. Context 홈: LETS-KO/First/src/java/resources/config
+7. Context 설정폴더: LETS-KO/First/src/java/resources/config
 8. Spring-Context 설정폴더: LETS-KO/First/src/java/resources/config/spring
 9. log4j 설정폴더: LETS-KO/First/src/java/resources/config/log4j
 
