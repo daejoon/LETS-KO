@@ -107,7 +107,7 @@ C:\JavaDE
 2. 모듈 홈: LETS-KO/First -> *MODULE_HOME
 3. 웹 홈: LETS-KO/First/web -> *WEB_HOME
 4. 웹 설정폴더: LETS-KO/First/web/WEB-INF/config -> *WEB_CONFIG_HOME
-5. Java 홈: LETS-KO/First/src/java -> *JAVA_HOME
+5. Java 홈: LETS-KO/First/src/java -> *JAVA_SRC_HOME
 6. Context 설정폴더: LETS-KO/First/src/java/resources/config -> *CONTEXT_CONFIG_HOME
 8. Tomcat 홈: [Tomcat 설치위치] -> *TOMCAT_HOME
 9. Maven 홈: [Maven 설치위치] -> *MAVEN_HOME
