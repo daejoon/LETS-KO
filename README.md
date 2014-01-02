@@ -23,6 +23,7 @@
  + Log4j 설정
 - SpringFramework
  + SpringFrameWork 설정
+ + user-config.xml, default-config.xml 설정
 - SpringSecurity
  + SpringSecurity 설정
 - Hibernate
@@ -99,6 +100,18 @@ C:\JavaDE
         ├─ apache-tomcat-6.0.37
         └─ apache-tomcat-7.0.42
 ```
+
+추가 적으로 설명의 편으성을 위해서 각각의 위치를 먼저 기술한다.
+1. 프로젝트 홈: LETS-KO
+2. 모듈 홈: LETS-KO/First
+3. 웹 홈: LETS-KO/First/web
+4. 웹 설정폴더: LETS-KO/First/web/WEB-INF/config
+5. Spring-Servlet 설정폴더: LETS-KO/First/web/WEB-INF/config/springmvc
+6. Java 홈: LETS-KO/First/src/java
+7. Context 홈: LETS-KO/First/src/java/resources/config
+8. Spring-Context 설정폴더: LETS-KO/First/src/java/resources/config/spring
+9. log4j 설정폴더: LETS-KO/First/src/java/resources/config/log4j
+
 
 #### IntelliJ IDEA13 설치
 IntelliJ IDEA13 Windows 용을 [다운로드](http://www.jetbrains.com/idea/download/index.html)한다.
@@ -312,6 +325,14 @@ SpringSecurity를 사용함으로써 많은 부분의 권한관리를 줄일수 
 </filter-mapping>
 ```
 SpringSecurity의 세부 설정은 "First->src->main->resources->spring->context-security.xml"을 확인한다.
+
+####  user-config.xml, default-config.xml 설정
+이 프로젝트는 properties를 사용하지 않고 xml로 대체했다.
+
+
+``` xml
+
+```
 
 
 ## Hibernate
