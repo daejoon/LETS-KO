@@ -218,7 +218,32 @@ Run/Debug Configurations 다이알로그가 나타난다.
 ## web.xml
 
 #### web.xml 설정
-"First->WEB-INF->web.xml"을 참고한다.
+이 프로젝트의 기본 인코딩은 UTF-8이다.
+ "First->WEB-INF->web.xml"에 설정한다.
+``` xml
+<!-- Encoding Filter -->
+<filter>
+    <filter-name>encodingFilter</filter-name>
+    <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+    <init-param>
+        <param-name>encoding</param-name>
+        <param-value>UTF-8</param-value>
+    </init-param>
+</filter>
+<filter-mapping>
+    <filter-name>encodingFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+</filter-mapping>
+```
+"['Tomcat 7.0' Home 폴더]->conf->server.xml"
+```xml
+<Connector port="8080" protocol="HTTP/1.1"
+           connectionTimeout="20000"
+           redirectPort="8443"
+           useBodyEncodingForURI="true"
+           URIEncoding="UTF-8" />
+```
+useBodyEncodingForURI="true", URIEncoding="UTF-8"로 설정한다.
 
 
 ## SpringFramework
