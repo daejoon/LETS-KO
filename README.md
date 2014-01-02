@@ -101,18 +101,17 @@ C:\JavaDE
         └─ apache-tomcat-7.0.42
 ```
 
-
 추가 적으로 설명의 편의성을 위해서 각각의 위치를 먼저 기술한다.
 ```
-1. 프로젝트 홈: LETS-KO
-2. 모듈 홈: LETS-KO/First
-3. 웹 홈: LETS-KO/First/web
-4. 웹 설정폴더: LETS-KO/First/web/WEB-INF/config
-5. Spring-Servlet 설정폴더: LETS-KO/First/web/WEB-INF/config/springmvc
-6. Java 홈: LETS-KO/First/src/java
-7. Context 설정폴더: LETS-KO/First/src/java/resources/config
-8. Spring-Context 설정폴더: LETS-KO/First/src/java/resources/config/spring
-9. log4j 설정폴더: LETS-KO/First/src/java/resources/config/log4j
+1. 프로젝트 홈: LETS-KO -> *ProjectHome
+2. 모듈 홈: LETS-KO/First -> *ModuleHome
+3. 웹 홈: LETS-KO/First/web -> *WebHome
+4. 웹 설정폴더: LETS-KO/First/web/WEB-INF/config -> *WebConfigHome
+5. Spring-Servlet 설정폴더: LETS-KO/First/web/WEB-INF/config/springmvc -> *SpringServletConfigHome
+6. Java 홈: LETS-KO/First/src/java -> *JavaHome
+7. Context 설정폴더: LETS-KO/First/src/java/resources/config -> *ContextConfigHome
+8. Spring-Context 설정폴더: LETS-KO/First/src/java/resources/config/spring -> *SpringContextConfigHome
+9. log4j 설정폴더: LETS-KO/First/src/java/resources/config/log4j -> *Log4jConfigHome
 ```
 
 #### IntelliJ IDEA13 설치
