@@ -324,26 +324,40 @@ LocalSessionFactoryBean은 Hibernate Annotation을 사용할수 있다.
 <bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
     <property name="dataSource" ref="dataSource" />
     <property name="packagesToScan" value="dd2.local" />
-    <property name="configLocation" value="classpath:config/hibernate/hibernate.cfg.xml" />
+    <property name="hibernateProperties">
+        <props>
+            <prop key="hibernate.dialect">${hibernate.dialect}</prop>
+            <prop key="hibernate.show_sql">${hibernate.show_sql}</prop>
+            <prop key="hibernate.format_sql">${hibernate.format_sql}</prop>
+            <prop key="hibernate.connection.useUnicode">${hibernate.connection.useUnicode}</prop>
+            <prop key="hibernate.connection.characterEncoding">${hibernate.connection.characterEncoding}</prop>
+            <prop key="hibernate.connection.charSet">${hibernate.connection.charSet}</prop>
+            <prop key="hibernate.hbm2ddl.import_files">${hibernate.hbm2ddl.import_files}</prop>
+            <prop key="hibernate.hbm2ddl.auto">${hibernate.hbm2ddl.auto}</prop>
+        </props>
+    </property>
 </bean>
 ```
 
-Hibernate 세부 설정은 "First->src->main->resources->config->hibernate->hibernate.cfg.xml"을 확인한다.
+Hibernate 설정은 default-config.xml, user-config.xml에서 설정값을 가져온다.
 hibernate.dialect는 SQLServer를 사용하기 때문에 "org.hibernate.dialect.SQLServerDialect" 한다.
-hibernate.show_sql, hibernate.format_sql을 true로 설정하여 개발시에 console화면에 정렬해서 보여준다.
+hibernate.show_sql, hibernate.format_sql을 true로 설정하여 개발시에 console 화면에 정렬해서 보여준다.
 ``` xml
-<hibernate-configuration>
-    <session-factory>
-        <property name="hibernate.dialect">org.hibernate.dialect.SQLServerDialect</property>
-        <property name="hibernate.show_sql">true</property>
-        <property name="hibernate.format_sql">true</property>
-        <property name="hibernate.connection.useUnicode">true</property>
-        <property name="hibernate.connection.characterEncoding">UTF-8</property>
-        <property name="hibernate.connection.charSet">UTF-8</property>
-        <property name="hibernate.hbm2ddl.import_files">config/hibernate/sql/initial_data.sql</property>
-        <property name="hibernate.hbm2ddl.auto">validate</property>
-    </session-factory>
-</hibernate-configuration>
+<!-- hibernate -->
+<hibernate>
+    <dialect>org.hibernate.dialect.SQLServerDialect</dialect>
+    <show_sql>true</show_sql>
+    <format_sql>true</format_sql>
+    <connection>
+        <useUnicode>true</useUnicode>
+        <characterEncoding>UTF-8</characterEncoding>
+        <charSet>UTF-8</charSet>
+    </connection>
+    <hbm2ddl>
+        <import_files>config/hibernate/sql/initial_data.sql</import_files>
+        <auto>validate</auto>
+    </hbm2ddl>
+</hibernate>
 ```
 
 
