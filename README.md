@@ -186,13 +186,13 @@ Run/Debug Configurations 다이알로그가 나타난다.
 #### Jndi 설정
 "[TOMCAT_HOME]/conf/context.xml"에 Resource 엘리먼트를 추가한다.
 ``` xml
-<Resource	name="{jndi이름: 예)jdbc/letsko_ds01}"
+<Resource	name="[jndi이름: 예)jdbc/letsko_ds01]"
             auth="Container"
             type="javax.sql.DataSource"
-            username="{DB 로그인 아이디}"
-            password="{DB 로그인 비밀번호}"
-            driverClassName="{DB 드라이버클래스네임: 예)com.microsoft.sqlserver.jdbc.SQLServerDriver}"
-            url="{DB Url: 예)jdbc:sqlserver://localhost:1433;databaseName=lets_ko;integratedSecurity=false;}"
+            username="[DB 로그인 아이디]"
+            password="[DB 로그인 비밀번호]"
+            driverClassName="[DB 드라이버클래스네임: 예)com.microsoft.sqlserver.jdbc.SQLServerDriver]"
+            url="[DB Url: 예)jdbc:sqlserver://localhost:1433;databaseName=lets_ko;integratedSecurity=false;]"
             maxActive="10"
             maxIdle="5"/>
 ```
