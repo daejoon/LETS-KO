@@ -174,7 +174,7 @@ Run/Debug Configurations 다이알로그가 나타난다.
 ## Tomcat 설정
 
 #### UTF-8 설정
-"*TOMCAT_HOME/conf/server.xml" useBodyEncodingForURI="true", URIEncoding="UTF-8"을 추가한다.
+"[TOMCAT_HOME]/conf/server.xml" useBodyEncodingForURI="true", URIEncoding="UTF-8"을 추가한다.
 ``` xml
 <Connector port="8080" protocol="HTTP/1.1"
            connectionTimeout="20000"
@@ -184,7 +184,7 @@ Run/Debug Configurations 다이알로그가 나타난다.
 ```
 
 #### Jndi 설정
-"*TOMCAT_HOME/conf/context.xml"에 Resource 엘리먼트를 추가한다.
+"[TOMCAT_HOME]/conf/context.xml"에 Resource 엘리먼트를 추가한다.
 ``` xml
 <Resource	name="{jndi이름: 예)jdbc/letsko_ds01}"
             auth="Container"
@@ -197,7 +197,7 @@ Run/Debug Configurations 다이알로그가 나타난다.
             maxIdle="5"/>
 ```
 
-"*CONTEXT_CONFIG_HOME/default-config.xml"에 Jndi를 설정한다.
+"[CONTEXT_CONFIG_HOME]/default-config.xml"에 Jndi를 설정한다.
 ```xml
 <dataSources>
     <ds01>
@@ -207,7 +207,7 @@ Run/Debug Configurations 다이알로그가 나타난다.
 </dataSources>
 ```
 
-"*CONTEXT_CONFIG_HOME/spring/context-datasource.xml"의 Jndi를 설정한다.
+"[CONTEXT_CONFIG_HOME]/spring/context-datasource.xml"의 Jndi를 설정한다.
 ``` xml
 <jee:jndi-lookup id="dataSource" jndi-name="${dataSources.ds02.jndiName}" />
 ```
@@ -217,7 +217,7 @@ Run/Debug Configurations 다이알로그가 나타난다.
 
 #### UTF-8 설정
 이 프로젝트의 기본 인코딩은 UTF-8이다.
- "*WEB_HOME/WEB-INF/web.xml"에 설정한다.
+ "[WEB_HOME]/WEB-INF/web.xml"에 설정한다.
 ``` xml
 <!-- Encoding Filter -->
 <filter>
@@ -247,7 +247,7 @@ Log4j의 설정 파일을 읽을수 있게 web.xml에 추가
 </listener>
 ```
 
-Log4j 설정 파일은 "*CONTEXT_CONFIG_HOME/log4j/log4j.xml"을 참고한다.
+Log4j 설정 파일은 "[CONTEXT_CONFIG_HOME]/log4j/log4j.xml"을 참고한다.
 
 ## SpringFramework
 
@@ -255,10 +255,10 @@ Log4j 설정 파일은 "*CONTEXT_CONFIG_HOME/log4j/log4j.xml"을 참고한다.
 SpringFramework(이하 Spring) 설정은 Root Context 설정과, Servlet Context 설정으로 나뉜다.
 Root Context 설정은 Spring 전반적인 설정이고, Servlet Context 설정은 웹과 관련된 설정이다. Root Context 설정은
 Servlet Context로 상속된다.
-Servlet Context 설정은 "*SERVLET_CONFIG_HOME/springmvc/servlet-*.xml" 파일을 참고한다.
-Root Context 설정은 "*CONTEXT_CONFIG_HOME/spring/context-*.xml" 파일을 참고한다.
+Servlet Context 설정은 "[SERVLET_CONFIG_HOME]/springmvc/servlet-*.xml" 파일을 참고한다.
+Root Context 설정은 "[CONTEXT_CONFIG_HOME]/spring/context-*.xml" 파일을 참고한다.
 
-"*WEB_HOME/WEB-INF/web.xml"의 Root Context 위치 설정
+"[WEB_HOME]/WEB-INF/web.xml"의 Root Context 위치 설정
 ``` xml
 <!-- SpringFramework ContextLoader -->
 <context-param>
@@ -270,7 +270,7 @@ Root Context 설정은 "*CONTEXT_CONFIG_HOME/spring/context-*.xml" 파일을 참
 </listener>
 ```
 
-"*WEB_HOME/WEB-INF/web.xml"의 Servlet Context 위치 설정
+"[WEB_HOME]/WEB-INF/web.xml"의 Servlet Context 위치 설정
 ``` xml
 <!-- Servlet Dispatcher -->
 <servlet>
@@ -296,7 +296,7 @@ Root Context 설정은 "*CONTEXT_CONFIG_HOME/spring/context-*.xml" 파일을 참
 #### SpringSecurity 설정
 SpringSecurity를 사용함으로써 많은 부분의 권한관리를 줄일수 있다.
 
-"*WEB_HOME/WEB-INF/web.xml"의 DelegatingFilterProxy filter 설정해야 SpringSecurity가 동작한다.
+"[WEB_HOME]/WEB-INF/web.xml"의 DelegatingFilterProxy filter 설정해야 SpringSecurity가 동작한다.
 ``` xml
 <!-- Spring Security Filter -->
 <filter>
@@ -308,11 +308,10 @@ SpringSecurity를 사용함으로써 많은 부분의 권한관리를 줄일수 
     <url-pattern>/*</url-pattern>
 </filter-mapping>
 ```
-SpringSecurity의 세부 설정은 "*CONTEXT_CONFIG_HOME/spring/context-security.xml"을 확인한다.
+SpringSecurity의 세부 설정은 "[CONTEXT_CONFIG_HOME]/spring/context-security.xml"을 확인한다.
 
 ####  user-config.xml, default-config.xml 설정
 이 프로젝트는 properties를 사용하지 않고 xml로 대체했다.
-
 
 ``` xml
 
@@ -322,7 +321,7 @@ SpringSecurity의 세부 설정은 "*CONTEXT_CONFIG_HOME/spring/context-security
 ## Hibernate
 
 #### Hibernate 설정
-"First->src->main->resources->config->spring->context-datasource.xml"의 LocalSessionFactoryBean Bean을 설정한다.
+"[CONTEXT_CONFIG_HOME]/spring/context-datasource.xml"의 LocalSessionFactoryBean Bean을 설정한다.
 LocalSessionFactoryBean은 Hibernate Annotation을 사용할수 있다.
 ``` xml
 <!-- hibernate sessionFactory -->
