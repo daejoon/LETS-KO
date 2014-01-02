@@ -290,6 +290,52 @@ Root Context 설정은 "[CONTEXT_CONFIG_HOME]/spring/context-*.xml" 파일을 �
 </servlet-mapping>
 ```
 
+####  user-config.xml, default-config.xml 설정
+Spring의 org.springframework.beans.factory.config.PropertyPlaceholderConfigurer을 사용하면 properties를 스프링 설정에 사용할수 있다.
+여기에 org.springmodules을 추가하면 properties를 사용하지 않고 xml로 대체할 수 있다.
+이 프로젝트는 org.springmodules를 사용했다.
+
+PropertyPlaceholderConfigurer을 사용하기 위한 설정은
+"[CONTEXT_CONFIG_HOME]/spring/context-common.xml"에 CompositeConfiguration을 이용하여 xml 설정파일을 여러개 올릴수 있다.
+두 설정 파일 중에 같은 엘리먼트가 존재하면 먼저 올린 user-config.xml 파일의 엘리먼트가 우선한다.
+``` xml
+<!-- 환경 설정 xml 파일을 로딩한다. -->
+<bean id="configuration" class="org.apache.commons.configuration.CompositeConfiguration">
+    <constructor-arg>
+        <list>
+            <bean class="org.apache.commons.configuration.XMLConfiguration">
+                <constructor-arg type="java.lang.String">
+                    <value>config/user-config.xml</value>
+                </constructor-arg>
+            </bean>
+            <bean class="org.apache.commons.configuration.XMLConfiguration">
+                <constructor-arg type="java.lang.String">
+                    <value>config/default-config.xml</value>
+                </constructor-arg>
+            </bean>
+        </list>
+    </constructor-arg>
+</bean>
+```
+이렇게 작성한 이유는 개발시에 공통 부분과 개개인 설정이 분리됨으로 해서 개발의 편의성이 증대되고 실제 배포시에는 default-config.xml만 배포함으로써
+배포 환경과 개발 환경을 분리하여 관리할수 있기 때문이다.
+
+CompositeConfiguration에 로드한 파일들을 PropertyPlaceholderConfigurer에 연결시켜준다.
+``` xml
+<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+    <property name="properties">
+        <bean class="org.springmodules.commons.configuration.CommonsConfigurationFactoryBean">
+            <property name="configurations">
+                <list>
+                    <ref bean="configuration" />
+                </list>
+            </property>
+        </bean>
+    </property>
+</bean>
+```
+이 설정을 함으로써 context-*.xml 파일들에서 properties를 사용할수 있다.
+
 
 ## SpringSecurity
 
@@ -309,13 +355,6 @@ SpringSecurity를 사용함으로써 많은 부분의 권한관리를 줄일수 
 </filter-mapping>
 ```
 SpringSecurity의 세부 설정은 "[CONTEXT_CONFIG_HOME]/spring/context-security.xml"을 확인한다.
-
-####  user-config.xml, default-config.xml 설정
-이 프로젝트는 properties를 사용하지 않고 xml로 대체했다.
-
-``` xml
-
-```
 
 
 ## Hibernate
