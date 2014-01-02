@@ -432,12 +432,12 @@ hibernate.show_sql, hibernate.format_sql을 true로 설정하여 개발시에 co
 hibernate.hbm2ddl.auto의 값은 create, create-drop, update, validate 값이 올수 있다.
 ```
 create: Entity를 기초로 테이블을 생성한다.
-create-drop: Entity를 기초로 테이블을 새성하고 프로그램 종료시에 삭제한다. 여기서는 WAS 종료시에 삭제된다.
+create-drop: Entity를 기초로 테이블을 생성하고 프로그램 종료시에 삭제한다. 여기서는 WAS 종료시에 삭제된다.
 update: Entity와 테이블을 비교하여 변경 부분을 적용한다. (권한에 따라 안될수도 있다.)
 validate: Entity와 테이블을 비교만 한다.
 ```
 대부분 프로젝트를 만들때 데이터베이스 테이블을 미리 구성하고 그다음에 Entity를 생성한다. 따라서 이 프로젝트와 같이 테이블을 역으로 생성하는 경우는 드물다.
-여기서는 create로 테이블을 생성후에 설정값을 validate로 변경하자. 안그러면 WAS가 실행될때마다 테이블이 다시 생성되어서 기존 데이터가 삭제된다.
+여기서는 create로 테이블을 생성후에 설정값을 validate로 변경하자. 그렇게 하지 않는다면 WAS가 실행될때마다 테이블이 다시 생성되어서 기존 데이터가 삭제된다.
 
 
 ## Tiles
