@@ -11,6 +11,7 @@ import org.springframework.util.DigestUtils;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.nio.charset.Charset;
 import java.util.Arrays;
 
 /**
@@ -53,7 +54,11 @@ public class IPTokenBasedRememberMeService extends TokenBasedRememberMeServices 
     @Override
     protected String makeTokenSignature(long tokenExpiryTime, String username, String password) {
         return DigestUtils.md5DigestAsHex(
-                (username + ":" + tokenExpiryTime + ":" + password + ":" + getKey() + ":" + getUserIpAddress(getContext())).getBytes()
+                (username + ":"
+                        + tokenExpiryTime + ":"
+                        + password + ":"
+                        + getKey() + ":"
+                        + getUserIpAddress(getContext())).getBytes(Charset.forName("UTF-8"))
         );
     }
 

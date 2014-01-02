@@ -91,7 +91,7 @@ public class ExcelParser<T> {
 		if (row == null) return null;
 		int cellsOfRow = map.size();//row.getLastCellNum();
 		for (int i = 0; i < cellsOfRow; i++) {
-			final String propertyName = map.get(new Integer(i + 1));
+			final String propertyName = map.get(Integer.valueOf(i + 1));
 			final Cell cell = row.getCell(i);
 			if (cell == null){
 				//빈값이지만 일괄적용 컬럼일경우
@@ -154,7 +154,7 @@ public class ExcelParser<T> {
         if (row == null) return null;
         int cellsOfRow = row.getLastCellNum();
         for (int i = 0; i < cellsOfRow; i++) {
-            final String propertyName = map.get(new Integer(i + 1));
+            final String propertyName = map.get(Integer.valueOf(i + 1));
             final Cell cell = row.getCell(i);
             if (cell == null){
                 //빈값이지만 일괄적용 컬럼일경우

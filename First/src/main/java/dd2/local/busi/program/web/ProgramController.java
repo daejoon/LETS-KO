@@ -49,7 +49,7 @@ public class ProgramController extends CommonController {
             JqGridCrudUtil<AdProgramEntity, AdProgramEntityPK> jqgrid = new JqGridCrudUtil<>(AdProgramEntity.class, AdProgramEntityPK.class, params);
 
             Date date = new Date();
-            Long adminID = new Long(1);
+            Long adminID = Long.valueOf(1);
 
             switch (jqgrid.getOper()) {
                 case ADD:

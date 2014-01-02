@@ -25,11 +25,12 @@ public final class JSONPView extends AbstractView {
     private Map<String,Object> getModelKeyFilter(Map<String,Object> model) {
         Map<String, Object> result = new HashMap<String,Object>();;
 
-        Iterator<String> iter = model.keySet().iterator();
+        Iterator<Map.Entry<String,Object>> iter = model.entrySet().iterator();
+
         while (iter.hasNext() ) {
-            String keyName = iter.next();
-            if ( keyName.startsWith(EXCLUDE_BINDING_RESULT_PREFIX) == false ) {
-                result.put(keyName, model.get(keyName));
+            Map.Entry<String,Object> entry = iter.next();
+            if ( entry.getKey().startsWith(EXCLUDE_BINDING_RESULT_PREFIX) == false ) {
+                result.put(entry.getKey(), entry.getValue());
             }
         }
         return result;

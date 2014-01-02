@@ -26,11 +26,11 @@ public class ADSeqDAOHibernate extends GenericHibernateDAO<AdSeqEntity, String> 
         // 신규 생성
         if ( adSeqEntity == null ) {
             Date date = new Date();
-            Long adminId = new Long(1);
+            Long adminId = Long.valueOf(1);
 
             adSeqEntity = new AdSeqEntity();
             adSeqEntity.setAdTableName(id);
-            adSeqEntity.setSeq(new Long(1));
+            adSeqEntity.setSeq(Long.valueOf(1));
             adSeqEntity.setCreated(date);
             adSeqEntity.setCreatedBy(adminId);
             adSeqEntity.setUpdated(date);

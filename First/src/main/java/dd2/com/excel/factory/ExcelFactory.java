@@ -12,18 +12,18 @@ public class ExcelFactory {
     private final static String HSSFWORKBOOK_EXTNAME = "xls";
     private final static String XSSFWORKBOOK_EXTNAME = "xlsx";
 
-	public static Workbook CreateWorkbook(String fullFilePath) throws IOException {
+	public static Workbook createWorkbook(String fullFilePath) throws IOException {
 		Workbook workbook = null;
 
     	if ( fullFilePath != null ) {
     		String[] files = fullFilePath.split("\\.");
     		if ( files.length > 0 ) {
-                String fileExt = files[files.length-1];
+                String fileExt = files[files.length-1].toLowerCase();
     			
-    			if ( fileExt.toLowerCase().equals(HSSFWORKBOOK_EXTNAME) ) {
+    			if ( fileExt.equals(HSSFWORKBOOK_EXTNAME) ) {
     				workbook = new HSSFWorkbook(new FileInputStream(fullFilePath));
     			}
-    			else if ( fileExt.toLowerCase().equals(XSSFWORKBOOK_EXTNAME) ) {
+    			else if ( fileExt.equals(XSSFWORKBOOK_EXTNAME) ) {
     				workbook = new XSSFWorkbook(new FileInputStream(fullFilePath));
     			}
     		}

@@ -49,7 +49,7 @@ public class FunctionController extends CommonController {
             JqGridCrudUtil<AdFunctionEntity, AdFunctionEntityPK> jqgrid = new JqGridCrudUtil<>(AdFunctionEntity.class, AdFunctionEntityPK.class, params);
 
             Date date = new Date();
-            Long adminID = new Long(1);
+            Long adminID = Long.valueOf(1);
 
             switch (jqgrid.getOper()) {
                 case ADD:

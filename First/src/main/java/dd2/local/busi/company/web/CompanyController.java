@@ -55,7 +55,7 @@ public class CompanyController extends CommonController {
             Date date = new Date();
 
             // 나중에 실제 LoginID와 연결하자
-            Long adminID = new Long(1);
+            Long adminID = Long.valueOf(1);
 
             switch (jqgrid.getOper()) {
                 case ADD:

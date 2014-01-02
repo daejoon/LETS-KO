@@ -50,7 +50,7 @@ public class UserRoleController extends CommonController {
             JqGridCrudUtil<AdUserRoleEntity, AdUserRoleEntityPK> jqgrid = new JqGridCrudUtil<>(AdUserRoleEntity.class, AdUserRoleEntityPK.class, params);
 
             Date date = new Date();
-            Long adminID = new Long(1);
+            Long adminID = Long.valueOf(1);
 
             switch (jqgrid.getOper()) {
                 case ADD:

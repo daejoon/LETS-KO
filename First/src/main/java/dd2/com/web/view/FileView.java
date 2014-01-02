@@ -27,42 +27,49 @@ public final class FileView extends AbstractView {
         String orignalFileName = (String)model.get("orignalFileName");
 
         FileInputStream fis = null;
-        ByteArrayOutputStream baos = null;
-        byte[] imageBuffer = null;
-
         try {
             File imageFile = new File(filePath);
             fis = new FileInputStream(imageFile);
-            baos = new ByteArrayOutputStream();
-            byte[] buffer = new byte[MAX_BUFFER_LEN];
-            int readLength = 0;
-            while( (readLength=fis.read(buffer)) != -1 ) {
-                baos.write(buffer, 0, readLength);
-            }
 
-            if ( fileType != null && fileType.equals("") == false ) {
-                response.setContentType(fileType);
-            }
+            ByteArrayOutputStream baos = null;
+            byte[] imageBuffer = null;
+            try {
+                baos = new ByteArrayOutputStream();
+                byte[] buffer = new byte[MAX_BUFFER_LEN];
+                int readLength = 0;
+                while( (readLength=fis.read(buffer)) != -1 ) {
+                    baos.write(buffer, 0, readLength);
+                }
 
-            if ( orignalFileName != null && orignalFileName.equals("") == false ) {
-                response.setHeader( "Content-Disposition", "attachment;filename=" + orignalFileName );
-            }
+                if ( fileType != null && fileType.equals("") == false ) {
+                    response.setContentType(fileType);
+                }
 
-            imageBuffer = baos.toByteArray();
-            if ( imageBuffer != null ) {
-                OutputStream outputStream = response.getOutputStream();
-                outputStream.write(imageBuffer, 0, imageBuffer.length);
-                outputStream.close();
+                if ( orignalFileName != null && orignalFileName.equals("") == false ) {
+                    response.setHeader( "Content-Disposition", "attachment;filename=" + orignalFileName );
+                }
+
+                imageBuffer = baos.toByteArray();
+                if ( imageBuffer != null ) {
+                    OutputStream outputStream = response.getOutputStream();
+                    outputStream.write(imageBuffer, 0, imageBuffer.length);
+                    outputStream.close();
+                }
+            } catch (Exception e) {
+                if ( logger.isErrorEnabled() ) {
+                    logger.error(e.getMessage());
+                }
+            } finally {
+                if ( baos != null ) {
+                    baos.close();
+                    baos = null;
+                }
             }
         } catch (Exception e) {
             if ( logger.isErrorEnabled() ) {
                 logger.error(e.getMessage());
             }
         } finally {
-            if ( baos != null ) {
-                baos.close();
-                baos = null;
-            }
             if ( fis != null ) {
                 fis.close();
                 fis = null;
