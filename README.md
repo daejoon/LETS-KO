@@ -103,15 +103,15 @@ C:\JavaDE
 
 추가 적으로 설명의 편의성을 위해서 각각의 위치를 먼저 기술한다.
 ```
-1. *PROJECT_HOME: LETS-KO (프로젝트 홈 폴더)
-2. *MODULE_HOME: LETS-KO/First (모듈 홈 폴더)
-3. *WEB_HOME: LETS-KO/First/web (웹 소스 홈 폴더)
-4. *WEB_CONFIG_HOME: LETS-KO/First/web/WEB-INF/config (웹 설정 폴더)
-5. *JAVA_SRC_HOME: LETS-KO/First/src/java (자바 소스 홈 폴더)
-6. *CONTEXT_CONFIG_HOME: LETS-KO/First/src/java/resources/config (Context 설정 홈 폴더)
-8. *TOMCAT_HOME: [Tomcat 설치위치]
-9. *MAVEN_HOME: [Maven 설치위치]
-10. *JDK_HOME: [JDK 설치위치]
+1. [PROJECT_HOME]: LETS-KO (프로젝트 홈 폴더)
+2. [MODULE_HOME]: LETS-KO/First (모듈 홈 폴더)
+3. [WEB_HOME]: LETS-KO/First/web (웹 소스 홈 폴더)
+4. [WEB_CONFIG_HOME]: LETS-KO/First/web/WEB-INF/config (웹 설정 폴더)
+5. [JAVA_SRC_HOME]: LETS-KO/First/src/java (자바 소스 홈 폴더)
+6. [CONTEXT_CONFIG_HOME]: LETS-KO/First/src/java/resources/config (Context 설정 홈 폴더)
+8. [TOMCAT_HOME]: Tomcat 설치위치
+9. [MAVEN_HOME]: Maven 설치위치
+10. [JDK_HOME]: JDK 설치위치
 ```
 
 #### IntelliJ IDEA13 설치
