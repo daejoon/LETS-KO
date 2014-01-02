@@ -102,8 +102,8 @@ C:\JavaDE
 ```
 
 
-추가 적으로 설명의 편으성을 위해서 각각의 위치를 먼저 기술한다.
-
+추가 적으로 설명의 편의성을 위해서 각각의 위치를 먼저 기술한다.
+```
 1. 프로젝트 홈: LETS-KO
 2. 모듈 홈: LETS-KO/First
 3. 웹 홈: LETS-KO/First/web
@@ -113,7 +113,7 @@ C:\JavaDE
 7. Context 설정폴더: LETS-KO/First/src/java/resources/config
 8. Spring-Context 설정폴더: LETS-KO/First/src/java/resources/config/spring
 9. log4j 설정폴더: LETS-KO/First/src/java/resources/config/log4j
-
+```
 
 #### IntelliJ IDEA13 설치
 IntelliJ IDEA13 Windows 용을 [다운로드](http://www.jetbrains.com/idea/download/index.html)한다.
