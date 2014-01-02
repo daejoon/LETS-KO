@@ -18,8 +18,9 @@
 - Tomcat 설정
  + UTF-8 설정
  + Jndi 설정
-- web.xml
- + web.xml 설정
+- Web Application 설정
+ + UTF-8 설정
+ + Log4j 설정
 - SpringFramework
  + SpringFrameWork 설정
 - SpringSecurity
@@ -215,9 +216,9 @@ Run/Debug Configurations 다이알로그가 나타난다.
 ```
 
 
-## web.xml
+## Web Application 설정
 
-#### web.xml 설정
+#### UTF-8 설정
 이 프로젝트의 기본 인코딩은 UTF-8이다.
  "First->web->WEB-INF->web.xml"에 설정한다.
 ``` xml
@@ -235,15 +236,9 @@ Run/Debug Configurations 다이알로그가 나타난다.
     <url-pattern>/*</url-pattern>
 </filter-mapping>
 ```
-"['Tomcat 7.0' Home 폴더]->conf->server.xml" useBodyEncodingForURI="true", URIEncoding="UTF-8"로 설정한다.
-```xml
-<Connector port="8080" protocol="HTTP/1.1"
-           connectionTimeout="20000"
-           redirectPort="8443"
-           useBodyEncodingForURI="true"
-           URIEncoding="UTF-8" />
-```
 
+#### Log4j 설정
+```
 Log4j의 설정 파일을 읽을수 있게 추가
 ```xml
 <!-- log4j ContextLoader -->
@@ -255,6 +250,8 @@ Log4j의 설정 파일을 읽을수 있게 추가
     <listener-class>org.springframework.web.util.Log4jConfigListener</listener-class>
 </listener>
 ```
+
+Log4j 설정 파일은 "First->src->resources->log4j->log4j.xml"을 참고한다.
 
 ## SpringFramework
 
