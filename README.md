@@ -319,6 +319,9 @@ PropertyPlaceholderConfigurer을 사용하기 위한 설정은
 ```
 이렇게 작성한 이유는 개발시에 공통 부분과 개개인 설정이 분리됨으로 해서 개발의 편의성이 증대되고 실제 배포시에는 default-config.xml만 배포함으로써
 배포 환경과 개발 환경을 분리하여 관리할수 있기 때문이다.
+따라서 여기 GitHub에도 user-config.xml 파일을 업로드 하지 않았다. 차후에 Clone한후 user-config.xml 파일을 추가하면 된다.
+사실 user-config.xml 파일과 default-config.xml 파일의 엘리먼트는 일치하지 않아도 상관없으니 경험상 일치하는게 실수 방지에 좋고 편하다.
+되도록이면 두 파일의 엘리먼트를 일치시키고 개별적 적용 엘리먼트만 user-config.xml 파일에서 수정하자.
 
 CompositeConfiguration에 로드한 파일들을 PropertyPlaceholderConfigurer에 연결시켜준다.
 ``` xml
@@ -335,6 +338,31 @@ CompositeConfiguration에 로드한 파일들을 PropertyPlaceholderConfigurer�
 </bean>
 ```
 이 설정을 함으로써 context-*.xml 파일들에서 properties를 사용할수 있다.
+
+또한 이렇게 사용한 user-config.xml과 default-config.xml 파일은 dd2.com.util.CofingUtil을 통해서 런타임시에 접근할수 있다.
+사용 방법은 xml에서 properties를 사용하듯이 dot 접근방법을 쓴다.
+sampel-config.xml
+``` xml
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <!-- mode -->
+    <mode>
+        <!-- mode.type : debug / release -->
+        <type>debug</type>
+    </mode>
+</config>
+```
+스프링 설정 파일에서 접근
+```xml
+<bean id="testSampleBean" class="org.testSample.TestBean">
+    <property name="test" value="${mode.type}" />
+</bean>
+```
+자바코드에서 접근
+```java
+String type = ConfigUtil.getString("mode.type");
+```
+위의 두 예제에서 봤듯이 최상위 config 엘리먼트는 생략가능하다.
 
 
 ## SpringSecurity
