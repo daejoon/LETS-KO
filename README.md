@@ -341,8 +341,8 @@ CompositeConfiguration에 로드한 파일들을 PropertyPlaceholderConfigurer�
 
 또한 이렇게 사용한 user-config.xml과 default-config.xml 파일은 dd2.com.util.CofingUtil을 통해서 런타임시에 접근할수 있다.
 사용 방법은 xml에서 properties를 사용하듯이 dot 접근방법을 쓴다.
-sampel-config.xml
 ``` xml
+<!-- sampel-config.xml -->
 <?xml version="1.0" encoding="UTF-8"?>
 <config>
     <!-- mode -->
