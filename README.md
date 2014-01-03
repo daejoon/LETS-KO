@@ -102,16 +102,17 @@ C:\JavaDE
 ```
 
 추가 적으로 설명의 편의성을 위해서 각각의 위치를 먼저 기술한다.
-[PROJECT_HOME]: LETS-KO (프로젝트 홈 폴더)
-[MODULE_HOME]: LETS-KO/First (모듈 홈 폴더)
-[WEB_HOME]: LETS-KO/First/web (웹 소스 홈 폴더)
-[WEB_CONFIG_HOME]: LETS-KO/First/web/WEB-INF/config (웹 설정 폴더)
-[JAVA_SRC_HOME]: LETS-KO/First/src/java (자바 소스 홈 폴더)
-[CONTEXT_CONFIG_HOME]: LETS-KO/First/src/java/resources/config (Context 설정 홈 폴더)
-[TOMCAT_HOME]: ['Tomcat' 설치위치]
-[MAVEN_HOME]: ['Maven' 설치위치]
-[JDK_HOME]: ['JDK' 설치위치]
-
+```
+1.  [PROJECT_HOME]: LETS-KO (프로젝트 홈 폴더)
+2.  [MODULE_HOME]: LETS-KO/First (모듈 홈 폴더)
+3.  [WEB_HOME]: LETS-KO/First/web (웹 소스 홈 폴더)
+4.  [WEB_CONFIG_HOME]: LETS-KO/First/web/WEB-INF/config (웹 설정 폴더)
+5.  [JAVA_SRC_HOME]: LETS-KO/First/src/java (자바 소스 홈 폴더)
+6.  [CONTEXT_CONFIG_HOME]: LETS-KO/First/src/java/resources/config (Context 설정 홈 폴더)
+8.  [TOMCAT_HOME]: ['Tomcat' 설치위치]
+9.  [MAVEN_HOME]: ['Maven' 설치위치]
+10. [JDK_HOME]: ['JDK' 설치위치]
+```
 
 #### IntelliJ IDEA13 설치
 IntelliJ IDEA13 Windows 용을 [다운로드](http://www.jetbrains.com/idea/download/index.html)한다.
@@ -173,7 +174,7 @@ Run/Debug Configurations 다이알로그가 나타난다.
 ## Tomcat 설정
 
 #### UTF-8 설정
-"[TOMCAT_HOME][TOMCAT_HOME]/conf/server.xml" useBodyEncodingForURI="true", URIEncoding="UTF-8"을 추가한다.
+"[TOMCAT_HOME]/conf/server.xml" useBodyEncodingForURI="true", URIEncoding="UTF-8"을 추가한다.
 ``` xml
 <Connector port="8080" protocol="HTTP/1.1"
            connectionTimeout="20000"
