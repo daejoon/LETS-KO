@@ -487,7 +487,7 @@ Tiles설정은 "[WEB_CONFIG_HOME]/tiles/tiles-root.xml"가 기본이다.
 </tiles-definitions>
 ```
 
-tiles-root.xml에서 "\<definition name='template.default' /\>" 구성
+tiles-root.xml에서 "\<definition name='template.default' /\>" 구성 예
 ```
 1. template.default의 전체적인 틀(템플릿)은 "/WEB-INF/view/tiles/template/default.layout.jsp"에 구성되어 있다.
 2. default.layout.jsp는 title, head, javascript, top, left, contents, bottom 부분으로 구성되어 있다.
@@ -527,6 +527,66 @@ contents 부분만 오버라이딩 해주면 된다.
 </tiles-definitions>
 
 ```
+
+웹페이지 호출 경로는 아래와 같다.
+```
+URL Call  -  Controller - Service - DAO ------
+                                             |
+                                          DataBase
+                                             |
+웹페이지    -  Controller - Service - DAO ------
+
+```
+
+여기서 Controller에서 웹페이지로 호출될때 Springframework에서는 ViewResolver를 이용해서 출력 포맷을 지정할수 있다.
+"[WEB_CONFIG_HOME]/springmvc/servlet-view.xml" 파일에서 tiles를 이용하기 위해서 viewresolver에 등록했다.
+```xml
+<bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
+    <property name="order" value="0" />
+    <property name="contentNegotiationManager">
+        <bean class="org.springframework.web.accept.ContentNegotiationManager">
+            <constructor-arg>
+                <bean class="org.springframework.web.accept.PathExtensionContentNegotiationStrategy">
+                    <constructor-arg>
+                        <map>
+                            <entry key="html"   value="text/html"/>
+                            <entry key="json"   value="application/json" />
+                            <entry key="jsonp"  value="javascript/json" />
+                            <entry key="xml"    value="application/xml" />
+                        </map>
+                    </constructor-arg>
+                </bean>
+            </constructor-arg>
+        </bean>
+    </property>
+
+    <!-- ViewResolvers -->
+    <property name="viewResolvers">
+        <list>
+            <bean class="org.springframework.web.servlet.view.BeanNameViewResolver" />
+            <bean class="org.springframework.web.servlet.view.tiles3.TilesViewResolver">
+                <property name="viewClass"      value="org.springframework.web.servlet.view.tiles3.TilesView" />
+                <property name="contentType"    value="text/html" />
+            </bean>
+            <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+                <property name="viewClass"      value="org.springframework.web.servlet.view.JstlView" />
+                <property name="prefix"         value="/WEB-INF/view/" />
+                <property name="suffix"         value=".jsp" />
+            </bean>
+        </list>
+    </property>
+
+    <!-- DefaultViews -->
+    <property name="defaultViews">
+        <list>
+            <ref bean="jacksonJsonView" />
+            <ref bean="jsonpView" />
+            <ref bean="marshallingView" />
+        </list>
+    </property>
+</bean>
+```
+
 
 
 ## Frontend
