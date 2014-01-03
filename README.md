@@ -443,7 +443,7 @@ validate: Entity와 테이블을 비교만 한다.
 ## Tiles
 
 #### Tiles 설정
-Tiles는 Servlet Context 영역으로 "First->web->WEB-INF->config->springmvc->servlet-tiles.xml"에서 설정한다.
+Tiles는 Servlet Context 영역으로 "[WEB_CONFIG_HOME]/springmvc/servlet-tiles.xml"에서 설정한다.
 ``` xml
 <!-- tiles configurer -->
 <bean id="tilesConfigurer" class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
@@ -454,6 +454,38 @@ Tiles는 Servlet Context 영역으로 "First->web->WEB-INF->config->springmvc->s
         </list>
     </property>
 </bean>
+```
+
+Tiles설정은 "[WEB_CONFIG_HOME]/tiles/tiles-root.xml"가 기본이다.
+Tiles설정은 template.default이나 template.index을 상속받아 title, contents 부분만 오버라이딩 해주면 된다.
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+        "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+
+<tiles-definitions>
+    <!-- default template -->
+    <definition name="template.default" template="/WEB-INF/view/tiles/template/default.layout.jsp">
+        <put-attribute name="title"         value="" type="string" />
+        <put-attribute name="head"          value="/WEB-INF/view/tiles/attribute/head.attr.jsp" />
+        <put-attribute name="javascript"    value="/WEB-INF/view/tiles/attribute/javascript.attr.jsp" />
+        <put-attribute name="top"           value="/WEB-INF/view/tiles/attribute/top.attr.jsp" />
+        <put-attribute name="left"          value="/WEB-INF/view/tiles/attribute/left.attr.jsp" />
+        <put-attribute name="contents"      value="/WEB-INF/view/tiles/attribute/contents.attr.jsp" />
+        <put-attribute name="bottom"        value="/WEB-INF/view/tiles/attribute/bottom.attr.jsp" />
+    </definition>
+
+    <!-- index template -->
+    <definition name="template.index" template="/WEB-INF/view/tiles/template/index.layout.jsp">
+        <put-attribute name="title"         value="" type="string" />
+        <put-attribute name="head"          value="/WEB-INF/view/tiles/attribute/head.attr.jsp" />
+        <put-attribute name="javascript"    value="/WEB-INF/view/tiles/attribute/javascript.attr.jsp" />
+        <put-attribute name="top"           value="/WEB-INF/view/tiles/attribute/top.attr.jsp" />
+        <put-attribute name="contents"      value="/WEB-INF/view/tiles/attribute/contents.attr.jsp" />
+        <put-attribute name="bottom"        value="/WEB-INF/view/tiles/attribute/bottom.attr.jsp" />
+    </definition>
+</tiles-definitions>
 ```
 
 
