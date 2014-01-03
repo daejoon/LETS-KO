@@ -56,8 +56,8 @@
 
     <!--XML View -->
     <bean id="marshallingView" class="org.springframework.web.servlet.view.xml.MarshallingView">
-        <property name="modelKey"       value="data" />
         <property name="contentType"    value="application/xml;charset=UTF-8" />
+        <property name="modelKey"       value="data" />
         <property name="marshaller">
             <bean class="org.springframework.oxm.jaxb.Jaxb2Marshaller">
                 <property name="packagesToScan">
