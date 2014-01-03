@@ -255,8 +255,8 @@ Log4j 설정 파일은 "[CONTEXT_CONFIG_HOME]/log4j/log4j.xml"을 참고한다.
 SpringFramework(이하 Spring) 설정은 Root Context 설정과, Servlet Context 설정으로 나뉜다.
 Root Context 설정은 Spring 전반적인 설정이고, Servlet Context 설정은 웹과 관련된 설정이다. Root Context 설정은
 Servlet Context로 상속된다.
-Servlet Context 설정은 "[SERVLET_CONFIG_HOME]/springmvc/servlet-*.xml" 파일을 참고한다.
-Root Context 설정은 "[CONTEXT_CONFIG_HOME]/spring/context-*.xml" 파일을 참고한다.
+Servlet Context 설정은 "[SERVLET_CONFIG_HOME]/springmvc/servlet-\*.xml" 파일을 참고한다.
+Root Context 설정은 "[CONTEXT_CONFIG_HOME]/spring/context-\*.xml" 파일을 참고한다.
 
 "[WEB_HOME]/WEB-INF/web.xml"의 Root Context 위치 설정
 ``` xml
