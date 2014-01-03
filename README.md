@@ -457,7 +457,6 @@ Tiles는 Servlet Context 영역으로 "[WEB_CONFIG_HOME]/springmvc/servlet-tiles
 ```
 
 Tiles설정은 "[WEB_CONFIG_HOME]/tiles/tiles-root.xml"가 기본이다.
-Tiles설정은 template.default이나 template.index을 상속받아 title, contents 부분만 오버라이딩 해주면 된다.
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE tiles-definitions PUBLIC
@@ -486,6 +485,31 @@ Tiles설정은 template.default이나 template.index을 상속받아 title, cont
         <put-attribute name="bottom"        value="/WEB-INF/view/tiles/attribute/bottom.attr.jsp" />
     </definition>
 </tiles-definitions>
+```
+
+"[WEB_CONFIG_HOME]/tiles/tiles-main.xml"
+Tiles설정은 tiles-root.xml의 "template.default"이나 "template.index"을 상속받아 title, contents 부분만 오버라이딩 해주면 된다.
+만약 특별한 위와 다른 구조의 레이아웃이 필요하면 tiles-root.xml에 추가한후 상속받아 사용하면 된다.
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+        "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+
+<tiles-definitions>
+    <!-- index -->
+    <definition name="main/index.tiles" extends="template.index">
+        <put-attribute name="title"     value="Welcome to Letsko!" />
+        <put-attribute name="contents"  value="/WEB-INF/view/main/index.jsp" />
+    </definition>
+
+    <!-- dashboard -->
+    <definition name="main/dashboard.tiles" extends="template.default">
+        <put-attribute name="title"     value="My Dashboard" />
+        <put-attribute name="contents"  value="/WEB-INF/view/main/dashboard.jsp" />
+    </definition>
+</tiles-definitions>
+
 ```
 
 
