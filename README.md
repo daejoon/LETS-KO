@@ -589,6 +589,31 @@ SpringFramework에서 뷰를 지정하는 순서는 viewResolver의 등록된 �
 </bean>
 ```
 
+Controller에서 호출하는 방법은 return값으로 tiles name을 넘기는 방법을 사용한다.
+"[JAVA_SRC_HOME]/dd2/local/busi/main/web/MainController.java" 참고
+```java
+@Controller
+@RequestMapping("/main/*")
+public class MainController extends CommonController {
+    private static final Log logger = LogFactory.getLog(MainController.class);
+    private static final String BASE_URL = "main/";
+
+    @Override
+    public String getBaseUrl() {
+        return BASE_URL;
+    }
+
+    @RequestMapping("index")
+    public String doIndex() {
+        return getBaseUrl() + "index.tiles";
+    }
+
+    @RequestMapping("dashboard")
+    public String doDashboard() {
+        return getBaseUrl() + "dashboard.tiles";
+    }
+}
+```
 
 ## Frontend
 
