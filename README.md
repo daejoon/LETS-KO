@@ -174,7 +174,7 @@ Run/Debug Configurations 다이알로그가 나타난다.
 ## Tomcat 설정
 
 #### UTF-8 설정
-"[TOMCAT_HOME]/conf/server.xml" useBodyEncodingForURI="true", URIEncoding="UTF-8"을 추가한다.
+"[TOMCAT_HOME][TOMCAT_HOME]/conf/server.xml" useBodyEncodingForURI="true", URIEncoding="UTF-8"을 추가한다.
 ``` xml
 <Connector port="8080" protocol="HTTP/1.1"
            connectionTimeout="20000"
