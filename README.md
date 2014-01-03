@@ -69,7 +69,7 @@ IDE 개발툴은 개발자의 생산성과 편의성을 크게 증대 시킨다�
 ```
 
 ```
-Server Side 기술 스택
+Backend 기술 스택
     ├─ SpringFramework
     ├─ SpringSecurity
     ├─ Hibernate
