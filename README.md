@@ -503,8 +503,8 @@ tiles-root.xml에서 "\<definition name='template.default' /\>" 구성
 줌으로 해서 페이지 별 화면 구성을 달리 할 수 있다.
 
 
-"[WEB_CONFIG_HOME]/tiles/tiles-main.xml"
-Tiles설정은 tiles-root.xml의 "template.default"이나 "template.index"을 상속받아 title, contents 부분만 오버라이딩 해주면 된다.
+"[WEB_CONFIG_HOME]/tiles/tiles-main.xml"의 예외 같이 "\<definition name='template.default' /\>"을 상속받아 title,
+contents 부분만 오버라이딩 해주면 된다.
 만약 특별한 위와 다른 구조의 레이아웃이 필요하면 tiles-root.xml에 추가한후 상속받아 사용하면 된다.
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
