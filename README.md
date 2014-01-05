@@ -672,26 +672,38 @@ ROOT-HOME
 
 부트스트랩을 사용하기 위해서는 각 페이지 마다 .css, .js를 포함해야 한다.
 이 프로젝트에서는 Tiles를 이용하여 부트스트랩 라이브러리를 포함시킨다.
+
 "[WEB_HOME]/WEB-INF/view/tiles/attribute/head.attr.jsp
-부트스트랩 라이브러리와 함께 부트스트랩 기반의 font-awesome 라이브러리도 같이 포함시킨다.
-"[WEB_HOME]/static/lib/font-awesome/4.0.3"에 압축을 해제한다.
-[font-awesome 다운로드](http://fontawesome.io/)
 ```html
 <!-- stylesheet -->
 <link href="${pageContext.request.contextPath}/static/lib/bootstrap/3.0.3/css/bootstrap.css" rel="stylesheet">
 <link href="${pageContext.request.contextPath}/static/lib/bootstrap/3.0.3/css/bootstrap-theme.css" rel="stylesheet">
 <link href="${pageContext.request.contextPath}/static/lib/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
-
 ```
 
+부트스트랩 라이브러리와 함께 부트스트랩 기반의 font-awesome 라이브러리도 같이 포함시킨다.
+"[WEB_HOME]/static/lib/font-awesome/4.0.3"에 압축을 해제한다.
+[font-awesome 다운로드](http://fontawesome.io/)
+
 부트스트랩의 사용법은 [Bootstrap Getting Started ](http://getbootstrap.com/getting-started/)문서를 참고한다.
+
 
 #### requirejs 설정
 requirejs는 웹을 모듈화 할수 있게 해주는 프레임웍이다. 자바스크립트 파일들을 requirejs 모듈화 규칙에 따라서 제작을 하면 각 자바스크립들에 대한
 의존성 관리를 할 수 있다.
 참고: [JavaScript 모듈화를 위한 RequireJS 핵심정리](http://jcf.daewoobrenic.co.kr/blog/?p=235)
 requirejs을 [다운로드](http://requirejs.org/docs/download.html)한다.
-환경설정은 "First->web->static->js->main.js"을 참고한다.
+"[WEB_HOME]/static/lib/require/2.1.9"에 압축을 해제한다.
+
+requierjs를 사용하기 위해서는 처음 엔트리 포인트가 필요하다. 이프로젝트에서는 head.attr.js에 작성하고 공통적으로 사용했다.
+"[WEB_HOME]/WEB-INF/view/tiles/attribute/head.attr.jsp
+``` html
+<!-- script -->
+<script src="${pageContext.request.contextPath}/static/lib/require/2.1.9/require.src.js"></script>
+<script src="${pageContext.request.contextPath}/static/js/main.js"></script>
+```
+
+환경설정은 "[WEB_HOME]/static/js/main.js"을 참고한다.
 ```javascript
 /**
  * user strict 명령은 엄격하게 JavaScript 룰을 적용하라는 의미이다.
@@ -802,7 +814,6 @@ require.config({
     waitSeconds: 15
 });
 ```
-
 
 
 #### jQuery 설정
