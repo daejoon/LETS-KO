@@ -530,11 +530,11 @@ contents 부분만 오버라이딩 해주면 된다.
 
 웹페이지 호출 경로는 아래와 같다.
 ```
-URL Call  -  Controller - Service - DAO ------
-                                             |
+URL Call -> Controller -> Service -> DAO  -----
+                                              |
                                           DataBase
-                                             |
-웹페이지    -  Controller - Service - DAO ------
+                                              |
+웹페이지   <- Controller <- Service <- DAO <-----
 
 ```
 
