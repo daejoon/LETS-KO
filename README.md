@@ -667,8 +667,23 @@ ROOT-HOME
 #### Bootstrap 설정
 부트스트랩은 css Framework으로 반응형 웹을 지원하며 CSS 고민을 덜고 웹사이트 개발을 할수 있게 해주는 아주 고마운 라이브러리다.
 부트스트랩을 [다운로드](http://getbootstrap.com/)한다. 현재 최신 버전은 3.0.3 이다.
-"First->web->static->lib->bootstrap->3.0.0"에 압축을 해제한다.
-부트스트랩 개별 설정은 "First->web->static->js->bootstrap->bootstrap.local.js"을 참고한다.
+"[WEB_HOME]/static/lib/bootstrap/3.0.3"에 압축을 해제한다.
+부트스트랩 개별 설정은 "[WEB_HOME]/static/js/bootstrap/bootstrap.local.js"을 참고한다.
+
+부트스트랩을 사용하기 위해서는 각 페이지 마다 .css, .js를 포함해야 한다.
+이 프로젝트에서는 Tiles를 이용하여 부트스트랩 라이브러리를 포함시킨다.
+"[WEB_HOME]/WEB-INF/view/tiles/attribute/head.attr.jsp
+```html
+<!-- stylesheet -->
+<link href="${pageContext.request.contextPath}/static/lib/bootstrap/3.0.3/css/bootstrap.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath}/static/lib/bootstrap/3.0.3/css/bootstrap-theme.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath}/static/lib/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+
+```
+부트스트랩 라이브러리와 함께 부트스트랩 기반의 font-awesome 라이브러리도 같이 포함시킨다.
+"[WEB_HOME]/static/lib/font-awesome/4.0.3"에 압축을 해제한다.
+[font-awesome 다운로드](http://fontawesome.io/)
+
 
 [Bootstrap Getting Started](http://getbootstrap.com/getting-started/)
 
