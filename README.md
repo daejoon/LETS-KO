@@ -673,6 +673,9 @@ ROOT-HOME
 부트스트랩을 사용하기 위해서는 각 페이지 마다 .css, .js를 포함해야 한다.
 이 프로젝트에서는 Tiles를 이용하여 부트스트랩 라이브러리를 포함시킨다.
 "[WEB_HOME]/WEB-INF/view/tiles/attribute/head.attr.jsp
+부트스트랩 라이브러리와 함께 부트스트랩 기반의 font-awesome 라이브러리도 같이 포함시킨다.
+"[WEB_HOME]/static/lib/font-awesome/4.0.3"에 압축을 해제한다.
+[font-awesome 다운로드](http://fontawesome.io/)
 ```html
 <!-- stylesheet -->
 <link href="${pageContext.request.contextPath}/static/lib/bootstrap/3.0.3/css/bootstrap.css" rel="stylesheet">
@@ -680,9 +683,6 @@ ROOT-HOME
 <link href="${pageContext.request.contextPath}/static/lib/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 
 ```
-부트스트랩 라이브러리와 함께 부트스트랩 기반의 font-awesome 라이브러리도 같이 포함시킨다.
-"[WEB_HOME]/static/lib/font-awesome/4.0.3"에 압축을 해제한다.
-[font-awesome 다운로드](http://fontawesome.io/)
 
 
 [Bootstrap Getting Started](http://getbootstrap.com/getting-started/)
