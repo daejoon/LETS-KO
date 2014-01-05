@@ -689,11 +689,12 @@ ROOT-HOME
 
 
 #### requirejs 설정
-requirejs는 웹을 모듈화 할수 있게 해주는 프레임웍이다. 자바스크립트 파일들을 requirejs 모듈화 규칙에 따라서 제작을 하면 각 자바스크립들에 대한
-의존성 관리를 할 수 있다.
-참고: [JavaScript 모듈화를 위한 RequireJS 핵심정리](http://jcf.daewoobrenic.co.kr/blog/?p=235)
-requirejs을 [다운로드](http://requirejs.org/docs/download.html)한다.
+requirejs는 웹을 모듈화 할수 있게 해주는 프레임웍이다. 자바스크립트 파일들을 requirejs 모듈화 규칙에 따라서 제작하면
+각 자바스크립들에 대한 의존성 관리를 할 수 있다.
+requirejs을 [다운로드](http://requirejs.org/docs/download.html) 한후
 "[WEB_HOME]/static/lib/require/2.1.9"에 압축을 해제한다.
+
+참고: [JavaScript 모듈화를 위한 RequireJS 핵심정리](http://jcf.daewoobrenic.co.kr/blog/?p=235)
 
 requierjs를 사용하기 위해서는 처음 엔트리 포인트가 필요하다. 이프로젝트에서는 head.attr.js에 작성하고 공통적으로 사용했다.
 "[WEB_HOME]/WEB-INF/view/tiles/attribute/head.attr.jsp
