@@ -1282,7 +1282,8 @@ function($) { "use strict";
 });
 ```
 
-[jqGrid Documentation 참고문서](http://www.trirand.com/jqgridwiki/doku.php?id=wiki:jqgriddocs),
+[jqGrid Documentation 참고문서](http://www.trirand.com/jqgridwiki/doku.php?id=wiki:jqgriddocs)
+
 [데모페이지](http://trirand.com/blog/jqgrid/jqgrid.html),
 [그리드 옵션](http://www.trirand.com/jqgridwiki/doku.php?id=wiki:options),
 [메소드](http://www.trirand.com/jqgridwiki/doku.php?id=wiki:methods),
