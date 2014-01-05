@@ -1282,22 +1282,14 @@ function($) { "use strict";
 });
 ```
 
-[jqGrid Documentation 참고문서](http://www.trirand.com/jqgridwiki/doku.php?id=wiki:jqgriddocs)
-
-[데모페이지](http://trirand.com/blog/jqgrid/jqgrid.html)
-
-[그리드 옵션](http://www.trirand.com/jqgridwiki/doku.php?id=wiki:options)
-
-[메소드](http://www.trirand.com/jqgridwiki/doku.php?id=wiki:methods)
-
-[이벤트](http://www.trirand.com/jqgridwiki/doku.php?id=wiki:events)
-
-[ColModel 옵션](http://www.trirand.com/jqgridwiki/doku.php?id=wiki:colmodel_options)
-
-[데이터 조작](http://www.trirand.com/jqgridwiki/doku.php?id=wiki:retrieving_data#json_data)
-
-[Form Editing](http://www.trirand.com/jqgridwiki/doku.php?id=wiki:form_editing)
-
+[jqGrid Documentation 참고문서](http://www.trirand.com/jqgridwiki/doku.php?id=wiki:jqgriddocs),
+[데모페이지](http://trirand.com/blog/jqgrid/jqgrid.html),
+[그리드 옵션](http://www.trirand.com/jqgridwiki/doku.php?id=wiki:options),
+[메소드](http://www.trirand.com/jqgridwiki/doku.php?id=wiki:methods),
+[이벤트](http://www.trirand.com/jqgridwiki/doku.php?id=wiki:events),
+[ColModel 옵션](http://www.trirand.com/jqgridwiki/doku.php?id=wiki:colmodel_options),
+[데이터 조작](http://www.trirand.com/jqgridwiki/doku.php?id=wiki:retrieving_data#json_data),
+[Form Editing](http://www.trirand.com/jqgridwiki/doku.php?id=wiki:form_editing),
 [작성방법](http://www.trirand.com/jqgridwiki/doku.php?id=wiki:conventions)
 
 
