@@ -673,7 +673,7 @@ ROOT-HOME
 부트스트랩을 사용하기 위해서는 각 페이지 마다 .css, .js를 포함해야 한다.
 이 프로젝트에서는 Tiles를 이용하여 부트스트랩 라이브러리를 포함시킨다.
 
-"[WEB_HOME]/WEB-INF/view/tiles/attribute/head.attr.jsp
+"[WEB_HOME]/WEB-INF/view/tiles/attribute/head.attr.jsp"에 css를 추가한다.
 ```html
 <!-- stylesheet -->
 <link href="${pageContext.request.contextPath}/static/lib/bootstrap/3.0.3/css/bootstrap.css" rel="stylesheet">
@@ -697,7 +697,8 @@ requirejs을 [다운로드](http://requirejs.org/docs/download.html) 한후
 참고: [JavaScript 모듈화를 위한 RequireJS 핵심정리](http://jcf.daewoobrenic.co.kr/blog/?p=235)
 
 requierjs를 사용하기 위해서는 처음 엔트리 포인트가 필요하다. 이프로젝트에서는 head.attr.js에 작성하고 공통적으로 사용했다.
-"[WEB_HOME]/WEB-INF/view/tiles/attribute/head.attr.jsp
+"[WEB_HOME]/WEB-INF/view/tiles/attribute/head.attr.jsp" require.src.js 파일을 추가하고 requirejs 환경설정
+파일인 main.js 파일로 추가한다.
 ``` html
 <!-- script -->
 <script src="${pageContext.request.contextPath}/static/lib/require/2.1.9/require.src.js"></script>
