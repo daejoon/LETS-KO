@@ -920,12 +920,49 @@ function($, JSON) { "use strict";
     };
 });
 ```
+프로젝트에서 jquery API와 관련된 기본적인 설정과 Custom API를 추가해서 사용하면 된다.
 
 [jQuery Documentation](http://api.jquery.com/)
 
 #### jQueryUi 설정
-jquery를 이용한 각종 UI 컴포넌트 집합니다.
+jquery를 이용한 각종 UI 컴포넌트 집합이다. jqgrid에서 사용하기 때문에 필요하다.
 [다운로드](http://jqueryui.com/download/)한다.
+"[WEB_HOME]/static/lib/jquery-ui/1.10.3"에 압축 해제 한다.
+
+jquery-ui는 css와 javascript 파일로 구성되어 있다. css는 head.attr.jsp 파일에 공통적으로 포함시킨다.
+``` html
+<link href="${pageContext.request.contextPath}/static/lib/jquery-ui/1.10.3/themes/base/jquery-ui.css" rel="stylesheet">
+```
+
+javascript 파일은 "[WEB_HOME]/static/js/main.js" 파일에 설정한다.
+``` javascript
+require.config({
+    baseUrl: "/static/js",
+    paths: {
+        ...
+        "jquery-ui"                 : "../lib/jquery-ui/1.10.3/ui/jquery-ui",
+        "jquery-ui-datepicker"      : "../lib/jquery-ui/1.10.3/ui/jquery.ui.datepicker",
+        "jquery-ui-datepicker-lang" : "../lib/jquery-ui/1.10.3/ui/i18n/jquery.ui.datepicker-ko",
+        ...
+    },
+    shim: {
+        ...
+        "jquery-ui": {
+            deps: ["jquery"]
+        },
+        "jquery-ui-datepicker": {
+            deps: ["jquery-ui"]
+        },
+        "jquery-ui-datepicker-lang": {
+            deps: ["jquery-ui-datepicker"]
+        },
+        ...
+    },
+    waitSeconds: 15
+});
+
+```
+
 
 #### jqGrid 설정
 jquery plugin 형식의 웹 그리드 이다.
