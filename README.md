@@ -816,6 +816,8 @@ require.config({
 });
 ```
 
+[Sim Configuraion 참고 문서](http://gregfranko.com/blog/require-dot-js-2-dot-0-shim-configuration/)
+
 
 #### jQuery 설정
 말이 필요없는 자바스크립트 라이브러리이다.
