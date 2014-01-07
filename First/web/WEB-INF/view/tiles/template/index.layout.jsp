@@ -16,7 +16,7 @@
 <!DOCTYPE html>
 <html lang="${config.language}">
 <head>
-    <title><tiles:insertAttribute name="title" /></title>
+    <title><tiles:getAsString name="title" /></title>
     <tiles:insertAttribute name="head" />
 </head>
 <body>
