@@ -14,49 +14,36 @@
 <%@ taglib uri="http://www.springframework.org/tags"            prefix="spring" %>
 <%@ taglib uri="http://www.springframework.org/security/tags"   prefix="sec"    %>
 <div class="panel panel-default">
-    <div class="panel-heading">글 정보</div>
-    <table class="table">
-    <tbody>
-        <tr>
-            <td class="col-md-2">제목</td>
-            <td class="col-md-9">${board.title}</td>
-        </tr>
-        <tr>
-            <td class="col-md-2">작성일</td>
-            <td class="col-md-9">${board.createDate}</td>
-        </tr>
-        <tr>
-            <td class="col-md-2">내용</td>
-            <td class="col-md-9" style="word-break: break-all; word-wrap: break-word">${board.contents}</td>
-        </tr>
-    </tbody>
-    </table>
+    <div class="panel-heading">${board.title}&nbsp;<fmt:formatDate value="${board.createDate}" pattern="[yyyy/MM/dd a hh:mm]" /></div>
     <div class="panel-body">
+        <div class="row">
+            <div class="col-md-12" style="word-break: break-all; word-wrap: break-word">${board.contents}</div>
+        </div>
         <table class="table">
             <tbody id="commentBody">
             </tbody>
         </table>
-    </div>
-    <div class="panel-footer text-right">
-        <sec:authentication property="principal" var="member" />
-        <c:if test="${member.id == board.member.id}">
-            <button id="btnModify" class="btn btn-default btn-primary">
-                <i class="icon-fixed-width icon-pencil"></i>
-                Modify
+        <p class="text-right">
+            <sec:authentication property="principal" var="member" />
+            <c:if test="${member.id == board.member.id}">
+                <button id="btnModify" class="btn btn-default">
+                    <i class="icon-fixed-width icon-pencil"></i>
+                    Modify
+                </button>
+                <button id="btnDelete" class="btn btn-default">
+                    Delete
+                </button>
+            </c:if>
+            <button id="btnReply" class="btn btn-default">
+                Reply
             </button>
-            <button id="btnDelete" class="btn btn-default btn-primary">
-                Delete
+            <button id="btnComment" class="btn btn-default">
+                Comment
             </button>
-        </c:if>
-        <button id="btnReply" class="btn btn-default btn-primary">
-            Reply
-        </button>
-        <button id="btnComment" class="btn btn-default btn-primary">
-            Comment
-        </button>
-        <button id="btnList" class="btn btn-default btn-primary">
-            List
-        </button>
+            <button id="btnList" class="btn btn-default">
+                List
+            </button>
+        </p>
     </div>
 </div>
 <script type="text/template" class="comment-tpl">

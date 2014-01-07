@@ -55,7 +55,7 @@
             </tbody>
         </table>
         <p class="text-right">
-            <button id="btnWrite" class="btn btn-default btn-xs">
+            <button id="btnWrite" class="btn btn-default">
                 <span class="glyphicon glyphicon-plus"></span> Write
             </button>
         </p>
