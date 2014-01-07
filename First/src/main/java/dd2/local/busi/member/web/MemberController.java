@@ -46,19 +46,19 @@ public class MemberController extends CommonController {
     @RequestMapping("login")
     public String doLogin() {
         if ( MemberUtil.isLogin() == false ) {
-            return BASE_URL + "login.tiles";
+            return BASE_URL + "login.indexTpl";
         }
-        return BASE_URL + "welcome.tiles";
+        return BASE_URL + "welcome.defaultTpl";
     }
 
     @RequestMapping("logout")
     public String doLogout() {
-        return BASE_URL + "logout.tiles";
+        return BASE_URL + "logout.indexTpl";
     }
 
     @RequestMapping("welcome")
     public String doWelcome() {
-        return BASE_URL + "welcome.tiles";
+        return BASE_URL + "welcome.defaultTpl";
     }
 
     @RequestMapping("addMember")
@@ -84,9 +84,9 @@ public class MemberController extends CommonController {
             member.setCreateDate(new Date());
             memberService.saveOrUpdate(member);
 
-            target_tiles = "login.tiles";
+            target_tiles = "login.indexTpl";
         } else {
-            target_tiles = "addMember.tiles";
+            target_tiles = "addMember.defaultTpl";
         }
 
         return BASE_URL + target_tiles;
@@ -102,7 +102,7 @@ public class MemberController extends CommonController {
             model.put("member", memberService.getMemberWithRoles(id));
         }
 
-        return BASE_URL + "getMember.tiles";
+        return BASE_URL + "getMember.defaultTpl";
     }
 
     @RequestMapping("deleteMember")
@@ -113,12 +113,12 @@ public class MemberController extends CommonController {
         if ( action == true ) {
             memberService.deleteById(id);
         }
-        return BASE_URL + "deleteMember.tiles";
+        return BASE_URL + "deleteMember.defaultTpl";
     }
 
     @RequestMapping("listMember")
     public String listMember(ModelMap model) {
         model.put("list", memberService.getMemberAll());
-        return BASE_URL + "listMember.tiles";
+        return BASE_URL + "listMember.defaultTpl";
     }
 }

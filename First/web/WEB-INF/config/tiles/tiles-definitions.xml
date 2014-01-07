@@ -24,4 +24,16 @@
         <put-attribute name="contents"      value="/WEB-INF/view/tiles/attribute/contents.attr.jsp" />
         <put-attribute name="bottom"        value="/WEB-INF/view/tiles/attribute/bottom.attr.jsp" />
     </definition>
+
+    <!-- 왼쪽 메뉴가 있는 템플릿 -->
+    <definition name="**/*.defaultTpl" extends="template.default">
+        <put-attribute name="title"     expression="${title}" />
+        <put-attribute name="contents"  value="/WEB-INF/view/{1}/{2}.jsp" />
+    </definition>
+
+    <!-- 웬쪽 메뉴가 없는 템플릿 -->
+    <definition name="**/*.indexTpl" extends="template.index">
+        <put-attribute name="title"     expression="${title}" />
+        <put-attribute name="contents"  value="/WEB-INF/view/{1}/{2}.jsp" />
+    </definition>
 </tiles-definitions>

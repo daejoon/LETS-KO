@@ -1,6 +1,6 @@
-package dd2.com.web.support;
+package dd2.local.web.support;
 
-import dd2.com.constants.Const;
+import dd2.local.constants.Const;
 import dd2.com.util.ConfigUtil;
 import dd2.com.util.New;
 import org.apache.commons.logging.Log;
@@ -11,7 +11,6 @@ import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.util.Enumeration;
 import java.util.Map;
 
 /**
@@ -62,8 +61,13 @@ public class UserHandlerInterceptor extends HandlerInterceptorAdapter {
     public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
         if ( modelAndView != null ) {
             ModelMap model = modelAndView.getModelMap();
+
             if ( model.containsKey(Const.CONFIG_KEY) == false ) {
                 model.put(Const.CONFIG_KEY, configMap);
+            }
+
+            if ( model.containsKey(Const.TILES_TITLE_KEY) == false ) {
+                model.put(Const.TILES_TITLE_KEY, "");
             }
         }
         super.postHandle(request, response, handler, modelAndView);

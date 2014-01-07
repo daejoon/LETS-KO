@@ -1,4 +1,4 @@
-package dd2.com.web.support;
+package dd2.local.web.support;
 
 import dd2.com.vo.BaseVO;
 import org.apache.commons.logging.Log;

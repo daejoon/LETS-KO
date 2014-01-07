@@ -1,4 +1,4 @@
-package dd2.local.busi.test;
+package dd2.local.busi.test.web;
 
 import dd2.local.busi.com.web.CommonController;
 import org.apache.commons.logging.Log;

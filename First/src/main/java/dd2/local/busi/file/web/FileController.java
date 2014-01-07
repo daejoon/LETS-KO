@@ -1,7 +1,7 @@
 package dd2.local.busi.file.web;
 
 import dd2.com.util.ConfigUtil;
-import dd2.com.web.view.ViewSelector;
+import dd2.local.web.view.ViewSelector;
 import dd2.local.busi.com.web.CommonController;
 import dd2.local.entity.TempUploadFile;
 import dd2.local.busi.file.service.FileService;

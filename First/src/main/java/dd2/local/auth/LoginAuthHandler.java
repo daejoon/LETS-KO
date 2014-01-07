@@ -1,6 +1,6 @@
 package dd2.local.auth;
 
-import dd2.com.constants.Const;
+import dd2.local.constants.Const;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.security.core.Authentication;

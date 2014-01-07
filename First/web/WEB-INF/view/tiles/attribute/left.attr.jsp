@@ -14,12 +14,12 @@
 <%@ taglib uri="http://www.springframework.org/tags"            prefix="spring" %>
 <%@ taglib uri="http://www.springframework.org/security/tags"   prefix="sec"    %>
 <div id="left-menu" class="list-group">
-    <%--<a class="list-group-item" href="<c:url value='/member/addMember.html' />">구 회원등록</a>--%>
-    <%--<a class="list-group-item" href="<c:url value='/member/getMember.html' />">회원조회</a>--%>
-    <%--<a class="list-group-item" href="<c:url value='/member/deleteMember.html' />">회원삭제</a>--%>
-    <%--<a class="list-group-item" href="<c:url value='/member/listMember.html' />">회원목록</a>--%>
-    <%--<a class="list-group-item" href="<c:url value='/board/write.html?boardName=QnA' />">글쓰기</a>--%>
-    <%--<a class="list-group-item" href="<c:url value='/board/listBoard.html?boardName=QnA' />">글목록</a>--%>
+    <a class="list-group-item" href="<c:url value='/member/addMember.html' />">구 회원등록</a>
+    <a class="list-group-item" href="<c:url value='/member/getMember.html' />">회원조회</a>
+    <a class="list-group-item" href="<c:url value='/member/deleteMember.html' />">회원삭제</a>
+    <a class="list-group-item" href="<c:url value='/member/listMember.html' />">회원목록</a>
+    <a class="list-group-item" href="<c:url value='/board/write.html?boardName=QnA' />">글쓰기</a>
+    <a class="list-group-item" href="<c:url value='/board/listBoard.html?boardName=QnA' />">글목록</a>
     <a class="list-group-item" href="<c:url value='/company/comm/list/title/회사관리' />">회사관리</a>
     <a class="list-group-item" href="<c:url value='/role/comm/list/title/회사권한관리' />">회사권한관리</a>
     <a class="list-group-item" href="<c:url value='/user/comm/list/title/회원관리' />">회원관리</a>

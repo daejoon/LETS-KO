@@ -1,4 +1,4 @@
-package dd2.com.web.support;
+package dd2.local.web.support;
 
 /**
  * Created with IntelliJ IDEA.

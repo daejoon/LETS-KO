@@ -1,4 +1,4 @@
-package dd2.com.web.view;
+package dd2.local.web.view;
 
 import dd2.com.util.ObjUtil;
 import org.apache.commons.logging.Log;

@@ -17,7 +17,7 @@
         <property name="order" value="0" />
         <property name="interceptors">
             <list>
-                <bean class="dd2.com.web.support.UserHandlerInterceptor" />
+                <bean class="dd2.local.web.support.UserHandlerInterceptor" />
             </list>
         </property>
     </bean>
@@ -25,11 +25,11 @@
     <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
         <property name="order" value="0" />
         <property name="webBindingInitializer">
-            <bean class="dd2.com.web.support.UserWebBindingInitializer" />
+            <bean class="dd2.local.web.support.UserWebBindingInitializer" />
         </property>
         <property name="customArgumentResolvers">
             <list>
-                <bean class="dd2.com.web.support.UserMethodArgumentResolver" />
+                <bean class="dd2.local.web.support.UserMethodArgumentResolver" />
             </list>
         </property>
         <property name="messageConverters">

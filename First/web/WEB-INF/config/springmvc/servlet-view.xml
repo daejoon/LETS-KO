@@ -70,12 +70,12 @@
     </bean>
 
     <!-- JSONP View-->
-    <bean id="jsonpView" class="dd2.com.web.view.JSONPView">
+    <bean id="jsonpView" class="dd2.local.web.view.JSONPView">
         <property name="contentType" value="javascript/json;charset=UTF-8" />
     </bean>
 
     <!-- image View -->
-    <bean id="fileView" class="dd2.com.web.view.FileView">
+    <bean id="fileView" class="dd2.local.web.view.FileView">
         <property name="contentType" value="image/*" />
     </bean>
 

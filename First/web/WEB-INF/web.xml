@@ -59,7 +59,7 @@
 
     <!-- Session Listener -->
     <listener>
-        <listener-class>dd2.com.web.support.UserHttpListener</listener-class>
+        <listener-class>dd2.local.web.support.UserHttpListener</listener-class>
     </listener>
 
     <!-- Servlet Dispatcher -->

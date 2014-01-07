@@ -47,7 +47,7 @@ public abstract class CommonController {
             ModelMap model,
             @PathVariable(value = "tilesName") String tilesName
     ) {
-        return getBaseUrl() + tilesName + ".tiles";
+        return getBaseUrl() + tilesName + ".defaultTpl";
     }
 
     /**
@@ -68,7 +68,7 @@ public abstract class CommonController {
             @PathVariable(value = "value") String value
     ) {
         model.put(name, value);
-        return getBaseUrl() + tilesName + ".tiles";
+        return getBaseUrl() + tilesName + ".defaultTpl";
     }
 
     @RequestMapping("comm/createGUID")

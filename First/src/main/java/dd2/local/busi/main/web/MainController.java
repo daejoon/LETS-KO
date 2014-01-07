@@ -4,6 +4,7 @@ import dd2.local.busi.com.web.CommonController;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
@@ -21,12 +22,16 @@ public class MainController extends CommonController {
     }
 
     @RequestMapping("index")
-    public String doIndex() {
-        return getBaseUrl() + "index.tiles";
+    public String doIndex(ModelMap model) {
+        model.put("title", "Welcome to Letsko!");
+        model.put("template", "index");
+        return getBaseUrl() + "index.indexTpl";
     }
 
     @RequestMapping("dashboard")
-    public String doDashboard() {
-        return getBaseUrl() + "dashboard.tiles";
+    public String doDashboard(ModelMap model) {
+        model.put("title", "My Dashboard");
+        model.put("template", "index");
+        return getBaseUrl() + "dashboard.defaultTpl";
     }
 }

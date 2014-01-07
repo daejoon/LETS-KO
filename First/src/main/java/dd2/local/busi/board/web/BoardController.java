@@ -69,7 +69,7 @@ public class BoardController extends CommonController {
         model.put("board"           , board);
         model.put("type"            , type);
 
-        return BASE_URL + "write.tiles";
+        return BASE_URL + "write.defaultTpl";
     }
 
     @RequestMapping("writeOk")
@@ -120,7 +120,7 @@ public class BoardController extends CommonController {
         model.put("pageNumber"      , pageNumber);
         model.put("pageSize"        , pageSize);
         model.put("pageBlockSize"   , pageBlockSize);
-        return BASE_URL + "getBoard.tiles";
+        return BASE_URL + "getBoard.defaultTpl";
     }
 
     @RequestMapping("getBoard")
@@ -139,7 +139,7 @@ public class BoardController extends CommonController {
         model.put("pageSize"        , pageSize);
         model.put("pageBlockSize"   , pageBlockSize);
 
-        return BASE_URL + "getBoard.tiles";
+        return BASE_URL + "getBoard.defaultTpl";
     }
 
     @RequestMapping("listBoard")
@@ -161,7 +161,7 @@ public class BoardController extends CommonController {
         model.put("listCount"       , count);
         model.put("list"            , list);
 
-        return BASE_URL + "listBoard.tiles";
+        return BASE_URL + "listBoard.defaultTpl";
     }
 
     @RequestMapping("replyList")
@@ -203,7 +203,7 @@ public class BoardController extends CommonController {
         model.put("listCount"       , count);
         model.put("list"            , list);
 
-        return BASE_URL + "listBoard.tiles";
+        return BASE_URL + "listBoard.defaultTpl";
     }
 
     @RequestMapping(
