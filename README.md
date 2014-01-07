@@ -458,6 +458,21 @@ Tiles는 Servlet Context 영역으로 "[WEB_CONFIG_HOME]/springmvc/servlet-tiles
 </bean>
 ```
 
+completeAutoload 프로퍼티의 값을 true로 EL, REGEXP를 사용할수 있다.
+"[MODULE_HOME]/pos.xml"에 tiles-extras, tiles-el를 추가한다.
+```xml
+<dependency>
+    <groupId>org.apache.tiles</groupId>
+    <artifactId>tiles-extras</artifactId>
+    <version>${tiles.version}</version>
+</dependency>
+<dependency>
+    <groupId>org.apache.tiles</groupId>
+    <artifactId>tiles-el</artifactId>
+    <version>${tiles.version}</version>
+</dependency>
+```
+
 Tiles설정은 "[WEB_CONFIG_HOME]/tiles/tiles-definitions.xml"를 참조한다.
 ```xml
 <tiles-definitions>
