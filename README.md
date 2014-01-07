@@ -447,6 +447,8 @@ Tiles는 Servlet Context 영역으로 "[WEB_CONFIG_HOME]/springmvc/servlet-tiles
 ``` xml
 <!-- tiles configurer -->
 <bean id="tilesConfigurer" class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
+    <property name="completeAutoload" value="true"/>
+    <property name="useMutableTilesContainer" value="true" />
     <property name="checkRefresh" value="true" />
     <property name="definitions">
         <list>
