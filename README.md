@@ -504,15 +504,14 @@ contents 부분만 오버라이딩 해주면 된다.
 ```xml
 <tiles-definitions>
     <!-- 왼쪽 메뉴가 있는 템플릿 -->
-    <definition name="**/*.defaultTpl" extends="template.default">
+    <definition name="REGEXP:(.*)\.defaultTpl" extends="defaultTpl">
         <put-attribute name="title"     expression="${title}" />
-        <put-attribute name="contents"  value="/WEB-INF/view/{1}/{2}.jsp" />
+        <put-attribute name="contents"  value="/WEB-INF/view/{1}.jsp" />
     </definition>
-
     <!-- 왼쪽 메뉴가 없는 템플릿 -->
-    <definition name="**/*.indexTpl" extends="template.index">
+    <definition name="REGEXP:(.*)\.indexTpl" extends="indexTpl">
         <put-attribute name="title"     expression="${title}" />
-        <put-attribute name="contents"  value="/WEB-INF/view/{1}/{2}.jsp" />
+        <put-attribute name="contents"  value="/WEB-INF/view/{1}.jsp" />
     </definition>
 </tiles-definitions>
 ```
