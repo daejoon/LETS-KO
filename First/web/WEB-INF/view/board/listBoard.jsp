@@ -21,8 +21,8 @@
             <thead>
             <tr>
                 <th class="col-md-1">순서</th>
-                <th class="col-md-2">작성자</th>
-                <th class="col-md-12">제목</th>
+                <th class="col-md-1">작성자</th>
+                <th class="col-md-8">제목</th>
                 <th class="col-md-2">작성일</th>
             </tr>
             </thead>
@@ -49,7 +49,7 @@
                             답글 <a href="#" class="replyAnchorOff" data-local='{ "id":${board.id}, "boardName":"${boardName}", "pageNumber":${pageNumber}, "pageSize":${pageSize}, "pageBlockSize":${pageBlockSize} }' >${board.replyCount}개</a>
                         </c:if>
                     </td>
-                    <td>${board.createDate}</td>
+                    <td><fmt:formatDate value="${board.createDate}" pattern="yyyy/MM/dd a hh:mm" /></td>
                 </tr>
             </c:forEach>
             </tbody>
