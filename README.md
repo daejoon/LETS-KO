@@ -477,7 +477,7 @@ Tiles설정은 "[WEB_CONFIG_HOME]/tiles/tiles-definitions.xml"를 참조한다.
 ```xml
 <tiles-definitions>
     <!-- default template -->
-    <definition name="template.default" template="/WEB-INF/view/tiles/template/default.layout.jsp">
+    <definition name="defaultTpl" template="/WEB-INF/view/tiles/template/default.layout.jsp">
         <put-attribute name="title"         value="" type="string" />
         <put-attribute name="head"          value="/WEB-INF/view/tiles/attribute/head.attr.jsp" />
         <put-attribute name="javascript"    value="/WEB-INF/view/tiles/attribute/javascript.attr.jsp" />
@@ -488,7 +488,7 @@ Tiles설정은 "[WEB_CONFIG_HOME]/tiles/tiles-definitions.xml"를 참조한다.
     </definition>
 
     <!-- index template -->
-    <definition name="template.index" template="/WEB-INF/view/tiles/template/index.layout.jsp">
+    <definition name="indexTpl" template="/WEB-INF/view/tiles/template/index.layout.jsp">
         <put-attribute name="title"         value="" type="string" />
         <put-attribute name="head"          value="/WEB-INF/view/tiles/attribute/head.attr.jsp" />
         <put-attribute name="javascript"    value="/WEB-INF/view/tiles/attribute/javascript.attr.jsp" />
