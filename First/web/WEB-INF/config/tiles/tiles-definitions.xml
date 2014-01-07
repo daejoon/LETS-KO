@@ -5,7 +5,7 @@
 
 <tiles-definitions>
     <!-- default template -->
-    <definition name="template.default" template="/WEB-INF/view/tiles/template/default.layout.jsp">
+    <definition name="defaultTpl" template="/WEB-INF/view/tiles/template/default.layout.jsp">
         <put-attribute name="title"         value="" type="string" />
         <put-attribute name="head"          value="/WEB-INF/view/tiles/attribute/head.attr.jsp" />
         <put-attribute name="javascript"    value="/WEB-INF/view/tiles/attribute/javascript.attr.jsp" />
@@ -16,7 +16,7 @@
     </definition>
 
     <!-- index template -->
-    <definition name="template.index" template="/WEB-INF/view/tiles/template/index.layout.jsp">
+    <definition name="indexTpl" template="/WEB-INF/view/tiles/template/index.layout.jsp">
         <put-attribute name="title"         value="" type="string" />
         <put-attribute name="head"          value="/WEB-INF/view/tiles/attribute/head.attr.jsp" />
         <put-attribute name="javascript"    value="/WEB-INF/view/tiles/attribute/javascript.attr.jsp" />
@@ -26,12 +26,12 @@
     </definition>
 
     <!-- 왼쪽 메뉴가 있는 템플릿 -->
-    <definition name="REGEXP:(.*)\.defaultTpl" extends="template.default">
+    <definition name="REGEXP:(.*)\.defaultTpl" extends="defaultTpl">
         <put-attribute name="title"     expression="${title}" />
         <put-attribute name="contents"  value="/WEB-INF/view/{1}.jsp" />
     </definition>
     <!-- 왼쪽 메뉴가 없는 템플릿 -->
-    <definition name="REGEXP:(.*)\.indexTpl" extends="template.index">
+    <definition name="REGEXP:(.*)\.indexTpl" extends="indexTpl">
         <put-attribute name="title"     expression="${title}" />
         <put-attribute name="contents"  value="/WEB-INF/view/{1}.jsp" />
     </definition>

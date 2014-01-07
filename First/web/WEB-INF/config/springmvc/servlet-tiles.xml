@@ -6,8 +6,8 @@
     <!-- tiles configurer -->
     <bean id="tilesConfigurer" class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
         <property name="completeAutoload" value="true"/>
-        <property name="useMutableTilesContainer" value="true" />
-        <property name="checkRefresh" value="true" />
+        <property name="useMutableTilesContainer" value="false" />
+        <property name="checkRefresh" value="false" />
         <property name="definitions">
             <list>
                 <value>/WEB-INF/config/tiles/**/tiles-*.xml</value>
