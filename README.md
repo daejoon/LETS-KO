@@ -509,7 +509,7 @@ contents 부분만 오버라이딩 해주면 된다.
         <put-attribute name="contents"  value="/WEB-INF/view/{1}/{2}.jsp" />
     </definition>
 
-    <!-- 웬쪽 메뉴가 없는 템플릿 -->
+    <!-- 왼쪽 메뉴가 없는 템플릿 -->
     <definition name="**/*.indexTpl" extends="template.index">
         <put-attribute name="title"     expression="${title}" />
         <put-attribute name="contents"  value="/WEB-INF/view/{1}/{2}.jsp" />
