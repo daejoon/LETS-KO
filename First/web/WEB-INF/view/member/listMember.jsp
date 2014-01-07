@@ -17,31 +17,31 @@
     <div class="panel-heading">회원 목록</div>
     <div class="panel-body">
         <p>현재 가입되어 있는 회원 목록 리스트 입니다.</p>
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <th class="col-md-1">순서</th>
+                <th class="col-md-2">이름</th>
+                <th class="col-md-12">비밀번호</th>
+                <th class="col-md-2">ROLE</th>
+            </tr>
+            </thead>
+            <tbody>
+            <c:forEach var="member" items="${list}" varStatus="rowCnt">
+                <tr>
+                    <td style="text-align: right;">${rowCnt.index+1}</td>
+                    <td>${member.username}</td>
+                    <td style="word-break: break-all; word-wrap: break-word;">${member.password}</td>
+                    <td>
+                        <c:forEach var="role" items="${member.roles}">
+                            ${role.roleName}
+                        </c:forEach>
+                    </td>
+                </tr>
+            </c:forEach>
+            </tbody>
+        </table>
     </div>
-    <table class="table table-bordered">
-    <thead>
-        <tr>
-            <th class="col-md-1">순서</th>
-            <th class="col-md-2">이름</th>
-            <th class="col-md-12">비밀번호</th>
-            <th class="col-md-2">ROLE</th>
-        </tr>
-    </thead>
-    <tbody>
-    <c:forEach var="member" items="${list}" varStatus="rowCnt">
-        <tr>
-            <td style="text-align: right;">${rowCnt.index+1}</td>
-            <td>${member.username}</td>
-            <td style="word-break: break-all; word-wrap: break-word;">${member.password}</td>
-            <td>
-                <c:forEach var="role" items="${member.roles}">
-                    ${role.roleName}
-                </c:forEach>
-            </td>
-        </tr>
-    </c:forEach>
-    </tbody>
-    </table>
 </div>
 
 

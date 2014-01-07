@@ -36,37 +36,37 @@
         <c:set var="contents"   value="${board.contents}" />
     </c:otherwise>
 </c:choose>
-<form method="post" action="/board/writeOk.html">
-    <input type="hidden" name="boardName"   value="${boardName}" />
-    <input type="hidden" name="id"          value="${id}" />
-    <input type="hidden" name="parentId"    value="${parentId}" />
-    <input type="hidden" name="level"       value="${level}" />
 
 <div class="panel panel-default">
     <div class="panel-heading">등록</div>
-    <table class="table">
-        <tbody>
-            <tr>
-                <td colspan="2" class="col-md-11">
-                    <input type="text" class="form-control" placeholder="Title" name="title" value="${title}" />
-                </td>
-            </tr>
-            <tr>
-                <td colspan="2" class="col-md-11">
-                    <textarea rows="10" class="form-control" placeholder="Contents" name="contents">${contents}</textarea>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-2"></td>
-                <td class="col-md-9" style="text-align: right">
-                    <input id="btnList" type="button" class="btn btn-default btn-primary" value=" List " />
-                    <input type="submit" class="btn btn-default btn-primary" value=" Submit " />
-                </td>
-            </tr>
-        </tbody>
-    </table>
+    <div class="panel-body">
+    <form method="post" action="/board/writeOk.html">
+        <input type="hidden" name="boardName"   value="${boardName}" />
+        <input type="hidden" name="id"          value="${id}" />
+        <input type="hidden" name="parentId"    value="${parentId}" />
+        <input type="hidden" name="level"       value="${level}" />
+        <div class="row">
+            <div class="col-md-12">
+                <input type="text" class="form-control" placeholder="Title" name="title" value="${title}" />
+                <p></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <textarea rows="10" class="form-control" placeholder="Contents" name="contents">${contents}</textarea>
+                <p></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-10 text-right">
+                <input id="btnList" type="button" class="btn btn-default btn-primary" value=" List " />
+                <input type="submit" class="btn btn-default btn-primary" value=" Submit " />
+            </div>
+        </div>
+    </form>
+    </div>
 </div>
-</form>
 
 <script type="text/javascript">
 ;require([

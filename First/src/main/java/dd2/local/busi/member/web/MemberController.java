@@ -86,7 +86,7 @@ public class MemberController extends CommonController {
 
             target_tiles = "login.indexTpl";
         } else {
-            target_tiles = "addMember.defaultTpl";
+            target_tiles = "addMember.indexTpl";
         }
 
         return BASE_URL + target_tiles;
