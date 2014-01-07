@@ -456,13 +456,8 @@ Tiles는 Servlet Context 영역으로 "[WEB_CONFIG_HOME]/springmvc/servlet-tiles
 </bean>
 ```
 
-Tiles설정은 "[WEB_CONFIG_HOME]/tiles/tiles-root.xml"가 기본이다.
+Tiles설정은 "[WEB_CONFIG_HOME]/tiles/tiles-definitions.xml"를 참조한다.
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE tiles-definitions PUBLIC
-        "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
-        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
-
 <tiles-definitions>
     <!-- default template -->
     <definition name="template.default" template="/WEB-INF/view/tiles/template/default.layout.jsp">
@@ -487,7 +482,7 @@ Tiles설정은 "[WEB_CONFIG_HOME]/tiles/tiles-root.xml"가 기본이다.
 </tiles-definitions>
 ```
 
-tiles-root.xml에서 "\<definition name='template.default' /\>" 구성 예
+tiles-definitions.xml에서 "\<definition name='template.default' /\>" 구성 예
 ```
 1. template.default의 전체적인 틀(템플릿)은 "/WEB-INF/view/tiles/template/default.layout.jsp"에 구성되어 있다.
 2. default.layout.jsp는 title, head, javascript, top, left, contents, bottom 부분으로 구성되어 있다.
@@ -503,29 +498,23 @@ tiles-root.xml에서 "\<definition name='template.default' /\>" 구성 예
 줌으로 해서 페이지 별 화면 구성을 달리 할 수 있다.
 
 
-"[WEB_CONFIG_HOME]/tiles/tiles-main.xml"의 예외 같이 "\<definition name='template.default' /\>"을 상속받아 title,
+"[WEB_CONFIG_HOME]/tiles/tiles-definitions.xml"의 예외 같이 "\<definition name='template.default' /\>"을 상속받아 title,
 contents 부분만 오버라이딩 해주면 된다.
-만약 특별한 위와 다른 구조의 레이아웃이 필요하면 tiles-root.xml에 추가한후 상속받아 사용하면 된다.
+만약 특별한 위와 다른 구조의 레이아웃이 필요하면 tiles-definitions.xml에 기본 템플릿을 추가한후 상속받아 사용하면 된다.
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE tiles-definitions PUBLIC
-        "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
-        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
-
 <tiles-definitions>
-    <!-- index -->
-    <definition name="main/index.tiles" extends="template.index">
-        <put-attribute name="title"     value="Welcome to Letsko!" />
-        <put-attribute name="contents"  value="/WEB-INF/view/main/index.jsp" />
+    <!-- 왼쪽 메뉴가 있는 템플릿 -->
+    <definition name="**/*.defaultTpl" extends="template.default">
+        <put-attribute name="title"     expression="${title}" />
+        <put-attribute name="contents"  value="/WEB-INF/view/{1}/{2}.jsp" />
     </definition>
 
-    <!-- dashboard -->
-    <definition name="main/dashboard.tiles" extends="template.default">
-        <put-attribute name="title"     value="My Dashboard" />
-        <put-attribute name="contents"  value="/WEB-INF/view/main/dashboard.jsp" />
+    <!-- 웬쪽 메뉴가 없는 템플릿 -->
+    <definition name="**/*.indexTpl" extends="template.index">
+        <put-attribute name="title"     expression="${title}" />
+        <put-attribute name="contents"  value="/WEB-INF/view/{1}/{2}.jsp" />
     </definition>
 </tiles-definitions>
-
 ```
 
 웹페이지 호출 경로는 아래와 같다.
