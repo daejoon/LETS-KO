@@ -499,9 +499,9 @@ Tiles설정은 "[WEB_CONFIG_HOME]/tiles/tiles-definitions.xml"를 참조한다.
 </tiles-definitions>
 ```
 
-tiles-definitions.xml에서 "\<definition name='template.default' /\>" 구성 예
+tiles-definitions.xml에서 "\<definition name='defaultTpl' /\>" 구성 예
 ```
-1. template.default의 전체적인 틀(템플릿)은 "/WEB-INF/view/tiles/template/default.layout.jsp"에 구성되어 있다.
+1. defaultTpl의 전체적인 틀(템플릿)은 "/WEB-INF/view/tiles/template/default.layout.jsp"에 구성되어 있다.
 2. default.layout.jsp는 title, head, javascript, top, left, contents, bottom 부분으로 구성되어 있다.
     2.1. title: 웹페이지의 제목이 오는 부분
     2.2. head: html의 <head></head> 태그 안에 부분
@@ -511,11 +511,10 @@ tiles-definitions.xml에서 "\<definition name='template.default' /\>" 구성 �
     2.6. contents: 각 페이지별로 화면구성
     2.7. bottom: 회사소개, Copyright 구성
 ```
-결국 "\<definition name='template.default' /\>"을 상속 받는다는 것은 위 공통 구성을 사용한다는 것이고 그중 title, contents부분만 교체해
+결국 "\<definition name='defaultTpl' /\>"을 상속 받는다는 것은 위 공통 구성을 사용한다는 것이고 그중 title, contents부분만 교체해
 줌으로 해서 페이지 별 화면 구성을 달리 할 수 있다.
 
-
-"[WEB_CONFIG_HOME]/tiles/tiles-definitions.xml"의 예외 같이 "\<definition name='template.default' /\>"을 상속받아 title,
+"[WEB_CONFIG_HOME]/tiles/tiles-definitions.xml"의 예외 같이 "\<definition name='defaultTpl' /\>"을 상속받아 title,
 contents 부분만 오버라이딩 해주면 된다.
 만약 특별한 위와 다른 구조의 레이아웃이 필요하면 tiles-definitions.xml에 기본 템플릿을 추가한후 상속받아 사용하면 된다.
 ```xml
