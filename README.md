@@ -545,8 +545,9 @@ URL Call -> Controller -> Service -> DAO  -----
 
 여기서 Controller에서 웹페이지로 호출될때 Springframework에서는 ViewResolver를 이용해서 출력 포맷을 지정할수 있다.
 "[WEB_CONFIG_HOME]/springmvc/servlet-view.xml" 파일에서 tiles를 이용하기 위해서 viewresolver에 등록했다
-SpringFramework에서 뷰를 지정하는 순서는 viewResolver의 등록된 순서대로 찾고 없으면 defaultViews에 찾고 그래도 없으면
-404에러가 발생한다.
+SpringFramework에서 뷰를 지정하는 순서는 ContentNegotiatingViewResolver 패턴매칭 알고리즘에 의해서 몇 가지 후보군을 고른후
+defaultViews의 View를 추가하여 총 후보군을 설정 매칭후 결과를 리턴한다.
+매칭 결과 일치하는 View를 찾을수 없으면 404에러가 발생한다.
 ```xml
 <bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
     <property name="order" value="0" />
