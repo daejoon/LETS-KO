@@ -611,15 +611,18 @@ public class MainController extends CommonController {
 
     @RequestMapping("index")
     public String doIndex() {
-        return getBaseUrl() + "index.tiles";
+        return getBaseUrl() + "index.indexTpl";
     }
 
     @RequestMapping("dashboard")
     public String doDashboard() {
-        return getBaseUrl() + "dashboard.tiles";
+        return getBaseUrl() + "dashboard.defaultTpl";
     }
 }
 ```
+Tiles 템플릿은 indexTpl, defaultTpl 두가지 종류가 있고 필요에 따라서 추가한후 사용하면 된다.
+추가는 "[WEB_CONFIG_HOME]/tiles/tiles-definitions.xml"에 추가한다.
+
 
 ## Frontend
 

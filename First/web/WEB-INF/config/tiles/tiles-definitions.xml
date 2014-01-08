@@ -30,6 +30,7 @@
         <put-attribute name="title"     expression="${title}"/>
         <put-attribute name="contents"  value="/WEB-INF/view/{1}.jsp" />
     </definition>
+
     <!-- 왼쪽 메뉴가 없는 템플릿 -->
     <definition name="REGEXP:(.*)\.indexTpl" extends="indexTpl">
         <put-attribute name="title"     expression="${title}"/>
