@@ -22,7 +22,7 @@
  + UTF-8 설정
  + Log4j 설정
 - SpringFramework
- + SpringFrameWork 설정
+ + SpringFramework 설정
  + user-config.xml, default-config.xml 설정
 - SpringSecurity
  + SpringSecurity 설정
@@ -278,7 +278,7 @@ Log4j 설정 파일은 "[CONTEXT_CONFIG_HOME]/log4j/log4j.xml"을 참고한다.
 
 ## SpringFramework
 
-### SpringFrameWork 설정
+### SpringFramework 설정
 
 SpringFramework(이하 Spring) 설정은 Root Context 설정과, Servlet Context 설정으로 나뉜다.
 
