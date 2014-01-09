@@ -114,18 +114,14 @@ C:\JavaDE
 10. [JDK_HOME]: ['JDK' 설치위치]
 ```
 
-
-
-## IntelliJ IDEA13 설치
+### IntelliJ IDEA13 설치
 
 IntelliJ IDEA13 Windows 용을 [다운로드](http://www.jetbrains.com/idea/download/index.html)한다.
 
 IntelliJ 설정은 [기본설정](http://beyondj2ee.wordpress.com/2013/06/01/%EC%9D%B8%ED%85%94%EB%A6%ACj-%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0-part1-getting-start-intellij-%EA%B8%B0%EB%B3%B8-%EC%84%A4%EC%A0%95%ED%8E%B8/),
 [자바설정](http://beyondj2ee.wordpress.com/2013/06/15/%EC%9D%B8%ED%85%94%EB%A6%ACj-%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0-part2-getting-start-intellij-%EC%9E%90%EB%B0%94-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%ED%8E%B8/)을 참고한다.
 
-
-
-## Git 설치
+### Git 설치
 
 Git은 리눅스 커널을 개발 관리하기 위해서 [리누스 토발즈](http://ko.wikipedia.org/wiki/%EB%A6%AC%EB%88%84%EC%8A%A4_%ED%86%A0%EB%A5%B4%EB%B0%9C%EC%8A%A4)가 만든 형상관리 툴이다.
 
@@ -136,8 +132,7 @@ Git은 리눅스 커널을 개발 관리하기 위해서 [리누스 토발즈](h
 IntelliJ와 연동은 [IntelliJ-Git 설정](http://beyondj2ee.wordpress.com/2013/06/28/%ec%9d%b8%ed%85%94%eb%a6%acj-%ec%8b%9c%ec%9e%91%ed%95%98%ea%b8%b0-part4-getting-start-intellij-git/)을 참고한다.
 
 
-
-## Maven 설치
+### Maven 설치
 
 의존성 관리만으로도 Maven을 설치할만한 가치는 충분이 크다. Maven 현재 최신 버전은 3.1.1 이다.
 
@@ -146,8 +141,7 @@ Maven 3.1.1 (Binary zip)을 [다운로드](http://maven.apache.org/download.cgi)
 "[IntelliJ Menu]->File->settings...->Maven->Maven Home directory->[선택]" 압축해제한 곳을 선택한다.
 
 
-
-## Web Application Server
+### Web Application Server
 
 Web Application Server(이하 WAS)는 여러 밴더가 존재한다. 여러가지 현실적 이유때문에 개발환경과 배포환경의 WAS가 일치하지 않는 경우가 있다.
 
@@ -157,15 +151,16 @@ Tomcat 7.0 Version은 [여기를](http://tomcat.apache.org/whichversion.html) �
 
 개발은 일반적으로 많이 사용하는 Tomcat을 이용한다. [Tomcat 7.0 다운로드](http://tomcat.apache.org/download-70.cgi)
 
-
-
-## Database 설치
+### Database 설치
 
 이 프로젝트에서는 Hibernate를 사용하기 때문에 사실 특정 DataBase를 설치할 필요는 없다. 취양에 맞춰 설치하자.
 
 
 
-## Java Project 생성
+
+## 프로젝트 생성 및 설정
+
+### Java Project 생성
 
 이번 프로젝트는 새로운 프로젝트를 생성하기 보다는 GitHub에서 Checkout해서 생성한다. 처음 IntelliJ를 실행하면은 Dashboard가 나타난다.
 
@@ -181,9 +176,7 @@ Import Project 다이알로그 창이 나타나면
 
 "File->Import Module->['First.iml' 선택]->['OK' 버튼 클릭]" 한다.
 
-
-
-## Run/Debug Configurations 설정
+### Run/Debug Configurations 설정
 
 "Run->['Edit Configurations' 선택]" 한다.
 
@@ -197,16 +190,15 @@ Run/Debug Configurations 다이알로그가 나타난다.
 
 "File->Project Structure...->Project Settings->Modules->['First' 모듈 선택]->Dependencies->['+' 버튼 클릭]->Library...->Application Server Libraries->['Tomcat 7.0' 선택]->['Add Selected' 버튼 클릭]" 하여 WAS에 의존적인 라이브러리를 링크한다.
 
-
-
-
-## Git 설정
+### Git 설정
 
 "File->Settings...->Version Control->Ignored Files->['+' 버튼 클릭]->Ignore all files under->['...' 선택]->['.idea' 폴더 선택]->['Ok' 버튼 클릭]"
 
 
 
-## UTF-8 설정
+## Tomcat 설정
+
+### UTF-8 설정
 
 "[TOMCAT_HOME]/conf/server.xml" useBodyEncodingForURI="true", URIEncoding="UTF-8"을 추가한다.
 ``` xml
@@ -217,9 +209,7 @@ Run/Debug Configurations 다이알로그가 나타난다.
            URIEncoding="UTF-8" />
 ```
 
-
-
-## Jndi 설정
+### Jndi 설정
 
 "[TOMCAT_HOME]/conf/context.xml"에 Resource 엘리먼트를 추가한다.
 ``` xml
@@ -250,9 +240,9 @@ Run/Debug Configurations 다이알로그가 나타난다.
 ```
 
 
+## Web Application 설정
 
-
-## UTF-8 설정
+### UTF-8 설정
 
 이 프로젝트의 기본 인코딩은 UTF-8이다. "[WEB_HOME]/WEB-INF/web.xml"에 설정한다.
 ``` xml
@@ -271,9 +261,7 @@ Run/Debug Configurations 다이알로그가 나타난다.
 </filter-mapping>
 ```
 
-
-
-## Log4j 설정
+### Log4j 설정
 
 Log4j의 설정 파일을 읽을수 있게 web.xml에 추가
 ``` xml
@@ -289,13 +277,21 @@ Log4j의 설정 파일을 읽을수 있게 web.xml에 추가
 
 Log4j 설정 파일은 "[CONTEXT_CONFIG_HOME]/log4j/log4j.xml"을 참고한다.
 
+
+
+
 ## SpringFramework
 
-#### SpringFrameWork 설정
+### SpringFrameWork 설정
+
 SpringFramework(이하 Spring) 설정은 Root Context 설정과, Servlet Context 설정으로 나뉜다.
-Root Context 설정은 Spring 전반적인 설정이고, Servlet Context 설정은 웹과 관련된 설정이다. Root Context 설정은
-Servlet Context로 상속된다.
+
+Root Context 설정은 Spring 전반적인 설정이고, Servlet Context 설정은 웹과 관련된 설정이다.
+
+Root Context 설정은 Servlet Context로 상속된다.
+
 Servlet Context 설정은 "[SERVLET_CONFIG_HOME]/springmvc/servlet-\*.xml" 파일을 참고한다.
+
 Root Context 설정은 "[CONTEXT_CONFIG_HOME]/spring/context-\*.xml" 파일을 참고한다.
 
 "[WEB_HOME]/WEB-INF/web.xml"의 Root Context 위치 설정
@@ -330,9 +326,12 @@ Root Context 설정은 "[CONTEXT_CONFIG_HOME]/spring/context-\*.xml" 파일을 �
 </servlet-mapping>
 ```
 
-####  user-config.xml, default-config.xml 설정
+###  user-config.xml, default-config.xml 설정
+
 Spring의 org.springframework.beans.factory.config.PropertyPlaceholderConfigurer을 사용하면 properties를 스프링 설정에 사용할수 있다.
+
 여기에 org.springmodules을 추가하면 properties를 사용하지 않고 xml로 대체할 수 있다.
+
 이 프로젝트는 org.springmodules를 사용했다.
 
 "[CONTEXT_CONFIG_HOME]/spring/context-common.xml"에 CompositeConfiguration을 이용하여 xml 설정파일을 여러개 올릴수 있다.
@@ -356,10 +355,15 @@ Spring의 org.springframework.beans.factory.config.PropertyPlaceholderConfigurer
     </constructor-arg>
 </bean>
 ```
+
 이렇게 작성한 이유는 개발시에 공통 부분과 개개인 설정이 분리됨으로 해서 개발의 편의성이 증대되고 실제 배포시에는 default-config.xml만 배포함으로써
+
 배포 환경과 개발 환경을 분리하여 관리할수 있기 때문이다.
+
 따라서 여기 GitHub에도 user-config.xml 파일을 업로드 하지 않았다. 차후에 Clone한후 user-config.xml 파일을 추가하면 된다.
+
 사실 user-config.xml 파일과 default-config.xml 파일의 엘리먼트는 일치하지 않아도 상관없으니 경험상 일치하는게 실수 방지에 좋고 편하다.
+
 되도록이면 두 파일의 엘리먼트를 일치시키고 개별적 적용 엘리먼트만 user-config.xml 파일에서 수정하자.
 
 "[CONTEXT_CONFIG_HOME]/spring/context-common.xml"에 CompositeConfiguration을 이용하여 설정 xml 파일들을 PropertyPlaceholderConfigurer에 연결시켜준다.
@@ -379,7 +383,10 @@ Spring의 org.springframework.beans.factory.config.PropertyPlaceholderConfigurer
 이 설정을 함으로써 context-*.xml 파일들에서 properties를 사용할수 있다.
 
 또한 이렇게 사용한 user-config.xml과 default-config.xml 파일은 dd2.com.util.CofingUtil을 통해서 런타임시에 접근할수 있다.
+
 사용 방법은 xml에서 properties를 사용하듯이 dot 접근방법을 쓴다.
+
+*-config.xml 파일 작성 예
 ``` xml
 <!-- sampel-config.xml -->
 <?xml version="1.0" encoding="UTF-8"?>
@@ -391,22 +398,28 @@ Spring의 org.springframework.beans.factory.config.PropertyPlaceholderConfigurer
     </mode>
 </config>
 ```
+
 스프링 설정 파일에서 접근
 ```xml
 <bean id="testSampleBean" class="org.testSample.TestBean">
     <property name="test" value="${mode.type}" />
 </bean>
 ```
+
 자바코드에서 접근
 ```java
 String type = ConfigUtil.getString("mode.type");
 ```
+
 위의 두 예제에서 봤듯이 최상위 config 엘리먼트는 생략가능하다.
+
+
 
 
 ## SpringSecurity
 
-#### SpringSecurity 설정
+### SpringSecurity 설정
+
 SpringSecurity를 사용함으로써 많은 부분의 권한관리를 줄일수 있다.
 
 "[WEB_HOME]/WEB-INF/web.xml"의 DelegatingFilterProxy filter 설정해야 SpringSecurity가 동작한다.
@@ -424,9 +437,12 @@ SpringSecurity를 사용함으로써 많은 부분의 권한관리를 줄일수 
 SpringSecurity의 세부 설정은 "[CONTEXT_CONFIG_HOME]/spring/context-security.xml"을 확인한다.
 
 
+
+
 ## Hibernate
 
-#### Hibernate 설정
+### Hibernate 설정
+
 "[CONTEXT_CONFIG_HOME]/spring/context-datasource.xml"의 LocalSessionFactoryBean Bean을 설정한다.
 LocalSessionFactoryBean은 Hibernate Annotation을 사용할수 있다.
 ``` xml
@@ -469,6 +485,7 @@ hibernate.show_sql, hibernate.format_sql을 true로 설정하여 개발시에 co
     </hbm2ddl>
 </hibernate>
 ```
+
 hibernate.hbm2ddl.auto의 값은 create, create-drop, update, validate 값이 올수 있다.
 ```
 create: Entity를 기초로 테이블을 생성한다.
@@ -476,13 +493,19 @@ create-drop: Entity를 기초로 테이블을 생성하고 프로그램 종료�
 update: Entity와 테이블을 비교하여 변경 부분을 적용한다. (권한에 따라 안될수도 있다.)
 validate: Entity와 테이블을 비교만 한다.
 ```
+
 대부분 프로젝트를 만들때 데이터베이스 테이블을 미리 구성하고 그다음에 Entity를 생성한다. 따라서 이 프로젝트와 같이 테이블을 역으로 생성하는 경우는 드물다.
-여기서는 create로 테이블을 생성후에 설정값을 validate로 변경하자. 그렇게 하지 않는다면 WAS가 실행될때마다 테이블이 다시 생성되어서 기존 데이터가 삭제된다.
+
+여기서는 create로 테이블을 생성후에 설정값을 validate로 변경하자.
+
+그렇게 하지 않는다면 WAS가 실행될때마다 테이블이 다시 생성되어서 기존 데이터가 삭제된다.
+
 
 
 ## Tiles
 
-#### Tiles 설정
+### Tiles 설정
+
 Tiles는 Servlet Context 영역으로 "[WEB_CONFIG_HOME]/springmvc/servlet-tiles.xml"에서 설정한다.
 ``` xml
 <!-- tiles configurer -->
