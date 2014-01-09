@@ -16,7 +16,7 @@ import java.util.*;
  */
 @Entity
 @Table(name = "TB_MEMBER"
-    , uniqueConstraints = { @UniqueConstraint(columnNames = {"USERNAME"}) }
+        , uniqueConstraints = { @UniqueConstraint(columnNames = {"USERNAME"}) }
 )
 public class Member implements Serializable, UserDetails {
     @Id
@@ -30,7 +30,7 @@ public class Member implements Serializable, UserDetails {
     @Column(name = "PASSWORD", nullable = false)
     private String password;
 
-    @Column(name = "ENABLED", nullable = false)
+    @Column(name = "ENABLED", nullable = false, columnDefinition = "TINYINT(1) NOT NULL")
     private Boolean enabled;
 
     @Column(name = "CREATE_DATE", nullable = false)
