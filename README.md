@@ -1,9 +1,10 @@
 # LET'S KO Project
 
-## 차례
+실제 프로젝트 시작전까지 비지니스 로직를 제외한 개발환경 구축 및 간단한 CRUD Sample을 만들어 보는 것이다.
 
-- Let's Ko Project
- + Let's Ko Project에 대해서
+
+# 차례
+
 - 개발환경 구성 및 설치
  + 개발환경 구성
  + IntelliJ IDEA 13 설치
@@ -41,12 +42,7 @@
  + 마치며
 
 
-
-## Let's Ko Project에 대해서
-
-실제 프로젝트 시작전까지 비지니스 로직를 제외한 개발환경 구축 및 간단한 CRUD Sample을 만들어 보는 것이다.
-
-
+# 개발환경 구성 및 설치
 
 ## 개발환경 구성
 
@@ -190,22 +186,30 @@ Import Project 다이알로그 창이 나타나면
 
 
 ## Run/Debug Configurations 설정
-"Run->['Edit Configurations' 선택]" 한다.
-Run/Debug Configurations 다이알로그가 나타난다.
-"+->Tomcat Server->['Local' 클릭]" 한다.
-"Name->['First - Tomcat 7.0' 입력]->Application Server->['Tomcat 7.0' 선택]" 한다.
-"Fix->['First:war exploded' 선택]->['OK' 버튼 클릭]" 한다.
- "File->Project Structure...->Project Settings->Modules->['First' 모듈 선택]->Dependencies
-->['+' 버튼 클릭]->Library...->Application Server Libraries->['Tomcat 7.0' 선택]
-->['Add Selected' 버튼 클릭]" 하여 WAS에 의존적인 라이브러리를 링크한다.
 
-#### Git 설정
+"Run->['Edit Configurations' 선택]" 한다.
+
+Run/Debug Configurations 다이알로그가 나타난다.
+
+"+->Tomcat Server->['Local' 클릭]" 한다.
+
+"Name->['First - Tomcat 7.0' 입력]->Application Server->['Tomcat 7.0' 선택]" 한다.
+
+"Fix->['First:war exploded' 선택]->['OK' 버튼 클릭]" 한다.
+
+"File->Project Structure...->Project Settings->Modules->['First' 모듈 선택]->Dependencies->['+' 버튼 클릭]->Library...->Application Server Libraries->['Tomcat 7.0' 선택]->['Add Selected' 버튼 클릭]" 하여 WAS에 의존적인 라이브러리를 링크한다.
+
+
+
+
+## Git 설정
+
 "File->Settings...->Version Control->Ignored Files->['+' 버튼 클릭]->Ignore all files under->['...' 선택]->['.idea' 폴더 선택]->['Ok' 버튼 클릭]"
 
 
-## Tomcat 설정
 
-#### UTF-8 설정
+## UTF-8 설정
+
 "[TOMCAT_HOME]/conf/server.xml" useBodyEncodingForURI="true", URIEncoding="UTF-8"을 추가한다.
 ``` xml
 <Connector port="8080" protocol="HTTP/1.1"
@@ -215,7 +219,10 @@ Run/Debug Configurations 다이알로그가 나타난다.
            URIEncoding="UTF-8" />
 ```
 
-#### Jndi 설정
+
+
+## Jndi 설정
+
 "[TOMCAT_HOME]/conf/context.xml"에 Resource 엘리먼트를 추가한다.
 ``` xml
 <Resource name="[jndi이름: 예)jdbc/letsko_ds01]"
@@ -245,11 +252,11 @@ Run/Debug Configurations 다이알로그가 나타난다.
 ```
 
 
-## Web Application 설정
 
-#### UTF-8 설정
-이 프로젝트의 기본 인코딩은 UTF-8이다.
- "[WEB_HOME]/WEB-INF/web.xml"에 설정한다.
+
+## UTF-8 설정
+
+이 프로젝트의 기본 인코딩은 UTF-8이다. "[WEB_HOME]/WEB-INF/web.xml"에 설정한다.
 ``` xml
 <!-- Encoding Filter -->
 <filter>
@@ -266,7 +273,10 @@ Run/Debug Configurations 다이알로그가 나타난다.
 </filter-mapping>
 ```
 
-#### Log4j 설정
+
+
+## Log4j 설정
+
 Log4j의 설정 파일을 읽을수 있게 web.xml에 추가
 ``` xml
 <!-- log4j ContextLoader -->
