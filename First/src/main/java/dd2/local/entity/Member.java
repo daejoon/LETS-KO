@@ -30,6 +30,7 @@ public class Member implements Serializable, UserDetails {
     @Column(name = "PASSWORD", nullable = false)
     private String password;
 
+    // SQLServer 일때는 columnDefinition을 제외시킨다.
     @Column(name = "ENABLED", nullable = false, columnDefinition = "TINYINT(1) NOT NULL")
     private Boolean enabled;
 
