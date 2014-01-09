@@ -15,9 +15,7 @@ import java.util.*;
  * To change this template use File | Settings | File Templates.
  */
 @Entity
-@Table(name = "TB_MEMBER"
-        , uniqueConstraints = { @UniqueConstraint(columnNames = {"USERNAME"}) }
-)
+@Table(name = "TB_MEMBER", uniqueConstraints = { @UniqueConstraint(columnNames = {"USERNAME"}) })
 public class Member implements Serializable, UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
