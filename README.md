@@ -175,17 +175,15 @@ Tomcat 7.0 Version은 [여기를](http://tomcat.apache.org/whichversion.html) �
 
 ### Run/Debug Configurations 설정
 
-"Run->['Edit Configurations' 선택]" 한다.
+1. "Run->['Edit Configurations' 선택]" 한다.
 
-Run/Debug Configurations 다이알로그가 나타난다.
+2. Run/Debug Configurations 다이알로그가 나타난다. "+->Tomcat Server->['Local' 클릭]" 한다.
 
-"+->Tomcat Server->['Local' 클릭]" 한다.
+3. "Name->['First - Tomcat 7.0' 입력]->Application Server->['Tomcat 7.0' 선택]" 한다.
 
-"Name->['First - Tomcat 7.0' 입력]->Application Server->['Tomcat 7.0' 선택]" 한다.
+4. "Fix->['First:war exploded' 선택]->['OK' 버튼 클릭]" 한다.
 
-"Fix->['First:war exploded' 선택]->['OK' 버튼 클릭]" 한다.
-
-"File->Project Structure...->Project Settings->Modules->['First' 모듈 선택]->Dependencies->['+' 버튼 클릭]->Library...->Application Server Libraries->['Tomcat 7.0' 선택]->['Add Selected' 버튼 클릭]" 하여 WAS에 의존적인 라이브러리를 링크한다.
+5. "File->Project Structure...->Project Settings->Modules->['First' 모듈 선택]->Dependencies->['+' 버튼 클릭]->Library...->Application Server Libraries->['Tomcat 7.0' 선택]->['Add Selected' 버튼 클릭]" 하여 WAS에 의존적인 라이브러리를 링크한다.
 
 ### Git 설정
 
@@ -241,7 +239,9 @@ Run/Debug Configurations 다이알로그가 나타난다.
 
 ### UTF-8 설정
 
-이 프로젝트의 기본 인코딩은 UTF-8이다. "[WEB_HOME]/WEB-INF/web.xml"에 설정한다.
+이 프로젝트의 기본 인코딩은 UTF-8이다.
+
+"[WEB_HOME]/WEB-INF/web.xml"에 Spring CharacterEncodingFilter를 이용해서 UTF-8을 설정한다.
 ``` xml
 <!-- Encoding Filter -->
 <filter>
@@ -260,7 +260,7 @@ Run/Debug Configurations 다이알로그가 나타난다.
 
 ### Log4j 설정
 
-Log4j의 설정 파일을 읽을수 있게 web.xml에 추가
+Log4j의 설정 파일을 읽을수 있게 web.xml에 추가한다.
 ``` xml
 <!-- log4j ContextLoader -->
 <context-param>
@@ -273,7 +273,6 @@ Log4j의 설정 파일을 읽을수 있게 web.xml에 추가
 ```
 
 Log4j 설정 파일은 "[CONTEXT_CONFIG_HOME]/log4j/log4j.xml"을 참고한다.
-
 
 
 
@@ -331,8 +330,7 @@ Spring의 org.springframework.beans.factory.config.PropertyPlaceholderConfigurer
 
 이 프로젝트는 org.springmodules를 사용했다.
 
-"[CONTEXT_CONFIG_HOME]/spring/context-common.xml"에 CompositeConfiguration을 이용하여 xml 설정파일을 여러개 올릴수 있다.
-두 설정 파일 중에 같은 엘리먼트가 존재하면 먼저 올린 user-config.xml 파일의 엘리먼트가 우선한다.
+"[CONTEXT_CONFIG_HOME]/spring/context-common.xml"에 CompositeConfiguration을 이용하여 xml 설정파일을 여러개 올릴수 있다. 두 설정 파일 중에 같은 엘리먼트가 존재하면 먼저 올린 user-config.xml 파일의 엘리먼트가 우선한다.
 ``` xml
 <!-- 환경 설정 xml 파일을 로딩한다. -->
 <bean id="configuration" class="org.apache.commons.configuration.CompositeConfiguration">
@@ -377,13 +375,14 @@ Spring의 org.springframework.beans.factory.config.PropertyPlaceholderConfigurer
     </property>
 </bean>
 ```
+
 이 설정을 함으로써 context-*.xml 파일들에서 properties를 사용할수 있다.
 
 또한 이렇게 사용한 user-config.xml과 default-config.xml 파일은 dd2.com.util.CofingUtil을 통해서 런타임시에 접근할수 있다.
 
 사용 방법은 xml에서 properties를 사용하듯이 dot 접근방법을 쓴다.
 
-*-config.xml 파일 작성 예
+환경설정 xml 파일 작성 예
 ``` xml
 <!-- sampel-config.xml -->
 <?xml version="1.0" encoding="UTF-8"?>
@@ -412,7 +411,6 @@ String type = ConfigUtil.getString("mode.type");
 
 
 
-
 ## SpringSecurity
 
 ### SpringSecurity 설정
@@ -431,8 +429,8 @@ SpringSecurity를 사용함으로써 많은 부분의 권한관리를 줄일수 
     <url-pattern>/*</url-pattern>
 </filter-mapping>
 ```
-SpringSecurity의 세부 설정은 "[CONTEXT_CONFIG_HOME]/spring/context-security.xml"을 확인한다.
 
+SpringSecurity의 세부 설정은 "[CONTEXT_CONFIG_HOME]/spring/context-security.xml"을 확인한다.
 
 
 
@@ -440,8 +438,7 @@ SpringSecurity의 세부 설정은 "[CONTEXT_CONFIG_HOME]/spring/context-securit
 
 ### Hibernate 설정
 
-"[CONTEXT_CONFIG_HOME]/spring/context-datasource.xml"의 LocalSessionFactoryBean Bean을 설정한다.
-LocalSessionFactoryBean은 Hibernate Annotation을 사용할수 있다.
+"[CONTEXT_CONFIG_HOME]/spring/context-datasource.xml"의 LocalSessionFactoryBean Bean을 설정한다. LocalSessionFactoryBean을 사용하면  Hibernate Annotation을 사용할수 있다.
 ``` xml
 <!-- hibernate sessionFactory -->
 <bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
@@ -463,8 +460,8 @@ LocalSessionFactoryBean은 Hibernate Annotation을 사용할수 있다.
 ```
 
 Hibernate 설정은 default-config.xml, user-config.xml에서 설정값을 가져온다.
-hibernate.dialect는 SQLServer를 사용하기 때문에 "org.hibernate.dialect.SQLServerDialect" 한다.
-hibernate.show_sql, hibernate.format_sql을 true로 설정하여 개발시에 console 화면에 정렬해서 보여준다.
+
+hibernate.dialect는 SQLServer를 사용하기 때문에 "org.hibernate.dialect.SQLServerDialect" 한다. hibernate.show_sql, hibernate.format_sql을 true로 설정하여 개발시에 console 화면에 정렬해서 보여준다.
 ``` xml
 <!-- hibernate -->
 <hibernate>
@@ -571,9 +568,7 @@ tiles-definitions.xml에서 "\<definition name='defaultTpl' /\>" 구성 예
     2.7. bottom: 회사소개, Copyright 구성
 ```
 
-결국 "\<definition name='defaultTpl' /\>"을 상속 받는다는 것은 위 공통 구성을 사용한다는 것이고 그중 title, contents부분만
-
-교체해 줌으로 해서 페이지 별 화면 구성을 달리 할 수 있다.
+결국 "\<definition name='defaultTpl' /\>"을 상속 받는다는 것은 위 공통 구성을 사용한다는 것이고 그중 title, contents부분만 교체해 줌으로 해서 페이지 별 화면 구성을 달리 할 수 있다.
 
 "[WEB_CONFIG_HOME]/tiles/tiles-definitions.xml"의 예외 같이 "\<definition name='defaultTpl' /\>"을 상속받아 title, contents 부분만 오버라이딩 해주면 된다.
 
@@ -605,7 +600,7 @@ URL Call -> Controller -> Service -> DAO  -----
 
 여기서 Controller에서 웹페이지로 호출될때 Springframework에서는 ViewResolver를 이용해서 출력 포맷을 지정할수 있다.
 
-"[WEB_CONFIG_HOME]/springmvc/servlet-view.xml" 파일에서 tiles를 이용하기 위해서 viewresolver에 등록했다
+"[WEB_CONFIG_HOME]/springmvc/servlet-view.xml" 파일에서 tiles를 이용하기 위해서 viewresolver에 등록했다.
 
 SpringFramework에서 뷰를 지정하는 순서는 ContentNegotiatingViewResolver 패턴매칭 알고리즘에 의해서 몇 가지 후보군을 고른후
 
@@ -693,6 +688,7 @@ Tiles 템플릿은 indexTpl, defaultTpl 두가지 종류가 있고 필요에 따
 추가는 "[WEB_CONFIG_HOME]/tiles/tiles-definitions.xml"에 추가한다.
 
 
+
 ## Frontend
 
 ### Web App 구성
@@ -765,20 +761,16 @@ ROOT-HOME
 <link href="${pageContext.request.contextPath}/static/lib/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 ```
 
-부트스트랩 라이브러리와 함께 부트스트랩 기반의 font-awesome 라이브러리도 같이 포함시킨다.
+부트스트랩 라이브러리와 함께 부트스트랩 기반의 font-awesome 라이브러리도 같이 포함시킨다. [font-awesome 다운로드](http://fontawesome.io/)
 
 "[WEB_HOME]/static/lib/font-awesome/4.0.3"에 압축을 해제한다.
-
-[font-awesome 다운로드](http://fontawesome.io/)
 
 부트스트랩의 사용법은 [Bootstrap Getting Started ](http://getbootstrap.com/getting-started/)문서를 참고한다.
 
 
 ### requirejs 설정
 
-requirejs는 웹을 모듈화 할수 있게 해주는 프레임웍이다. 자바스크립트 파일들을 requirejs 모듈화 규칙에 따라서 제작하면
-
-각 자바스크립들에 대한 의존성 관리를 할 수 있다.
+requirejs는 웹을 모듈화 할수 있게 해주는 프레임웍이다. 자바스크립트 파일들을 requirejs 모듈화 규칙에 따라서 제작하면 각 자바스크립들에 대한 의존성 관리를 할 수 있다.
 
 requirejs을 [다운로드](http://requirejs.org/docs/download.html) 한후 "[WEB_HOME]/static/lib/require/2.1.9"에 압축을 해제한다.
 
