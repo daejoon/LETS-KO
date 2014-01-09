@@ -143,7 +143,9 @@ Maven 3.1.1 (Binary zip)을 [다운로드](http://maven.apache.org/download.cgi)
 
 ### Web Application Server
 
-Web Application Server(이하 WAS)는 여러 밴더가 존재한다. 여러가지 현실적 이유때문에 개발환경과 배포환경의 WAS가 일치하지 않는 경우가 있다.
+Web Application Server(이하 WAS)는 여러 밴더가 존재한다.
+
+여러가지 현실적 이유때문에 개발환경과 배포환경의 WAS가 일치하지 않는 경우가 있다.
 
 사실 WAS는 표준 스펙이 존재하기 때문에 밴더별로 스펙만 맞춰주면 동일한 결과를 보장해야 한다.
 
@@ -157,24 +159,19 @@ Tomcat 7.0 Version은 [여기를](http://tomcat.apache.org/whichversion.html) �
 
 
 
-
 ## 프로젝트 생성 및 설정
 
 ### Java Project 생성
 
-이번 프로젝트는 새로운 프로젝트를 생성하기 보다는 GitHub에서 Checkout해서 생성한다. 처음 IntelliJ를 실행하면은 Dashboard가 나타난다.
+이번 프로젝트는 새로운 프로젝트를 생성하기 보다는 GitHub에서 Checkout해서 생성한다.
 
-"Check out from version control->['GitHub' 선택]"한다.
+1. 처음 IntelliJ를 실행하면은 Dashboard가 나타난다. "Check out from version control->['GitHub' 선택]"한다.
 
-다음 단계로 Clone Repository 다이알로그가 나타나는데
+2. 다음 단계로 Clone Repository 다이알로그가 나타나는데 "Git Repository URL->['https://github.com/daejoon/LETS-KO.git' 입력]->Parent Directory->['C:\Users\\{계정이름}\IdeaProjects' 입력]->Directory Name->['LET-KO' 입력]->['Clone' 버튼 클릭]" 한다.
 
-"Git Repository URL->['https://github.com/daejoon/LETS-KO.git' 입력]->Parent Directory->['C:\Users\\{계정이름}\IdeaProjects' 입력]->Directory Name->['LET-KO' 입력]->['Clone' 버튼 클릭]"한다.
+3. Import Project 다이알로그 창이 나타나면 "Create project from existing sources->['Next' 버튼 클릭]->['Next' 버튼 클릭]->['Unmark All' 버튼 클릭]->['Finish' 버튼 클릭]" 한다.
 
-Import Project 다이알로그 창이 나타나면
-
-"Create project from existing sources->['Next' 버튼 클릭]->['Next' 버튼 클릭]->['Unmark All' 버튼 클릭]->['Finish' 버튼 클릭]" 한다.
-
-"File->Import Module->['First.iml' 선택]->['OK' 버튼 클릭]" 한다.
+4. "File->Import Module->['First.iml' 선택]->['OK' 버튼 클릭]" 한다.
 
 ### Run/Debug Configurations 설정
 
