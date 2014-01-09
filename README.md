@@ -1,7 +1,7 @@
 # LET'S KO Project
 
-
 ## 차례
+
 - Let's Ko Project
  + Let's Ko Project에 대해서
 - 개발환경 구성 및 설치
@@ -41,21 +41,34 @@
  + 마치며
 
 
+
+
 ## Let's Ko Project
 
 #### Let's Ko Project에 대해서
+
 실제 프로젝트 시작전까지 비지니스 로직를 제외한 개발환경 구축 및 간단한 CRUD Sample을 만들어 보는 것이다.
+
+
+
 
 
 ## 개발환경 구성 및 설치
 
 #### 개발환경 구성
+
 IDE 개발툴은 개발자의 생산성과 편의성을 크게 증대 시킨다고 생각한다. 사실 이제 IDE을 쓰지 않고 자바 개발을 한다는 생각은 하기 힘들다.
+
 자바 IDE는 크게 오픈소스인 Eclipse, NetBeans와 상용 IDE인 IntelliJ IDEA(이하 IntelliJ)가 있다.
+
 이번 프로젝트는 IntelliJ를 사용했다. IntelliJ는 상용 IDE로써 다양한 프레임워크를 신속히 지원하고 많은 부분이 Bundle로 제공하고 있어
+
 오픈소스인 Eclipse보다 설정이 적다. (그렇다고 설정을 안하고 쓸수 있다는 것은 아니다.) 플렛폼은 Windows, Linux, Mac을 지원한다.
-여기서는 Windows를 선택했다. Windows로 간 이유중 하나는 자바 버전이다. 지금은 오라클에서 맥용도 지원을 하지만 예전 버전(1.6미만 버전)은
-여전히 구하기 쉽지 않다.
+
+여기서는 Windows를 선택했다. Windows로 간 이유중 하나는 자바 버전이다.
+
+지금은 오라클에서 맥용도 지원을 하지만 예전 버전(1.6미만 버전)은 여전히 구하기 쉽지 않다.
+
 그리고 SQLServer를 사용한것도 Windows쪽을 선택하게 한 이유이다.
 
 ```
