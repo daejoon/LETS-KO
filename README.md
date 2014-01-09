@@ -521,8 +521,7 @@ Tiles는 Servlet Context 영역으로 "[WEB_CONFIG_HOME]/springmvc/servlet-tiles
 </bean>
 ```
 
-completeAutoload 프로퍼티의 값을 true로 설정하면 tiles 설정파일에서 EL, REGEXP를 사용할수 있다.
-"[MODULE_HOME]/pos.xml"에 tiles-extras, tiles-el를 추가한다.
+completeAutoload 프로퍼티의 값을 true로 설정하면 tiles 설정파일에서 EL, REGEXP를 사용할수 있다. "[MODULE_HOME]/pos.xml"에 tiles-extras, tiles-el를 추가한다.
 ```xml
 <dependency>
     <groupId>org.apache.tiles</groupId>
@@ -574,11 +573,13 @@ tiles-definitions.xml에서 "\<definition name='defaultTpl' /\>" 구성 예
     2.6. contents: 각 페이지별로 화면구성
     2.7. bottom: 회사소개, Copyright 구성
 ```
-결국 "\<definition name='defaultTpl' /\>"을 상속 받는다는 것은 위 공통 구성을 사용한다는 것이고 그중 title, contents부분만 교체해
-줌으로 해서 페이지 별 화면 구성을 달리 할 수 있다.
 
-"[WEB_CONFIG_HOME]/tiles/tiles-definitions.xml"의 예외 같이 "\<definition name='defaultTpl' /\>"을 상속받아 title,
-contents 부분만 오버라이딩 해주면 된다.
+결국 "\<definition name='defaultTpl' /\>"을 상속 받는다는 것은 위 공통 구성을 사용한다는 것이고 그중 title, contents부분만
+
+교체해 줌으로 해서 페이지 별 화면 구성을 달리 할 수 있다.
+
+"[WEB_CONFIG_HOME]/tiles/tiles-definitions.xml"의 예외 같이 "\<definition name='defaultTpl' /\>"을 상속받아 title, contents 부분만 오버라이딩 해주면 된다.
+
 만약 특별한 위와 다른 구조의 레이아웃이 필요하면 tiles-definitions.xml에 기본 템플릿을 추가한후 상속받아 사용하면 된다.
 ```xml
 <tiles-definitions>
@@ -606,10 +607,16 @@ URL Call -> Controller -> Service -> DAO  -----
 ```
 
 여기서 Controller에서 웹페이지로 호출될때 Springframework에서는 ViewResolver를 이용해서 출력 포맷을 지정할수 있다.
+
 "[WEB_CONFIG_HOME]/springmvc/servlet-view.xml" 파일에서 tiles를 이용하기 위해서 viewresolver에 등록했다
+
 SpringFramework에서 뷰를 지정하는 순서는 ContentNegotiatingViewResolver 패턴매칭 알고리즘에 의해서 몇 가지 후보군을 고른후
+
 defaultViews의 View를 추가하여 총 후보군을 설정 매칭후 결과를 리턴한다.
+
 매칭 결과 일치하는 View를 찾을수 없으면 404에러가 발생한다.
+
+Spring View Resolver 설정
 ```xml
 <bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
     <property name="order" value="0" />
@@ -658,6 +665,7 @@ defaultViews의 View를 추가하여 총 후보군을 설정 매칭후 결과를
 ```
 
 Controller에서 호출하는 방법은 return값으로 tiles name을 넘기는 방법을 사용한다.
+
 "[JAVA_SRC_HOME]/dd2/local/busi/main/web/MainController.java" 참고
 ```java
 @Controller
@@ -682,13 +690,16 @@ public class MainController extends CommonController {
     }
 }
 ```
+
 Tiles 템플릿은 indexTpl, defaultTpl 두가지 종류가 있고 필요에 따라서 추가한후 사용하면 된다.
+
 추가는 "[WEB_CONFIG_HOME]/tiles/tiles-definitions.xml"에 추가한다.
 
 
 ## Frontend
 
-#### Web App 구성
+### Web App 구성
+
 전체적인 웹 구성
 ```
 ROOT-HOME
@@ -735,13 +746,18 @@ ROOT-HOME
     └─ welcome.jsp: index 페이지
 ```
 
-#### Bootstrap 설정
+### Bootstrap 설정
+
 부트스트랩은 css Framework으로 반응형 웹을 지원하며 CSS 고민을 덜고 웹사이트 개발을 할수 있게 해주는 아주 고마운 라이브러리다.
+
 부트스트랩을 [다운로드](http://getbootstrap.com/)한다. 현재 최신 버전은 3.0.3 이다.
+
 "[WEB_HOME]/static/lib/bootstrap/3.0.3"에 압축을 해제한다.
+
 부트스트랩 개별 설정은 "[WEB_HOME]/static/js/bootstrap/bootstrap.local.js"을 참고한다.
 
 부트스트랩을 사용하기 위해서는 각 페이지 마다 .css, .js를 포함해야 한다.
+
 이 프로젝트에서는 Tiles를 이용하여 부트스트랩 라이브러리를 포함시킨다.
 
 "[WEB_HOME]/WEB-INF/view/tiles/attribute/head.attr.jsp"에 css를 추가한다.
@@ -753,23 +769,27 @@ ROOT-HOME
 ```
 
 부트스트랩 라이브러리와 함께 부트스트랩 기반의 font-awesome 라이브러리도 같이 포함시킨다.
+
 "[WEB_HOME]/static/lib/font-awesome/4.0.3"에 압축을 해제한다.
+
 [font-awesome 다운로드](http://fontawesome.io/)
 
 부트스트랩의 사용법은 [Bootstrap Getting Started ](http://getbootstrap.com/getting-started/)문서를 참고한다.
 
 
-#### requirejs 설정
+### requirejs 설정
+
 requirejs는 웹을 모듈화 할수 있게 해주는 프레임웍이다. 자바스크립트 파일들을 requirejs 모듈화 규칙에 따라서 제작하면
+
 각 자바스크립들에 대한 의존성 관리를 할 수 있다.
-requirejs을 [다운로드](http://requirejs.org/docs/download.html) 한후
-"[WEB_HOME]/static/lib/require/2.1.9"에 압축을 해제한다.
+
+requirejs을 [다운로드](http://requirejs.org/docs/download.html) 한후 "[WEB_HOME]/static/lib/require/2.1.9"에 압축을 해제한다.
 
 참고: [JavaScript 모듈화를 위한 RequireJS 핵심정리](http://jcf.daewoobrenic.co.kr/blog/?p=235)
 
 requierjs를 사용하기 위해서는 처음 엔트리 포인트가 필요하다. 이프로젝트에서는 head.attr.js에 작성하고 공통적으로 사용했다.
-"[WEB_HOME]/WEB-INF/view/tiles/attribute/head.attr.jsp" require.src.js 파일을 추가하고 requirejs 환경설정
-파일인 main.js 파일로 추가한다.
+
+"[WEB_HOME]/WEB-INF/view/tiles/attribute/head.attr.jsp" require.src.js 파일을 추가하고 requirejs 환경설정 파일인 main.js 파일로 추가한다.
 ``` html
 <!-- script -->
 <script src="${pageContext.request.contextPath}/static/lib/require/2.1.9/require.src.js"></script>
@@ -890,12 +910,12 @@ require.config({
 
 [Sim Configuraion 참고 문서](http://gregfranko.com/blog/require-dot-js-2-dot-0-shim-configuration/)
 
+### jQuery 설정
 
-#### jQuery 설정
-말이 필요없는 자바스크립트 라이브러리이다.
-[다운로드](http://jquery.com/download/)한다.
+말이 필요없는 자바스크립트 라이브러리이다. [다운로드](http://jquery.com/download/)한다.
 
 "[WEB_HOME]/static/lib/jquery/1.10.2"에 압축을 해제한다.
+
 환경설정은 "[WEB_HOME]/static/js/jquery/jquery.local.js"을 참고한다.
 ``` javascript
 ;define([
@@ -992,13 +1012,15 @@ function($, JSON) { "use strict";
     };
 });
 ```
+
 프로젝트에서 jquery API와 관련된 기본적인 설정과 Custom API를 추가해서 사용하면 된다.
 
 [jQuery Documentation](http://api.jquery.com/)
 
-#### jQueryUi 설정
-jquery를 이용한 각종 UI 컴포넌트 집합이다. jqgrid에서 사용하기 때문에 필요하다.
-[다운로드](http://jqueryui.com/download/)한다.
+### jQueryUi 설정
+
+jquery를 이용한 각종 UI 컴포넌트 집합이다. jqgrid에서 사용하기 때문에 필요하다. [다운로드](http://jqueryui.com/download/)한다.
+
 "[WEB_HOME]/static/lib/jquery-ui/1.10.3"에 압축 해제 한다.
 
 jquery-ui는 css와 javascript 파일로 구성되어 있다. css는 head.attr.jsp 파일에 공통적으로 포함시킨다.
@@ -1035,10 +1057,10 @@ require.config({
 
 ```
 
+### jqGrid 설정
 
-#### jqGrid 설정
-jquery plugin 형식의 웹 그리드 이다.
-[다운로드](http://www.trirand.com/blog/?page_id=6)한다.
+jquery plugin 형식의 웹 그리드 이다. [다운로드](http://www.trirand.com/blog/?page_id=6)한다.
+
 "[WEB_HOME]/static/lib/jqgrid/4.5.4"에 압축 해제한다.
 
 환경설정은 "[WEB_HOME]/static/js/jqgrid/jquery.jqgrid.local.js"을 참고한다.
@@ -1368,6 +1390,8 @@ function($) { "use strict";
 
 ## 마치며
 
-#### 마치며
+### 마치며
+
 앞으로도 문서는 계속 보강하겠습니다. 이 프로젝트가 저를 비롯한 다른 개발자 분들에게 도움이 되었으면 합니다.
+
 읽어 주셔서 감사합니다.
