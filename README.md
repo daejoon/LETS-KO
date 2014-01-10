@@ -462,7 +462,7 @@ SpringSecurity의 세부 설정은 `[CONTEXT_CONFIG_HOME]/spring/context-securit
 
 Hibernate 설정은 default-config.xml, user-config.xml에서 설정값을 가져온다.
 
-hibernate.dialect는 SQLServer를 사용하기 때문에 `org.hibernate.dialect.SQLServerDialect` 한다. hibernate.show_sql, hibernate.format_sql을 true로 설정하여 개발시에 console 화면에 정렬해서 보여준다.
+hibernate.dialect는 SQLServer를 사용하기 때문에 `org.hibernate.dialect.SQLServerDialect`로 설정 한다. hibernate.show_sql, hibernate.format_sql을 `true`로 설정하여 개발시에 console 화면에 정렬해서 보여준다.
 ``` xml
 <!-- hibernate -->
 <hibernate>
