@@ -138,7 +138,7 @@ IntelliJ와 연동은 [IntelliJ-Git 설정](http://beyondj2ee.wordpress.com/2013
 
 Maven 3.1.1 (Binary zip)을 [다운로드](http://maven.apache.org/download.cgi) 한후, 적당한 폴더에 압축해제한다.
 
-`[IntelliJ Menu]` > `File` > `settings...` > `Maven` > `Maven Home directory` > `[선택]` 압축해제한 곳을 선택한다.
+`[IntelliJ Menu]` `File` `settings...` `Maven` `Maven Home directory` `[선택]` 압축해제한 곳을 선택한다.
 
 
 ### Web Application Server
