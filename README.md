@@ -167,7 +167,7 @@ Tomcat 7.0 Version은 [여기를](http://tomcat.apache.org/whichversion.html) �
 
 1. 처음 IntelliJ를 실행하면은 Dashboard가 나타난다. `Check out from version control->['GitHub' 선택]`한다.
 
-2. 다음 단계로 Clone Repository 다이알로그가 나타나는데 `Git Repository URL->['https://github.com/daejoon/LETS-KO.git' 입력]->Parent Directory->['C:\Users\\{계정이름}\IdeaProjects' 입력]->Directory Name->['LET-KO' 입력]->['Clone' 버튼 클릭]` 한다.
+2. 다음 단계로 Clone Repository 다이알로그가 나타나는데 `Git Repository URL->['https://github.com/daejoon/LETS-KO.git' 입력]->Parent Directory->['C:\Users\{계정이름}\IdeaProjects' 입력]->Directory Name->['LET-KO' 입력]->['Clone' 버튼 클릭]` 한다.
 
 3. Import Project 다이알로그 창이 나타나면 `Create project from existing sources->['Next' 버튼 클릭]->['Next' 버튼 클릭]->['Unmark All' 버튼 클릭]->['Finish' 버튼 클릭]` 한다.
 
@@ -286,9 +286,9 @@ Root Context 설정은 Spring 전반적인 설정이고, Servlet Context 설정�
 
 Root Context 설정은 Servlet Context로 상속된다.
 
-Servlet Context 설정은 `[SERVLET_CONFIG_HOME]/springmvc/servlet-\*.xml` 파일을 참고한다.
+Servlet Context 설정은 `[SERVLET_CONFIG_HOME]/springmvc/servlet-*.xml` 파일을 참고한다.
 
-Root Context 설정은 `[CONTEXT_CONFIG_HOME]/spring/context-\*.xml` 파일을 참고한다.
+Root Context 설정은 `[CONTEXT_CONFIG_HOME]/spring/context-*.xml` 파일을 참고한다.
 
 `[WEB_HOME]/WEB-INF/web.xml`의 Root Context 위치 설정
 ``` xml
