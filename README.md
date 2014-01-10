@@ -596,7 +596,6 @@ URL Call -> Controller -> Service -> DAO  -----
                                           DataBase
                                               |
 웹페이지   <- Controller <- Service <- DAO <-----
-
 ```
 
 여기서 Controller에서 웹페이지로 호출될때 Springframework에서는 ViewResolver를 이용해서 출력 포맷을 지정할수 있다.
