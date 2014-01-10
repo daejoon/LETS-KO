@@ -172,7 +172,7 @@ Tomcat 7.0 Version은 [여기를](http://tomcat.apache.org/whichversion.html) �
 
 3. Import Project 다이알로그 창이 나타나면 `Create project from existing sources`->`Next [클릭]`->`Next [클릭]`->`Unmark All [클릭]`->`Finish [클릭]` 한다.
 
-4. `File->Import Module`->`First.iml [선택]`->`OK [클릭]` 한다.
+4. `File`->`Import Module`->`First.iml [선택]`->`OK [클릭]` 한다.
 
 ### Run/Debug Configurations 설정
 
