@@ -188,7 +188,7 @@ Tomcat 7.0 Version은 [여기를](http://tomcat.apache.org/whichversion.html) �
 
 ### Git 설정
 
-`File->Settings...->Version Control->Ignored Files->['+' 클릭]->Ignore all files under->['...' 선택]->['.idea' 폴더 선택]->['Ok' 클릭]`
+`File`->`Settings...`->`Version Control`->`Ignored Files`->`+ [클릭]`->`Ignore all files under`->`... [선택]`->`.idea [선택]`->`Ok [클릭]`
 
 
 
@@ -196,7 +196,7 @@ Tomcat 7.0 Version은 [여기를](http://tomcat.apache.org/whichversion.html) �
 
 ### UTF-8 설정
 
-`[TOMCAT_HOME]/conf/server.xml` useBodyEncodingForURI="true", URIEncoding="UTF-8"을 추가한다.
+`[TOMCAT_HOME]/conf/server.xml`에  useBodyEncodingForURI="true", URIEncoding="UTF-8"을 추가한다.
 ``` xml
 <Connector port="8080" protocol="HTTP/1.1"
            connectionTimeout="20000"
