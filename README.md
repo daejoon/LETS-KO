@@ -555,7 +555,7 @@ Tiles설정은 `[WEB_CONFIG_HOME]/tiles/tiles-definitions.xml`를 참조한다.
 </tiles-definitions>
 ```
 
-tiles-definitions.xml에서 `\<definition name='defaultTpl' /\>` 구성 예
+tiles-definitions.xml에서 `<definition name="defaultTpl" \>` 구성 예
 ```
 1. defaultTpl의 전체적인 틀(템플릿)은 "/WEB-INF/view/tiles/template/default.layout.jsp"에 구성되어 있다.
 2. default.layout.jsp는 title, head, javascript, top, left, contents, bottom 부분으로 구성되어 있다.
@@ -568,9 +568,9 @@ tiles-definitions.xml에서 `\<definition name='defaultTpl' /\>` 구성 예
     2.7. bottom: 회사소개, Copyright 구성
 ```
 
-결국 `\<definition name='defaultTpl' /\>`을 상속 받는다는 것은 위 공통 구성을 사용한다는 것이고 그중 title, contents부분만 교체해 줌으로 해서 페이지 별 화면 구성을 달리 할 수 있다.
+결국 `<definition name="defaultTpl" \>`을 상속 받는다는 것은 위 공통 구성을 사용한다는 것이고 그중 title, contents부분만 교체해 줌으로 해서 페이지 별 화면 구성을 달리 할 수 있다.
 
-`[WEB_CONFIG_HOME]/tiles/tiles-definitions.xml`의 예외 같이 `\<definition name='defaultTpl' /\>`을 상속받아 title, contents 부분만 오버라이딩 해주면 된다.
+`[WEB_CONFIG_HOME]/tiles/tiles-definitions.xml`의 예외 같이 `<definition name="defaultTpl" \>`을 상속받아 title, contents 부분만 오버라이딩 해주면 된다.
 
 만약 특별한 위와 다른 구조의 레이아웃이 필요하면 tiles-definitions.xml에 기본 템플릿을 추가한후 상속받아 사용하면 된다.
 ```xml
@@ -609,7 +609,7 @@ defaultViews의 View를 추가하여 총 후보군을 설정 매칭후 결과를
 매칭 결과 일치하는 View를 찾을수 없으면 404에러가 발생한다.
 
 Spring View Resolver 설정
-```xml
+``` xml
 <bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
     <property name="order" value="0" />
     <property name="contentNegotiationManager">
