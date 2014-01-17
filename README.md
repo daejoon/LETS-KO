@@ -1377,6 +1377,151 @@ function($) { "use strict";
 [Form Editing](http://www.trirand.com/jqgridwiki/doku.php?id=wiki:form_editing),
 [작성방법](http://www.trirand.com/jqgridwiki/doku.php?id=wiki:conventions)
 
+## Sample
+
+예제로 사용할 테이블 이다. 테이블을 생성한다.
+``` sql
+CREATE TABLE SAMPLE (
+	ID INT NOT NULL IDENTITY(1, 1),
+    NAME VARCHAR(255) NOT NULL,
+    AGE INT NUL NULL,
+    DESCRIPTION VARCHAR(255) NULL,
+    PRIMARY KEY(ID)
+);
+```
+
+`[JAVA_SRC_HOME]/dd2/local/entity/SampelEntity.java`을 생성한다.
+``` Java
+package dd2.local.entity;
+
+import javax.persistence.*;
+
+@javax.persistence.Table(name = "SAMPLE")
+@Entity
+public class SampleEntity {
+    private Long id;
+    private String name;
+    private Long age;
+    private String description;
+
+    public SampleEntity() {
+    }
+
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "ID")
+    @Id
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    @Column(name = "NAME", nullable = false)
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    @Column(name = "AGE", nullable = false)
+    public Long getAge() {
+        return age;
+    }
+
+    public void setAge(Long age) {
+        this.age = age;
+    }
+
+    @Column(name = "DESCRIPTION", nullable = true)
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+}
+
+```
+[Hibernate Documentation](http://hibernate.org/orm/documentation/)
+
+`[WEB_HOME]/WEB-INF/view/sample` 폴더를 생성한다.
+
+`[WEB_HOME]/WEB-INF/view/sample/list.jsp`를 생성한다.
+``` javascript
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page trimDirectiveWhitespaces="true" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core"              prefix="c"	    %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions"         prefix="fn"     %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt"               prefix="fmt"    %>
+<%@ taglib uri="http://tiles.apache.org/tags-tiles"             prefix="tiles"  %>
+<%@ taglib uri="http://www.springframework.org/tags"            prefix="spring" %>
+<%@ taglib uri="http://www.springframework.org/security/tags"   prefix="sec"    %>
+<div class="panel panel-default">
+    <div class="panel-heading">${title}</div>
+    <div class="panel-body">
+        <table id="list"><tr><td></td></tr></table>
+        <div id="pager"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+;require([
+    "jquery",
+    "local"
+],
+function($, LOCAL) { $(document).ready(function() {
+    var $grid = $("#list");
+
+    $grid.jqGrid({
+        userCache: true,
+        caption: "Sample List",
+        multiselect: true,
+        url: LOCAL.url("/sample/records"),
+        editurl: LOCAL.url("/sample/recordEdit"),
+        cellurl: LOCAL.url("/sample/recordEdit"),
+        height: 300,
+        colNames:['id', 'name', 'age', 'description'],
+        colModel:[
+            {name:'id', index:'id', hidden: true },
+            {name:'name', index:'name', width:100, editable: true, frozen: true },
+            {name:'age', index:'name', width:100, editable: true, frozen: true },
+            {name:'description', index:'description', width:200, editable: true}
+        ],
+        pager : "#pager",
+        sortname: "name",
+        sortorder: "desc",
+        loadComplete: function(data) {
+            var $t = $(this);
+            if ( data.rows.length > 0 ) {
+                $t.setSelectedRowById($t.getDataIDs()[0]);
+            }
+        },
+        onSelectRow: function (id) {
+        },
+        ondblClickRow: function(id, iRow, iCol, e) {
+        }
+    }).jqGrid('navGrid', '#pager', {
+        edit: true,
+        add: true,
+        del: true,
+        search: true,
+        refresh: true
+    });
+
+    $grid.setGridParam({
+        datatype: "json"
+    }).trigger("reloadGrid");
+});});
+</script>
+
+```
+
+
 
 ## 마치며
 
