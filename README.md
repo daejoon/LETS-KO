@@ -108,8 +108,8 @@ C:\JavaDE
 2.  [MODULE_HOME]: LETS-KO/First (모듈 홈 폴더)
 3.  [WEB_HOME]: LETS-KO/First/web (웹 소스 홈 폴더)
 4.  [WEB_CONFIG_HOME]: LETS-KO/First/web/WEB-INF/config (웹 설정 폴더)
-5.  [JAVA_SRC_HOME]: LETS-KO/First/src/java (자바 소스 홈 폴더)
-6.  [CONTEXT_CONFIG_HOME]: LETS-KO/First/src/java/resources/config (Context 설정 홈 폴더)
+5.  [JAVA_SRC_HOME]: LETS-KO/First/src/main/java (자바 소스 홈 폴더)
+6.  [CONTEXT_CONFIG_HOME]: LETS-KO/First/src/main/java/resources/config (Context 설정 홈 폴더)
 8.  [TOMCAT_HOME]: ['Tomcat' 설치위치]
 9.  [MAVEN_HOME]: ['Maven' 설치위치]
 10. [JDK_HOME]: ['JDK' 설치위치]
@@ -1447,11 +1447,11 @@ public class SampleEntity {
 }
 
 ```
-[Hibernate Documentation](http://hibernate.org/orm/documentation/)
+참고 문서: [Hibernate Documentation](http://hibernate.org/orm/documentation/)
 
 `[WEB_HOME]/WEB-INF/view/sample` 폴더를 생성한다.
 
-`[WEB_HOME]/WEB-INF/view/sample/list.jsp`를 생성한다.
+`[WEB_HOME]/WEB-INF/view/sample/list.jsp` 파일을 생성한다.
 ``` javascript
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page trimDirectiveWhitespaces="true" %>
@@ -1518,7 +1518,79 @@ function($, LOCAL) { $(document).ready(function() {
     }).trigger("reloadGrid");
 });});
 </script>
+```
 
+`[JAVA_SRC_HOME]/dd2/local/busi/sample/web/SampleController.java` 파일을 생성한다.
+``` java
+package dd2.local.busi.sample.web;
+
+import dd2.local.busi.com.web.CommonController;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
+@RequestMapping("/sample/*")
+public class SampleController extends CommonController {
+    private static final Log logger = LogFactory.getLog(SampleController.class);
+    private static final String BASE_URL = "sample/";
+
+    @Override
+    protected String getBaseUrl() {
+        return BASE_URL;
+    }
+    
+    ...
+}
+```
+
+`@RequestMapping("/sample/*")`을 선언해 줌으로 해서 해당 URL의 `/sample/`로 시작하는 모든 
+
+URL은 SampleController.java가 호출된다.
+
+CommonController를 상속 받으면 getBaseUrl 메소드를 오버라이드 해줘야 한다.
+``` java
+...
+
+/**
+ * ../comm/{titles} 의 url 호출
+ * @param request
+ * @param model
+ * @param tilesName
+ * @return
+ */
+@RequestMapping( value = "comm/{tilesName}")
+public String doCommPage(
+        HttpServletRequest request,
+        ModelMap model,
+        @PathVariable(value = "tilesName") String tilesName
+) {
+    return getBaseUrl() + tilesName + ".defaultTpl";
+}
+
+/**
+ * ../comm/{titles}/{name}/{value} 의 url 호출
+ * @param request
+ * @param model
+ * @param tilesName
+ * @param name
+ * @param value
+ * @return
+ */
+@RequestMapping( value = "comm/{tilesName}/{name}/{value}")
+public String doCommPageAndSingleVar(
+        HttpServletRequest request,
+        ModelMap model,
+        @PathVariable(value = "tilesName") String tilesName,
+        @PathVariable(value = "name") String name,
+        @PathVariable(value = "value") String value
+) {
+    model.put(name, value);
+    return getBaseUrl() + tilesName + ".defaultTpl";
+}
+
+...
 ```
 
 

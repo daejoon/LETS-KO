@@ -11,6 +11,7 @@
         <!-- inercept -->
         <sec:intercept-url pattern="/static/**"                access="hasAnyRole('ROLE_ADMIN', 'ROLE_USER', 'ROLE_ANONYMOUS')" />
         <sec:intercept-url pattern="/welcome.jsp"              access="hasAnyRole('ROLE_ADMIN', 'ROLE_USER', 'ROLE_ANONYMOUS')" />
+        <sec:intercept-url pattern="/sample/**"                access="hasAnyRole('ROLE_ADMIN', 'ROLE_USER', 'ROLE_ANONYMOUS')" />
         <sec:intercept-url pattern="/main/index"               access="hasAnyRole('ROLE_ADMIN', 'ROLE_USER', 'ROLE_ANONYMOUS')" />
         <sec:intercept-url pattern="/member/login"             access="hasAnyRole('ROLE_ADMIN', 'ROLE_USER', 'ROLE_ANONYMOUS')" />
         <sec:intercept-url pattern="/member/logout"            access="hasAnyRole('ROLE_ADMIN', 'ROLE_USER', 'ROLE_ANONYMOUS')" />
