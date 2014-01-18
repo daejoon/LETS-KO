@@ -8,6 +8,7 @@ import java.lang.reflect.Field;
 
 /**
  * Created by kdj on 2014. 1. 18..
+ * Description: 클래스 리플렉션 하는 부분이 성능에 문제가 된다면 차후 Cache 시스템을 도입해서 해결하자.
  */
 public final class JqGridRestrictionForHibernate {
     public static Criterion create(Class<?> klazz, JqGridRequest request) {

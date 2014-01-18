@@ -15,6 +15,7 @@ import java.util.Map;
  * Date: 13. 11. 15
  * Time: 오후 7:00
  * To change this template use File | Settings | File Templates.
+ * Description: 클래스 리플렉션 하는 부분이 성능에 문제가 된다면 차후 Cache 시스템을 도입해서 해결하자.
  */
 @SuppressWarnings("unchecked")
 public class JqGridCrudUtil<T, ID extends Serializable> {
