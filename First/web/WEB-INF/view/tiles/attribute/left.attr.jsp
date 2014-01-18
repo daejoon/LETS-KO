@@ -29,6 +29,7 @@
     <a class="list-group-item" href="<c:url value='/function/comm/list/title/기능관리' />">기능관리</a>
     <a class="list-group-item" href="<c:url value='/programFunction/comm/list/title/프로그램별기능관리' />">프로그램별기능관리</a>
     <a class="list-group-item" href="<c:url value='/programAccess/comm/list/title/프로그램기능별권한관리' />">프로그램기능별권한관리</a>
+    <a class="list-group-item" href="<c:url value='/sample/comm/list/title/Sample' />">Sample</a>
 </div>
 <script type="text/javascript">
 ;require([

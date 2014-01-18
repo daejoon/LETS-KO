@@ -1599,6 +1599,25 @@ public String doCommPageAndSingleVar(
 
 로컬에서 작업하면 `http://localhost:8080/sample/comm/list` URL로 제대로 호출되는지 확인한다.
 
+호출이 정상적으로 된다면 왼쪽 메뉴에 등록하자
+
+`[WEB_HOME]/WEB-INF/view/tiles/attribute/left.attr.jsp`에 URL을 추가한다.
+``` javascript
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page trimDirectiveWhitespaces="true" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core"              prefix="c"	    %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions"         prefix="fn"     %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt"               prefix="fmt"    %>
+<%@ taglib uri="http://tiles.apache.org/tags-tiles"             prefix="tiles"  %>
+<%@ taglib uri="http://www.springframework.org/tags"            prefix="spring" %>
+<%@ taglib uri="http://www.springframework.org/security/tags"   prefix="sec"    %>
+<div id="left-menu" class="list-group">
+	...
+    <a class="list-group-item" href="<c:url value='/sample/comm/list/title/Sample' />">Sample</a>
+</div>
+	...
+```
+
 `[JAVA_SRC_HOME]/dd2/local/busi/sample/service/dao/SampleDAO.java` 파일을 생성한다.
 ``` java
 
