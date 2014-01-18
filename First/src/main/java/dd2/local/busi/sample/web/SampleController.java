@@ -49,9 +49,6 @@ public class SampleController extends CommonController {
             JqGridCrudUtil<SampleEntity, Long>
                     jqgrid = new JqGridCrudUtil<>(SampleEntity.class, Long.class, params);
 
-            Date date = new Date();
-            Long adminID = Long.valueOf(1);
-
             switch (jqgrid.getOper()) {
                 case ADD:
                 {
