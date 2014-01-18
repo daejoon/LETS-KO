@@ -372,9 +372,11 @@ Spring의 org.springframework.beans.factory.config.PropertyPlaceholderConfigurer
 </bean>
 ```
 
-이렇게 작성한 이유는 개발시에 공통 부분과 개개인 설정이 분리됨으로 해서 개발의 편의성이 증대되고 실제 배포시에는 default-config.xml만 배포함으로써
+이렇게 작성한 이유는 개발시에 공통 부분과 개개인 설정이 분리됨으로 해서 개발의 편의성이 증대되고
 
-배포 환경과 개발 환경을 분리하여 관리할수 있기 때문이다.
+실제 배포시에는 default-config.xml만 배포함으로써 배포 환경과 개발 환경을 분리하여 관리할수 있기 때문이다.
+
+(* 프레임워크 내부에서 user-config.xml 파일을 사용하기 때문에 파일 자체는 존재해야 한다.)
 
 따라서 여기 GitHub에도 user-config.xml 파일을 업로드 하지 않았다. 차후에 Clone한후 user-config.xml 파일을 추가하면 된다.
 
@@ -1848,7 +1850,7 @@ public abstract class GenericHibernateService<T, ID extends Serializable> implem
 
 GenericHibernateService 클래스를 상속 받고 다시 SampleService 인터페이스를 상속받은 이유는 템플릿 메소드 패턴을
 
-이용해서 GenericHibernateDAO의 기능을 Controller 단까지 끌고 갈려고 하기 때문이다.
+이용해서 GenericHibernateDAO의 기능을 Controller 단까지 가기 위함이다.
 
 만약 GenericHibernateService 상속 받지 않는다면 엔티티의 간단한 CRUD를 Service 클래스 마다 구현해 주어야 한다.
 
