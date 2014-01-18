@@ -17,6 +17,7 @@ import java.util.Map;
  * To change this template use File | Settings | File Templates.
  */
 public class JqGridResponse extends JqGridResponseGeneric<Map<String,Object>> {
+
     public JqGridResponse(JqGridRequest request, List<Map<String,Object>> rows) {
         int records = 0;
         if ( rows.size() > 0 && rows.get(0).containsKey(JqGridQueryBuilder.RECORD_COUNT_NAME) == true ) {
