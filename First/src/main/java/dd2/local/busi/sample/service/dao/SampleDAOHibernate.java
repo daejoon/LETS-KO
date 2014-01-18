@@ -8,6 +8,7 @@ import dd2.local.entity.SampleEntity;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.hibernate.criterion.CriteriaSpecification;
+import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
@@ -55,6 +56,11 @@ public class SampleDAOHibernate extends GenericHibernateDAO<SampleEntity, Long> 
     @Override
     public JqGridResponseGeneric list(JqGridRequest request) {
         JqGridResponseGeneric<SampleEntity> jqGridResponseGeneric = new JqGridResponseGeneric<>();
+
+        List<SampleEntity> sampleEntityList = this.getCriteria()
+                .setFirstResult(request.getPageNumber())
+                .setMaxResults(request.getPageSize())
+                .list();
 
         return jqGridResponseGeneric;
     }
