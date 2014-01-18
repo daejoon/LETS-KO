@@ -1864,9 +1864,6 @@ public class SampleController extends CommonController {
             JqGridCrudUtil<SampleEntity, Long>
                     jqgrid = new JqGridCrudUtil<>(SampleEntity.class, Long.class, params);
 
-            Date date = new Date();
-            Long adminID = Long.valueOf(1);
-
             switch (jqgrid.getOper()) {
                 case ADD:
                 {
@@ -1906,8 +1903,13 @@ public class SampleController extends CommonController {
 
 recordEdit 메소드 안에서 Insert, Update, Delete를 모두 해준다.
 
-일반적인 CRUD 페이지는 컨트롤러에 두가지 메소드 만으로 생성 가능하다.
+JqGridCrudUtil 클래스는 ajax JSON으로 받은 데이터를 SampleEntity로 변환하는 작업을 해준다.
 
+이렇게 함으로 해서 기본적인 그리드는 list 메소드만 구현을 하고 Insert, Update, Delete는 상위 클래스에
+
+구현해 놓을 것을 바로 사용할수 있다.
+
+다시 페이지를 호출하고 CRUD를 해보자!
 
 ## 마치며
 
