@@ -1597,7 +1597,12 @@ public String doCommPageAndSingleVar(
 ...
 ```
 
-로컬에서 작업하면 `http://localhost:8080/sample/list/타이틀` URL로 제대로 호출되는지 확인한다.
+로컬에서 작업하면 `http://localhost:8080/sample/comm/list` URL로 제대로 호출되는지 확인한다.
+
+`[JAVA_SRC_HOME]/dd2/local/busi/sample/service/dao/SampleDAO.java` 파일을 생성한다.
+``` java
+
+```
 
 
 
