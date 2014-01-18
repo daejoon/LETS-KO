@@ -33,9 +33,9 @@ function($, LOCAL) { $(document).ready(function() {
         colNames:['id', 'name', 'age', 'description'],
         colModel:[
             {name:'id', index:'id', hidden: true },
-            {name:'name', index:'name', width:100, editable: true, frozen: true },
-            {name:'age', index:'name', width:100, editable: true, frozen: true },
-            {name:'description', index:'description', width:200, editable: true}
+            $.extend(true, {name:'name', index:'name', width:100, editable: true, frozen: true}, $.jqGridStatic.userSearchSetting),
+            $.extend(true, {name:'age', index:'name', width:100, editable: true, frozen: true }, $.jqGridStatic.userSearchSetting),
+            $.extend(true, {name:'description', index:'description', width:200, editable: true}, $.jqGridStatic.userSearchSetting)
         ],
         pager : "#pager",
         sortname: "name",

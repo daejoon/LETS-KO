@@ -255,6 +255,16 @@ function($) { "use strict";
             }
         },
         /**
+         * 필드 검색 옵션 설정
+         */
+        userSearchSetting: {
+            search: true,
+            searchoptions: {
+                sopt: ['eq','ne','lt','le','gt','ge','bw','bn','in','ni','ew','en']
+            }
+        },
+
+        /**
          * jqGrid에서 사용하는 editoptions 중에 Select를 만들어준다.
          * @param setting {defaultOptionUsed, defaultOption, data, valueName, displayName, defaultValue}
          * @param option
