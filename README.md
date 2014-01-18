@@ -661,6 +661,8 @@ Controller에서 호출하는 방법은 return값으로 tiles name을 넘기는 
 
 `[JAVA_SRC_HOME]/dd2/local/busi/main/web/MainController.java` 참고
 ```java
+... 생략
+
 @Controller
 @RequestMapping("/main/*")
 public class MainController extends CommonController {
@@ -1023,14 +1025,14 @@ javascript 파일은 `[WEB_HOME]/static/js/main.js` 파일에 설정한다.
 require.config({
     baseUrl: "/static/js",
     paths: {
-        ...
+        ... 생략
         "jquery-ui"                 : "../lib/jquery-ui/1.10.3/ui/jquery-ui",
         "jquery-ui-datepicker"      : "../lib/jquery-ui/1.10.3/ui/jquery.ui.datepicker",
         "jquery-ui-datepicker-lang" : "../lib/jquery-ui/1.10.3/ui/i18n/jquery.ui.datepicker-ko",
-        ...
+        ... 생략
     },
     shim: {
-        ...
+        ... 생략
         "jquery-ui": {
             deps: ["jquery"]
         },
@@ -1040,7 +1042,7 @@ require.config({
         "jquery-ui-datepicker-lang": {
             deps: ["jquery-ui-datepicker"]
         },
-        ...
+        ... 생략
     },
     waitSeconds: 15
 });
@@ -1541,7 +1543,7 @@ public class SampleController extends CommonController {
         return BASE_URL;
     }
 
-    ...
+    ... 생략
 }
 ```
 
@@ -1555,7 +1557,7 @@ CommonController는 `@RequestMapping( value = "comm/{tilesName}")`, `@RequestMap
 
 두개지 형태의  URL을 처리해준다.
 ``` java
-...
+... 생략
 
 /**
  * ../comm/{titles} 의 url 호출
@@ -1594,7 +1596,7 @@ public String doCommPageAndSingleVar(
     return getBaseUrl() + tilesName + ".defaultTpl";
 }
 
-...
+... 생략
 ```
 
 로컬에서 작업하면 `http://localhost:8080/sample/comm/list` URL로 제대로 호출되는지 확인한다.
@@ -1612,16 +1614,56 @@ public String doCommPageAndSingleVar(
 <%@ taglib uri="http://www.springframework.org/tags"            prefix="spring" %>
 <%@ taglib uri="http://www.springframework.org/security/tags"   prefix="sec"    %>
 <div id="left-menu" class="list-group">
-	...
+	... 생략
     <a class="list-group-item" href="<c:url value='/sample/comm/list/title/Sample' />">Sample</a>
 </div>
-	...
+	... 생략
 ```
+
+이제 왼쪽 메뉴에서도 접근 가능하다.
 
 `[JAVA_SRC_HOME]/dd2/local/busi/sample/service/dao/SampleDAO.java` 파일을 생성한다.
 ``` java
+package dd2.local.busi.sample.service.dao;
 
+import dd2.com.dao.GenericDAO;
+import dd2.com.jqgrid.JqGridRequest;
+import dd2.local.entity.SampleEntity;
+
+import java.util.List;
+import java.util.Map;
+
+public interface SampleDAO extends GenericDAO<SampleEntity, Long> {
+    List<SampleEntity> list(JqGridRequest request);
+}
 ```
+
+GenericDAO는 Hibernate를 편하게 사용하기 위한 기본적인 메소드를 정의 하고 있다.
+
+`[JAVA_SRC_HOME]/dd2/com/dao/GenericDAO.java`
+``` java
+... 생략
+
+public interface GenericDAO<T, ID extends Serializable> {
+    T findById(ID id, boolean lock);
+    T findById(ID id);
+    List<T> findAll();
+    List<T> findByExample(T exampleInstance, String... excludeProperty);
+    T save(T entity);
+    T update(T entity);
+    T saveOrUpdate(T entity);
+    void delete(T entity);
+    void deleteById(ID id);
+    void deleteByIds(ID[] ids);
+    void flush();
+    void clear();
+}
+```
+GenericDAO는 인터페이스 이고 구현은 `[JAVA_SRC_HOME]/dd2/com/dao/GenericDAOHibernate.java` 에 구현되어 있다.
+
+
+
+`[JAVA_SRC_HOME]/dd2/local/busi/sample/service/dao/SampleDAOHibernate.java` 파일을 생성한다.
 
 
 
