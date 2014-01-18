@@ -1549,7 +1549,7 @@ public class SampleController extends CommonController {
 
 URL은 SampleController.java가 호출된다.
 
-CommonController를 상속 받으면 getBaseUrl 메소드를 오버라이드 해줘야 한다. 
+CommonController를 상속 받으면 getBaseUrl 메소드를 오버라이드 해줘야 한다.
 
 CommonController는 `@RequestMapping( value = "comm/{tilesName}")`, `@RequestMapping( value = "comm/{tilesName}/{name}/{value}") `
 
@@ -1596,6 +1596,8 @@ public String doCommPageAndSingleVar(
 
 ...
 ```
+
+로컬에서 작업하면 `http://localhost:8080/sample/list/타이틀` URL로 제대로 호출되는지 확인한다.
 
 
 
