@@ -29,9 +29,8 @@ public class SampleDAOHibernate extends GenericHibernateDAO<SampleEntity, Long> 
                 )
                 .uniqueResult().toString());
 
-
         List<SampleEntity> sampleEntityList = this.getCriteria()
-                .setFirstResult(request.getPageNumber())
+                .setFirstResult(request.getPageNumber()-1)
                 .setMaxResults(request.getPageSize())
                 .list();
 

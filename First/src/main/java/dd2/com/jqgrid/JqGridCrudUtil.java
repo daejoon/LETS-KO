@@ -70,8 +70,14 @@ public class JqGridCrudUtil<T, ID extends Serializable> {
            if (  this.map.containsKey(field.getName()) == true ) {
                field.setAccessible(true);
                Object value = this.map.get(field.getName());
-               field.set(instance, ConverterUtil.getValue(field.getType().getName(), value) );
-            }
+               try {
+                   field.set(instance, ConverterUtil.getValue(field.getType().getName(), value) );
+               } catch (IllegalArgumentException e) {
+                   e.printStackTrace();
+               } catch (IllegalAccessException e) {
+                   e.printStackTrace();
+               }
+           }
         }
     }
 
