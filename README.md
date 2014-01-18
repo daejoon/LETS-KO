@@ -1540,16 +1540,20 @@ public class SampleController extends CommonController {
     protected String getBaseUrl() {
         return BASE_URL;
     }
-    
+
     ...
 }
 ```
 
-`@RequestMapping("/sample/*")`을 선언해 줌으로 해서 해당 URL의 `/sample/`로 시작하는 모든 
+`@RequestMapping("/sample/*")`을 선언 함으로 해서 해당 URL의 `/sample/`로 시작하는 모든
 
 URL은 SampleController.java가 호출된다.
 
-CommonController를 상속 받으면 getBaseUrl 메소드를 오버라이드 해줘야 한다.
+CommonController를 상속 받으면 getBaseUrl 메소드를 오버라이드 해줘야 한다. 
+
+CommonController는 `@RequestMapping( value = "comm/{tilesName}")`, `@RequestMapping( value = "comm/{tilesName}/{name}/{value}") `
+
+두개지 형태의  URL을 처리해준다.
 ``` java
 ...
 
