@@ -2,12 +2,9 @@ package dd2.local.busi.sample.web;
 
 import dd2.com.jqgrid.JqGridCrudUtil;
 import dd2.com.jqgrid.JqGridRequest;
-import dd2.com.jqgrid.JqGridResponse;
 import dd2.com.jqgrid.JqGridResponseGeneric;
 import dd2.local.busi.com.web.CommonController;
 import dd2.local.busi.sample.service.SampleService;
-import dd2.local.entity.AdProgramFunctionEntity;
-import dd2.local.entity.AdProgramFunctionEntityPK;
 import dd2.local.entity.SampleEntity;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;

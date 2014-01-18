@@ -1490,9 +1490,9 @@ function($, LOCAL) { $(document).ready(function() {
         colNames:['id', 'name', 'age', 'description'],
         colModel:[
             {name:'id', index:'id', hidden: true },
-            {name:'name', index:'name', width:100, editable: true, frozen: true },
-            {name:'age', index:'name', width:100, editable: true, frozen: true },
-            {name:'description', index:'description', width:200, editable: true}
+            $.extend(true, {name:'name', index:'name', width:100, editable: true, frozen: true}, $.jqGridStatic.userSearchSetting),
+            $.extend(true, {name:'age', index:'name', width:100, editable: true, frozen: true }, $.jqGridStatic.userSearchSetting),
+            $.extend(true, {name:'description', index:'description', width:200, editable: true}, $.jqGridStatic.userSearchSetting)
         ],
         pager : "#pager",
         sortname: "name",
@@ -1520,6 +1520,7 @@ function($, LOCAL) { $(document).ready(function() {
     }).trigger("reloadGrid");
 });});
 </script>
+
 ```
 
 `[JAVA_SRC_HOME]/dd2/local/busi/sample/web/SampleController.java` 파일을 생성한다.
@@ -1628,13 +1629,11 @@ package dd2.local.busi.sample.service.dao;
 
 import dd2.com.dao.GenericDAO;
 import dd2.com.jqgrid.JqGridRequest;
+import dd2.com.jqgrid.JqGridResponseGeneric;
 import dd2.local.entity.SampleEntity;
 
-import java.util.List;
-import java.util.Map;
-
 public interface SampleDAO extends GenericDAO<SampleEntity, Long> {
-    List<SampleEntity> list(JqGridRequest request);
+    JqGridResponseGeneric<SampleEntity> list(JqGridRequest request);
 }
 ```
 
@@ -1661,10 +1660,253 @@ public interface GenericDAO<T, ID extends Serializable> {
 ```
 GenericDAO는 인터페이스 이고 구현은 `[JAVA_SRC_HOME]/dd2/com/dao/GenericDAOHibernate.java` 에 구현되어 있다.
 
-
-
 `[JAVA_SRC_HOME]/dd2/local/busi/sample/service/dao/SampleDAOHibernate.java` 파일을 생성한다.
+``` java
+... 생략
 
+@Repository
+@SuppressWarnings("unchecked")
+public class SampleDAOHibernate extends GenericHibernateDAO<SampleEntity, Long> implements SampleDAO {
+    private static final Log logger = LogFactory.getLog(SampleDAOHibernate.class);
+
+    @Override
+    public JqGridResponseGeneric<SampleEntity> list(JqGridRequest request) {
+        JqGridResponseGeneric<SampleEntity> response = new JqGridResponseGeneric<>();
+
+        Criterion criterion = JqGridRestrictionForHibernate.create(request);
+        Order order = JqGridOrderForHibernate.create(request);
+
+        Criteria rowCriteria = this.getCriteria()
+                .setProjection(Projections.projectionList()
+                        .add(Projections.rowCount())
+                );
+        if ( criterion != null ) {
+            rowCriteria = rowCriteria.add(criterion);
+        }
+        if ( order != null ) {
+            rowCriteria = rowCriteria.addOrder(order);
+        }
+        int total = Integer.parseInt(rowCriteria.uniqueResult().toString());
+
+
+        Criteria listCriteria = this.getCriteria();
+        if (criterion != null) {
+            listCriteria = listCriteria.add(criterion);
+        }
+        if (order != null) {
+            listCriteria = listCriteria.addOrder(order);
+        }
+        List<SampleEntity> sampleEntityList = listCriteria
+                .setFirstResult(request.getPageNumber() - 1)
+                .setMaxResults(request.getPageSize())
+                .list();
+
+        response.setTotal(total);
+        response.setPage(request.getPageNumber());
+        response.setRecords(request.getPageSize());
+        response.setRows(sampleEntityList);
+
+        return response;
+    }
+}
+```
+
+Hibernate Criteria를 이용해서 작성한다. `JqGridRestrictionForHibernate`, `JqGridOrderForHibernate`
+유틸리티 클래스를 이용해서 작성을 편하게 했다.
+
+조회한 결과물은 JSON으로 리턴하기 위해 `JqGridResponseGeneric<SampleEntity>`에 담는다.
+
+`[JAVA_SRC_HOME]/dd2/local/busi/sample/service/dao/SampleService.java` 인터페이스 파일을 생성한다.
+``` java
+package dd2.local.busi.sample.service;
+
+import dd2.com.jqgrid.JqGridRequest;
+import dd2.com.jqgrid.JqGridResponseGeneric;
+import dd2.com.service.GenericService;
+import dd2.local.entity.SampleEntity;
+
+public interface SampleService extends GenericService<SampleEntity, Long> {
+    JqGridResponseGeneric<SampleEntity> list(JqGridRequest request);
+}
+```
+
+`[JAVA_SRC_HOME]/dd2/local/busi/sample/service/dao/SampleServiceHibernate.java` 구현 파일을 생성한다.
+``` java
+... 생략
+
+@Service
+public class SampleServiceHibernate extends GenericHibernateService<SampleEntity, Long> implements SampleService  {
+    private static final Log logger = LogFactory.getLog(SampleServiceHibernate.class);
+
+    @Autowired
+    private SampleDAO sampleDAO;
+
+    @Override
+    protected GenericDAO<SampleEntity, Long> getGenericDAO() {
+        return sampleDAO;
+    }
+
+    @Transactional
+    @Override
+    public JqGridResponseGeneric<SampleEntity> list(JqGridRequest request) {
+        return sampleDAO.list(request);
+    }
+}
+```
+
+GenericHibernateService 클래스를 상속받음으로 기본적인 기능을 바로 사용할수 있다.
+```java
+public abstract class GenericHibernateService<T, ID extends Serializable> implements GenericService<T, ID> {
+
+    /**
+     * 기본 CRUD 가능하게 하는 엔티티 DAO 이다.
+     * 상속 받은 쪽에서 구현해 줘야 한다.
+     * @return
+     */
+    protected abstract GenericDAO<T, ID> getGenericDAO();
+
+    @Transactional
+    @Override
+    public T findById(ID id) {
+        return this.getGenericDAO().findById(id);
+    }
+
+    @Transactional
+    @Override
+    public T findById(ID id, boolean lock) {
+        return this.getGenericDAO().findById(id, lock);
+    }
+
+    @Transactional
+    @Override
+    public List<T> findAll() {
+        return this.getGenericDAO().findAll();
+    }
+
+    @Transactional
+    @Override
+    public List<T> findByExample(T exampleInstance, String... excludeProperty) {
+        return this.getGenericDAO().findByExample(exampleInstance, excludeProperty);
+    }
+
+    @Transactional
+    @Override
+    public T save(T entity) {
+        return this.getGenericDAO().save(entity);
+    }
+
+    @Transactional
+    @Override
+    public T update(T entity) {
+        return this.getGenericDAO().update(entity);
+    }
+
+    @Transactional
+    @Override
+    public T saveOrUpdate(T entity) {
+        return this.getGenericDAO().saveOrUpdate(entity);
+    }
+
+    @Transactional
+    @Override
+    public void delete(T entity) {
+        this.getGenericDAO().delete(entity);
+    }
+
+    @Transactional
+    @Override
+    public void deleteById(ID id) {
+        this.getGenericDAO().deleteById(id);
+    }
+
+    @Transactional
+    @Override
+    public void deleteByIds(ID[] ids) {
+        this.getGenericDAO().deleteByIds(ids);
+    }
+}
+```
+
+GenericHibernateService 클래스를 상속 받고 다시 SampleService 인터페이스를 상속받은 이유는 템플릿 메소드 패턴을
+
+이용해서 GenericHibernateDAO의 기능을 Controller 단까지 끌고 갈려고 하기 때문이다.
+
+만약 GenericHibernateService 상속 받지 않는다면 엔티티의 간단한 CRUD를 Service 클래스 마다 구현해 주어야 한다.
+
+`[JAVA_SRC_HOME]/dd2/local/busi/sample/web/SampleController.java`를 수정한다.
+``` java
+... 생략
+
+@Controller
+@RequestMapping("/sample/*")
+public class SampleController extends CommonController {
+    private static final Log logger = LogFactory.getLog(SampleController.class);
+    private static final String BASE_URL = "sample/";
+
+    @Autowired
+    private SampleService sampleService;
+
+    @Override
+    protected String getBaseUrl() {
+        return BASE_URL;
+    }
+
+    @RequestMapping( value = "records", method = RequestMethod.POST )
+    public @ResponseBody
+    JqGridResponseGeneric<SampleEntity> records( @RequestBody JqGridRequest jqGridRequest ) {
+        return sampleService.list(jqGridRequest);
+    }
+
+    @RequestMapping( value = "recordEdit", method = RequestMethod.POST )
+    public @ResponseBody
+    Map<String,Object> recordEdit( @RequestBody Map<String, Object> params ) {
+        if ( params != null ) {
+            JqGridCrudUtil<SampleEntity, Long>
+                    jqgrid = new JqGridCrudUtil<>(SampleEntity.class, Long.class, params);
+
+            Date date = new Date();
+            Long adminID = Long.valueOf(1);
+
+            switch (jqgrid.getOper()) {
+                case ADD:
+                {
+                    SampleEntity newEntity = jqgrid.createEntityWithDataBinding();
+                    sampleService.save(newEntity);
+                }
+                break;
+                case EDIT:
+                {
+                    Long id = jqgrid.getId();
+                    SampleEntity entity = jqgrid.createEntityWithDataBinding();
+
+                    SampleEntity updateEntity = sampleService.findById(id);
+
+                    updateEntity.setAge(entity.getAge());
+                    updateEntity.setName(entity.getName());
+                    updateEntity.setDescription(entity.getDescription());
+
+                    sampleService.deleteById(id);
+                    sampleService.save(updateEntity);
+                }
+                break;
+                case DELETE:
+                {
+                    Long[] ids = jqgrid.getIds();
+                    sampleService.deleteByIds(ids);
+                }
+                break;
+                default: break;
+            }
+        }// if ( params != null ) {
+
+        return new HashMap<>();
+    }
+}
+```
+
+recordEdit 메소드 안에서 Insert, Update, Delete를 모두 해준다.
+
+일반적인 CRUD 페이지는 컨트롤러에 두가지 메소드 만으로 생성 가능하다.
 
 
 ## 마치며
