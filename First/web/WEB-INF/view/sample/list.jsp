@@ -34,7 +34,7 @@ function($, LOCAL) { $(document).ready(function() {
         colModel:[
             {name:'id', index:'id', hidden: true },
             $.extend(true, {name:'name', index:'name', width:100, editable: true, frozen: true}, $.jqGridStatic.userSearchSetting),
-            $.extend(true, {name:'age', index:'name', width:100, editable: true, frozen: true }, $.jqGridStatic.userSearchSetting),
+            $.extend(true, {name:'age', index:'age', width:100, editable: true, frozen: true }, $.jqGridStatic.userSearchSetting),
             $.extend(true, {name:'description', index:'description', width:200, editable: true}, $.jqGridStatic.userSearchSetting)
         ],
         pager : "#pager",

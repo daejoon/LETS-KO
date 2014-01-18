@@ -26,7 +26,7 @@ public class SampleDAOHibernate extends GenericHibernateDAO<SampleEntity, Long> 
     public JqGridResponseGeneric<SampleEntity> list(JqGridRequest request) {
         JqGridResponseGeneric<SampleEntity> response = new JqGridResponseGeneric<>();
 
-        Criterion criterion = JqGridRestrictionForHibernate.create(request);
+        Criterion criterion = JqGridRestrictionForHibernate.create(SampleEntity.class, request);
         Order order = JqGridOrderForHibernate.create(request);
 
         Criteria rowCriteria = this.getCriteria()

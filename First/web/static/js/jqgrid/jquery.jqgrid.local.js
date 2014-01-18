@@ -260,7 +260,7 @@ function($) { "use strict";
         userSearchSetting: {
             search: true,
             searchoptions: {
-                sopt: ['eq','ne','lt','le','gt','ge','bw','bn','in','ni','ew','en']
+                sopt: ['eq','ne','lt','le','gt','ge','in','ni']
             }
         },
 

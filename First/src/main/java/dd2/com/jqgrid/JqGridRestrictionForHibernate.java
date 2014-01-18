@@ -1,18 +1,32 @@
 package dd2.com.jqgrid;
 
+import dd2.com.jqgrid.convertors.ConverterUtil;
 import org.hibernate.criterion.Criterion;
-import org.hibernate.criterion.MatchMode;
 import org.hibernate.criterion.Restrictions;
+
+import java.lang.reflect.Field;
 
 /**
  * Created by kdj on 2014. 1. 18..
  */
 public final class JqGridRestrictionForHibernate {
-    public static Criterion create(JqGridRequest request) {
+    public static Criterion create(Class<?> klazz, JqGridRequest request) {
         Criterion criterion = null;
         if ( request.is_search() == true ) {
             String propertyName  = request.getSearchField();
-            String propertyValue = request.getSearchString();
+            String stringValue = request.getSearchString();
+
+            Object propertyValue = stringValue;
+            Field[] fields = klazz.getDeclaredFields();
+            for (Field field : fields) {
+                if (field.getName().toLowerCase().equals(propertyName) == true) {
+                    try {
+                        propertyValue = ConverterUtil.getValue(field.getType().getName(), stringValue);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
 
             switch (request.getSearchOper().toLowerCase()) {
                 case "eq": //같다.
@@ -32,18 +46,6 @@ public final class JqGridRestrictionForHibernate {
                     break;
                 case "ge": //크거나 같다.
                     criterion = Restrictions.ge(propertyName, propertyValue);
-                    break;
-                case "bw": //~로 시작한다.
-                    criterion = Restrictions.like(propertyName, propertyValue, MatchMode.START);
-                    break;
-                case "bn": //~로 시작하지 않는다.
-                    criterion = Restrictions.not(Restrictions.like(propertyName, propertyValue, MatchMode.START));
-                    break;
-                case "ew": //~로 끝난다.
-                    criterion = Restrictions.like(propertyName, propertyValue, MatchMode.END);
-                    break;
-                case "en": //~로 끝나지 않는다.
-                    criterion = Restrictions.not( Restrictions.like(propertyName, propertyValue, MatchMode.END) );
                     break;
                 case "in": // 내에 있다.
                     criterion = Restrictions.in(propertyName, new Object[]{propertyValue});
