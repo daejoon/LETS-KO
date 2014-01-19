@@ -329,13 +329,13 @@ public class BoardController extends CommonController {
         upload.transferTo(new File(newTempFilePath));
 
         StringBuilder sb = new StringBuilder();
-        sb.append("<script type='text/javascript'>")
-                .append("window.parent.CKEDITOR.tools.callFunction(")
-                .append("'").append(ckeditorFuncNum).append("', ")
-                .append("'").append(request.getContextPath()).append("/file/").append(newFileName).append("', ")
-                .append("'").append("업로드 성공").append("'")
-                .append(");")
-                .append("</script>");
+        sb.append("<script type='text/javascript'>");
+        sb.append("    window.parent.CKEDITOR.tools.callFunction(");
+        sb.append("        '").append(ckeditorFuncNum).append("', ");
+        sb.append("        '").append(request.getContextPath()).append("/file/").append(newFileName).append("', ");
+        sb.append("        '").append("업로드 성공").append("'");
+        sb.append("    );");
+        sb.append("</script>");
 
         // 성공했을때 작업처리
         return sb.toString();
