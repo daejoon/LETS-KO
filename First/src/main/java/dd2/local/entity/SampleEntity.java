@@ -1,5 +1,7 @@
 package dd2.local.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 
 /**
