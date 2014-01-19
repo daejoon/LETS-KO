@@ -1814,6 +1814,8 @@ public class SampleServiceHibernate extends GenericHibernateService<SampleEntity
 
 GenericHibernateService 클래스를 상속받음으로 기본적인 기능을 바로 사용할수 있다.
 ```java
+...생략
+
 public abstract class GenericHibernateService<T, ID extends Serializable> implements GenericService<T, ID> {
 
     /**
