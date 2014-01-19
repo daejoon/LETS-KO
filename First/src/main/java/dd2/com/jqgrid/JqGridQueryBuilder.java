@@ -72,6 +72,9 @@ public class JqGridQueryBuilder {
                 case "ni": // 내에 있지 않다.
                     sb.append(" NOT IN ").append(" ('").append(request.getSearchString()).append("') ");
                     break;
+                default:
+                    sb.append(" = ").append(" '").append(request.getSearchString()).append("' ");
+                    break;
             }
         }
         sb.append("        ) AS R ");

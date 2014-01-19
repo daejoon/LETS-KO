@@ -42,35 +42,35 @@ public class UserHttpListener implements ServletContextListener
      * 새로운 세션을 생성한다.
      */
     public void sessionCreated(HttpSessionEvent hse) {
-        HttpSession s = hse.getSession();
+//        HttpSession s = hse.getSession();
     }
 
     /**
      * 세션 제거
      */
     public void sessionDestroyed(HttpSessionEvent hse) {
-        HttpSession s = hse.getSession();
+//        HttpSession s = hse.getSession();
     }
 
     /**
      * 속성을 세션에 추가
      */
     public void attributeAdded(HttpSessionBindingEvent hsbe) {
-        HttpSession s = hsbe.getSession();
+//        HttpSession s = hsbe.getSession();
     }
 
     /**
      * 속성을 세션에 제거
      */
     public void attributeRemoved(HttpSessionBindingEvent hsbe) {
-        HttpSession s = hsbe.getSession();
+//        HttpSession s = hsbe.getSession();
     }
 
     /**
      * 속성으로 사용되는 클래스가 세션에 바인딩 되었을때
      */
     public void attributeReplaced(HttpSessionBindingEvent hsbe) {
-        HttpSession s = hsbe.getSession();
+//        HttpSession s = hsbe.getSession();
     }
 
     /**

@@ -314,7 +314,8 @@ public class BoardController extends CommonController {
         String uploadPath  = ConfigUtil.getString("path.upload");
         String tempPath    = ConfigUtil.getString("path.temp");
         String newFileName = UUIDUtil.getUUID();
-        String newFilePath = tempPath + "\\" + newFileName;
+        String newUploadFilePath = uploadPath + "\\" + newFileName;
+        String newTempFilePath   = tempPath + "\\" + newFileName;
 
         TempUploadFile tempUploadFile = new TempUploadFile();
         tempUploadFile.setMember(member);
@@ -325,7 +326,7 @@ public class BoardController extends CommonController {
         tempUploadFile.setFileSize(upload.getSize());
 
         boardService.addTempUploadFile(tempUploadFile);
-        upload.transferTo(new File(newFilePath));
+        upload.transferTo(new File(newTempFilePath));
 
         StringBuilder sb = new StringBuilder();
         sb.append("<script type='text/javascript'>")
