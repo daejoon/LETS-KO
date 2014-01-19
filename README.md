@@ -5,6 +5,7 @@
 
 
 
+
 ## 차례
 
 - 개발환경 구성 및 설치
@@ -76,7 +77,7 @@ Eclipse보다 설정이 적다. (그렇다고 설정을 안하고 쓸수 있다�
 개발환경
     ├─ IDE: IntelliJ IDEA13
     ├─ Java: 1.7
-    ├─ 형상관리: Git
+    ├─ 형상관리: Git, GitHub
     ├─ 빌드: Maven
     ├─ Web Application Server: Tomcat7.0
     └─ DB: SQLServer 2008
@@ -99,9 +100,7 @@ Frontend 기술 스택
     └─ bootstrap
 ```
 
-설치에 앞서서 개인적으로 프로젝트와 관련된
-
-JDK, IDE, Maven, Web Application Server등은 아래와 같이 한곳에 모아둔다.
+설치에 앞서서 개인적으로 프로젝트와 관련된 JDK, IDE, Maven, Web Application Server등은 아래와 같이 한곳에 모아둔다.
 ```
 C:\JavaDE
     ├─ java
@@ -132,9 +131,7 @@ C:\JavaDE
 
 ### IntelliJ IDEA13 설치
 
-IntelliJ IDEA13 Windows 용을 [다운로드](http://www.jetbrains.com/idea/download/index.html)한다.
-
-IntelliJ 설정은 [기본설정](http://beyondj2ee.wordpress.com/2013/06/01/%EC%9D%B8%ED%85%94%EB%A6%ACj-%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0-part1-getting-start-intellij-%EA%B8%B0%EB%B3%B8-%EC%84%A4%EC%A0%95%ED%8E%B8/),
+IntelliJ IDEA13 Windows 용을 [다운로드](http://www.jetbrains.com/idea/download/index.html)한다. IntelliJ 설정은 [기본설정](http://beyondj2ee.wordpress.com/2013/06/01/%EC%9D%B8%ED%85%94%EB%A6%ACj-%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0-part1-getting-start-intellij-%EA%B8%B0%EB%B3%B8-%EC%84%A4%EC%A0%95%ED%8E%B8/),
 [자바설정](http://beyondj2ee.wordpress.com/2013/06/15/%EC%9D%B8%ED%85%94%EB%A6%ACj-%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0-part2-getting-start-intellij-%EC%9E%90%EB%B0%94-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%ED%8E%B8/)을 참고한다.
 
 ### Git 설치
@@ -147,7 +144,6 @@ Git은 리눅스 커널을 개발 관리하기 위해서 [리누스 토발즈](h
 
 IntelliJ와 연동은 [IntelliJ-Git 설정](http://beyondj2ee.wordpress.com/2013/06/28/%ec%9d%b8%ed%85%94%eb%a6%acj-%ec%8b%9c%ec%9e%91%ed%95%98%ea%b8%b0-part4-getting-start-intellij-git/)을 참고한다.
 
-
 ### Maven 설치
 
 의존성 관리만으로도 Maven을 설치할만한 가치는 충분이 크다. Maven 현재 최신 버전은 3.1.1 이다.
@@ -155,7 +151,6 @@ IntelliJ와 연동은 [IntelliJ-Git 설정](http://beyondj2ee.wordpress.com/2013
 Maven 3.1.1 (Binary zip)을 [다운로드](http://maven.apache.org/download.cgi) 한후, 적당한 폴더에 압축해제한다.
 
 `[IntelliJ Menu]`->`File`->`settings...`->`Maven`->`Maven Home directory [선택]` 압축해제한 곳을 선택한다.
-
 
 ### Web Application Server
 
@@ -165,7 +160,7 @@ Web Application Server(이하 WAS)는 여러 밴더가 존재한다.
 
 사실 WAS는 표준 스펙이 존재하기 때문에 밴더별로 스펙만 맞춰주면 동일한 결과를 보장해야 한다.
 
-Tomcat 7.0 Version은 [여기를](http://tomcat.apache.org/whichversion.html) 참고한다.
+Tomcat 7.0 Version은 [여기](http://tomcat.apache.org/whichversion.html)를 참고한다.
 
 개발은 일반적으로 많이 사용하는 Tomcat을 이용한다. [Tomcat 7.0 다운로드](http://tomcat.apache.org/download-70.cgi)
 
@@ -176,22 +171,47 @@ Tomcat 7.0 Version은 [여기를](http://tomcat.apache.org/whichversion.html) �
 
 
 
+
 ## 프로젝트 생성 및 설정
 
 ### Java Project 생성
 
-이번 프로젝트는 새로운 프로젝트를 생성하기 보다는 GitHub에서 Checkout해서 생성한다.
+이번 프로젝트는 새로운 프로젝트를 생성하기 보다는 GitHub에서 Clone해서 생성한다.
 
 1. 처음 IntelliJ를 실행하면은 Dashboard가 나타난다. `Check out from version control`->`GitHub [선택]`한다.
 
 2. 다음 단계로 Clone Repository 다이알로그가 나타나는데 `Git Repository URL`->`https://github.com/daejoon/LETS-KO.git [입력]`
-->`Parent Directory`->`C:\Users\{계정이름}\IdeaProjects [입력]`->`Directory Name`->`LET-KO [입력]`->`Clone [클릭]` 한다.
+->`Parent Directory`->`C:\Users\{계정이름}\IdeaProjects [입력]`->`Directory Name`->`LETS-KO [입력]`->`Clone [클릭]` 한다.
 
 3. Import Project 다이알로그 창이 나타나면 `Create project from existing sources`->`Next [클릭]`->`Next [클릭]`->`Unmark All [클릭]`->`Finish [클릭]` 한다.
 
 4. `File`->`Import Module`->`First.iml [선택]`->`OK [클릭]` 한다.
 
 ### Run/Debug Configurations 설정
+
+IntelliJ와 WAS를 연결해야 로컬에서 개인별로 개발이 가능하다.
+
+프로젝트 환경을 구축하는 방법은 크게 2가지 가 있다.
+
+1안
+```
+개인1 WAS + 개인1 DB
+개인2 WAS + 개인2 DB
+개인3 WAS + 개인3 DB
+...
+개인N WAS + 개인N DB
+```
+
+2안
+```
+개인1 WAS ---|
+개인2 WAS ---|
+개인3 WAS ---|--- 공용1 DB
+...      ---|
+개인N WAS ---|
+```
+
+여기서는 2안을 염두해 두고 만들었다.
 
 1. `Run`->`Edit Configurations [선택]` 한다.
 
@@ -206,6 +226,7 @@ Tomcat 7.0 Version은 [여기를](http://tomcat.apache.org/whichversion.html) �
 ### Git 설정
 
 `File`->`Settings...`->`Version Control`->`Ignored Files`->`+ [클릭]`->`Ignore all files under`->`... [선택]`->`.idea [선택]`->`Ok [클릭]`
+
 
 
 
@@ -256,6 +277,7 @@ Tomcat 7.0 Version은 [여기를](http://tomcat.apache.org/whichversion.html) �
 
 
 
+
 ## Web Application 설정
 
 ### UTF-8 설정
@@ -294,6 +316,8 @@ Log4j의 설정 파일을 읽을수 있게 web.xml에 추가한다.
 ```
 
 Log4j 설정 파일은 `[CONTEXT_CONFIG_HOME]/log4j/log4j.xml`을 참고한다.
+
+
 
 
 
@@ -434,11 +458,13 @@ String type = ConfigUtil.getString("mode.type");
 
 
 
+
+
 ## SpringSecurity
 
-### SpringSecurity 설정
+로그인과 권한인증(Authentication) 권한허가(Authorization)를 손쉽게 관리할수 있어. 실제 비지니스에 집중할수 있게 해준다.
 
-SpringSecurity를 사용함으로써 많은 부분의 권한관리를 줄일수 있다.
+### SpringSecurity 설정
 
 `[WEB_HOME]/WEB-INF/web.xml`의 DelegatingFilterProxy filter 설정해야 SpringSecurity가 동작한다.
 ``` xml
@@ -454,6 +480,8 @@ SpringSecurity를 사용함으로써 많은 부분의 권한관리를 줄일수 
 ```
 
 SpringSecurity의 세부 설정은 `[CONTEXT_CONFIG_HOME]/spring/context-security.xml`을 확인한다.
+
+
 
 
 
@@ -506,12 +534,14 @@ hibernate.dialect는 SQLServer를 사용하기 때문에 `org.hibernate.dialect.
 hibernate.hbm2ddl.auto의 값은 create, create-drop, update, validate 값이 올수 있다.
 ```
 create: Entity를 기초로 테이블을 생성한다.
-create-drop: Entity를 기초로 테이블을 생성하고 프로그램 종료시에 삭제한다. 여기서는 WAS 종료시에 삭제된다.
+create-drop: Entity를 기초로 테이블을 생성하고 프로그램 종료시에 삭제한다. WAS 종료시에 삭제된다.
 update: Entity와 테이블을 비교하여 변경 부분을 적용한다. (권한에 따라 안될수도 있다.)
 validate: Entity와 테이블을 비교만 한다.
 ```
 
-대부분 프로젝트를 만들때 데이터베이스 테이블을 미리 구성하고 그다음에 Entity를 생성한다. 따라서 이 프로젝트와 같이 테이블을 역으로 생성하는 경우는 드물다.
+대부분 프로젝트를 만들때 데이터베이스 테이블을 미리 구성하고 그다음에 Entity를 생성한다. 
+
+따라서 이 프로젝트와 같이 테이블을 역으로 생성하는 경우는 드물다.
 
 여기서는 create로 테이블을 생성후에 설정값을 validate로 변경하자.
 
@@ -519,7 +549,13 @@ validate: Entity와 테이블을 비교만 한다.
 
 
 
+
+
 ## Tiles
+
+Composite Pattern을 이용한 View 관리를 간편하 화기 위한 Framework이다.
+
+[Tiles 홈페이지](http://tiles.apache.org/)
 
 ### Tiles 설정
 
@@ -707,9 +743,11 @@ public class MainController extends CommonController {
 }
 ```
 
-Tiles 템플릿은 indexTpl, defaultTpl 두가지 종류가 있고 필요에 따라서 추가한후 사용하면 된다.
+Tiles 템플릿은 indexTpl, defaultTpl 두가지 종류(*종류는 추가 할수 있다 이번 프로젝트에서는 2가지를 사용했다.)가 있고 필요에 따라서 추가한후 사용하면 된다.
 
 추가는 `[WEB_CONFIG_HOME]/tiles/tiles-definitions.xml`에 추가한다.
+
+
 
 
 
@@ -765,7 +803,7 @@ ROOT-HOME
 
 ### Bootstrap 설정
 
-부트스트랩은 css Framework으로 반응형 웹을 지원하며 CSS 고민을 덜고 웹사이트 개발을 할수 있게 해주는 아주 고마운 라이브러리다.
+부트스트랩은 css Framework으로 반응형 웹을 지원하며 개발자에게 CSS 고민을 덜고 웹사이트 개발을 할수 있게 해주는 CSS Framework이다.
 
 부트스트랩을 [다운로드](http://getbootstrap.com/)한다. 현재 최신 버전은 3.0.3 이다.
 
@@ -811,12 +849,7 @@ requierjs를 사용하기 위해서는 처음 엔트리 포인트가 필요하�
 
 환경설정은 `[WEB_HOME]/static/js/main.js`을 참고한다.
 ``` javascript
-/**
- * user strict 명령은 엄격하게 JavaScript 룰을 적용하라는 의미이다.
- * 일부 브라우저의 경우 use strict 명령을 통해 보다 빠르게 동작하는 경우도 존재하는 것 같다.
- * 잘못된 부분에 대한 검증도 보다 엄격하게 동작한다.
- * 하지만, 일부 라이브러리의 경우 use strict 명령을 사용하면 동작하지 않는 경우도 있으므로 주의해야 한다.
- */
+... 생략
 ;"use strict"
 require.config({
     baseUrl: "/static/js",
@@ -1400,6 +1433,10 @@ function($) { "use strict";
 [Form Editing](http://www.trirand.com/jqgridwiki/doku.php?id=wiki:form_editing),
 [작성방법](http://www.trirand.com/jqgridwiki/doku.php?id=wiki:conventions)
 
+
+
+
+
 ## Sample
 
 예제로 사용할 테이블 이다. 테이블을 생성한다.
@@ -1575,9 +1612,9 @@ URL은 SampleController.java가 호출된다.
 
 CommonController를 상속 받으면 getBaseUrl 메소드를 오버라이드 해줘야 한다.
 
-CommonController는 `@RequestMapping( value = "comm/{tilesName}")`, `@RequestMapping( value = "comm/{tilesName}/{name}/{value}") `
+CommonController는 `@RequestMapping( value = "comm/{tilesName}")`, `@RequestMapping( value = "comm/{tilesName}/{name}/{value}") ` 두개지 형태의  URL을 처리해준다.
 
-두개지 형태의  URL을 처리해준다.
+`[JAVA_SRC_HOME]/dd2/local/busi/com/web/CommonController.java`를 참고한다.
 ``` java
 ... 생략
 
