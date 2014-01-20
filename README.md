@@ -144,6 +144,8 @@ Git은 리눅스 커널을 개발 관리하기 위해서 [리누스 토발즈](h
 
 IntelliJ와 연동은 [IntelliJ-Git 설정](http://beyondj2ee.wordpress.com/2013/06/28/%ec%9d%b8%ed%85%94%eb%a6%acj-%ec%8b%9c%ec%9e%91%ed%95%98%ea%b8%b0-part4-getting-start-intellij-git/)을 참고한다.
 
+[Learn Git Branching](http://pcottle.github.io/learnGitBranching/)
+
 ### Maven 설치
 
 의존성 관리만으로도 Maven을 설치할만한 가치는 충분이 크다. Maven 현재 최신 버전은 3.1.1 이다.
