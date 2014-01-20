@@ -19,8 +19,8 @@ import java.util.Date;
  * To change this template use File | Settings | File Templates.
  * @Valid 처리를 위해서 ConfigurableWebBindingInitializer를 상속 받았다.
  */
-public class UserWebBindingInitializer extends ConfigurableWebBindingInitializer {
-    private static final Log logger = LogFactory.getLog(UserWebBindingInitializer.class);
+public class ConfigurableWebBindingInitializerExt extends ConfigurableWebBindingInitializer {
+    private static final Log logger = LogFactory.getLog(ConfigurableWebBindingInitializerExt.class);
 
     @Override
     public void initBinder(WebDataBinder binder, WebRequest request) {

@@ -25,7 +25,7 @@
     <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
         <property name="order" value="0" />
         <property name="webBindingInitializer">
-            <bean class="dd2.local.web.support.UserWebBindingInitializer">
+            <bean class="dd2.local.web.support.ConfigurableWebBindingInitializerExt">
                 <property name="validator" ref="localValidator" />
             </bean>
         </property>
