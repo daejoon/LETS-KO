@@ -20,7 +20,6 @@
         <!--// setting -->
 
         <!-- dependencies version -->
-        <tomcat.version>7.0.47</tomcat.version>
         <jstl.version>1.2</jstl.version>
         <log4j.version>1.2.14</log4j.version>
         <spring.version>3.2.6.RELEASE</spring.version>
@@ -139,21 +138,6 @@
             <!--<version>4.0</version>-->
             <!--<scope>runtime</scope>-->
         <!--</dependency>-->
-
-        <!-- tomcat -->
-        <dependency>
-            <groupId>org.apache.tomcat</groupId>
-            <artifactId>tomcat-servlet-api</artifactId>
-            <version>${tomcat.version}</version>
-            <scope>provided</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>org.apache.tomcat</groupId>
-            <artifactId>tomcat-jsp-api</artifactId>
-            <version>${tomcat.version}</version>
-            <scope>provided</scope>
-        </dependency>
 
         <!-- log4j -->
         <dependency>
