@@ -44,7 +44,6 @@
         <filter-name>httpMethodFilter</filter-name>
         <filter-class>org.springframework.web.filter.HiddenHttpMethodFilter</filter-class>
     </filter>
-
     <filter-mapping>
         <filter-name>httpMethodFilter</filter-name>
         <url-pattern>/*</url-pattern>
