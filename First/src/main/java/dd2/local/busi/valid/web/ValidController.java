@@ -28,19 +28,18 @@ public class ValidController extends CommonController {
     }
 
     @RequestMapping(value = "user", method = RequestMethod.GET )
-    public String doUser(ModelMap model) {
+    public String user(ModelMap model) {
         model.put("user", new User());
         return getBaseUrl() + "write.defaultTpl";
     }
 
     @RequestMapping(value = "user", method = RequestMethod.POST )
-    public String doneUser(@Valid @ModelAttribute User user, BindingResult bindingResult) {
-
+    public String userSubmit(@Valid @ModelAttribute User user, BindingResult bindingResult) {
         if ( bindingResult.hasErrors() ) {
             if ( logger.isDebugEnabled() ) {
                 logger.debug("검증 에러 발생");
-                return getBaseUrl() + "write.defaultTpl";
             }
+            return getBaseUrl() + "write.defaultTpl";
         }
 
         return getBaseUrl() + "result.defaultTpl";
