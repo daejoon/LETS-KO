@@ -37,7 +37,7 @@ public class ValidController extends CommonController {
     public String userSubmit(@Valid @ModelAttribute User user, BindingResult bindingResult) {
         if ( bindingResult.hasErrors() ) {
             if ( logger.isDebugEnabled() ) {
-                logger.debug("검증 에러 발생");
+                logger.debug("검증 에러 발생!!!");
             }
             return getBaseUrl() + "write.defaultTpl";
         }
