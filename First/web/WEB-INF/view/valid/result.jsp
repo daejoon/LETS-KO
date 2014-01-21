@@ -16,23 +16,35 @@
 <%@ taglib uri="http://www.springframework.org/tags/form"       prefix="form"   %>
 
 <div class="panel panel-default">
-    <div class="panel-heading">User Info (${method})</div>
+    <div class="panel-heading">User Info (<spring:eval expression="method" />)</div>
     <div class="panel-body">
         <div class="row">
             <div class="col-md-12">
-                ${user.name}
+                <spring:eval expression="user.name" />
                 <p></p>
             </div>
         </div>
         <div class="row">
             <div class="col-md-12">
-                ${user.age}
+                <spring:eval expression="user.age" />
                 <p></p>
             </div>
         </div>
         <div class="row">
             <div class="col-md-12">
-                ${user.email}
+                <spring:eval expression="user.email" />
+                <p></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <spring:eval expression="user.createDate" />
+                <p></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <spring:eval expression="user.description" />
                 <p></p>
             </div>
         </div>

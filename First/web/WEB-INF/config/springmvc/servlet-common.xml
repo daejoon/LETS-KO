@@ -2,10 +2,11 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
            http://www.springframework.org/schema/beans/spring-beans.xsd
            http://www.springframework.org/schema/context
-           http://www.springframework.org/schema/context/spring-context.xsd ">
+           http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
     <context:component-scan base-package="dd2">
         <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller" />
@@ -24,11 +25,7 @@
 
     <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
         <property name="order" value="0" />
-        <property name="webBindingInitializer">
-            <bean class="dd2.local.web.support.ConfigurableWebBindingInitializerExt">
-                <property name="validator" ref="localValidator" />
-            </bean>
-        </property>
+        <property name="webBindingInitializer" ref="webBindingInitializer" />
         <property name="customArgumentResolvers">
             <list>
                 <bean class="dd2.local.web.support.UserMethodArgumentResolver" />
@@ -58,12 +55,15 @@
         <property name="maxUploadSize" value="2097152" />
     </bean>
 
+    <!-- WebBindingInitializer -->
+    <bean id="webBindingInitializer" class="org.springframework.web.bind.support.ConfigurableWebBindingInitializer">
+        <property name="validator" ref="localValidator" />
+        <property name="conversionService" ref="conversionService" />
+    </bean>
 
-    <!-- validation bean -->
     <bean id="localValidator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean"/>
 
-    <!-- JSR-303 support will be detected on classpath and enabled automatically -->
-    <!--<mvc:annotation-driven />-->
+    <bean id="conversionService" class="org.springframework.format.support.FormattingConversionServiceFactoryBean" />
 
     <!--  예외처리 -->
     <!--<bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">-->
@@ -75,4 +75,6 @@
         <!--</property>-->
         <!--<property name="defaultErrorView" value="common/error/errorDefault" />-->
     <!--</bean>-->
+
+    <mvc:annotation-driven />
 </beans>

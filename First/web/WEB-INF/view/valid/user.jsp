@@ -40,6 +40,20 @@
             </div>
         </div>
         <div class="row">
+            <div class="col-md-12">
+                <form:input path="createDate" name="createDate" cssClass="form-control" placeholder="createDate" />
+                <form:errors path="createDate" />
+                <p></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <form:input path="description" name="description" cssClass="form-control" placeholder="description" />
+                <form:errors path="description" />
+                <p></p>
+            </div>
+        </div>
+        <div class="row">
             <div class="col-md-2"></div>
             <div class="col-md-10 text-right">
                 <button id="POST"    class="btn btn-default btn-primary">등록</button>

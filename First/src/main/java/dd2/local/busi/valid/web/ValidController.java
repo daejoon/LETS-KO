@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
 import javax.validation.Valid;
+import java.util.Date;
 
 /**
  * Created by kdj on 2014. 1. 21..
@@ -40,6 +41,8 @@ public class ValidController extends CommonController {
         user.setName("");
         user.setAge("");
         user.setEmail("user@sample.co.kr");
+        user.setCreateDate(new Date());
+        user.setDescription("");
 
         model.put("user", user);
         return getBaseUrl() + "user.defaultTpl";
