@@ -26,6 +26,7 @@ public class ConfigurableWebBindingInitializerExt extends ConfigurableWebBinding
     public void initBinder(WebDataBinder binder, WebRequest request) {
         super.initBinder(binder, request);
 
+        // 날짜 데이터 처리
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         dateFormat.setLenient(false);
         binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, false));
