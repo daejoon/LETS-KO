@@ -27,13 +27,13 @@ public class ValidController extends CommonController {
         return BASE_URL;
     }
 
-    @RequestMapping(value = "user", method = RequestMethod.GET )
+    @RequestMapping(value = "user", method = RequestMethod.GET)
     public String getUser(ModelMap model) {
         model.put("user", new User());
         return getBaseUrl() + "user.defaultTpl";
     }
 
-    @RequestMapping(value = "user", method = RequestMethod.POST )
+    @RequestMapping(value = "user", method = RequestMethod.POST)
     public String postUser(@Valid @ModelAttribute User user, BindingResult bindingResult, ModelMap model) {
         model.put("method", "POST");
 
@@ -61,7 +61,7 @@ public class ValidController extends CommonController {
         return getBaseUrl() + "result.defaultTpl";
     }
 
-    @RequestMapping(value = "user", method = RequestMethod.DELETE )
+    @RequestMapping(value = "user", method = RequestMethod.DELETE)
     public String deleteUser(@Valid @ModelAttribute User user, BindingResult bindingResult, ModelMap model) {
         model.put("method", "DELETE");
 
