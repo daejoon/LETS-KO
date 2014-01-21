@@ -15,7 +15,7 @@
 <%@ taglib uri="http://www.springframework.org/tags/form"       prefix="form"   %>
 
 <div class="panel panel-default">
-    <div class="panel-heading">등록</div>
+    <div class="panel-heading">User</div>
     <div class="panel-body">
         <form:form modelAttribute="user" method="POST">
         <div class="row">
@@ -42,75 +42,40 @@
         <div class="row">
             <div class="col-md-2"></div>
             <div class="col-md-10 text-right">
-                <input type="submit" class="btn btn-default btn-primary" value=" Submit " />
+                <button id="POST"    class="btn btn-default btn-primary">등록</button>
+                <button id="PUT"     class="btn btn-default btn-primary">수정</button>
+                <button id="DELETE"  class="btn btn-default btn-primary">삭제</button>
             </div>
         </div>
         </form:form>
     </div>
-
-    <div class="panel-heading">수정</div>
-    <div class="panel-body">
-        <form:form modelAttribute="user" method="PUT">
-            <div class="row">
-                <div class="col-md-12">
-                    <form:input path="name" name="name" cssClass="form-control" placeholder="name" />
-                    <form:errors path="name" />
-                    <p></p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <form:input path="age" name="age" cssClass="form-control" placeholder="age" />
-                    <form:errors path="age" />
-                    <p></p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <form:input path="email" name="email" cssClass="form-control" placeholder="email" />
-                    <form:errors path="email" />
-                    <p></p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-2"></div>
-                <div class="col-md-10 text-right">
-                    <input type="submit" class="btn btn-default btn-primary" value=" Submit " />
-                </div>
-            </div>
-        </form:form>
-    </div>
-
-    <div class="panel-heading">삭제</div>
-    <div class="panel-body">
-        <form:form modelAttribute="user" method="DELETE">
-            <div class="row">
-                <div class="col-md-12">
-                    <form:input path="name" name="name" cssClass="form-control" placeholder="name" />
-                    <form:errors path="name" />
-                    <p></p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <form:input path="age" name="age" cssClass="form-control" placeholder="age" />
-                    <form:errors path="age" />
-                    <p></p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <form:input path="email" name="email" cssClass="form-control" placeholder="email" />
-                    <form:errors path="email" />
-                    <p></p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-2"></div>
-                <div class="col-md-10 text-right">
-                    <input type="submit" class="btn btn-default btn-primary" value=" Submit " />
-                </div>
-            </div>
-        </form:form>
-    </div>
 </div>
+<script type="text/javascript">
+;require([
+    "jquery",
+    "local"
+],
+function($, LOCAL) { $(document).ready(function() {
+    var $form = $("#user");
+
+    $("button").on("click", function (event) {
+        var $self = $(this);
+        var methodName = $self.prop("id");
+
+        var $methods = $form.find("input[type=hidden][name=_method]");
+        if ( $methods.length > 0 ) {
+            $methods.each(function(index, element) {
+                $self = $(this);
+                $self.val(methodName);
+            });
+        } else {
+            $("<input />")
+                    .prop("type", "hidden")
+                    .prop("name", "_method")
+                    .prop("value", methodName)
+                    .appendTo($form);
+        }
+        $form.submit();
+    });
+});});
+</script>
