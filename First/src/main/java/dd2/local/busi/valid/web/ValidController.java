@@ -28,18 +28,48 @@ public class ValidController extends CommonController {
     }
 
     @RequestMapping(value = "user", method = RequestMethod.GET )
-    public String user(ModelMap model) {
+    public String getUser(ModelMap model) {
         model.put("user", new User());
-        return getBaseUrl() + "write.defaultTpl";
+        return getBaseUrl() + "user.defaultTpl";
     }
 
     @RequestMapping(value = "user", method = RequestMethod.POST )
-    public String userSubmit(@Valid @ModelAttribute User user, BindingResult bindingResult) {
+    public String postUser(@Valid @ModelAttribute User user, BindingResult bindingResult, ModelMap model) {
+        model.put("method", "POST");
+
         if ( bindingResult.hasErrors() ) {
             if ( logger.isDebugEnabled() ) {
                 logger.debug("검증 에러 발생");
             }
-            return getBaseUrl() + "write.defaultTpl";
+            return getBaseUrl() + "user.defaultTpl";
+        }
+
+        return getBaseUrl() + "result.defaultTpl";
+    }
+
+    @RequestMapping(value = "user", method = RequestMethod.PUT)
+    public String putUser(@Valid @ModelAttribute User user, BindingResult bindingResult, ModelMap model) {
+        model.put("method", "PUT");
+
+        if ( bindingResult.hasErrors() ) {
+            if ( logger.isDebugEnabled() ) {
+                logger.debug("검증 에러 발생");
+            }
+            return getBaseUrl() + "user.defaultTpl";
+        }
+
+        return getBaseUrl() + "result.defaultTpl";
+    }
+
+    @RequestMapping(value = "user", method = RequestMethod.DELETE )
+    public String deleteUser(@Valid @ModelAttribute User user, BindingResult bindingResult, ModelMap model) {
+        model.put("method", "DELETE");
+
+        if ( bindingResult.hasErrors() ) {
+            if ( logger.isDebugEnabled() ) {
+                logger.debug("검증 에러 발생");
+            }
+            return getBaseUrl() + "user.defaultTpl";
         }
 
         return getBaseUrl() + "result.defaultTpl";
