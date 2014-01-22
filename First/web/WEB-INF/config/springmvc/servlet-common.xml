@@ -76,5 +76,6 @@
         <!--<property name="defaultErrorView" value="common/error/errorDefault" />-->
     <!--</bean>-->
 
+    <!-- 마지막에 두지 않으면 오류 난다. -->
     <mvc:annotation-driven />
 </beans>
