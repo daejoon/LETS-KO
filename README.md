@@ -325,6 +325,8 @@ Log4j 설정 파일은 `[CONTEXT_CONFIG_HOME]/log4j/log4j.xml`을 참고한다.
 
 ## SpringFramework
 
+[Spring MVC 요약](http://www.slideshare.net/ienvyou/spring-mvc-30209196)
+
 ### SpringFramework 설정
 
 SpringFramework(이하 Spring) 설정은 Root Context 설정과, Servlet Context 설정으로 나뉜다.
