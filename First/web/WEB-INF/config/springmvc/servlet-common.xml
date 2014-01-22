@@ -76,6 +76,6 @@
         <!--<property name="defaultErrorView" value="common/error/errorDefault" />-->
     <!--</bean>-->
 
-    <!-- 마지막에 두지 않으면 오류 난다. -->
+    <!-- JSR-303 support will be detected on classpath and enabled automatically -->
     <mvc:annotation-driven />
 </beans>

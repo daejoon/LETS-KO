@@ -3,8 +3,8 @@ package dd2.local.entity;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import javax.validation.constraints.Pattern;
-import javax.validation.constraints.Size;
+import javax.validation.Valid;
+import javax.validation.constraints.*;
 import java.util.Date;
 
 /**
@@ -22,6 +22,7 @@ public class User {
     private String email;
 
     @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @NotNull(message = "값을 입력해 주세요.")
     private Date createDate;
 
     @NotEmpty(message = "값을 입력해 주세요.")
