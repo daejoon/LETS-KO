@@ -35,7 +35,7 @@ public class ValidController extends CommonController {
     /**
      * @ModelAttribute("user")
      *  어노테이션을 메소드에 선언하면 해당 클래스이 메소드들이 리턴을 할때 usr() 메소드 결과를 호출한다.
-     *  호출한다. 만약 파라미터로 받는다면 파라리터로 받는게 우선한다.
+     *  만약 파라미터로 받는다면 파라리터로 받는게 우선한다.
      *
      * @return
      */
