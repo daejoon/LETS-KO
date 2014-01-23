@@ -166,6 +166,8 @@ Tomcat 7.0 Version은 [여기](http://tomcat.apache.org/whichversion.html)를 �
 
 개발은 일반적으로 많이 사용하는 Tomcat을 이용한다. [Tomcat 7.0 다운로드](http://tomcat.apache.org/download-70.cgi)
 
+[Tomcat 7.0 한글문서](http://kenu.github.io/tomcat70/docs/)
+
 ### Database 설치
 
 이 프로젝트에서는 Hibernate를 사용하기 때문에 사실 특정 DataBase를 설치할 필요는 없다. 취양에 맞춰 설치하자.
