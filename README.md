@@ -42,6 +42,8 @@
  + jQueryUi 설정
  + jqGrid 설정
 - Sample
+ + Sample CRUD
+ + @ModelAttribute, @SessionAttributs, RESTful
 - 마치며
  + 마치며
 
@@ -144,7 +146,7 @@ Git은 리눅스 커널을 개발 관리하기 위해서 [리누스 토발즈](h
 
 IntelliJ와 연동은 [IntelliJ-Git 설정](http://beyondj2ee.wordpress.com/2013/06/28/%ec%9d%b8%ed%85%94%eb%a6%acj-%ec%8b%9c%ec%9e%91%ed%95%98%ea%b8%b0-part4-getting-start-intellij-git/)을 참고한다.
 
-[Learn Git Branching](http://pcottle.github.io/learnGitBranching/)
+참고: [Learn Git Branching](http://pcottle.github.io/learnGitBranching/)
 
 ### Maven 설치
 
@@ -166,7 +168,7 @@ Tomcat 7.0 Version은 [여기](http://tomcat.apache.org/whichversion.html)를 �
 
 개발은 일반적으로 많이 사용하는 Tomcat을 이용한다. [Tomcat 7.0 다운로드](http://tomcat.apache.org/download-70.cgi)
 
-[Tomcat 7.0 한글문서](http://kenu.github.io/tomcat70/docs/)
+참고: [Tomcat 7.0 한글문서](http://kenu.github.io/tomcat70/docs/)
 
 ### Database 설치
 
@@ -327,7 +329,7 @@ Log4j 설정 파일은 `[CONTEXT_CONFIG_HOME]/log4j/log4j.xml`을 참고한다.
 
 ## SpringFramework
 
-Spring MVC [참고문서](http://www.slideshare.net/ienvyou/spring-mvc-30209196)
+참고: [Spring MVC](http://www.slideshare.net/ienvyou/spring-mvc-30209196)
 
 ### SpringFramework 설정
 
@@ -960,7 +962,7 @@ require.config({
 });
 ```
 
-[Sim Configuraion 참고 문서](http://gregfranko.com/blog/require-dot-js-2-dot-0-shim-configuration/)
+참고: [Sim Configuraion 문서](http://gregfranko.com/blog/require-dot-js-2-dot-0-shim-configuration/)
 
 ### jQuery 설정
 
@@ -1067,7 +1069,7 @@ function($, JSON) { "use strict";
 
 프로젝트에서 jquery API와 관련된 기본적인 설정과 Custom API를 추가해서 사용하면 된다.
 
-[jQuery Documentation](http://api.jquery.com/)
+참고: [jQuery Documentation](http://api.jquery.com/)
 
 ### jQueryUi 설정
 
@@ -1428,8 +1430,9 @@ function($) { "use strict";
 });
 ```
 
-[jqGrid Documentation 참고문서](http://www.trirand.com/jqgridwiki/doku.php?id=wiki:jqgriddocs)
+참고:
 
+[jqGrid Documentation](http://www.trirand.com/jqgridwiki/doku.php?id=wiki:jqgriddocs)
 [데모페이지](http://trirand.com/blog/jqgrid/jqgrid.html),
 [그리드 옵션](http://www.trirand.com/jqgridwiki/doku.php?id=wiki:options),
 [메소드](http://www.trirand.com/jqgridwiki/doku.php?id=wiki:methods),
@@ -1444,6 +1447,8 @@ function($) { "use strict";
 
 
 ## Sample
+
+### Sample CRUD
 
 예제로 사용할 테이블 이다. 테이블을 생성한다.
 ``` sql
@@ -1976,6 +1981,375 @@ JqGridCrudUtil 클래스는 ajax JSON으로 받은 데이터를 SampleEntity로 
 구현해 놓을 것을 바로 사용할수 있다.
 
 다시 페이지를 호출하고 CRUD를 해보자!
+
+### @ModelAttribute, @SessionAttributs, RESTful
+
+웹 어플리케이션을 구현하다 보면 검증 작업을 프로트엔드(JavaScript)와 백엔드(Java) 두 곳에서 해줘야 한다.
+
+그런데 이 검증작업이 참 귀찮고 반복적인 작업이다. 스프링에서는 Spring Form tag와
+
+@ModelAttribute, @SessionAttributs을 이용하여 반복적인 검증 작업을 줄일수 있다. 더불어 RESTful
+
+방식으로 개발해 보자.
+
+참고: [@ModelAttribute, @SessionAttributs 이해](http://springmvc.egloos.com/535572),
+[RESTful API 설계](https://speakerdeck.com/leewin12/rest-api-seolgye),
+[Bean Validation](http://docs.spring.io/spring/docs/3.2.6.RELEASE/spring-framework-reference/htmlsingle/#validation-beanvalidation)
+
+`[JAVA_SRC_HOME]/dd2/local/entity/User.java` 파일 생성
+```Java
+package dd2.local.entity;
+
+import org.hibernate.validator.constraints.NotEmpty;
+import org.springframework.format.annotation.DateTimeFormat;
+
+import javax.validation.Valid;
+import javax.validation.constraints.*;
+import java.util.Date;
+
+public class User {
+
+    @Size(min = 1, max = 10, message = "이름은 1자 이상 10자 이하 입니다.")
+    private String name;
+
+    @Pattern(regexp = "^[1-9][0-9]{1,2}$", message = "나이에는 숫자만 올수 있습니다.")
+    private String age;
+
+    @Pattern(regexp = "^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}$", message = "유효하지 않은 이메일 입니다.")
+    private String email;
+
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @NotNull(message = "값을 입력해 주세요.")
+    private Date createDate;
+
+    @NotEmpty(message = "값을 입력해 주세요.")
+    private String description;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getAge() {
+        return age;
+    }
+
+    public void setAge(String age) {
+        this.age = age;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public Date getCreateDate() {
+        return createDate;
+    }
+
+    public void setCreateDate(Date createDate) {
+        this.createDate = createDate;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+}
+```
+
+`[WEB_HOME]/WEB-INF/view/vaid` 폴더를 생성한다.
+`[WEB_HOME]/WEB-INF/view/vaid/user.jsp` 파일을 생성한다.
+``` javascript
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page trimDirectiveWhitespaces="true" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core"              prefix="c"      %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions"         prefix="fn"     %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt"               prefix="fmt"    %>
+<%@ taglib uri="http://tiles.apache.org/tags-tiles"             prefix="tiles"  %>
+<%@ taglib uri="http://www.springframework.org/security/tags"   prefix="sec"    %>
+<%@ taglib uri="http://www.springframework.org/tags/form"       prefix="form"   %>
+
+<div class="panel panel-default">
+    <div class="panel-heading">User</div>
+    <div class="panel-body">
+        <form:form modelAttribute="user" method="POST">
+        <div class="row">
+            <div class="col-md-12">
+                <form:input path="name" name="name" cssClass="form-control" placeholder="name" />
+                <form:errors path="name" cssStyle="color: #ff0000"/>
+                <p></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <form:input path="age" name="age" cssClass="form-control" placeholder="age" />
+                <form:errors path="age" cssStyle="color: #ff0000"/>
+                <p></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <form:input path="email" name="email" cssClass="form-control" placeholder="email" />
+                <form:errors path="email" cssStyle="color: #ff0000"/>
+                <p></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <form:input path="createDate" name="createDate" cssClass="form-control" placeholder="createDate" />
+                <form:errors path="createDate" cssStyle="color: #ff0000"/>
+                <p></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <form:input path="description" name="description" cssClass="form-control" placeholder="description" />
+                <form:errors path="description" cssStyle="color: #ff0000"/>
+                <p></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-10 text-right">
+                <button id="POST"    class="btn btn-default btn-primary">등록</button>
+                <button id="PUT"     class="btn btn-default btn-primary">수정</button>
+                <button id="DELETE"  class="btn btn-default btn-primary">삭제</button>
+            </div>
+        </div>
+        </form:form>
+    </div>
+</div>
+<script type="text/javascript">
+;require([
+    "jquery",
+    "local"
+],
+function($, LOCAL) { $(document).ready(function() {
+    var $form = $("#user");
+
+    $("button").on("click", function (event) {
+        var $self = $(this);
+        var methodName = $self.prop("id");
+
+        var $methods = $form.find("input[type=hidden][name=_method]");
+        if ( $methods.length > 0 ) {
+            $methods.each(function(index, element) {
+                $self = $(this);
+                $self.val(methodName);
+            });
+        } else {
+            $("<input />")
+                    .prop("type", "hidden")
+                    .prop("name", "_method")
+                    .prop("value", methodName)
+                    .appendTo($form);
+        }
+        $form.submit();
+    });
+});});
+</script>
+```
+
+`[WEB_HOME]/WEB-INF/view/valid/result.jsp` 파일을 생성한다.
+``` javascript
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page trimDirectiveWhitespaces="true" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core"              prefix="c"	    %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions"         prefix="fn"     %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt"               prefix="fmt"    %>
+<%@ taglib uri="http://tiles.apache.org/tags-tiles"             prefix="tiles"  %>
+<%@ taglib uri="http://www.springframework.org/security/tags"   prefix="sec"    %>
+<%@ taglib uri="http://www.springframework.org/tags"            prefix="spring" %>
+<%@ taglib uri="http://www.springframework.org/tags/form"       prefix="form"   %>
+
+<div class="panel panel-default">
+    <div class="panel-heading">User Info (<spring:eval expression="method" />)</div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-12">
+                <spring:eval expression="user.name" />
+                <p></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <spring:eval expression="user.age" />
+                <p></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <spring:eval expression="user.email" />
+                <p></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <spring:eval expression="user.createDate" />
+                <p></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <spring:eval expression="user.description" />
+                <p></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-10 text-right">
+            </div>
+        </div>
+    </div>
+</div>
+```
+
+`[JAVA_SRC_HOME]/dd2/local/busi/valid/web/ValidController.java` 파일을 생성한다.
+``` java
+package dd2.local.busi.valid.web;
+
+import dd2.local.busi.com.web.CommonController;
+import dd2.local.entity.User;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.support.SessionStatus;
+
+import javax.validation.Valid;
+import java.util.Date;
+
+@RequestMapping(value = "/valid/user")
+@SessionAttributes(value = "user")
+@Controller
+public class ValidController extends CommonController {
+    private static final Log logger = LogFactory.getLog(ValidController.class);
+    private static final String BASE_URL = "valid/";
+
+    @Override
+    protected String getBaseUrl() {
+        return BASE_URL;
+    }
+
+
+    /**
+     * @ModelAttribute("user")
+     *  어노테이션을 메소드에 선언하면 해당 클래스이 메소드들이 리턴을 할때 usr() 메소드 결과를 호출한다.
+     *  호출한다. 만약 파라미터로 받는다면 파라리터로 받는게 우선한다.
+     *
+     * @return
+     */
+    @ModelAttribute("user")
+    public User user() {
+        User user = new User();
+        user.setName("Sample User");
+        user.setAge("");
+        user.setEmail("sample@sample.co.kr");
+        user.setCreateDate(new Date());
+        user.setDescription("Description");
+
+        return user;
+    }
+
+
+    @RequestMapping(method = RequestMethod.GET)
+    public String getUser(ModelMap model) {
+        if ( logger.isInfoEnabled() ) {
+            logger.info("getUser");
+        }
+
+        return getBaseUrl() + "user.defaultTpl";
+    }
+
+    @RequestMapping(method = RequestMethod.POST)
+    public String postUser(@Valid @ModelAttribute User user,
+                           BindingResult bindingResult,
+                           ModelMap model,
+                           SessionStatus status) {
+        if ( logger.isInfoEnabled() ) {
+            logger.info("postUser");
+        }
+
+        model.put("method", "POST");
+
+        if ( bindingResult.hasErrors() ) {
+            if ( logger.isDebugEnabled() ) {
+                logger.debug("검증 에러 발생");
+            }
+            return getBaseUrl() + "user.defaultTpl";
+        }
+
+        // 저장성공 했을때
+        status.setComplete();
+        return getBaseUrl() + "result.defaultTpl";
+    }
+
+    @RequestMapping(method = RequestMethod.PUT)
+    public String putUser(@Valid @ModelAttribute User user,
+                          BindingResult bindingResult,
+                          ModelMap model,
+                          SessionStatus status) {
+        if ( logger.isInfoEnabled() ) {
+            logger.info("putUser");
+        }
+
+        model.put("method", "PUT");
+
+        if ( bindingResult.hasErrors() ) {
+            if ( logger.isDebugEnabled() ) {
+                logger.debug("검증 에러 발생");
+            }
+            return getBaseUrl() + "user.defaultTpl";
+        }
+
+        // 수정 성공했을때
+        status.setComplete();
+        return getBaseUrl() + "result.defaultTpl";
+    }
+
+    @RequestMapping(method = RequestMethod.DELETE)
+    public String deleteUser(@Valid @ModelAttribute User user,
+                             BindingResult bindingResult,
+                             ModelMap model,
+                             SessionStatus status) {
+        if ( logger.isInfoEnabled() ) {
+            logger.info("deleteUser");
+        }
+
+        model.put("method", "DELETE");
+
+        if ( bindingResult.hasErrors() ) {
+            if ( logger.isDebugEnabled() ) {
+                logger.debug("검증 에러 발생");
+            }
+            return getBaseUrl() + "user.defaultTpl";
+        }
+
+        // 삭제 성공했을때
+        status.setComplete();
+        return getBaseUrl() + "result.defaultTpl";
+    }
+}
+```
+
+
+
+
 
 ## 마치며
 
