@@ -21,35 +21,35 @@
         <div class="row">
             <div class="col-md-12">
                 <form:input path="name" name="name" cssClass="form-control" placeholder="name" />
-                <form:errors path="name" />
+                <form:errors path="name" cssStyle="color: #ff0000"/>
                 <p></p>
             </div>
         </div>
         <div class="row">
             <div class="col-md-12">
                 <form:input path="age" name="age" cssClass="form-control" placeholder="age" />
-                <form:errors path="age" />
+                <form:errors path="age" cssStyle="color: #ff0000"/>
                 <p></p>
             </div>
         </div>
         <div class="row">
             <div class="col-md-12">
                 <form:input path="email" name="email" cssClass="form-control" placeholder="email" />
-                <form:errors path="email" />
+                <form:errors path="email" cssStyle="color: #ff0000"/>
                 <p></p>
             </div>
         </div>
         <div class="row">
             <div class="col-md-12">
                 <form:input path="createDate" name="createDate" cssClass="form-control" placeholder="createDate" />
-                <form:errors path="createDate" />
+                <form:errors path="createDate" cssStyle="color: #ff0000"/>
                 <p></p>
             </div>
         </div>
         <div class="row">
             <div class="col-md-12">
                 <form:input path="description" name="description" cssClass="form-control" placeholder="description" />
-                <form:errors path="description" />
+                <form:errors path="description" cssStyle="color: #ff0000"/>
                 <p></p>
             </div>
         </div>

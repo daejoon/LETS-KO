@@ -31,20 +31,33 @@ public class ValidController extends CommonController {
         return BASE_URL;
     }
 
+
+    /**
+     * @ModelAttribute("user")
+     *  어노테이션을 메소드에 선언하면 해당 클래스이 메소드들이 리턴을 할때 usr() 메소드 결과를 호출한다.
+     *  호출한다. 만약 파라미터로 받는다면 파라리터로 받는게 우선한다.
+     *
+     * @return
+     */
+    @ModelAttribute("user")
+    public User user() {
+        User user = new User();
+        user.setName("Sample User");
+        user.setAge("");
+        user.setEmail("sample@sample.co.kr");
+        user.setCreateDate(new Date());
+        user.setDescription("Description");
+
+        return user;
+    }
+
+
     @RequestMapping(method = RequestMethod.GET)
     public String getUser(ModelMap model) {
         if ( logger.isInfoEnabled() ) {
             logger.info("getUser");
         }
 
-        User user = new User();
-        user.setName("");
-        user.setAge("");
-        user.setEmail("user@sample.co.kr");
-        user.setCreateDate(new Date());
-        user.setDescription("");
-
-        model.put("user", user);
         return getBaseUrl() + "user.defaultTpl";
     }
 
