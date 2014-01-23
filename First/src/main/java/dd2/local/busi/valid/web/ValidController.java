@@ -20,7 +20,7 @@ import java.util.Date;
  * Created by kdj on 2014. 1. 21..
  */
 @RequestMapping(value = "/valid/user")
-@SessionAttributes(value = "user")
+@SessionAttributes("user")
 @Controller
 public class ValidController extends CommonController {
     private static final Log logger = LogFactory.getLog(ValidController.class);
