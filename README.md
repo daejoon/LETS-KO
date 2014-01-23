@@ -2214,6 +2214,20 @@ function($, LOCAL) { $(document).ready(function() {
 </div>
 ```
 
+`[WEB_HOME]/WEB-INF/web.xml` 파일에 아래의 내용을 추가한다.
+```xml
+<!-- Spring HiddenHttpMethodFilter -->
+<filter>
+    <filter-name>httpMethodFilter</filter-name>
+    <filter-class>org.springframework.web.filter.HiddenHttpMethodFilter</filter-class>
+</filter>
+<filter-mapping>
+    <filter-name>httpMethodFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+</filter-mapping>
+```
+
+
 `[JAVA_SRC_HOME]/dd2/local/busi/valid/web/ValidController.java` 파일을 생성한다.
 ``` java
 package dd2.local.busi.valid.web;
