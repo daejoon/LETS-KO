@@ -2227,6 +2227,10 @@ function($, LOCAL) { $(document).ready(function() {
 </filter-mapping>
 ```
 
+HiddenHttpMethodFilter를 설정해 줌으로 해서 GET, POST만 지원하는 환경에서도 PUT, DELETE를 사용할수
+
+있게 해준다.
+
 
 `[JAVA_SRC_HOME]/dd2/local/busi/valid/web/ValidController.java` 파일을 생성한다.
 ``` java
