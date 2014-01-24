@@ -1,10 +1,9 @@
 package dd2.local.busi.user.service;
 
 import dd2.com.dao.GenericDAO;
-import dd2.com.jqgrid.JqGridQueryBuilder;
 import dd2.com.jqgrid.JqGridRequest;
 import dd2.com.jqgrid.JqGridResponse;
-import dd2.com.service.GenericHibernateService;
+import dd2.com.service.hibernate.GenericHibernateService;
 import dd2.local.busi.user.service.dao.UserDAO;
 import dd2.local.entity.AdUserEntity;
 import dd2.local.entity.AdUserEntityPK;
@@ -13,10 +12,6 @@ import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
-import javax.annotation.PostConstruct;
-import java.util.List;
-import java.util.Map;
 
 /**
  * Created by KDJ on 13. 12. 4.

@@ -1,17 +1,14 @@
 package dd2.local.busi.program.service.dao;
 
-import dd2.com.dao.GenericHibernateDAO;
+import dd2.com.dao.hibernate.GenericHibernateDAO;
 import dd2.com.jqgrid.JqGridQueryBuilder;
 import dd2.com.jqgrid.JqGridRequest;
 import dd2.local.entity.AdProgramEntity;
 import dd2.local.entity.AdProgramEntityPK;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.hibernate.Criteria;
-import org.hibernate.Hibernate;
 import org.hibernate.criterion.CriteriaSpecification;
 import org.hibernate.criterion.Projections;
-import org.hibernate.criterion.Restrictions;
 import org.hibernate.type.StandardBasicTypes;
 import org.hibernate.type.Type;
 import org.springframework.stereotype.Repository;

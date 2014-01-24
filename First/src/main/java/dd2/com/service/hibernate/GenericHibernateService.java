@@ -1,6 +1,7 @@
-package dd2.com.service;
+package dd2.com.service.hibernate;
 
 import dd2.com.dao.GenericDAO;
+import dd2.com.service.GenericService;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.io.Serializable;

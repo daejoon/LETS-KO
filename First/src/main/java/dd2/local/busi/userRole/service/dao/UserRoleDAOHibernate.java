@@ -1,6 +1,6 @@
 package dd2.local.busi.userRole.service.dao;
 
-import dd2.com.dao.GenericHibernateDAO;
+import dd2.com.dao.hibernate.GenericHibernateDAO;
 import dd2.com.jqgrid.JqGridQueryBuilder;
 import dd2.com.jqgrid.JqGridRequest;
 import dd2.local.entity.AdUserRoleEntity;
@@ -8,11 +8,8 @@ import dd2.local.entity.AdUserRoleEntityPK;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.hibernate.criterion.CriteriaSpecification;
-import org.hibernate.criterion.Projections;
-import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 
-import java.lang.ref.ReferenceQueue;
 import java.util.List;
 import java.util.Map;
 

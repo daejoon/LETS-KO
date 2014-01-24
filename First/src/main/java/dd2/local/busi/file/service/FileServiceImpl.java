@@ -1,15 +1,13 @@
 package dd2.local.busi.file.service;
 
 import dd2.com.dao.GenericDAO;
-import dd2.com.service.GenericHibernateService;
+import dd2.com.service.hibernate.GenericHibernateService;
 import dd2.local.entity.TempUploadFile;
 import dd2.local.busi.file.service.dao.FileDAO;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import javax.annotation.PostConstruct;
 
 /**
  * Created with IntelliJ IDEA.

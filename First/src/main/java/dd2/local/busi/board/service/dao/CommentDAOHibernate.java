@@ -1,6 +1,6 @@
 package dd2.local.busi.board.service.dao;
 
-import dd2.com.dao.GenericHibernateDAO;
+import dd2.com.dao.hibernate.GenericHibernateDAO;
 import dd2.local.entity.Comment;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;

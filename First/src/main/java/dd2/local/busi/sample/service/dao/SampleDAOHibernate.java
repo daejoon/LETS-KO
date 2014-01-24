@@ -1,6 +1,6 @@
 package dd2.local.busi.sample.service.dao;
 
-import dd2.com.dao.GenericHibernateDAO;
+import dd2.com.dao.hibernate.GenericHibernateDAO;
 import dd2.com.jqgrid.JqGridOrderForHibernate;
 import dd2.com.jqgrid.JqGridRequest;
 import dd2.com.jqgrid.JqGridResponseGeneric;

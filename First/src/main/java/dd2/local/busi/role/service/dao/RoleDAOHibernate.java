@@ -1,13 +1,12 @@
 package dd2.local.busi.role.service.dao;
 
-import dd2.com.dao.GenericHibernateDAO;
+import dd2.com.dao.hibernate.GenericHibernateDAO;
 import dd2.com.jqgrid.JqGridQueryBuilder;
 import dd2.com.jqgrid.JqGridRequest;
 import dd2.local.entity.AdRoleEntity;
 import dd2.local.entity.AdRoleEntityPK;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.hibernate.Criteria;
 import org.hibernate.criterion.CriteriaSpecification;
 import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;

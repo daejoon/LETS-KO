@@ -1,5 +1,6 @@
-package dd2.com.dao;
+package dd2.com.dao.hibernate;
 
+import dd2.com.dao.GenericDAO;
 import org.hibernate.*;
 import org.hibernate.criterion.Criterion;
 import org.hibernate.criterion.Example;

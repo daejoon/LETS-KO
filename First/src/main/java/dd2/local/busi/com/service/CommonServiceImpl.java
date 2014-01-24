@@ -1,7 +1,7 @@
 package dd2.local.busi.com.service;
 
 import dd2.com.dao.GenericDAO;
-import dd2.com.service.GenericHibernateService;
+import dd2.com.service.hibernate.GenericHibernateService;
 import dd2.local.busi.com.service.dao.ADSeqDAO;
 import dd2.local.busi.com.service.dao.CodeRoleDAO;
 import dd2.local.entity.CodeRole;
@@ -11,7 +11,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.annotation.PostConstruct;
 import java.util.List;
 
 /**

@@ -9,7 +9,7 @@ import org.springframework.context.ApplicationContext;
  * Time: 오후 1:37
  * To change this template use File | Settings | File Templates.
  */
-public class AppContext {
+public final class AppContext {
     private static ApplicationContext context;
 
     public static ApplicationContext getContext() {

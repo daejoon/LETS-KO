@@ -1,7 +1,7 @@
 package dd2.local.busi.board.service;
 
 import dd2.com.dao.GenericDAO;
-import dd2.com.service.GenericHibernateService;
+import dd2.com.service.hibernate.GenericHibernateService;
 import dd2.local.busi.board.service.dao.BoardDAO;
 import dd2.local.busi.board.service.dao.CommentDAO;
 import dd2.local.busi.board.service.dao.TempUploadFileDAO;
@@ -15,7 +15,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.annotation.PostConstruct;
 import java.util.List;
 
 

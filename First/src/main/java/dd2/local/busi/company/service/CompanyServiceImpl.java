@@ -4,7 +4,7 @@ import dd2.com.ajax.AjaxResponse;
 import dd2.com.dao.GenericDAO;
 import dd2.com.jqgrid.JqGridRequest;
 import dd2.com.jqgrid.JqGridResponse;
-import dd2.com.service.GenericHibernateService;
+import dd2.com.service.hibernate.GenericHibernateService;
 import dd2.local.busi.company.service.dao.CompanyDAO;
 import dd2.local.entity.AdCompanyEntity;
 import org.apache.commons.logging.Log;
@@ -13,7 +13,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.annotation.PostConstruct;
 import java.util.List;
 import java.util.Map;
 
