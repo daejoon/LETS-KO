@@ -1,6 +1,6 @@
 package dd2.local.busi.role.service.dao;
 
-import dd2.com.dao.hibernate.GenericHibernateDAO;
+import dd2.com.dao.GenericHibernateDAO;
 import dd2.com.jqgrid.JqGridQueryBuilder;
 import dd2.com.jqgrid.JqGridRequest;
 import dd2.local.entity.AdRoleEntity;

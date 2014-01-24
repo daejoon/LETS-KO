@@ -1,4 +1,4 @@
-package dd2.com.dao.hibernate;
+package dd2.com.dao;
 
 import dd2.com.dao.GenericDAO;
 import org.hibernate.*;

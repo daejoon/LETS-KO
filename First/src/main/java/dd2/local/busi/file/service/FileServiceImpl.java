@@ -1,7 +1,7 @@
 package dd2.local.busi.file.service;
 
 import dd2.com.dao.GenericDAO;
-import dd2.com.service.hibernate.GenericHibernateService;
+import dd2.com.service.GenericHibernateService;
 import dd2.local.entity.TempUploadFile;
 import dd2.local.busi.file.service.dao.FileDAO;
 import org.apache.commons.logging.Log;

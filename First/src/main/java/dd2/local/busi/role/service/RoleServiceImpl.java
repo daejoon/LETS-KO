@@ -4,7 +4,7 @@ import dd2.com.ajax.AjaxResponse;
 import dd2.com.dao.GenericDAO;
 import dd2.com.jqgrid.JqGridRequest;
 import dd2.com.jqgrid.JqGridResponse;
-import dd2.com.service.hibernate.GenericHibernateService;
+import dd2.com.service.GenericHibernateService;
 import dd2.local.entity.AdRoleEntity;
 import dd2.local.entity.AdRoleEntityPK;
 import dd2.local.busi.role.service.dao.RoleDAO;

@@ -1,4 +1,4 @@
-package dd2.com.service.hibernate;
+package dd2.com.service;
 
 import dd2.com.dao.GenericDAO;
 import dd2.com.service.GenericService;

@@ -1,7 +1,7 @@
 package dd2.local.busi.board.service;
 
 import dd2.com.dao.GenericDAO;
-import dd2.com.service.hibernate.GenericHibernateService;
+import dd2.com.service.GenericHibernateService;
 import dd2.local.busi.board.service.dao.BoardDAO;
 import dd2.local.busi.board.service.dao.CommentDAO;
 import dd2.local.busi.board.service.dao.TempUploadFileDAO;

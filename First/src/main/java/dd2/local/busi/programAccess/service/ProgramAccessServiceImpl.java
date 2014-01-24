@@ -3,7 +3,7 @@ package dd2.local.busi.programAccess.service;
 import dd2.com.dao.GenericDAO;
 import dd2.com.jqgrid.JqGridRequest;
 import dd2.com.jqgrid.JqGridResponse;
-import dd2.com.service.hibernate.GenericHibernateService;
+import dd2.com.service.GenericHibernateService;
 import dd2.local.busi.programAccess.service.dao.ProgramAccessDAO;
 import dd2.local.entity.AdProgramAccessEntity;
 import dd2.local.entity.AdProgramAccessEntityPK;

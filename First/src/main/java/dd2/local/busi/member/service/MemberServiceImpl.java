@@ -1,7 +1,7 @@
 package dd2.local.busi.member.service;
 
 import dd2.com.dao.GenericDAO;
-import dd2.com.service.hibernate.GenericHibernateService;
+import dd2.com.service.GenericHibernateService;
 import dd2.local.busi.member.service.dao.MemberDAO;
 import dd2.local.entity.Member;
 import org.apache.commons.logging.Log;

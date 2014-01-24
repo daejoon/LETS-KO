@@ -3,7 +3,7 @@ package dd2.local.busi.user.service;
 import dd2.com.dao.GenericDAO;
 import dd2.com.jqgrid.JqGridRequest;
 import dd2.com.jqgrid.JqGridResponse;
-import dd2.com.service.hibernate.GenericHibernateService;
+import dd2.com.service.GenericHibernateService;
 import dd2.local.busi.user.service.dao.UserDAO;
 import dd2.local.entity.AdUserEntity;
 import dd2.local.entity.AdUserEntityPK;
