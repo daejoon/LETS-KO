@@ -3,7 +3,7 @@ package dd2.com.jqgrid;
 /**
  * Created by KDJ on 13. 12. 12.
  * Description: 아무래도 네이티브 쿼리를 사용하다 보니까 각 DB별 종속적인 부분이 생긴다.
- *              성능에 큰 문제가 없다면 Hibernate를 이용하자
+ *              성능에 큰 문제가 없다면 Hibernate Criteria를 이용하자
  */
 public class JqGridQueryBuilder {
     private StringBuffer sb = new StringBuffer();
