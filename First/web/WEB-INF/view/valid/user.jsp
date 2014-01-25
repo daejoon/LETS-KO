@@ -56,9 +56,9 @@
         <div class="row">
             <div class="col-md-2"></div>
             <div class="col-md-10 text-right">
-                <button id="POST"    class="btn btn-default btn-primary">등록</button>
-                <button id="PUT"     class="btn btn-default btn-primary">수정</button>
-                <button id="DELETE"  class="btn btn-default btn-primary">삭제</button>
+                <button id="POST"    class="btn btn-default">등록</button>
+                <button id="PUT"     class="btn btn-default">수정</button>
+                <button id="DELETE"  class="btn btn-default">삭제</button>
             </div>
         </div>
         </form:form>
