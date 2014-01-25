@@ -1988,9 +1988,9 @@ JqGridCrudUtil 클래스는 ajax JSON으로 받은 데이터를 SampleEntity로 
 
 그런데 이 검증작업이 참 귀찮고 반복적인 작업이다. 스프링에서는 Spring Form tag와
 
-@ModelAttribute, @SessionAttributs을 이용하여 반복적인 검증 작업을 줄일수 있다. 더불어 RESTful
+@ModelAttribute, @SessionAttributs을 이용하여 백엔드의 반복적인 검증 작업을 줄일수 있다. 
 
-방식으로 개발해 보자.
+더불어 RESTful 방식으로 개발해 보자.
 
 참고: [@ModelAttribute, @SessionAttributs 이해](http://springmvc.egloos.com/535572),
 [RESTful API 설계](https://speakerdeck.com/leewin12/rest-api-seolgye),
