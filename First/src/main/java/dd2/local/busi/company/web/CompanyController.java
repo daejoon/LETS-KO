@@ -27,8 +27,6 @@ import java.util.Map;
  * Time: 오후 6:24
  * To change this template use File | Settings | File Templates.
  */
-
-asdf
 @Controller
 @RequestMapping("/company/*")
 public class CompanyController extends CommonController {
