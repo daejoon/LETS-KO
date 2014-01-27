@@ -3,6 +3,7 @@ package dd2.local.busi.company.service;
 import dd2.com.ajax.AjaxResponse;
 import dd2.com.jqgrid.JqGridRequest;
 import dd2.com.jqgrid.JqGridResponse;
+import dd2.com.jqgrid.JqGridResponseGeneric;
 import dd2.com.service.GenericService;
 import dd2.local.entity.AdCompanyEntity;
 
@@ -18,5 +19,6 @@ import java.util.Map;
  */
 public interface CompanyService extends GenericService<AdCompanyEntity, Long> {
     JqGridResponse list(JqGridRequest request);
+    JqGridResponseGeneric<AdCompanyEntity> listForHibernate(JqGridRequest request);
     AjaxResponse<List<Map<String,Object>>> jqGridSelect();
 }

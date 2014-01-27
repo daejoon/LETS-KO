@@ -4,6 +4,7 @@ import dd2.com.ajax.AjaxResponse;
 import dd2.com.dao.GenericDAO;
 import dd2.com.jqgrid.JqGridRequest;
 import dd2.com.jqgrid.JqGridResponse;
+import dd2.com.jqgrid.JqGridResponseGeneric;
 import dd2.com.service.GenericHibernateService;
 import dd2.local.busi.company.service.dao.CompanyDAO;
 import dd2.local.entity.AdCompanyEntity;
@@ -39,6 +40,12 @@ public class CompanyServiceImpl extends GenericHibernateService<AdCompanyEntity,
     @Override
     public JqGridResponse list(JqGridRequest request) {
         return new JqGridResponse(request, companyDAO.list(request));
+    }
+
+    @Transactional
+    @Override
+    public JqGridResponseGeneric<AdCompanyEntity> listForHibernate(JqGridRequest request) {
+        return companyDAO.listForHibernate(request);
     }
 
     @Transactional

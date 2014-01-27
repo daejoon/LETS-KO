@@ -2,6 +2,7 @@ package dd2.local.busi.company.service.dao;
 
 import dd2.com.dao.GenericDAO;
 import dd2.com.jqgrid.JqGridRequest;
+import dd2.com.jqgrid.JqGridResponseGeneric;
 import dd2.local.entity.AdCompanyEntity;
 
 import java.util.List;
@@ -16,5 +17,6 @@ import java.util.Map;
  */
 public interface CompanyDAO extends GenericDAO<AdCompanyEntity, Long> {
     List<Map<String,Object>> list(JqGridRequest request);
+    JqGridResponseGeneric<AdCompanyEntity> listForHibernate(JqGridRequest request);
     List<Map<String,Object>> jqGridSelect();
 }

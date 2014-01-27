@@ -2,6 +2,7 @@ package dd2.com.jqgrid;
 
 import dd2.com.jqgrid.convertors.ConverterUtil;
 import org.hibernate.criterion.Criterion;
+import org.hibernate.criterion.MatchMode;
 import org.hibernate.criterion.Restrictions;
 
 import java.lang.reflect.Field;
@@ -55,7 +56,7 @@ public final class JqGridRestrictionForHibernate {
                     criterion = Restrictions.not( Restrictions.in(propertyName, new Object[]{propertyValue}) );
                     break;
                 default:
-                    criterion = null;
+                    criterion = Restrictions.ilike(propertyName, stringValue, MatchMode.ANYWHERE);
                     break;
             }
         }

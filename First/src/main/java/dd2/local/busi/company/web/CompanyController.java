@@ -4,6 +4,7 @@ import dd2.com.ajax.AjaxResponse;
 import dd2.com.jqgrid.JqGridCrudUtil;
 import dd2.com.jqgrid.JqGridRequest;
 import dd2.com.jqgrid.JqGridResponse;
+import dd2.com.jqgrid.JqGridResponseGeneric;
 import dd2.local.busi.com.web.CommonController;
 import dd2.local.busi.company.service.CompanyService;
 import dd2.local.entity.AdCompanyEntity;
@@ -42,8 +43,9 @@ public class CompanyController extends CommonController {
 
     @RequestMapping( value = "records", method = RequestMethod.POST )
     public @ResponseBody
-    JqGridResponse records( @RequestBody JqGridRequest jqGridRequest ) {
-        return companyService.list(jqGridRequest);
+    JqGridResponseGeneric<AdCompanyEntity> records( @RequestBody JqGridRequest jqGridRequest ) {
+//        return companyService.list(jqGridRequest);
+        return companyService.listForHibernate(jqGridRequest);
     }
 
     @RequestMapping( value = "recordEdit", method = RequestMethod.POST )
