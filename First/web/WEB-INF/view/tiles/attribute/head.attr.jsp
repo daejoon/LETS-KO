@@ -31,6 +31,7 @@
     <link href="${pageContext.request.contextPath}/static/lib/jqgrid/4.5.4/src/css/ui.multiselect.css" rel="stylesheet">
     <link href="${pageContext.request.contextPath}/static/lib/jquery-ui/1.10.3/themes/base/jquery-ui.css" rel="stylesheet">
     <link href="${pageContext.request.contextPath}/static/css/default.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/static/css/jqgrid.bootstrap.css" rel="stylesheet">
 
     <!-- script -->
     <script src="${pageContext.request.contextPath}/static/lib/require/2.1.9/require.src.js"></script>
