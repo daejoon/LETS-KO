@@ -1,8 +1,12 @@
 package dd2.local.entity;
 
+import org.hibernate.annotations.*;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.HashSet;
@@ -17,6 +21,8 @@ import java.util.Set;
  */
 @Entity
 @Table(name = "TB_BOARD")
+@Cacheable
+@org.hibernate.annotations.Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 public class Board implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

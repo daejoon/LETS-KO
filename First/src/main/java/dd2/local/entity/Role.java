@@ -1,7 +1,10 @@
 package dd2.local.entity;
 
+import org.hibernate.annotations.*;
 import org.springframework.security.core.GrantedAuthority;
 import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 import java.io.Serializable;
 
 /**
@@ -15,6 +18,8 @@ import java.io.Serializable;
 @Table(name = "TB_ROLE"
     , uniqueConstraints = { @UniqueConstraint( columnNames = {"MEMBER_ID", "CODEROLE_ID"} ) }
 )
+@Cacheable
+@org.hibernate.annotations.Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 public class Role implements Serializable, GrantedAuthority {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

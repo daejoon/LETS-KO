@@ -1,6 +1,13 @@
 package dd2.local.entity;
 
-import javax.persistence.*;
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
+
+
+import javax.persistence.Basic;
+import javax.persistence.Cacheable;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.util.Date;
 
 
@@ -12,6 +19,8 @@ import java.util.Date;
  * To change this template use File | Settings | File Templates.
  */
 @javax.persistence.Table(name = "AD_Company")
+@Cacheable
+@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 @Entity
 public class AdCompanyEntity {
     private Long adCompanyId;

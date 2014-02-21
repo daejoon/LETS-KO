@@ -31,6 +31,7 @@
         <spring-security.version>3.1.4.RELEASE</spring-security.version>
         <hibernate.version>4.2.8.Final</hibernate.version>
         <hibernate-validator.version>5.0.2.Final</hibernate-validator.version>
+        <ehcache.version>2.6.8</ehcache.version>
         <validation-api.version>1.1.0.Final</validation-api.version>
         <joda-time.version>2.3</joda-time.version>
         <commons-lang.version>2.6</commons-lang.version>
@@ -118,6 +119,12 @@
         <repository>
             <id>JBoss repository</id>
             <url>http://repository.jboss.org/nexus/content/groups/public/</url>
+        </repository>
+        <repository>
+            <id>terracotta-releases</id>
+            <url>http://www.terracotta.org/download/reflector/releases</url>
+            <releases><enabled>true</enabled></releases>
+            <snapshots><enabled>false</enabled></snapshots>
         </repository>
         <repository>
             <id>opencast-public</id>
@@ -313,8 +320,25 @@
         </dependency>
         <dependency>
             <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-c3p0</artifactId>
+            <version>${hibernate.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-ehcache</artifactId>
+            <version>${hibernate.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
             <artifactId>hibernate-validator</artifactId>
             <version>${hibernate-validator.version}</version>
+        </dependency>
+
+        <!-- ehcache -->
+        <dependency>
+            <groupId>net.sf.ehcache</groupId>
+            <artifactId>ehcache-core</artifactId>
+            <version>${ehcache.version}</version>
         </dependency>
 
         <!-- validation -->

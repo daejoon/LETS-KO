@@ -1,6 +1,10 @@
 package dd2.local.entity;
 
+import org.hibernate.annotations.*;
+
 import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 import java.util.Date;
 
 /**
@@ -12,6 +16,8 @@ import java.util.Date;
  */
 @javax.persistence.IdClass(dd2.local.entity.AdFunctionEntityPK.class)
 @javax.persistence.Table(name = "AD_Function")
+@Cacheable
+@org.hibernate.annotations.Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 @Entity
 public class AdFunctionEntity {
     private Long adFunctionId;

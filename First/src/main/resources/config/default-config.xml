@@ -60,7 +60,23 @@
             <import_files>config/hibernate/sql/initial_data.sql</import_files>
             <auto>validate</auto>
         </hbm2ddl>
+        <cache>
+            <region>
+                <factory_class>org.hibernate.cache.ehcache.EhCacheRegionFactory</factory_class>
+            </region>
+            <use_second_level_cache>true</use_second_level_cache>
+            <use_query_cache>true</use_query_cache>
+        </cache>
     </hibernate>
+
+    <!-- ehcache -->
+    <net>
+        <sf>
+            <ehcache>
+                <configurationResourceName>/config/hibernate/cache/hibernate-ehcache.xml</configurationResourceName>
+            </ehcache>
+        </sf>
+    </net>
 
     <!-- mongodb -->
     <mongo>

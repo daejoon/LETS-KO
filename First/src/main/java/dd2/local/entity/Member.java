@@ -1,9 +1,13 @@
 package dd2.local.entity;
 
+import org.hibernate.annotations.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 import java.io.Serializable;
 import java.util.*;
 
@@ -18,6 +22,8 @@ import java.util.*;
 @Table(name = "TB_MEMBER",
         uniqueConstraints = { @UniqueConstraint(columnNames = {"USERNAME"}) }
 )
+@Cacheable
+@org.hibernate.annotations.Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 public class Member implements Serializable, UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

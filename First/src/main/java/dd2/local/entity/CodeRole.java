@@ -1,6 +1,10 @@
 package dd2.local.entity;
 
+import org.hibernate.annotations.*;
+
 import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 import java.io.Serializable;
 
 /**
@@ -12,6 +16,8 @@ import java.io.Serializable;
  */
 @Entity
 @Table(name = "TB_CODE_ROLE")
+@Cacheable
+@org.hibernate.annotations.Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 public class CodeRole implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

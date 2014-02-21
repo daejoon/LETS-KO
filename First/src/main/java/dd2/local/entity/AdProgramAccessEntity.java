@@ -1,6 +1,10 @@
 package dd2.local.entity;
 
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
+
 import javax.persistence.Basic;
+import javax.persistence.Cacheable;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import java.util.Date;
@@ -14,6 +18,8 @@ import java.util.Date;
  */
 @javax.persistence.IdClass(dd2.local.entity.AdProgramAccessEntityPK.class)
 @javax.persistence.Table(name = "AD_Program_Access")
+@Cacheable
+@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 @Entity
 public class AdProgramAccessEntity {
     private Long adProgramId;
