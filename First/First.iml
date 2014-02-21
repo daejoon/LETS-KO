@@ -39,6 +39,18 @@
     <facet type="Python" name="Python">
       <configuration sdkName="" />
     </facet>
+    <facet type="JRebel" name="JRebel">
+      <configuration>
+        <option name="autosync" value="false" />
+        <option name="deleteUnindexed" value="true" />
+        <option name="manualXML" value="false" />
+        <option name="masterModuleName" />
+        <option name="remotingEnabled" value="false" />
+        <option name="secure" value="true" />
+        <option name="url" />
+        <option name="xmlDir" />
+      </configuration>
+    </facet>
   </component>
   <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_7" inherit-compiler-output="false">
     <output url="file://$MODULE_DIR$/target/classes" />
