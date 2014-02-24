@@ -110,16 +110,8 @@ public class JqGridCrudUtil<T, ID extends Serializable> {
         if ( strId == null || strId.equals("") ) {
             throw new NullPointerException("The ID String is Null.");
         }
-        ID id = null;
-        try {
-            id = keyKlass.newInstance();
-        } catch (InstantiationException e) {
-            e.printStackTrace();
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        }
-        id = (ID) ConverterUtil.getValue(keyKlass.getName(), strId);
 
+        ID id = (ID) ConverterUtil.getValue(keyKlass.getName(), strId);
         return id;
     }
 
