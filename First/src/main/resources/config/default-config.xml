@@ -67,6 +67,7 @@
             <use_second_level_cache>true</use_second_level_cache>
             <use_query_cache>true</use_query_cache>
         </cache>
+        <generate_statistics>true</generate_statistics>
     </hibernate>
 
     <!-- ehcache -->
