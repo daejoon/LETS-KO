@@ -28,5 +28,6 @@
         </property>
     </bean>
 
-    <bean id="hibernateListenerCofing" class="dd2.local.hibernate.HibernateEventWiring" />
+    <bean id="hibernateLoadListener" class="dd2.local.hibernate.HibernateLoadListener" />
+    <bean id="hibernateEventWiring" class="dd2.local.hibernate.HibernateEventWiring" />
 </beans>
