@@ -47,6 +47,7 @@
         <option name="manualXML" value="false" />
         <option name="masterModuleName" />
         <option name="remotingEnabled" value="false" />
+        <option name="scanAllFiles" value="false" />
         <option name="secure" value="true" />
         <option name="url" />
         <option name="xmlDir" />

@@ -27,4 +27,6 @@
             </props>
         </property>
     </bean>
+
+    <bean id="hibernateListenerCofing" class="dd2.local.hibernate.HibernateEventWiring" />
 </beans>
