@@ -13,7 +13,7 @@ import javax.annotation.PostConstruct;
 /**
  * Created by kdj on 2014. 2. 26..
  */
-public class HibernateEventWiring {
+public final class HibernateEventWiring {
     private static final Log logger = LogFactory.getLog(HibernateEventWiring.class);
 
     @Autowired
