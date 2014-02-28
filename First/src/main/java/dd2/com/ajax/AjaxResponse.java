@@ -12,7 +12,7 @@ public class AjaxResponse<T> implements Serializable {
     private T data;
 
     /**
-     *
+     * 상태 Getter
      * @return ture: 성공, false: 실패
      */
     public boolean isStatus() {
@@ -20,7 +20,7 @@ public class AjaxResponse<T> implements Serializable {
     }
 
     /**
-     *
+     * 상태 Setter
      * @param status 실패: true, 성공: false
      */
     public void setStatus(boolean status) {
@@ -28,15 +28,15 @@ public class AjaxResponse<T> implements Serializable {
     }
 
     /**
-     *
-     * @return 메세지를 리턴한다.
+     * 상태 메세지를 읽는다.
+     * @return 메세지 리턴.
      */
     public String getMessage() {
         return message;
     }
 
     /**
-     *
+     * 상태 메세지를 설정한다.
      * @param message 메세지를 설정한다.
      */
     public void setMessage(String message) {
@@ -44,16 +44,16 @@ public class AjaxResponse<T> implements Serializable {
     }
 
     /**
-     *
-     * @return Data Model을 리턴한다.
+     * Data Getter
+     * @return Data 리턴한다.
      */
     public T getData() {
         return data;
     }
 
     /**
-     *
-     * @param data Data Model을 설정한다.
+     * Data Setter
+     * @param data Data 설정한다.
      */
     public void setData(T data) {
         this.data = data;
