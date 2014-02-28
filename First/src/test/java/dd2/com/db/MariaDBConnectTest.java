@@ -55,7 +55,7 @@ public class MariaDBConnectTest {
             try {
                 if (resultSet != null) { resultSet.close(); }
                 if (statement != null) { statement.close(); }
-                if (connect != null  ) { connect.close();   }
+                if (connect   != null) { connect.close();   }
             } catch (Exception e) {
             }
         }

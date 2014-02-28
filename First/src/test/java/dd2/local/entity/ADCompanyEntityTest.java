@@ -35,23 +35,9 @@ public class ADCompanyEntityTest {
 
     @Test
     @Transactional
-    public void testInsert() throws Exception {
-//        Long userId = new Long(1);
-//        Date date = new Date();
-//
-//        for (int idx = 2; idx < 21; idx++) {
-//            AdCompanyEntity adCompanyEntity = new AdCompanyEntity();
-//            adCompanyEntity.setAdCompanyId(new Long(idx));
-//            adCompanyEntity.setCreatedBy(userId);
-//            adCompanyEntity.setUpdatedBy(userId);
-//            adCompanyEntity.setName("Test Company name " + idx);
-//            adCompanyEntity.setDescription(" 테스트 컴페니 입니다.");
-//            adCompanyEntity.setValue("Test Company value " + idx);
-//            adCompanyEntity.setActive("Y");
-//            adCompanyEntity.setCreated(date);
-//            adCompanyEntity.setUpdated(date);
-//            this.sessionFactory.getCurrentSession().saveOrUpdate(adCompanyEntity);
-//        }
+    public void testSelect() throws Exception {
+        Long id = Long.valueOf(1);
+        AdCompanyEntity entity = (AdCompanyEntity)sessionFactory.getCurrentSession().get(AdCompanyEntity.class, id);
     }
 
     @After
