@@ -22,15 +22,15 @@
         <!-- dependencies version -->
         <jstl.version>1.2</jstl.version>
         <log4j.version>1.2.14</log4j.version>
-        <spring.version>3.2.6.RELEASE</spring.version>
+        <spring.version>4.0.2.RELEASE</spring.version>
         <spring-data-mongodb.version>1.3.2.RELEASE</spring-data-mongodb.version>
         <mongo-java-driver.version>2.10.1</mongo-java-driver.version>
         <spring-data-redis.version>1.1.0.RELEASE</spring-data-redis.version>
         <jedis.version>2.2.1</jedis.version>
         <spring-modules.version>0.8</spring-modules.version>
-        <spring-security.version>3.1.4.RELEASE</spring-security.version>
-        <hibernate.version>4.2.8.Final</hibernate.version>
-        <hibernate-validator.version>5.0.2.Final</hibernate-validator.version>
+        <spring-security.version>3.2.0.RELEASE</spring-security.version>
+        <hibernate.version>4.3.2.Final</hibernate.version>
+        <hibernate-validator.version>5.0.3.Final</hibernate-validator.version>
         <ehcache.version>2.6.8</ehcache.version>
         <validation-api.version>1.1.0.Final</validation-api.version>
         <joda-time.version>2.3</joda-time.version>
