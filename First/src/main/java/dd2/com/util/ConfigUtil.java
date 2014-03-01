@@ -115,6 +115,7 @@ public final class ConfigUtil {
         }
         return ( value==null ? new String[0]:value );
     }
+
     public static String[] getStringArrayValue(String prop, char deli) {
         String[] value = null;
         try {

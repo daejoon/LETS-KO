@@ -29,6 +29,7 @@ import java.util.Date;
 public class ADCompanyEntityTest {
     @Autowired
     private SessionFactory sessionFactory;
+
     @Before
     public void setUp() throws Exception {
     }
