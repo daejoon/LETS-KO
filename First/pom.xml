@@ -16,6 +16,7 @@
 
         <!-- setting -->
         <project.build.sourceEncoding>${default.encoding}</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>${default.encoding}</project.reporting.outputEncoding>
         <maven.test.skip>true</maven.test.skip>
         <!--// setting -->
 
