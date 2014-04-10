@@ -71,6 +71,11 @@
     <listener>
         <listener-class>dd2.local.web.support.UserHttpListener</listener-class>
     </listener>
+    
+    <!-- SpringSecurity Event Listener -->
+    <listener>
+        <listener-class>org.springframework.security.web.session.HttpSessionEventPublisher</listener-class>
+    </listener>
 
     <!-- Servlet Dispatcher -->
     <servlet>

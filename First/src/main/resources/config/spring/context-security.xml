@@ -7,11 +7,11 @@
                            http://www.springframework.org/schema/security
                            http://www.springframework.org/schema/security/spring-security.xsd">
 
-    <sec:http auto-config="true" use-expressions="true">
+    <sec:http auto-config="false" use-expressions="true" entry-point-ref="loginUrlAuthenticationEntryPoint">
         <!-- inercept -->
         <sec:intercept-url pattern="/static/**"                access="hasAnyRole('ROLE_ADMIN', 'ROLE_USER', 'ROLE_ANONYMOUS')" />
         <sec:intercept-url pattern="/welcome.jsp"              access="hasAnyRole('ROLE_ADMIN', 'ROLE_USER', 'ROLE_ANONYMOUS')" />
-        <sec:intercept-url pattern="/sample/**"                access="hasAnyRole('ROLE_ADMIN', 'ROLE_USER', 'ROLE_ANONYMOUS')" />
+        <!--<sec:intercept-url pattern="/sample/**"                access="hasAnyRole('ROLE_ADMIN', 'ROLE_USER', 'ROLE_ANONYMOUS')" />-->
         <sec:intercept-url pattern="/main/index"               access="hasAnyRole('ROLE_ADMIN', 'ROLE_USER', 'ROLE_ANONYMOUS')" />
         <sec:intercept-url pattern="/member/login"             access="hasAnyRole('ROLE_ADMIN', 'ROLE_USER', 'ROLE_ANONYMOUS')" />
         <sec:intercept-url pattern="/member/logout"            access="hasAnyRole('ROLE_ADMIN', 'ROLE_USER', 'ROLE_ANONYMOUS')" />
@@ -21,23 +21,74 @@
 
         <sec:anonymous username="ROLE_ANONYMOUS" enabled="true" />
 
-        <!-- login form -->
-        <sec:form-login login-processing-url="/member/login_check"
-                        login-page="/member/login"
-                        authentication-success-handler-ref="loginAuthHandler"
-                        authentication-failure-handler-ref="loginAuthHandler"
-                        username-parameter="username"
-                        password-parameter="password" />
 
-        <!-- remember me -->
-        <sec:remember-me key="${security.remember-me.key}"
-                         services-ref="ipTokenBasedRememberMeService" />
+        <!--&lt;!&ndash; login form &ndash;&gt;-->
+        <!--<sec:form-login login-processing-url="/member/login_check"-->
+                        <!--login-page="/member/login"-->
+                        <!--authentication-success-handler-ref="loginAuthHandler"-->
+                        <!--authentication-failure-handler-ref="loginAuthHandler"-->
+                        <!--username-parameter="username"-->
+                        <!--password-parameter="password" />-->
+
+
+        <!--&lt;!&ndash; remember me &ndash;&gt;-->
+        <!--<sec:remember-me key="${security.remember-me.key}"-->
+                         <!--services-ref="ipTokenBasedRememberMeService" />-->
 
         <!-- logout -->
         <sec:logout logout-url="/member/logout_check"
                     success-handler-ref="loginAuthHandler"
                     invalidate-session="true" />
+
+        <sec:custom-filter position="CONCURRENT_SESSION_FILTER" ref="concurrencyFilter" />
+        <sec:custom-filter position="FORM_LOGIN_FILTER" ref="myAuthFilter" />
+
+        <sec:session-management session-authentication-strategy-ref="sas" />
     </sec:http>
+
+    <bean id="loginUrlAuthenticationEntryPoint" class="org.springframework.security.web.authentication.LoginUrlAuthenticationEntryPoint">
+        <constructor-arg index="0" value="/member/login"/>
+    </bean>
+
+    <bean id="sessionRegistry" class="org.springframework.security.core.session.SessionRegistryImpl" />
+
+    <bean id="sas" class="org.springframework.security.web.authentication.session.CompositeSessionAuthenticationStrategy">
+        <constructor-arg>
+            <list>
+                <bean class="org.springframework.security.web.authentication.session.ConcurrentSessionControlAuthenticationStrategy">
+                    <constructor-arg ref="sessionRegistry"/>
+                    <property name="maximumSessions" value="1" />
+                    <property name="exceptionIfMaximumExceeded" value="true" />
+                </bean>
+                <bean class="org.springframework.security.web.authentication.session.SessionFixationProtectionStrategy">
+                </bean>
+                <bean class="org.springframework.security.web.authentication.session.RegisterSessionAuthenticationStrategy">
+                    <constructor-arg ref="sessionRegistry"/>
+                </bean>
+            </list>
+        </constructor-arg>
+    </bean>
+
+    <bean id="concurrencyFilter" class="org.springframework.security.web.session.ConcurrentSessionFilter">
+        <constructor-arg index="0" ref="sessionRegistry" />
+        <constructor-arg index="1" value="/session-expired.htm" />
+    </bean>
+
+    <bean id="myAuthFilter" class="org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter">
+        <property name="sessionAuthenticationStrategy" ref="sas" />
+        <property name="authenticationManager" ref="authenticationManager" />
+        <property name="requiresAuthenticationRequestMatcher" ref="regexRequestMatcher" />
+        <property name="usernameParameter" value="username"/>
+        <property name="passwordParameter" value="password"/>
+        <property name="authenticationSuccessHandler" ref="loginAuthHandler" />
+        <property name="authenticationFailureHandler" ref="loginAuthHandler" />
+    </bean>
+
+    <bean id="regexRequestMatcher" class="org.springframework.security.web.util.matcher.RegexRequestMatcher">
+        <constructor-arg index="0" value="/member/login_check" />
+        <constructor-arg index="1" value="POST" />
+    </bean>
+
 
     <!-- Security Authority handler -->
     <bean id="loginAuthHandler" class="dd2.local.auth.LoginAuthHandler" />
@@ -46,17 +97,17 @@
     <bean id="authUserDetailsService" class="dd2.local.auth.AuthUserDetailsService" />
 
     <!-- Security RememberMe Service -->
-    <bean id="ipTokenBasedRememberMeService" class="dd2.local.auth.IPTokenBasedRememberMeService">
-        <constructor-arg index="0" value="${security.remember-me.key}" />
-        <constructor-arg index="1" ref="authUserDetailsService" />
-        <property name="parameter"  value="remember_me" />
-        <property name="cookieName" value="REMEMBER_ME_COOKIE" />
-    </bean>
+    <!--<bean id="ipTokenBasedRememberMeService" class="dd2.local.auth.IPTokenBasedRememberMeService">-->
+        <!--<constructor-arg index="0" value="${security.remember-me.key}" />-->
+        <!--<constructor-arg index="1" ref="authUserDetailsService" />-->
+        <!--<property name="parameter"  value="remember_me" />-->
+        <!--<property name="cookieName" value="REMEMBER_ME_COOKIE" />-->
+    <!--</bean>-->
 
     <!-- password encoder -->
     <bean id="passwordEncoder" class="org.springframework.security.crypto.password.StandardPasswordEncoder" />
 
-    <sec:authentication-manager>
+    <sec:authentication-manager alias="authenticationManager">
         <sec:authentication-provider user-service-ref="authUserDetailsService">
             <sec:password-encoder ref="passwordEncoder" />
         </sec:authentication-provider>

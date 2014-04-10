@@ -88,7 +88,7 @@
 
     <!-- security -->
     <logger name="org.springframework.security" additivity="false">
-        <level value="ERROR" />
+        <level value="DEBUG" />
         <appender-ref ref="dailyRollingFile"/>
         <appender-ref ref="console" />
     </logger>
