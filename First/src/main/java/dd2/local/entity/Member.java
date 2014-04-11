@@ -156,4 +156,31 @@ public class Member implements Serializable, UserDetails {
     public boolean isCredentialsNonExpired() {
         return true;
     }
+
+    @Override
+    public int hashCode() {
+        int hash = 0;
+
+        if ( username == null || password == null ) {
+            hash = super.hashCode();
+        } else {
+            hash = username.hashCode() + password.hashCode();
+        }
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        boolean equal = false;
+
+        if ( obj instanceof Member ) {
+            Member that = (Member)obj;
+            if ( that.getUsername().equals(this.username) == true
+                    || that.getPassword().equals(this.password) == true ) {
+                equal = true;
+            }
+        }
+
+        return equal;
+    }
 }
