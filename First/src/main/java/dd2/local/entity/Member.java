@@ -175,7 +175,7 @@ public class Member implements Serializable, UserDetails {
         if ( obj instanceof Member ) {
             Member that = (Member)obj;
             if ( that.getUsername().equals(this.username) == true
-                    || that.getPassword().equals(this.password) == true ) {
+                    && that.getPassword().equals(this.password) == true ) {
                 equal = true;
             }
         }
