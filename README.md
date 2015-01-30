@@ -2373,6 +2373,4 @@ public class ValidController extends CommonController {
 
 ### 마치며
 
-앞으로도 문서는 계속 보강하겠습니다. 이 프로젝트가 저를 비롯한 다른 개발자 분들에게 도움이 되었으면 합니다.
-
 읽어 주셔서 감사합니다.
