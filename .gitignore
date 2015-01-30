@@ -17,6 +17,7 @@ hs_err_pid*
 /.idea
 target/
 META-INF/
+JavaDoc/
 
 *.iml
 rebel.xml
