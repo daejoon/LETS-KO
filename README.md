@@ -8,14 +8,14 @@
 
 ## 차례
 
-- 개발환경 구성 및 설치
+1. 개발환경 구성 및 설치
  + 개발환경 구성
  + IntelliJ IDEA 13 설치
  + Git 설치
  + Maven 설치
  + Web Application Server 설치
  + DataBase 설치
-- 프로젝트 생성 및 설정
+1. 프로젝트 생성 및 설정
  + Java Project 생성
  + Run/Debug Configurations 설정
  + Git 설정
