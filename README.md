@@ -15,36 +15,36 @@
  + Maven 설치
  + Web Application Server 설치
  + DataBase 설치
-1. 프로젝트 생성 및 설정
+2. 프로젝트 생성 및 설정
  + Java Project 생성
  + Run/Debug Configurations 설정
  + Git 설정
-- Tomcat 설정
+3. Tomcat 설정
  + UTF-8 설정
  + Jndi 설정
-- Web Application 설정
+4. Web Application 설정
  + UTF-8 설정
  + Log4j 설정
-- SpringFramework
+5. SpringFramework
  + SpringFramework 설정
  + user-config.xml, default-config.xml 설정
-- SpringSecurity
+6. SpringSecurity
  + SpringSecurity 설정
-- Hibernate
+7. Hibernate
  + Hibernate 설정
-- Tiles
+8. Tiles
  + Tiles 설정
-- Frontend
+9. Frontend
  + Web App 구성
  + Bootstrap 설정
  + requirejs 설정
  + jQuery 설정
  + jQueryUi 설정
  + jqGrid 설정
-- Sample
+10. Sample
  + Sample CRUD
  + @ModelAttribute, @SessionAttributs, RESTful
-- 마치며
+11. 마치며
  + 마치며
 
 
