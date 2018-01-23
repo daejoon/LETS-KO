@@ -26,7 +26,7 @@ require.config({
         "bootstrap"                 : "../lib/bootstrap/3.0.3/js/bootstrap",
         "ckeditor"                  : "../lib/ckeditor/4.3/ckeditor",
         "domReady"                  : "../lib/domReady/2.0.1/domReady",
-        "dynatree"                  : "../lib/dynatree/1.2.4/src/jquery.dynatree",
+        "dynatree"                  : "../lib/dynatree/1.2.5/src/jquery.dynatree",
         "highlight"                 : "../lib/highlight/7.5/highlight.pack",
         "holder"                    : "../lib/holder/2.2/holder",
         "html5shiv"                 : "../lib/html5shiv/3.7.0/html5shiv.src",
